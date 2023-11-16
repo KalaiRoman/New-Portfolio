@@ -3,8 +3,8 @@ import { ColorFail, ColorRequest, ColorSuccess } from "../reducers/Color_Reducer
 
 export const ColorChangection = (data) => async (dispatch) => {
     dispatch(ColorRequest())
-    console.log(data, 'datas')
     try {
+        localStorage.setItem("color", JSON.stringify(data));
         dispatch(ColorSuccess(data))
 
     } catch (error) {

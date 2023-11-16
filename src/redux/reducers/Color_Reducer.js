@@ -5,7 +5,7 @@ const Color_Reducer = createSlice({
     name: "Color",
     initialState: {
         loading: false,
-        ColorName: "",
+        ColorName: localStorage.getItem("color") ? JSON.parse(localStorage.getItem("color")) : "",
     },
     reducers: {
         ColorRequest(state, action) {
