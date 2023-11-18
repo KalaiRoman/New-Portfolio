@@ -1,12 +1,10 @@
-import React, { useEffect } from 'react'
+import React, { useEffect, useState } from 'react'
 import './styles/Header.scss';
 import { useDispatch, useSelector } from 'react-redux';
 function Header({ loader }) {
-
+    const [indexs, setIndexs] = useState("");
     const dispatch = useDispatch();
     const state = useSelector((state) => state?.colors?.ColorName)
-
-
     useEffect(() => {
         localStorage.setItem("loader", loader)
     }, [])
@@ -25,12 +23,7 @@ function Header({ loader }) {
             icon: <i class="fa-solid fa-user"></i>
 
         },
-        {
-            id: 3,
-            name: "Education",
-            icon: <i class="fa-solid fa-user-graduate"></i>
 
-        },
         {
             id: 4,
             name: "Skill",
@@ -39,13 +32,13 @@ function Header({ loader }) {
         },
         {
             id: 5,
-            name: "Project",
+            name: "Projects",
             icon: <i class="fa-solid fa-phone-volume"></i>
 
         },
         {
             id: 6,
-            name: "Contact",
+            name: "Contact Us",
             icon: <i class="fa-solid fa-phone-volume"></i>
 
         }
@@ -62,19 +55,27 @@ function Header({ loader }) {
 
                     </ul>
                 </nav> */}
-                <div className='main-card-header'>
-                    {iconsData?.map((item, index) => {
-                        return (
-                            <div className='inside-header-boxes'>
-                                <div>
-                                    {item?.icon}
+                <div className='left-logo'>
+                    logo
+                </div>
+                <div className='middle-logo'>
+                    <div className='main-card-header'>
+                        {iconsData?.map((item, index) => {
+                            return (
+                                <div className='inside-header-boxes' key={index}>
+                                    <div>
+                                        {item?.icon}
+                                    </div>
+                                    <div>
+                                        {item?.name}
+                                    </div>
                                 </div>
-                                <div>
-                                    {item?.name}
-                                </div>
-                            </div>
-                        )
-                    })}
+                            )
+                        })}
+                    </div>
+                </div>
+                <div className='right-logo'>
+                    button
                 </div>
             </div>
         </div>
