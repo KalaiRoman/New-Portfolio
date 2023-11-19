@@ -3,6 +3,7 @@
 .main-home-section {
     width: 100%;
     height: 100vh;
+  
 
     .inside-section {
         width: 100%;
@@ -56,6 +57,11 @@
                 background-color: white;
                 box-shadow: rgba(0, 0, 0, 0.16) 0px 1px 4px;
                 z-index: 988 !important;
+
+                @include themed()
+                {
+                    color:t($text)
+                }
 
             }
             .second-box {

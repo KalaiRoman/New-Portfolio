@@ -13,7 +13,8 @@ import person3 from '../../assests/images/person3.png';
 
 
 
-function Home() {
+function Home({ colorName }) {
+
 
 
     const datas = [
@@ -35,7 +36,7 @@ function Home() {
         <>
             <div className='main-home-section' id="Home">
                 <div className='inside-section'>
-                    <div className='home-left'>
+                    <div className='home-left' style={{ color: colorName }}>
                         left
                     </div>
                     <div className='home-right'>

@@ -17,12 +17,15 @@ import Projects from './component/projects/Projects';
 function App() {
 
 
+  const [settingcolor, setSettingColor] = useState(false);
+
+
   const [Username, setUserName] = useState("Home")
 
-  const ThemeLoader = () => {
-    return localStorage.getItem("loader") ? JSON.parse(localStorage.getItem("loader")) : true
-  }
-  const [loader, setLoader] = useState(ThemeLoader());
+  // const ThemeLoader = () => {
+  //   return localStorage.getItem("loader") ? JSON.parse(localStorage.getItem("loader")) : true
+  // }
+  const [loader, setLoader] = useState(true);
 
   const ThemeColor = () => {
     return JSON.parse(localStorage.getItem("theme"))
@@ -39,17 +42,22 @@ function App() {
   useEffect(() => {
     setTimeout(() => {
       setLoader(false);
-    }, 3000);
-  }, [loader])
+    }, 2000);
+  }, [loader, settingcolor])
 
   const handleChnageColor = () => {
     setTheme(!theme);
   }
-  const handleChange = (e) => {
-    dispatch(ColorChangection(e.target.value))
+
+  const changeSettingColor = () => {
+    setSettingColor(!settingcolor)
+  }
+  const handleChange = (name) => {
+    dispatch(ColorChangection(name))
   }
 
   const [scrollTop, setScrollTop] = useState(0);
+
 
 
 
@@ -119,10 +127,20 @@ function App() {
 
 
 
-  return (
 
-    <div className={theme ? "theme--dark" : "theme--light"}>
-      {/* <AnimatedCursor
+  return (
+    <>
+
+      {loader ? <div className='main-loader'>
+        <div className="loading-cont">
+          <div className="cont">
+            <span></span>
+            <span></span>
+          </div>
+        </div>
+      </div> : <>
+        <div className={theme ? "theme--dark" : "theme--light"}>
+          {/* <AnimatedCursor
         innerSize={10}
         outerSize={30}
         color='255, 46, 99'
@@ -130,64 +148,98 @@ function App() {
         innerScale={0.6}
         outerScale={0}
       /> */}
-      <div className="port-main-sections">
-        <div className="main-section">
-          <div className='middle-header'>
-            <div className='list-names'>
+          <div className="port-main-sections">
+            <div className="main-section">
+              <div className='middle-header'>
+                <div className='list-names'>
 
-              {iconsData?.map((item, index) => {
-                return (
-                  <div key={index} className={Username == item?.name ? "activename" : "inactivename"}
-                    onClick={() => {
-                      setUserName(item?.name)
-                      navigate(item?.path)
-                    }}
-                  >
-                    {Username === item?.name ? <div
-                    >
-                      <div className={'activeclass'}>
-                        <div >
-                          {item?.icon}
-                        </div>
-                        <div className='active-texts'>
-                          {item?.name}
-                        </div>
-                      </div>
-                    </div> : <>
+                  {iconsData?.map((item, index) => {
+                    return (
+                      <div key={index} className={Username == item?.name ? "activename" : "inactivename"}
+                        onClick={() => {
+                          setUserName(item?.name)
+                          navigate(item?.path)
+                        }}
+                      >
+                        {Username === item?.name ? <div
+                        >
+                          <div className={'activeclass'}>
+                            <div >
+                              {item?.icon}
+                            </div>
+                            <div className='active-texts'>
+                              {item?.name}
+                            </div>
+                          </div>
+                        </div> : <>
 
-                      <div className='inactiveclass' data-tooltip-id={item?.ToolName}>
-                        {item?.icon}
+                          <div className='inactiveclass' data-tooltip-id={item?.ToolName}>
+                            {item?.icon}
+                          </div>
+                          <ReactTooltip
+                            id={item?.ToolName}
+                            place="left"
+                            content={item?.ToolName}
+                          /></>
+                        }
                       </div>
-                      <ReactTooltip
-                        id={item?.ToolName}
-                        place="left"
-                        content={item?.ToolName}
-                      /></>
-                    }
+                    )
+                  })}
+
+                  <div className='theme-button' onClick={handleChnageColor}>
+                    {theme ? <div className='light-theme'><i class="fa-solid fa-cloud-moon"></i></div> : <div className='dark-theme'>
+                      <i class="fa-solid fa-sun suns"></i>
+                    </div>}
                   </div>
-                )
-              })}
 
-              <div className='theme-button' onClick={handleChnageColor}>
-                {theme ? <div className='light-theme'><i class="fa-solid fa-cloud-moon"></i></div> : <div className='dark-theme'>
-                  <i class="fa-solid fa-sun suns"></i>
-                </div>}
+                </div>
+              </div>
+              <div className='setting-color' onClick={changeSettingColor}>
+
+                <div className='setcolor'>
+                  <i class="fa-solid fa-gear"></i>
+                </div>
+
+                {settingcolor ?
+                  <div className='box-setting-colors row align-items-center justify-content-center'>
+                    {colors?.map((item, index) => {
+                      return (
+                        <div key={index} className='col-lg-3 mb-1 mt-1' onClick={() => {
+                          handleChange(item)
+                          setSettingColor(false);
+                        }}>
+                          <div style={{
+                            width: "25px",
+                            height: "25px",
+                            borderRadius: "50%",
+                            backgroundColor: item,
+                            border: `1px solid ${item}`
+                          }}>
+
+                          </div>
+                        </div>
+                      )
+                    })}
+                  </div> : null}
+
               </div>
 
+              <div className='body-sections'>
+                <Routes>
+                  <Route exact path="/" element={<Home colorName={state?.ColorName} />} />
+                  <Route path="/aboutus" element={<Aboutus />} />
+                  <Route path="/projects" element={<Projects />} />
+
+                </Routes>
+              </div>
             </div>
           </div>
-          <div className='body-sections'>
-            <Routes>
-              <Route exact path="/" element={<Home />} />
-              <Route path="/aboutus" element={<Aboutus />} />
-              <Route path="/projects" element={<Projects />} />
 
-            </Routes>
-          </div>
         </div>
-      </div>
+      </>}
 
-    </div>
+
+    </>
   );
 }
 export default App;
