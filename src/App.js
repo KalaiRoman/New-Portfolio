@@ -13,6 +13,7 @@ import Aboutus from './component/aboutus/Aboutus';
 
 import { Route, Routes, useNavigate } from "react-router-dom";
 import Projects from './component/projects/Projects';
+import WorkingTools from './component/workingtools/WorkingTools';
 
 function App() {
 
@@ -84,6 +85,16 @@ function App() {
 
     },
     {
+      id: 6,
+      name: "Services",
+      icon: <i class="fa-solid fa-hammer"></i>,
+      path: "/tools",
+      heightScroll: 0,
+      ToolName: "Services"
+
+
+    },
+    {
       id: 5,
       name: "Projects",
       icon: <i class="fa-solid fa-user-graduate"></i>,
@@ -92,11 +103,10 @@ function App() {
 
       ToolName: "Projects"
 
-
-
     },
+
     {
-      id: 6,
+      id: 7,
       name: "Contact Us",
       icon: <i class="fa-solid fa-phone-volume"></i>,
       path: "/",
@@ -197,7 +207,7 @@ function App() {
               <div className='setting-color' onClick={changeSettingColor}>
 
                 <div className='setcolor'>
-                  <i class="fa-solid fa-gear"></i>
+                  <i class="fa-solid fa-gear "></i>
                 </div>
 
                 {settingcolor ?
@@ -208,13 +218,12 @@ function App() {
                           handleChange(item)
                           setSettingColor(false);
                         }}>
-                          <div style={{
-                            width: "25px",
-                            height: "25px",
-                            borderRadius: "50%",
-                            backgroundColor: item,
-                            border: `1px solid ${item}`
-                          }}>
+                          <div
+                            className='color-box-shadow'
+                            style={{
+                              backgroundColor: item
+                            }}
+                          >
 
                           </div>
                         </div>
@@ -229,7 +238,7 @@ function App() {
                   <Route exact path="/" element={<Home colorName={state?.ColorName} />} />
                   <Route path="/aboutus" element={<Aboutus />} />
                   <Route path="/projects" element={<Projects />} />
-
+                  <Route path="/tools" element={<WorkingTools />} />
                 </Routes>
               </div>
             </div>

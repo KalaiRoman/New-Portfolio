@@ -16,6 +16,8 @@ $inverter: "inverter";
 $text: "text";
 
 $backgroundbg: "backgroundbg";
+$greytext: "greytext";
+$greytextgrey: "greytextgrey";
 
 $themes: (
     light: (
@@ -26,7 +28,9 @@ $themes: (
         text: $text-black--light,
         inverter: $inverter--light,
         // new colors
-        backgroundbg: $background-color--light-bg
+        backgroundbg: $background-color--light-bg,
+        greytext: $mytext-light-grey,
+        greytextgrey: $mytext-light-grey-one
     ),
     dark: (
         primary: $primary--dark,
@@ -36,6 +40,8 @@ $themes: (
         text: $text-black--dark,
         inverter: $inverter--dark,
         // new colors
-        backgroundbg: $background-color--dark-bg
+        backgroundbg: $background-color--dark-bg,
+        greytext: $mytext-dark-grey,
+        greytextgrey: $mytext-dark-grey-one
     )
 );

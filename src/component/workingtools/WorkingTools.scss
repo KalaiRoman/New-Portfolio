@@ -1,0 +1,61 @@
+@use "../../sass/abstract/" as *;
+
+.main-tool-section {
+    width: 100%;
+    height: 100vh;
+    .inside-tool-section {
+        width: 100%;
+        height: 100%;
+        .tool-img {
+            width: 100px;
+            height: 100px;
+            object-fit: contain;
+            cursor: pointer;
+            transition: 3s;
+        }
+        .tool-img:hover {
+            transform: translateY(10px) rotate(360deg);
+        }
+        .box-tootles {
+            width: 10%;
+        }
+        .tool-row-section {
+            display: flex;
+            align-items: center;
+            justify-content: center;
+        }
+        .offer-card-tools {
+            width: 80%;
+            margin: 0 auto;
+            display: flex;
+            gap: 30px;
+            .offer-card {
+                width: 30%;
+                box-shadow: rgba(0, 0, 0, 0.16) 0px 1px 4px;
+                border-radius: 10px;
+                padding: 30px 20px;
+                cursor: pointer;
+                .icon-tool {
+                    font-size: 2rem;
+                    color: #23bdee;
+                }
+                .tool-text {
+                    font-size: 1.3rem;
+                    font-weight: 500;
+                }
+                .des
+                {
+                    font-weight: 500;
+                    @include themed() {
+                        color: t($greytextgrey);
+                    }
+                }
+            }
+            .offer-card:hover,
+            .icon-tool:hover {
+                background-color: orange;
+                color: white;
+            }
+        }
+    }
+}

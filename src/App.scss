@@ -184,30 +184,38 @@
     display: flex;
     align-items: center;
     justify-content: center;
-    color: white;
-
-    background-color: red;
+    color: #00b7ff;
+    background-color: white;
     cursor: pointer;
     z-index: 989898 !important;
+    box-shadow: rgba(0, 0, 0, 0.16) 0px 1px 4px;
 }
 
 .box-setting-colors {
     position: absolute;
-    top: 100%;
-    left: 1%;
+    top: 130%;
+    left: 3%;
     width: 200px;
     height: 100px;
-    border-top-right-radius: 20px;
-    border-bottom-right-radius: 20px;
+    border-top-right-radius: 10px;
+    border-bottom-right-radius: 70px;
     box-shadow: rgba(0, 0, 0, 0.16) 0px 1px 4px;
     background-color: white;
     cursor: pointer;
     display: flex;
     gap: 10px;
+    padding: 15px 0px;
 }
 
 .setcolor {
     animation: colorset 5s ease-in-out infinite;
+}
+
+.color-box-shadow {
+    width: 25px;
+    height: 25px;
+    border-top-right-radius: 50%;
+    border-bottom-left-radius: 50%;
 }
 
 @keyframes colorset {
