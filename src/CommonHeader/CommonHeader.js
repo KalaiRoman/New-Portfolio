@@ -1,10 +1,15 @@
 import React from 'react'
 import './Commonheader.scss';
-function CommonHeader({ title, colorName }) {
+function CommonHeader({ title, colorName,smalltext }) {
 
     return (
-        <div className='common-title' >
-            <div className='first-letter animate__animated animate__bounce animate__delay-3s animate__slower 3s animate__infinite'>{title?.slice(0, 1)}</div>{title?.slice(1, 100)}
+        <div className='common-title'>
+           
+            <div className='span-box'>
+                <div className='span-active-text' style={{
+                    color:colorName
+                }}>{title?.slice(0, 1)}</div><div className='span-text'>{title?.slice(1, 100)}</div>
+            </div>
         </div>
     )
 }

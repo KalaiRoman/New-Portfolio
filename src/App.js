@@ -14,6 +14,7 @@ import Aboutus from './component/aboutus/Aboutus';
 import { Route, Routes, useNavigate } from "react-router-dom";
 import Projects from './component/projects/Projects';
 import WorkingTools from './component/workingtools/WorkingTools';
+import Contact from './component/contact/Contact';
 
 function App() {
 
@@ -108,7 +109,7 @@ function App() {
       id: 7,
       name: "Contact Us",
       icon: <i class="fa-solid fa-phone-volume"></i>,
-      path: "/",
+      path: "/contact",
       heightScroll: 0,
       ToolName: "Contact Us"
 
@@ -229,15 +230,15 @@ function App() {
                       )
                     })}
                   </div> : null}
-
               </div>
 
               <div className='body-sections'>
                 <Routes>
                   <Route exact path="/" element={<Home colorName={state?.ColorName} />} />
-                  <Route path="/aboutus" element={<Aboutus />} />
-                  <Route path="/projects" element={<Projects />} />
-                  <Route path="/tools" element={<WorkingTools />} />
+                  <Route path="/aboutus" element={<Aboutus colorName={state?.ColorName} />} />
+                  <Route path="/projects" element={<Projects colorName={state?.ColorName} />} />
+                  <Route path="/tools" element={<WorkingTools colorName={state?.ColorName} />} />
+                  <Route path="/contact" element={<Contact colorName={state?.ColorName} />} />
                 </Routes>
               </div>
             </div>

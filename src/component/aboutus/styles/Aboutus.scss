@@ -6,6 +6,7 @@
     overflow: hidden;
     font-family: "Poppins", sans-serif !important;
     position: relative;
+    overflow-y: auto;
     .background-image {
         position: absolute;
         left: 0;
@@ -207,6 +208,39 @@
                 background-color: #33efa0;
                 color: white;
             }
+        }
+    }
+}
+
+.about-boxs {
+    width: 80%;
+    height: 100%;
+    display: flex;
+    .about-box-left {
+        width: 50%;
+    }
+    .about-box-right {
+        width: 50%;
+    }
+    .sadimg {
+        width: 100%;
+        height: 200px;
+        object-fit: contain;
+    }
+    .whentext {
+        font-size: 1.3rem;
+        font-weight: 500;
+        @include themed() {
+            color: t($greytext);
+        }
+    }
+    .happy-texts
+    {
+        font-size: 1.6rem;
+        font-weight: 500;
+        padding-left: 10%;
+        @include themed() {
+            color: t($greytextgrey);
         }
     }
 }

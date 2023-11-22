@@ -4,6 +4,9 @@ import aboutimg from '../../assests/images/about-img.png';
 import CommonHeader from '../../CommonHeader/CommonHeader';
 import { PersonalContent, Qualifications, Skills, TabContent } from '../../commoncontent/AboutusData';
 import backgroudimage from '../../assests/images/background.png'
+import sad from '../../assests/images/sad.png';
+import happy from '../../assests/images/happy.png';
+
 function Aboutus({ colorName }) {
 
     const [selectName, setSelectName] = useState("Personal Info");
@@ -179,6 +182,35 @@ function Aboutus({ colorName }) {
                                                 </div>
                                             )
                                         })}
+                                    </div>
+                                </div>}
+                            </div>
+
+                            <div className='mt-4'>
+                                {selectName == "Personal Info" && <div className='mt-4'>
+                                    <div className='about-boxs mt-5'>
+                                        <div className='about-box-left'>
+                                            <div className='whentext'>
+                                                When
+                                            </div>
+                                            <div className='happy-texts mt-2'>
+                                                I HAPPY
+                                            </div>
+                                            <div className='mt-2 mb-5'>
+                                                <img src={happy} alt="no image" className='sadimg' />
+                                            </div>
+                                        </div>
+                                        <div className='about-box-right'>
+                                            <div className='whentext'>
+                                                When
+                                            </div>
+                                            <div className='happy-texts mt-2'>
+                                                I SAD
+                                            </div>
+                                            <div className='mt-2 mb-5'>
+                                                <img src={sad} alt="no image" className='sadimg' />
+                                            </div>
+                                        </div>
                                     </div>
                                 </div>}
                             </div>

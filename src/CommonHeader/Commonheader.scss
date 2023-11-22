@@ -1,17 +1,26 @@
 @use "../sass/abstract/" as *;
 
 .common-title {
-    padding: 10px;
-    font-size: 2.3rem;
     text-align: center;
-    font-weight: 600;
-    cursor: pointer;
     display: flex;
+    flex-direction: column;
     align-items: center;
-    justify-content: center;
-    letter-spacing: 6px;
     padding: 2% 0px;
-    .first-letter {
+    .span-box {
+        display: flex;
+        letter-spacing: 4px;
+        font-size: 2rem;
+        font-weight: 600;
+        text-align: center;
+    }
+    .small-text {
+        font-weight: 500;
+        font-size: 1.1rem;
+        @include themed() {
+            color: t($greytextgrey);
+        }
+    }
+    .span-active-text {
         color: orange;
     }
 }
