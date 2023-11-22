@@ -95,6 +95,14 @@ export const Skills = [
     },
     {
         id: 5,
+        name: "Context Api"
+    },
+    {
+        id: 6,
+        name: "Redux"
+    },
+    {
+        id: 5,
         name: "Javascript"
     },
     {

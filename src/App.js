@@ -98,9 +98,8 @@ function App() {
       id: 5,
       name: "Projects",
       icon: <i class="fa-solid fa-user-graduate"></i>,
-      path: "/",
+      path: "/projects",
       heightScroll: 0,
-
       ToolName: "Projects"
 
     },

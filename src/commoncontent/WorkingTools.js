@@ -1,12 +1,10 @@
 import vscode from '../assests/images/vscode.png'
-import react from '../assests/images/reactjs.png'
+import react from '../assests/images/postman.png'
 import github from '../assests/images/github.png'
 import android from '../assests/images/android.png'
 import nodejs from '../assests/images/nodejs.png'
 import gitlab from '../assests/images/gitlab.png'
 import figma from '../assests/images/figma.png'
-
-
 export const Tools = [
     {
         id: 1,
@@ -52,7 +50,7 @@ export const ToolOffer = [
         name: "App Development",
         image: <i class="fa-solid fa-mobile-screen-button"></i>,
         dec: 'Web development refers to the creating, building, and maintaining of websites'
-    
+
     },
     {
         id: 3,
