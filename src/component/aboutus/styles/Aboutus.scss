@@ -62,17 +62,29 @@
         height: 150px;
         object-fit: contain;
         top: 5%;
+        @include lgBreakPoint {
+            right: 0%;
+        }
+        @include xlBreakPoint {
+            right: 5%;
+        }
     }
     .aboutus-inside-section {
         width: 100%;
         height: 100%;
         display: flex;
         z-index: 98 !important;
+        @include xsBreakPoint {
+            flex-direction: column;
+        }
         .aboutus-left {
             width: 35%;
             display: flex;
             align-items: center;
             justify-content: center;
+            @include xsBreakPoint {
+                width: 100%;
+            }
             .img-about {
                 width: 340px;
                 height: 340px;
@@ -82,10 +94,20 @@
         }
         .aboutus-right {
             width: 65%;
+            @include xsBreakPoint {
+                width: 100%;
+            }
             .aboutus-right-inside {
                 width: 90%;
                 margin: 0 auto;
                 height: 100%;
+
+                @include lgBreakPoint {
+                    width: 100%;
+                }
+                @include xlBreakPoint {
+                    width: 100%;
+                }
                 .aboutus-tab-section {
                     width: 65%;
                     box-shadow: rgba(0, 0, 0, 0.16) 0px 1px 4px;
@@ -95,6 +117,15 @@
                     justify-content: space-around;
                     cursor: pointer;
                     align-items: center;
+                    @include xsBreakPoint {
+                        width: 100%;
+                    }
+                    @include lgBreakPoint {
+                        width: 85%;
+                    }
+                    @include xlBreakPoint {
+                        width: 80%;
+                    }
                 }
                 .activeTab {
                     background-color: #f48c06;
@@ -120,17 +151,30 @@
                     width: 100%;
                     display: flex;
                     align-items: center;
+                    @include xsBreakPoint {
+                        flex-direction: column;
+                        gap: 30px;
+                    }
+                    @include lgBreakPoint {
+                        gap: 40px;
+                    }
                     .main-left {
                         width: 40%;
                         display: flex;
                         gap: 20px;
                         align-items: center;
+                        @include xsBreakPoint {
+                            width: 100%;
+                        }
                     }
                     .main-right {
                         width: 40%;
                         display: flex;
                         gap: 20px;
                         align-items: center;
+                        @include xsBreakPoint {
+                            width: 100%;
+                        }
                     }
                     .left-icons {
                         font-size: 1.4rem;
@@ -163,6 +207,9 @@
                     font-weight: 500;
                     display: flex;
                     width: 13%;
+                    @include xsBreakPoint {
+                        width: 30%;
+                    }
                     @include themed() {
                         color: t($greytextgrey);
                     }
@@ -170,10 +217,23 @@
             }
             .qualification-section {
                 width: 80%;
+                @include xsBreakPoint {
+                    flex-direction: column;
+                    width: 100%;
+                }
+                @include lgBreakPoint {
+                    width: 95%;
+                }
+                @include xlBreakPoint {
+                    width: 90%;
+                }
                 .qulification-box {
                     width: 50%;
                     display: flex;
                     gap: 20px;
+                    @include xsBreakPoint {
+                        width: 100%;
+                    }
                 }
             }
             .icon-graduvate {
@@ -203,6 +263,16 @@
                 text-align: center;
                 border-radius: 10px;
                 box-shadow: rgba(0, 0, 0, 0.16) 0px 1px 4px;
+                @include xsBreakPoint {
+                    width: 45% !important;
+                }
+                @include lgBreakPoint {
+                    width: 28% !important;
+                    padding: 10px 1px;
+                }
+                @include xlBreakPoint {
+                    width: 25% !important;
+                }
             }
             .skill-box:hover {
                 background-color: #33efa0;
@@ -216,11 +286,27 @@
     width: 80%;
     height: 100%;
     display: flex;
+    @include xsBreakPoint {
+        flex-direction: column;
+    }
     .about-box-left {
         width: 50%;
+        @include xsBreakPoint {
+            width: 100%;
+        }
+        @include smBreakPoint {
+            width: 100%;
+        }
     }
+
     .about-box-right {
         width: 50%;
+        @include xsBreakPoint {
+            width: 100%;
+        }
+        @include smBreakPoint {
+            width: 100%;
+        }
     }
     .sadimg {
         width: 100%;
@@ -234,8 +320,7 @@
             color: t($greytext);
         }
     }
-    .happy-texts
-    {
+    .happy-texts {
         font-size: 1.6rem;
         font-weight: 500;
         padding-left: 10%;

@@ -19,6 +19,10 @@ import Contact from './component/contact/Contact';
 function App() {
 
 
+
+  const [ResponseSection, setResponseSection] = useState("Desktop-section")
+
+
   const [settingcolor, setSettingColor] = useState(false);
 
 
@@ -45,6 +49,8 @@ function App() {
     setTimeout(() => {
       setLoader(false);
     }, 2000);
+
+    
   }, [loader, settingcolor])
 
   const handleChnageColor = () => {
@@ -68,7 +74,7 @@ function App() {
     {
       id: 1,
       name: "Home",
-      icon: <i class="fa-solid fa-house"></i>,
+      icon: <i class="fa-solid fa-house "></i>,
       path: "/",
       heightScroll: 0,
       ToolName: "Home"
@@ -127,7 +133,7 @@ function App() {
     return () => {
       window.removeEventListener('scroll', handleScroll);
     };
-  }, [scrollTop]);
+  }, [scrollTop, ResponseSection]);
 
 
   const navigate = useNavigate();
@@ -158,7 +164,7 @@ function App() {
         innerScale={0.6}
         outerScale={0}
       /> */}
-          <div className="port-main-sections">
+          <div className={ResponseSection}>
             <div className="main-section">
               <div className='middle-header'>
                 <div className='list-names'>
@@ -190,6 +196,7 @@ function App() {
                             id={item?.ToolName}
                             place="left"
                             content={item?.ToolName}
+                            className='kalai'
                           /></>
                         }
                       </div>
@@ -234,7 +241,7 @@ function App() {
 
               <div className='body-sections'>
                 <Routes>
-                  <Route exact path="/" element={<Home colorName={state?.ColorName} />} />
+                  <Route exact path="/" element={<Home colorName={state?.ColorName} ResponseSection={ResponseSection}/>} />
                   <Route path="/aboutus" element={<Aboutus colorName={state?.ColorName} />} />
                   <Route path="/projects" element={<Projects colorName={state?.ColorName} />} />
                   <Route path="/tools" element={<WorkingTools colorName={state?.ColorName} />} />

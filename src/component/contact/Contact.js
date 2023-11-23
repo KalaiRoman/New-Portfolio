@@ -67,7 +67,7 @@ function Contact({ colorName }) {
                     <div className='right-contact-box'>
                         <img src={contactimg} alt="no image" className='contactimage' />
                         <div>
-                            {ContactDatas?.map((item, index) => {
+                            {ContactDatas?.conntactList?.map((item, index) => {
                                 return (
                                     <div>
                                         <div className='box-forms mb-3 mt-2'>

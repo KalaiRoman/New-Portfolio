@@ -9,10 +9,36 @@
     outline: none;
 }
 
-.port-main-sections {
+// desktop
+
+.Dektop-section {
     width: 100%;
     height: auto;
     // margin-bottom: 10%;
+    @include themed() {
+        background: t($background);
+        color: t($text);
+    }
+}
+
+// tablet
+
+.Tablet-section {
+    width: 768px;
+    height: auto;
+    // margin-bottom: 10%;
+    @include themed() {
+        background: t($background);
+        color: t($text);
+    }
+}
+
+// mobile
+.Mobile-section {
+  
+    width: 375px;
+    margin: 0 auto;
+  
     @include themed() {
         background: t($background);
         color: t($text);
@@ -133,6 +159,8 @@
         border-radius: 50%;
         background-color: #f48c06;
         color: white;
+        animation: topicon 5s ease-in-out;
+        transition: 1s;
     }
 
     .light-theme {
@@ -222,4 +250,26 @@
     0% {
         transform: rotate(360deg);
     }
+}
+
+.logo-icon {
+    width: 40px;
+    height: 40px;
+    border-radius: 50%;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    cursor: pointer;
+    background-color: #f3e8dc;
+    transition: 1s;
+    color: #00b7ff;
+    font-size: 1.3rem;
+}
+
+.inactiveclass:hover {
+    transform: translateY(-12px) rotate(360deg);
+}
+
+.kalai {
+    background-color: #00b7ff !important;
 }
