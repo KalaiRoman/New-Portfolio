@@ -50,7 +50,7 @@ function App() {
       setLoader(false);
     }, 2000);
 
-    
+
   }, [loader, settingcolor])
 
   const handleChnageColor = () => {
@@ -164,7 +164,7 @@ function App() {
         innerScale={0.6}
         outerScale={0}
       /> */}
-          <div className={ResponseSection}>
+          <div className={"Dektop-section "}>
             <div className="main-section">
               <div className='middle-header'>
                 <div className='list-names'>
@@ -241,7 +241,7 @@ function App() {
 
               <div className='body-sections'>
                 <Routes>
-                  <Route exact path="/" element={<Home colorName={state?.ColorName} ResponseSection={ResponseSection}/>} />
+                  <Route exact path="/" element={<Home colorName={state?.ColorName} ResponseSection={ResponseSection} theme={theme}/>} />
                   <Route path="/aboutus" element={<Aboutus colorName={state?.ColorName} />} />
                   <Route path="/projects" element={<Projects colorName={state?.ColorName} />} />
                   <Route path="/tools" element={<WorkingTools colorName={state?.ColorName} />} />

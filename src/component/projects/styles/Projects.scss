@@ -56,10 +56,66 @@
             margin: 0 auto;
             padding: 10px 10px;
             margin-top: 5%;
-            .card {
+            .cards {
                 width: 96% !important;
                 height: 350px;
                 cursor: pointer;
+                padding: 20px 10px;
+                border: none;
+                border-radius: 10px;
+                border: 1px solid orange;
+                display: flex;
+                align-items: center;
+                justify-content: center;
+                position: relative;
+                overflow: hidden;
+
+                .card-emty-box {
+                    position: absolute;
+                    width: 130px;
+                    height: 130px;
+                    right: 0;
+                    bottom: 0;
+                    border-top-left-radius: 100%;
+                    opacity: 0.4;
+                    background-color: #fff2e1;
+                }
+                .card-emty-box1 {
+                    position: absolute;
+                    width: 70px;
+                    height: 70px;
+                    left: -20px;
+                    top: 15%;
+                    border-radius: 100%;
+                    opacity: 0.3;
+                    background-color: #fff2e1;
+                }
+            }
+            .project-title {
+                font-size: 1.4rem;
+                text-align: center;
+                font-weight: 600;
+                color: #ba68c8;
+                height: 70px;
+            }
+
+            .button-project {
+                background-color: orange;
+                color: white;
+                border: none;
+                padding: 7px 30px;
+                border-radius: 10px;
+                font-size: 1.1rem;
+                font-weight: 600;
+                margin: 0 auto;
+                text-align: center;
+                display: flex;
+                align-items: center;
+                justify-content: center;
+            }
+            .button-project:hover {
+                background-color: #ba68c8;
+                color: white;
             }
         }
     }

@@ -18,7 +18,8 @@ $text: "text";
 $backgroundbg: "backgroundbg";
 $greytext: "greytext";
 $greytextgrey: "greytextgrey";
-
+$cardbg: "cardbg";
+$greytextfixed:'greytextfixed';
 $themes: (
     light: (
         primary: $primary--light,
@@ -30,7 +31,9 @@ $themes: (
         // new colors
         backgroundbg: $background-color--light-bg,
         greytext: $mytext-light-grey,
-        greytextgrey: $mytext-light-grey-one
+        greytextgrey: $mytext-light-grey-one,
+        cardbg: $shadow-lg--light,
+        greytextfixed:$mytext-light-grey-fixed
     ),
     dark: (
         primary: $primary--dark,
@@ -42,6 +45,9 @@ $themes: (
         // new colors
         backgroundbg: $background-color--dark-bg,
         greytext: $mytext-dark-grey,
-        greytextgrey: $mytext-dark-grey-one
+        greytextgrey: $mytext-dark-grey-one,
+        cardbg: $shadow-lg--dark,
+        greytextfixed:$mytext-dark-grey-fixed
+
     )
 );

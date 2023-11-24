@@ -9,7 +9,7 @@ import person1 from '../../assests/images/person1.png';
 import person2 from '../../assests/images/person2.png';
 import person3 from '../../assests/images/person3.png';
 import { Typewriter } from 'react-simple-typewriter'
-function Home({ colorName }) {
+function Home({ colorName, theme }) {
 
     const datas = [
         {
@@ -60,6 +60,17 @@ function Home({ colorName }) {
                 <div className='color-box'>
 
                 </div>
+
+
+                {theme && <div>
+                    <i class="fa-solid fa-star stars"></i>
+                </div>}
+                {theme && <div>
+                    <i class="fa-solid fa-star stars1"></i>
+                </div>}
+                {theme && <div>
+                    <i class="fa-solid fa-star stars2"></i>
+                </div>}
                 <div className='inside-section'>
                     <div className='home-left' style={{ color: colorName }}>
                         <div className='left-inside-home'>

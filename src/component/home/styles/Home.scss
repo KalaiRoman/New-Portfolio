@@ -318,6 +318,31 @@
     left: 35%;
     top: 10%;
 }
+
+.stars {
+    position: absolute;
+    top: 10%;
+    left: 10%;
+    font-size: 15px;
+    color: white;
+    animation: zoom 5s ease-in-out infinite;
+}
+.stars1 {
+    position: absolute;
+    bottom: 10%;
+    left: 30%;
+    font-size: 15px;
+    color: white;
+    animation: zoom 3s ease-in-out infinite;
+}
+.stars2 {
+    position: absolute;
+    top: 50%;
+    left: 55%;
+    font-size: 15px;
+    color: white;
+    animation: zoom 3s ease-in-out infinite;
+}
 @keyframes emoji {
     0% {
         transform: translateY(0px);
@@ -325,5 +350,19 @@
 
     100% {
         transform: translateY(5px);
+    }
+}
+
+@keyframes zoom {
+    0% {
+        transform: scale(1.1);
+        transition: 2s;
+    }
+    25% {
+        transform: scale(1.1);
+        transition: 2s;
+    }
+    100% {
+        transform: scale(0);
     }
 }

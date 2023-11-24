@@ -51,6 +51,10 @@ function Projects() {
             }
         ]
     };
+
+    const NavigatePath = (data) => {
+        window.open(data);
+    }
     return (
         <div className='projects-main-section'>
             <div className='inside-project-section'>
@@ -78,12 +82,23 @@ function Projects() {
                         <Slider {...settings}>
                             {ProjectDatas?.map((item, index) => {
                                 return (
-                                    <div className='card'>
-                                        <div>
+                                    <div className='cards mt-2 mb-4'>
+                                        <div className='project-title'>
                                             {item?.name}
                                         </div>
-                                        <div>
+                                        <div className='text-center mb-5 mt-2'>
                                             {item?.des}
+                                        </div>
+                                        <div className='mt-4'>
+                                            <button className='button-project' onClick={() => NavigatePath(item?.url)}>
+                                                {item?.button}
+                                            </button>
+                                        </div>
+                                        <div className="card-emty-box">
+
+                                        </div>
+                                        <div className="card-emty-box1">
+
                                         </div>
                                     </div>
                                 )

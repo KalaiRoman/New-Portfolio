@@ -23,7 +23,7 @@
   transition: 1s;
 
   @include themed() {
-    color: t($greytext);
+    color: t($greytextfixed);
   }
 }
 

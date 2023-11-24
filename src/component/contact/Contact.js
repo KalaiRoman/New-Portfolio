@@ -1,10 +1,51 @@
-import React from 'react'
+import React, { useState } from 'react'
 import './styles/Contact.scss';
 import CommonHeader from './../../CommonHeader/CommonHeader';
 import contactimg from '../../assests/images/Contact us-amico 1.png';
 import { ContactDatas } from '../../commoncontent/ContactData';
 import Form from 'react-bootstrap/Form';
+import axios from 'axios';
+import emailjs from '@emailjs/browser';
 function Contact({ colorName }) {
+
+    const [error, setError] = useState(false);
+    const [success, setSuccess] = useState(false);
+    const [loader, setLoader] = useState(false);
+
+
+
+
+    const [sendmails, setSendMail] = useState({
+        user_name: "",
+        user_email: "",
+        user_message: ""
+    });
+
+
+    const { user_email, user_name, user_message } = sendmails;
+
+    const handleChange = (e) => {
+        setSendMail({ ...sendmails, [e.target.name]: e.target.value });
+    }
+
+
+    const SubmitContactDetails = (e) => {
+        e.preventDefault();
+
+        if (user_email?.length === 0 || user_message?.length === 0 || user_name?.length === 0) {
+            setError(true);
+        }
+
+        if (user_email && user_name && user_message) {
+            setLoader(true);
+            setTimeout(() => {
+                setLoader(false);
+                setSuccess(true);
+
+            }, 1000);
+        }
+
+    }
     return (
         <div className='main-contact-section'>
             <div className='inside-contact-section'>
@@ -19,13 +60,13 @@ function Contact({ colorName }) {
                             {/* How can we help? */}
                         </div>
                         <div className='mt-4'>
-                            <Form>
+                            <Form onSubmit={SubmitContactDetails}>
                                 <div className='mb-4'>
                                     <Form.Group className="mb-3">
                                         <Form.Label className="label-texts">Name</Form.Label>
-                                        <Form.Control type="email" placeholder="Enter Name" className='form-section' />
+                                        <Form.Control type="text" placeholder="Enter Name" className='form-section' onChange={handleChange} value={user_name} name="user_name" />
                                         <Form.Text className="text-muted">
-
+                                            {error && user_name?.length <= 0 ? <span className='text-danger'>Name is Required</span> : null}
                                         </Form.Text>
                                     </Form.Group>
                                 </div>
@@ -34,8 +75,9 @@ function Contact({ colorName }) {
                                 <div className='mb-4'>
                                     <Form.Group className="mb-3">
                                         <Form.Label className="label-texts">Email</Form.Label>
-                                        <Form.Control type="email" placeholder="Enter Email" className='form-section' />
+                                        <Form.Control type="email" placeholder="Enter Email" className='form-section' onChange={handleChange} value={user_email} name="user_email" />
                                         <Form.Text className="text-muted">
+                                            {error && user_email?.length <= 0 ? <span className='text-danger'>Email is Required</span> : null}
 
                                         </Form.Text>
                                     </Form.Group>
@@ -49,15 +91,23 @@ function Contact({ colorName }) {
                                             placeholder="Leave a comment here"
                                             style={{ height: '100px' }}
                                             className='form-section'
+                                            onChange={handleChange} value={user_message}
+                                            name="user_message"
                                         />
                                         <Form.Text className="text-muted">
+                                            {error && user_message?.length <= 0 ? <span className='text-danger'>Message is Required</span> : null}
+
                                         </Form.Text>
                                     </Form.Group>
                                 </div>
 
+                                <div>
+                                    {success && <div className='text-success'>Message Send Successfully!</div>}
+                                </div>
+
                                 <div className='mt-4'>
                                     <button variant="primary" type="submit" className='buttonsubmit mt-3'>
-                                        Submit
+                                        {loader ? <>Loading...</> : <>Submit</>}
                                     </button>
                                 </div>
                             </Form>

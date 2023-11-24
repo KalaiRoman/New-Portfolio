@@ -6,11 +6,27 @@ function WorkingTools() {
     return (
         <div className='main-tool-section'>
             <div className='inside-tool-section'>
+
+                <div className='firstbox'>
+
+                </div>
+                <div className='secondbox'>
+
+                </div>
+                <div className='thirdbox'>
+
+                </div>
+                <div className='fourthbox'>
+
+                </div>
+                <div className='fifthbox'>
+
+                </div>
                 <div>
                     <CommonHeader title={"Working Tools"} />
                 </div>
                 <div className='mt-5 row tool-row-section gap-4'>
-                    {Tools?.map((item, index) => {
+                    {Tools?.map((item,) => {
                         return (
                             <div className='box-tootles'>
                                 <img src={item?.image} alt={"no image"} className='tool-img' />
@@ -34,6 +50,12 @@ function WorkingTools() {
                                 </div>
                                 <div className='mt-3 des'>
                                     {item?.dec}
+                                </div>
+                                <div className='boxes'>
+
+                                </div>
+                                <div className='boxes1'>
+
                                 </div>
                             </div>
                         )
