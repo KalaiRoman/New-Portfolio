@@ -3,6 +3,22 @@
 .main-tool-section {
     width: 100%;
     height: 100vh;
+    @include xsBreakPoint {
+        height: auto;
+        padding: 10% 2px;
+    }
+    @include smBreakPoint {
+        height: auto;
+        padding: 10% 2px;
+    }
+    @include mdBreakPoint {
+        height: auto;
+        padding: 10% 2px;
+    }
+    @include lgBreakPoint {
+        height: auto;
+        padding: 10% 2px;
+    }
     .inside-tool-section {
         width: 100%;
         height: 100%;
@@ -13,23 +29,67 @@
             object-fit: contain;
             cursor: pointer;
             transition: 3s;
+            @include mdBreakPoint
+            {
+                width: 80px;
+                height: 80px;
+            }
         }
         .tool-img:hover {
             transform: translateY(10px) rotate(360deg);
         }
         .box-tootles {
             width: 10%;
+            @include xsBreakPoint {
+                display: flex;
+                align-items: center;
+                justify-content: center;
+            }
+            @include smBreakPoint {
+                display: flex;
+                align-items: center;
+                justify-content: center;
+            }
         }
         .tool-row-section {
             display: flex;
             align-items: center;
             justify-content: center;
+
+            @include xsBreakPoint {
+                flex-direction: column;
+            }
+            @include smBreakPoint {
+                flex-direction: column;
+            }
         }
         .offer-card-tools {
             width: 80%;
             margin: 0 auto;
             display: flex;
             gap: 30px;
+            @include xsBreakPoint {
+                flex-direction: column;
+            }
+            @include smBreakPoint {
+                flex-direction: column;
+            }
+            @include mdBreakPoint {
+                margin: 0 auto;
+                display: flex;
+                align-items: center;
+                justify-content: center;
+            }
+            @include lgBreakPoint {
+                margin: 0 auto;
+                display: flex;
+                align-items: center;
+                justify-content: center;
+            }
+            @include xlBreakPoint
+            {
+                padding-top: 6%;
+            }
             .offer-card {
                 width: 30%;
                 box-shadow: rgba(0, 0, 0, 0.16) 0px 1px 4px;
@@ -38,6 +98,18 @@
                 cursor: pointer;
 
                 position: relative;
+                @include xsBreakPoint {
+                    width: 100%;
+                }
+                @include smBreakPoint {
+                    width: 100%;
+                }
+                @include mdBreakPoint {
+                    width: 47.5%;
+                }
+                @include lgBreakPoint {
+                    width: 47.5%;
+                }
                 .boxes {
                     position: absolute;
                     bottom: 0;

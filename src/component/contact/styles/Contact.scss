@@ -4,6 +4,19 @@
     width: 100%;
     height: 100vh;
     overflow: hidden;
+    @include xsBreakPoint
+    {
+        width: 100%;
+        height: auto;
+        padding: 10% 2px;
+
+    }
+    @include smBreakPoint
+    {
+        width: 100%;
+        height: auto;
+        padding: 10% 2px;
+    }
     .inside-contact-section {
         width: 100%;
         .contact-box {
@@ -11,11 +24,36 @@
             margin: 0 auto;
             height: 100%;
             display: flex;
+            @include xsBreakPoint
+            {
+                flex-direction: column;
+            }
+            @include smBreakPoint
+            {
+                flex-direction: column;
+            }
             .left-contact-box {
                 width: 50%;
+                @include xsBreakPoint
+                {
+                    width: 100%;
+                }
+                @include smBreakPoint
+                {
+                    width: 100%;
+                }
             }
             .right-contact-box {
                 width: 50%;
+                @include xsBreakPoint
+                {
+                    width: 100%;
+                }
+                @include smBreakPoint
+                {
+                    width: 100%;
+                    padding-top: 10%;
+                }
 
                 .contactimage {
                     width: 100%;
@@ -48,6 +86,10 @@
 .form-section {
     width: 70% !important;
     border: 3px solid #dcb3e3 !important;
+    @include xsBreakPoint
+    {
+        width: 90% !important;
+    }
 }
 .buttonsubmit {
     background-color: #ba68c8;
@@ -57,6 +99,11 @@
     border-radius: 10px;
     color: white;
     font-weight: 600;
+}
+.buttonsubmit:hover {
+    background-color: white;
+    border: 1px solid #ba68c8;
+    color: #ba68c8;
 }
 
 .getin {

@@ -26,7 +26,7 @@ function App() {
   const [settingcolor, setSettingColor] = useState(false);
 
 
-  const [Username, setUserName] = useState("Home")
+  const [Username, setUserName] = useState("/")
 
   // const ThemeLoader = () => {
   //   return localStorage.getItem("loader") ? JSON.parse(localStorage.getItem("loader")) : true
@@ -37,7 +37,7 @@ function App() {
     return JSON.parse(localStorage.getItem("theme"))
   }
   const [theme, setTheme] = useState(ThemeColor());
-  const colors = ["#F59213", "#23BDEE", "#D8587E", "#33EFA0", "#5B72EE"];
+  const colors = ["#F59213", "#23BDEE", "#D8587E", "#ba68c8", "#33EFA0", "#5B72EE"];
   const dispatch = useDispatch();
   const state = useSelector((state) => state?.colors);
   useEffect(() => {
@@ -156,14 +156,14 @@ function App() {
         </div>
       </div> : <>
         <div className={theme ? "theme--dark" : "theme--light"}>
-          {/* <AnimatedCursor
-        innerSize={10}
-        outerSize={30}
-        color='255, 46, 99'
-        outerAlpha={0.4}
-        innerScale={0.6}
-        outerScale={0}
-      /> */}
+          <AnimatedCursor
+            innerSize={10}
+            outerSize={30}
+            color='255, 46, 99'
+            outerAlpha={0.4}
+            innerScale={0.6}
+            outerScale={0}
+          />
           <div className={"Dektop-section "}>
             <div className="main-section">
               <div className='middle-header'>
@@ -171,13 +171,13 @@ function App() {
 
                   {iconsData?.map((item, index) => {
                     return (
-                      <div key={index} className={Username == item?.name ? "activename" : "inactivename"}
+                      <div key={index} className={Username == item?.path ? "activename" : "inactivename"}
                         onClick={() => {
-                          setUserName(item?.name)
+                          setUserName(item?.path)
                           navigate(item?.path)
                         }}
                       >
-                        {Username === item?.name ? <div
+                        {Username === item?.path ? <div
                         >
                           <div className={'activeclass'}>
                             <div >
@@ -241,7 +241,7 @@ function App() {
 
               <div className='body-sections'>
                 <Routes>
-                  <Route exact path="/" element={<Home colorName={state?.ColorName} ResponseSection={ResponseSection} theme={theme}/>} />
+                  <Route exact path="/" element={<Home colorName={state?.ColorName} ResponseSection={ResponseSection} theme={theme} />} />
                   <Route path="/aboutus" element={<Aboutus colorName={state?.ColorName} />} />
                   <Route path="/projects" element={<Projects colorName={state?.ColorName} />} />
                   <Route path="/tools" element={<WorkingTools colorName={state?.ColorName} />} />

@@ -148,7 +148,7 @@ function Aboutus({ colorName }) {
                                         {Qualifications?.map((item, index) => {
                                             return (
                                                 <div className='qulification-box mb-3 mt-3' key={index}>
-                                                    <div>
+                                                    <div className='box'>
                                                         <i class="fa-solid fa-user-graduate icon-graduvate"></i>
                                                     </div>
                                                     <div className='list-educations'>

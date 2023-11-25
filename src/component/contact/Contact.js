@@ -4,31 +4,21 @@ import CommonHeader from './../../CommonHeader/CommonHeader';
 import contactimg from '../../assests/images/Contact us-amico 1.png';
 import { ContactDatas } from '../../commoncontent/ContactData';
 import Form from 'react-bootstrap/Form';
-import axios from 'axios';
 import emailjs from '@emailjs/browser';
 function Contact({ colorName }) {
-
     const [error, setError] = useState(false);
     const [success, setSuccess] = useState(false);
     const [loader, setLoader] = useState(false);
-
-
-
-
     const [sendmails, setSendMail] = useState({
         user_name: "",
         user_email: "",
         user_message: ""
     });
 
-
     const { user_email, user_name, user_message } = sendmails;
-
     const handleChange = (e) => {
         setSendMail({ ...sendmails, [e.target.name]: e.target.value });
     }
-
-
     const SubmitContactDetails = (e) => {
         e.preventDefault();
 
@@ -41,7 +31,12 @@ function Contact({ colorName }) {
             setTimeout(() => {
                 setLoader(false);
                 setSuccess(true);
-
+                setError(false);
+                setSendMail({
+                    user_email: "",
+                    user_name: "",
+                    user_message: ""
+                })
             }, 1000);
         }
 
@@ -61,7 +56,7 @@ function Contact({ colorName }) {
                         </div>
                         <div className='mt-4'>
                             <Form onSubmit={SubmitContactDetails}>
-                                <div className='mb-4'>
+                                <div className='mb-3'>
                                     <Form.Group className="mb-3">
                                         <Form.Label className="label-texts">Name</Form.Label>
                                         <Form.Control type="text" placeholder="Enter Name" className='form-section' onChange={handleChange} value={user_name} name="user_name" />
@@ -70,9 +65,7 @@ function Contact({ colorName }) {
                                         </Form.Text>
                                     </Form.Group>
                                 </div>
-
-
-                                <div className='mb-4'>
+                                <div className='mb-3'>
                                     <Form.Group className="mb-3">
                                         <Form.Label className="label-texts">Email</Form.Label>
                                         <Form.Control type="email" placeholder="Enter Email" className='form-section' onChange={handleChange} value={user_email} name="user_email" />
@@ -83,8 +76,8 @@ function Contact({ colorName }) {
                                     </Form.Group>
                                 </div>
 
-                                <div className='mb-4'>
-                                    <Form.Group className="mb-3">
+                                <div className='mb-2'>
+                                    <Form.Group className="mb-1">
                                         <Form.Label className="label-texts">Message</Form.Label>
                                         <Form.Control
                                             as="textarea"
@@ -105,7 +98,7 @@ function Contact({ colorName }) {
                                     {success && <div className='text-success'>Message Send Successfully!</div>}
                                 </div>
 
-                                <div className='mt-4'>
+                                <div className='mt-1'>
                                     <button variant="primary" type="submit" className='buttonsubmit mt-3'>
                                         {loader ? <>Loading...</> : <>Submit</>}
                                     </button>
@@ -115,7 +108,10 @@ function Contact({ colorName }) {
                     </div>
 
                     <div className='right-contact-box'>
-                        <img src={contactimg} alt="no image" className='contactimage' />
+                        <div>
+                            <img src={contactimg} alt="no image" className='contactimage' />
+
+                        </div>
                         <div>
                             {ContactDatas?.conntactList?.map((item, index) => {
                                 return (

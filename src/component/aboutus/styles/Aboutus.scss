@@ -77,12 +77,24 @@
         @include xsBreakPoint {
             flex-direction: column;
         }
+        @include smBreakPoint {
+            flex-direction: column;
+        }
+        @include mdBreakPoint {
+            flex-direction: column;
+        }
         .aboutus-left {
             width: 35%;
             display: flex;
             align-items: center;
             justify-content: center;
             @include xsBreakPoint {
+                width: 100%;
+            }
+            @include smBreakPoint {
+                width: 100%;
+            }
+            @include mdBreakPoint {
                 width: 100%;
             }
             .img-about {
@@ -95,6 +107,12 @@
         .aboutus-right {
             width: 65%;
             @include xsBreakPoint {
+                width: 100%;
+            }
+            @include smBreakPoint {
+                width: 100%;
+            }
+            @include mdBreakPoint {
                 width: 100%;
             }
             .aboutus-right-inside {
@@ -118,6 +136,12 @@
                     cursor: pointer;
                     align-items: center;
                     @include xsBreakPoint {
+                        width: 100%;
+                    }
+                    @include smBreakPoint {
+                        width: 100%;
+                    }
+                    @include mdBreakPoint {
                         width: 100%;
                     }
                     @include lgBreakPoint {
@@ -188,6 +212,10 @@
                         display: flex;
                         justify-content: center;
                         background-color: #f3e8dc;
+                        transition: 1s;
+                    }
+                    .left-icons:hover {
+                        transform: translateY(-5px) rotate(360deg);
                     }
                     .main-about-texts {
                         font-size: 1.2rem;
@@ -220,9 +248,22 @@
                 @include xsBreakPoint {
                     flex-direction: column;
                     width: 100%;
+                    margin: 0 auto;
+                }
+                @include smBreakPoint {
+                    flex-direction: column;
+                    width: 100%;
+                    margin: 0 auto;
+                }
+                @include mdBreakPoint {
+                    flex-direction: column;
+                    width: 100%;
+                    margin: 0 auto;
                 }
                 @include lgBreakPoint {
-                    width: 95%;
+                    width: 100%;
+                    flex-direction: column;
+                    margin: 0 auto;
                 }
                 @include xlBreakPoint {
                     width: 90%;
@@ -234,13 +275,22 @@
                     @include xsBreakPoint {
                         width: 100%;
                     }
+                    @include smBreakPoint {
+                        width: 100%;
+                    }
+                    @include mdBreakPoint {
+                        width: 100%;
+                    }
+                    @include lgBreakPoint {
+                        width: 100%;
+                    }
                 }
             }
             .icon-graduvate {
                 font-size: 1.4rem;
-                @include themed() {
-                    color: t($greytext);
-                }
+                // @include themed() {
+                //     color: t($greytext);
+                // }
             }
             .list-educations {
                 line-height: 1.6;
@@ -264,6 +314,12 @@
                 border-radius: 10px;
                 box-shadow: rgba(0, 0, 0, 0.16) 0px 1px 4px;
                 @include xsBreakPoint {
+                    width: 45% !important;
+                }
+                @include smBreakPoint {
+                    width: 45% !important;
+                }
+                @include mdBreakPoint {
                     width: 45% !important;
                 }
                 @include lgBreakPoint {
@@ -328,4 +384,20 @@
             color: t($greytextgrey);
         }
     }
+}
+
+.box {
+    width: 35px;
+    height: 35px;
+    background-color: #f3e8dc;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    border-radius: 50%;
+    color: #23bdee;
+    cursor: pointer;
+    transition: 1s;
+}
+.box:hover {
+    transform: translateY(-10px) rotate(360deg);
 }

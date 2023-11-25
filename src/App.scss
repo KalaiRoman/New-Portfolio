@@ -35,10 +35,9 @@
 
 // mobile
 .Mobile-section {
-  
     width: 375px;
     margin: 0 auto;
-  
+
     @include themed() {
         background: t($background);
         color: t($text);
@@ -136,6 +135,15 @@
         width: 8%;
         height: 100%;
         z-index: 9898989898 !important;
+        @include xsBreakPoint {
+            right: 4%;
+        }
+        @include smBreakPoint {
+            right: 4%;
+        }
+        @include mdBreakPoint {
+            right: 2%;
+        }
     }
     .activeclass {
         display: flex;

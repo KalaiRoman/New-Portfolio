@@ -37,7 +37,7 @@ function WorkingTools() {
                 <div className='mt-3'>
                     <CommonHeader title={"What I Offer"} />
                 </div>
-                <div className='row offer-card-tools'>
+                <div className='row offer-card-tools mt-3'>
                     {ToolOffer?.map((item, index) => {
                         return (
                             <div className='offer-card'>
