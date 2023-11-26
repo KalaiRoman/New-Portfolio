@@ -4,15 +4,12 @@
     width: 100%;
     height: 100vh;
     overflow: hidden;
-    @include xsBreakPoint
-    {
+    @include xsBreakPoint {
         width: 100%;
         height: auto;
         padding: 10% 2px;
-
     }
-    @include smBreakPoint
-    {
+    @include smBreakPoint {
         width: 100%;
         height: auto;
         padding: 10% 2px;
@@ -24,33 +21,27 @@
             margin: 0 auto;
             height: 100%;
             display: flex;
-            @include xsBreakPoint
-            {
+            @include xsBreakPoint {
                 flex-direction: column;
             }
-            @include smBreakPoint
-            {
+            @include smBreakPoint {
                 flex-direction: column;
             }
             .left-contact-box {
                 width: 50%;
-                @include xsBreakPoint
-                {
+                @include xsBreakPoint {
                     width: 100%;
                 }
-                @include smBreakPoint
-                {
+                @include smBreakPoint {
                     width: 100%;
                 }
             }
             .right-contact-box {
                 width: 50%;
-                @include xsBreakPoint
-                {
+                @include xsBreakPoint {
                     width: 100%;
                 }
-                @include smBreakPoint
-                {
+                @include smBreakPoint {
                     width: 100%;
                     padding-top: 10%;
                 }
@@ -86,8 +77,7 @@
 .form-section {
     width: 70% !important;
     border: 3px solid #dcb3e3 !important;
-    @include xsBreakPoint
-    {
+    @include xsBreakPoint {
         width: 90% !important;
     }
 }

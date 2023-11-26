@@ -119,6 +119,9 @@
                 width: 90%;
                 margin: 0 auto;
                 height: 100%;
+                @include xsBreakPoint {
+                    padding-top: 10%;
+                }
 
                 @include lgBreakPoint {
                     width: 100%;
@@ -135,8 +138,12 @@
                     justify-content: space-around;
                     cursor: pointer;
                     align-items: center;
+
                     @include xsBreakPoint {
                         width: 100%;
+                        flex-direction: column !important;
+                        gap: 30px;
+                        padding: 5% 0px;
                     }
                     @include smBreakPoint {
                         width: 100%;
@@ -151,11 +158,20 @@
                         width: 80%;
                     }
                 }
+                .inside-about-section-lefts {
+                    @include xsBreakPoint {
+                        padding-left: 5%;
+                    }
+                }
                 .activeTab {
                     background-color: #f48c06;
                     padding: 10px 30px;
                     border-radius: 10px;
                     color: white;
+                    @include xsBreakPoint {
+                        width: 70%;
+                        text-align: center;
+                    }
                 }
                 .inactiveTab {
                     color: #2f327d;
@@ -229,6 +245,7 @@
                 .language-names {
                     font-size: 1.5rem;
                     font-size: 600;
+                    color: #ba68c8;
                 }
                 .language-texts {
                     font-size: 1.2rem;
@@ -293,7 +310,7 @@
                 // }
             }
             .list-educations {
-                line-height: 1.6;
+                line-height: 1.8;
                 cursor: pointer;
             }
             .matername {
@@ -305,6 +322,10 @@
                 @include themed() {
                     color: t($greytextgrey);
                 }
+            }
+            .clgnames {
+                font-weight: 550;
+                color: #ba68c8;
             }
             .skill-box {
                 width: 25%;
@@ -400,4 +421,13 @@
 }
 .box:hover {
     transform: translateY(-10px) rotate(360deg);
+}
+
+.bolt-awesome {
+    font-weight: 600;
+    font-size: 2rem;
+}
+
+.cal-icon {
+    color: #ba68c8;
 }

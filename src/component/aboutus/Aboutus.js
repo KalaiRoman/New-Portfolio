@@ -18,12 +18,12 @@ function Aboutus({ colorName }) {
         <>
             <div className='aboutus' id="AboutUs">
 
-                <div>
+                {/* <div>
                     <img src={backgroudimage} alt="no image" className='background-image' />
                 </div>
                 <div>
                     <img src={backgroudimage} alt="no image" className='background-image1' />
-                </div>
+                </div> */}
 
                 <div className='empty-circle1'>
 
@@ -66,7 +66,7 @@ function Aboutus({ colorName }) {
                                     )
                                 })}
                             </div>
-                            <div className='mt-4'>
+                            <div className='mt-4 inside-about-section-lefts'>
                                 {selectName == "Personal Info" && <div>
                                     <div className='decsription'>
                                         {PersonalContent?.desc}
@@ -144,6 +144,9 @@ function Aboutus({ colorName }) {
                                     </div>
                                 </div>}
                                 {selectName == "Qualifications" && <div>
+                                    <div className='bolt-awesome mb-4 mt-2'>
+                                        {PersonalContent?.MyAwesomeJourney}
+                                    </div>
                                     <div className='qualification-section row'>
                                         {Qualifications?.map((item, index) => {
                                             return (
@@ -161,8 +164,8 @@ function Aboutus({ colorName }) {
                                                         <div className='clgname'>
                                                             {item?.clgName}
                                                         </div>
-                                                        <div className='clgname'>
-                                                            {item?.year}
+                                                        <div className='clgnames d-flex gap-2'>
+                                                            <span>{item?.calicon}</span>  {item?.year}
                                                         </div>
                                                         <div className='clgname'>
                                                             {item?.place}
@@ -174,6 +177,9 @@ function Aboutus({ colorName }) {
                                     </div>
                                 </div>}
                                 {selectName == "Skills" && <div>
+                                    <div className='bolt-awesome mb-4 mt-2'>
+                                        {PersonalContent?.tools}
+                                    </div>
                                     <div className='row gap-3'>
                                         {Skills?.map((item, index) => {
                                             return (

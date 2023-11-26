@@ -22,7 +22,9 @@ export const PersonalContent = {
     deggre: "Master on Computer Science",
     address: "chennai",
     desc: "I specialize in crafting intuitive websites with cutting-edge techonogy, delivering dynamic and enaging user experiences.",
-    languageName: "Languages",
+    languageName: "Language Skill",
+    MyAwesomeJourney: 'My Awesome Journey',
+    tools: "Tools I Use Everyday",
     languages: [
         {
             id: 1,
@@ -47,7 +49,8 @@ export const Qualifications = [
         dgname: "( MCA )",
         clgName: "Karpagam Academy Of Higher Education",
         year: "2018 - 2020",
-        place: "Coimbatore"
+        place: "Coimbatore",
+        calicon: <i class="fa-regular fa-calendar cal-icon"></i>
     },
     {
         id: 2,
@@ -55,7 +58,9 @@ export const Qualifications = [
         dgname: "( BCA )",
         year: "2015 - 2018",
         clgName: "Sri Vidya Mandir Arts and Science College",
-        place: "Krishnagiri"
+        place: "Krishnagiri",
+        calicon: <i class="fa-regular fa-calendar cal-icon"></i>
+
     },
     {
         id: 3,
@@ -63,7 +68,9 @@ export const Qualifications = [
         dgname: "( HSC )",
         year: "2013 - 2015",
         clgName: "Government Boys Higher Secondary School",
-        place: "Krishnagiri"
+        place: "Krishnagiri",
+        calicon: <i class="fa-regular fa-calendar cal-icon"></i>
+
     },
     {
         id: 4,
@@ -71,7 +78,9 @@ export const Qualifications = [
         dgname: "( SSLC )",
         year: "2013",
         clgName: "Government Higher Secondary School",
-        place: "Krishnagiri"
+        place: "Krishnagiri",
+        calicon: <i class="fa-regular fa-calendar cal-icon"></i>
+
     }
 ]
 
