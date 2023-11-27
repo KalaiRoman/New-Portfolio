@@ -1,4 +1,4 @@
-import React, { useState } from 'react'
+import React, { useState, useEffect } from 'react'
 import './styles/Aboutus.scss';
 import aboutimg from '../../assests/images/about-img.png';
 import CommonHeader from '../../CommonHeader/CommonHeader';
@@ -7,7 +7,16 @@ import backgroudimage from '../../assests/images/background.png'
 import sad from '../../assests/images/sad.png';
 import happy from '../../assests/images/happy.png';
 
+import AOS from 'aos';
+
+
 function Aboutus({ colorName }) {
+
+
+    useEffect(() => {
+        AOS.init();
+    }, [])
+
 
     const [selectName, setSelectName] = useState("Personal Info");
 
@@ -68,54 +77,56 @@ function Aboutus({ colorName }) {
                             </div>
                             <div className='mt-4 inside-about-section-lefts'>
                                 {selectName == "Personal Info" && <div>
-                                    <div className='decsription'>
+                                    <div className='decsription' data-aos="fade-down"
+                                        data-aos-easing="linear"
+                                        data-aos-duration="1500">
                                         {PersonalContent?.desc}
                                     </div>
                                     <div className='mainabout-skill mt-4'>
-                                        <div className='main-left'>
+                                        <div className='main-left' >
                                             <div>
                                                 <i class="fa-regular fa-user left-icons"></i>
                                             </div>
-                                            <div className='main-about-texts'>
+                                            <div className='main-about-texts' >
                                                 {PersonalContent?.name}
                                             </div>
                                         </div>
-                                        <div className='main-right'>
+                                        <div className='main-right' >
                                             <div>
                                                 <i class="fa-solid fa-phone-volume left-icons"></i>
                                             </div>
-                                            <div className='main-about-texts'>
+                                            <div className='main-about-texts' >
                                                 {PersonalContent?.phoneno}
                                             </div>
                                         </div>
                                     </div>
 
-                                    <div className='mainabout-skill mt-4'>
+                                    <div className='mainabout-skill mt-4' >
                                         <div className='main-left'>
                                             <div>
                                                 <i class="fa-regular fa-envelope left-icons "></i>
                                             </div>
-                                            <div className='main-about-texts'>
+                                            <div className='main-about-texts' >
                                                 {PersonalContent?.emailid}
                                             </div>
                                         </div>
-                                        <div className='main-right'>
+                                        <div className='main-right' >
                                             <div>
                                                 <i class="fa-regular fa-calendar left-icons"></i>
                                             </div>
-                                            <div className='main-about-texts'>
+                                            <div className='main-about-texts' >
                                                 {PersonalContent?.dob}
                                             </div>
                                         </div>
                                     </div>
 
 
-                                    <div className='mainabout-skill mt-4'>
+                                    <div className='mainabout-skill mt-4' >
                                         <div className='main-left'>
                                             <div>
                                                 <i class="fa-solid fa-user-graduate  left-icons"></i>
                                             </div>
-                                            <div className='main-about-texts'>
+                                            <div className='main-about-texts' >
                                                 {PersonalContent?.deggre}
                                             </div>
                                         </div>
@@ -123,19 +134,21 @@ function Aboutus({ colorName }) {
                                             <div>
                                                 <i class="fa-solid fa-location-dot left-icons"></i>
                                             </div>
-                                            <div className='main-about-texts'>
+                                            <div className='main-about-texts' >
                                                 {PersonalContent?.address}
                                             </div>
                                         </div>
                                     </div>
-                                    <div className='mt-5'>
+                                    <div className='mt-5' >
                                         <div className='language-names'>
                                             {PersonalContent?.languageName} :
                                         </div>
                                         <div className='row'>
                                             {PersonalContent?.languages?.map((item, index) => {
                                                 return (
-                                                    <div key={index} className='mt-4 language-texts'>
+                                                    <div key={index} className='mt-4 language-texts'
+
+                                                    >
                                                         {item?.name}
                                                     </div>
                                                 )
@@ -144,24 +157,34 @@ function Aboutus({ colorName }) {
                                     </div>
                                 </div>}
                                 {selectName == "Qualifications" && <div>
-                                    <div className='bolt-awesome mb-4 mt-2'>
+                                    <div className='bolt-awesome mb-4 mt-2' data-aos="fade-up"
+                                        data-aos-easing="linear"
+                                        data-aos-duration="1500">
                                         {PersonalContent?.MyAwesomeJourney}
                                     </div>
                                     <div className='qualification-section row'>
                                         {Qualifications?.map((item, index) => {
                                             return (
                                                 <div className='qulification-box mb-3 mt-3' key={index}>
-                                                    <div className='box'>
+                                                    <div className='box' data-aos="fade-down"
+                                                        data-aos-easing="linear"
+                                                        data-aos-duration="1500">
                                                         <i class="fa-solid fa-user-graduate icon-graduvate"></i>
                                                     </div>
                                                     <div className='list-educations'>
-                                                        <div className='matername'>
+                                                        <div className='matername' data-aos="fade-right"
+                                                            data-aos-easing="linear"
+                                                            data-aos-duration="1500">
                                                             {item?.name}
                                                         </div>
-                                                        <div className='matername'>
+                                                        <div className='matername' data-aos="fade-left"
+                                                            data-aos-easing="linear"
+                                                            data-aos-duration="1500">
                                                             {item?.dgname}
                                                         </div>
-                                                        <div className='clgname'>
+                                                        <div className='clgname' data-aos="fade-down"
+                                                            data-aos-easing="linear"
+                                                            data-aos-duration="1500">
                                                             {item?.clgName}
                                                         </div>
                                                         <div className='clgnames d-flex gap-2'>
@@ -221,8 +244,6 @@ function Aboutus({ colorName }) {
                                     </div>
                                 </div>}
                             </div> */}
-
-
                         </div>
                     </div>
 

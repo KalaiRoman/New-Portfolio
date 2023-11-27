@@ -221,7 +221,7 @@ function App() {
                   <div className='box-setting-colors row align-items-center justify-content-center'>
                     {colors?.map((item, index) => {
                       return (
-                        <div key={index} className='col-lg-3 mb-1 mt-1' onClick={() => {
+                        <div key={index} className='col-lg-3 col-xs-3 col-sm-6 mb-1 mt-1 box-color' onClick={() => {
                           handleChange(item)
                           setSettingColor(false);
                         }}>

@@ -1,11 +1,18 @@
-import React from 'react'
+import React, { useEffect, useState } from 'react'
 import './styles/Projects.scss';
 import CommonHeader from './../../CommonHeader/CommonHeader';
 import Slider from "react-slick";
 import { ProjectDatas } from '../../commoncontent/ProjectData';
 import SlideNextArrow from './slidenextarrow/SlideNextArrow';
 import SlidePreArrow from './slideprearrow/SlidePreArrow';
+import AOS from 'aos';
+
 function Projects() {
+
+    useEffect(() => {
+        AOS.init();
+    }, [])
+
     const settings = {
         dots: false,
         infinite: true,
@@ -80,16 +87,20 @@ function Projects() {
 
                     <div className='main-slider-section'>
                         <Slider {...settings}>
-                            {ProjectDatas?.map((item, index) => {
+                            {ProjectDatas?.map((item) => {
                                 return (
-                                    <div className='cards mt-2 mb-4'>
-                                        <div className='project-title'>
+                                    <div className='cards mt-2 mb-4' data-aos="fade-left"
+                                        data-aos-duration="3000">
+                                        <div className='project-title' data-aos="fade-up"
+                                            data-aos-duration="3000">
                                             {item?.name}
                                         </div>
-                                        <div className='text-center mb-5 mt-2'>
+                                        <div className='text-center mb-5 mt-2 desc' data-aos="fade-right"
+                                            data-aos-duration="3000">
                                             {item?.des}
                                         </div>
-                                        <div className='mt-4'>
+                                        <div className='mt-4' data-aos="fade-down"
+                                            data-aos-duration="3000">
                                             <button className='button-project' onClick={() => NavigatePath(item?.url)}>
                                                 {item?.button}
                                             </button>

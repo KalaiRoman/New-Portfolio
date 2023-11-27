@@ -1,8 +1,13 @@
-import React from 'react'
+import React, { useEffect, useState } from 'react'
 import './WorkingTools.scss';
 import CommonHeader from './../../CommonHeader/CommonHeader';
 import { ToolOffer, Tools } from '../../commoncontent/WorkingTools';
+import AOS from 'aos';
+
 function WorkingTools() {
+    useEffect(() => {
+        AOS.init();
+    }, [])
     return (
         <div className='main-tool-section'>
             <div className='inside-tool-section'>
@@ -28,7 +33,8 @@ function WorkingTools() {
                 <div className='mt-5 row tool-row-section gap-4'>
                     {Tools?.map((item,) => {
                         return (
-                            <div className='box-tootles'>
+                            <div className='box-tootles' data-aos="fade-down"
+                                data-aos-duration="3000">
                                 <img src={item?.image} alt={"no image"} className='tool-img' />
                             </div>
                         )
@@ -38,17 +44,21 @@ function WorkingTools() {
                     <CommonHeader title={"What I Offer"} />
                 </div>
                 <div className='row offer-card-tools mt-3'>
-                    {ToolOffer?.map((item, index) => {
+                    {ToolOffer?.map((item,) => {
                         return (
-                            <div className='offer-card'>
+                            <div className='offer-card' data-aos="fade-up"
+                                data-aos-duration="3000">
 
-                                <div className='icon-tool'>
+                                <div className='icon-tool' data-aos="fade-down"
+                                    data-aos-duration="3000">
                                     {item?.image}
                                 </div>
-                                <div className='tool-text mt-3'>
+                                <div className='tool-text mt-3' data-aos="fade-left"
+                                    data-aos-duration="3000">
                                     {item?.name}
                                 </div>
-                                <div className='mt-3 des'>
+                                <div className='mt-3 des' data-aos="fade-right"
+                                    data-aos-duration="3000">
                                     {item?.dec}
                                 </div>
                                 <div className='boxes'>

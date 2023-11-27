@@ -1,4 +1,4 @@
-import React, { useState } from 'react'
+import React, { useEffect, useState } from 'react'
 import './styles/Home.scss';
 
 import { Swiper, SwiperSlide } from 'swiper/react';
@@ -11,7 +11,14 @@ import person3 from '../../assests/images/person3.png';
 import { Typewriter } from 'react-simple-typewriter'
 import Modal from 'react-bootstrap/Modal';
 import pdf from '../../assests/Kalai-resume.pdf';
+
+import AOS from 'aos';
 function Home({ colorName, theme }) {
+
+
+    useEffect(() => {
+        AOS.init();
+    }, [])
 
 
     const [show, setShow] = useState(false);
@@ -85,13 +92,20 @@ function Home({ colorName, theme }) {
                 <div className='inside-section'>
                     <div className='home-left' style={{ color: colorName }}>
                         <div className='left-inside-home'>
-                            <div className='web-text mb-2' style={{ color: colorName }}>
+                            <div className='web-text mb-2' style={{ color: colorName }} data-aos-easing="linear"
+                                data-aos-duration="1500" data-aos="fade-down">
                                 <span className='w-text animate__animated animate__bounce animate__repeat-3 	3 animate__slow 2s'> W</span>EB<span className='w-text animate__animated animate__bounce animate__repeat-2 	2 animate__slow 3s'>D</span>EVELOPER
                             </div>
-                            <div className='myname-text'>
+                            <div className='myname-text' data-aos="fade-right"
+                                data-aos-easing="linear"
+                                data-aos-duration="1500">
                                 Hello, My name is
                             </div>
-                            <div className='myname-text'>
+                            <div className='myname-text'
+                                data-aos="flip-left"
+                                data-aos-easing="linear"
+                                data-aos-duration="1500"
+                            >
                                 <span className='k-text'>K</span>alaisurya <span style={{ color: 'orange', fontWeight: 'bold', fontSize: "1rem" }}>(
                                     <Typewriter
                                         words={['Reactjs 😃', 'Nextjs 😃', 'ReactNative 😃', 'Nodejs 😃']}
@@ -106,29 +120,41 @@ function Home({ colorName, theme }) {
                                     /> )
                                 </span>
                             </div>
-                            <div className='build-text mt-3'>
+                            <div className='build-text mt-3' data-aos="zoom-in-right"
+                                data-aos-easing="linear"
+                                data-aos-duration="1500"
+                            >
                                 A Building Applications with Front End Developer Operations.
                             </div>
                             <div className='home-social-icons mt-4 mb-2'>
-                                <div>
+                                <div data-aos="fade-right"
+                                    data-aos-easing="linear"
+                                    data-aos-duration="1500">
                                     <i class="fa-brands fa-facebook logo-icon"></i>
                                 </div>
-                                <div onClick={LinkedInPath}>
+                                <div onClick={LinkedInPath} data-aos="fade-down"
+                                    data-aos-easing="linear"
+                                    data-aos-duration="1500">
                                     <i class="fa-brands fa-linkedin-in logo-icon"></i>
                                 </div>
-                                <div onClick={GithubPath}>
+                                <div onClick={GithubPath} data-aos="fade-up"
+                                    data-aos-easing="linear"
+                                    data-aos-duration="1500">
                                     <i class="fa-brands fa-github logo-icon"></i>
                                 </div>
                             </div>
                             <div className='home-button'>
-                                <div>
+                                <div data-aos="fade-up"
+                                    data-aos-duration="3000">
                                     <button className='hireme'>
                                         <a href="mailto:kalaimca685@gmail.com">
                                             Hire Me
                                         </a>
                                     </button>
                                 </div>
-                                <div>
+                                <div data-aos="fade-down"
+                                    data-aos-easing="linear"
+                                    data-aos-duration="1500">
                                     <button className='donwloadbutton'>
                                         <a href={pdf} download="Kalai-resume.pdf" className='pdf'>
                                             Download CV
@@ -175,11 +201,13 @@ function Home({ colorName, theme }) {
                             })}
                         </Swiper>
 
-                        <div className='first-box'>
+                        <div className='first-box' data-aos="fade-right"
+                            data-aos-easing="linear"
+                            data-aos-duration="1500">
                             <div className='icon-happy-client-logoss'>
                                 <i class="fa-solid fa-briefcase icon-happy-client-logo"></i>
                             </div>
-                            <div className='happy-client-text'>
+                            <div className='happy-client-text' >
                                 <div className='text-years'>
                                     3+</div>
                                 <div className='year-text'>
@@ -187,7 +215,9 @@ function Home({ colorName, theme }) {
                                 </div>
                             </div>
                         </div>
-                        <div className='second-box'>
+                        <div className='second-box' data-aos="fade-up"
+                            data-aos-easing="linear"
+                            data-aos-duration="1500">
                             <div className='icon-happy-client-logoss'>
                                 <i class="fa-solid fa-folder-minus icon-happy-client-logo"></i>
                             </div>
@@ -199,7 +229,9 @@ function Home({ colorName, theme }) {
                                 </div>
                             </div>
                         </div>
-                        <div className='third-box'>
+                        <div className='third-box' data-aos="fade-down"
+                            data-aos-easing="linear"
+                            data-aos-duration="1500">
                             <div className='icon-happy-client-logoss'>
 
                                 <i class="fa-solid fa-users icon-happy-client-logo"></i>

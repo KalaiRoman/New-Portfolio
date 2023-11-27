@@ -9,8 +9,7 @@
         padding: 10px 100px;
         margin: 0 auto;
         position: relative;
-        @include xsBreakPoint
-        {
+        @include xsBreakPoint {
             width: 100%;
             padding: 0;
         }
@@ -61,22 +60,17 @@
             margin: 0 auto;
             padding: 10px 10px;
             margin-top: 5%;
-            @include xsBreakPoint
-            {
+            @include xsBreakPoint {
                 width: 100%;
                 margin-top: 15%;
-
             }
-            @include mdBreakPoint
-            {
+            @include mdBreakPoint {
                 margin-top: 15%;
             }
-            @include lgBreakPoint
-            {
+            @include lgBreakPoint {
                 margin-top: 15%;
             }
-            @include xlBreakPoint
-            {
+            @include xlBreakPoint {
                 margin-top: 10%;
             }
             .cards {
@@ -93,8 +87,7 @@
                 position: relative;
                 overflow: hidden;
 
-                @include xsBreakPoint
-                {
+                @include xsBreakPoint {
                     width: 100%;
                 }
 
@@ -146,5 +139,13 @@
                 color: white;
             }
         }
+    }
+}
+
+.desc {
+    width: 100%;
+    text-align: center;
+    @include themed() {
+        color: t($greytextgrey);
     }
 }

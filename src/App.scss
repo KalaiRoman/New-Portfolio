@@ -241,6 +241,15 @@
     display: flex;
     gap: 10px;
     padding: 15px 0px;
+    @include xsBreakPoint {
+        width: 270px;
+        height: auto;
+    }
+    .box-color {
+        @include xsBreakPoint {
+            width: 25%;
+        }
+    }
 }
 
 .setcolor {

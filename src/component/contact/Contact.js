@@ -1,11 +1,19 @@
-import React, { useState } from 'react'
+import React, { useState, useEffect } from 'react'
 import './styles/Contact.scss';
 import CommonHeader from './../../CommonHeader/CommonHeader';
 import contactimg from '../../assests/images/Contact us-amico 1.png';
 import { ContactDatas } from '../../commoncontent/ContactData';
 import Form from 'react-bootstrap/Form';
 import emailjs from '@emailjs/browser';
+import AOS from 'aos';
+
 function Contact({ colorName }) {
+
+
+    useEffect(() => {
+        AOS.init();
+    }, [])
+
     const [error, setError] = useState(false);
     const [success, setSuccess] = useState(false);
     const [loader, setLoader] = useState(false);
@@ -47,14 +55,18 @@ function Contact({ colorName }) {
                 <CommonHeader title={"Contact Me"} colorName={colorName} />
                 <div className='contact-box'>
                     <div className='left-contact-box'>
-                        <div className='getin'>
+                        <div className='getin' data-aos="fade-down"
+                            data-aos-duration="3000">
                             Get in touch
                         </div>
-                        <div className='we-texts'>
+                        <div className='we-texts' data-aos="fade-up"
+                            data-aos-duration="3000">
                             We are here for you!
                             {/* How can we help? */}
                         </div>
-                        <div className='mt-4'>
+                        <div className='mt-4' data-aos="flip-left"
+                            data-aos-easing="ease-out-cubic"
+                            data-aos-duration="2000">
                             <Form onSubmit={SubmitContactDetails}>
                                 <div className='mb-3'>
                                     <Form.Group className="mb-3">
@@ -108,11 +120,13 @@ function Contact({ colorName }) {
                     </div>
 
                     <div className='right-contact-box'>
-                        <div>
+                        <div data-aos="fade-right"
+                            data-aos-offset="500"
+                        >
                             <img src={contactimg} alt="no image" className='contactimage' />
 
                         </div>
-                        <div>
+                        <div >
                             {ContactDatas?.conntactList?.map((item, index) => {
                                 return (
                                     <div>

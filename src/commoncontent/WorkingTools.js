@@ -2,7 +2,7 @@ import vscode from '../assests/images/vscode.png'
 import react from '../assests/images/postman.png'
 import github from '../assests/images/github.png'
 import android from '../assests/images/android.png'
-import nodejs from '../assests/images/nodejs.png'
+import nodejs from '../assests/images/thunder.png'
 import gitlab from '../assests/images/gitlab.png'
 import figma from '../assests/images/figma.png'
 export const Tools = [

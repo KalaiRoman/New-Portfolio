@@ -2,14 +2,15 @@ export const ProjectDatas = [
     {
         id: 1,
         name: "Womeyn (Seller and End User(B2c)",
-        des: "Reactjs and Nextjs",
+        des: "React.js,Nextjs, JavaScript, HTML and Sass, Bootstrap, Responsive Web Design, Create the necessary components, such as headers, sections, and footers, using React components.",
         button: "Live Demo",
         url: 'https://staging.womeyn.com/'
     },
     {
         id: 2,
         name: "Womeyn (Landing Page)",
-        des: "Reactjs",
+        des: "React.js, JavaScript, HTML and Sass, Bootstrap, Responsive Web Design, Create the necessary components, such as headers, sections, and footers, using React components.",
+
 
 
         button: "Live Demo",
@@ -20,7 +21,8 @@ export const ProjectDatas = [
     {
         id: 3,
         name: "Learning Management System (LMS)",
-        des: "Reactjs",
+        des: "React.js, JavaScript, HTML and Sass, Bootstrap, Responsive Web Design, Create the necessary components, such as headers, sections, and footers, using React components.",
+
 
 
         button: "Live Demo",
@@ -30,7 +32,8 @@ export const ProjectDatas = [
     {
         id: 4,
         name: "Kridas",
-        des: "Nextjs",
+        des: "Nextjs, JavaScript, HTML and Sass, Bootstrap, Responsive Web Design, Create the necessary components, such as headers, sections, and footers, using React components.",
+
 
 
         button: "Live Demo",
@@ -40,7 +43,7 @@ export const ProjectDatas = [
     {
         id: 5,
         name: "Passion Ai Ari",
-        des: "Reactjs",
+        des: "React.js, JavaScript, HTML and Sass, Bootstrap, Responsive Web Design, Create the necessary components, such as headers, sections, and footers, using React components.",
 
 
         button: "Live Demo",
@@ -50,7 +53,8 @@ export const ProjectDatas = [
     {
         id: 6,
         name: "Eternosoft",
-        des: "HTML and CSS",
+        des: "HTML and Sass,Javascript, Bootstrap, Responsive Web Design, Create the necessary components, such as headers, sections, and footers, using React components.",
+
 
 
         button: "Live Demo",
@@ -60,7 +64,8 @@ export const ProjectDatas = [
     {
         id: 7,
         name: "Crofit (Mobile App)",
-        des: "React Native Metro",
+        des: "React.js, JavaScript, HTML and Sass, Bootstrap, Responsive Web Design, Create the necessary components, such as headers, sections, and footers, using React components.",
+
         button: "Live Demo",
         url: 'http://cropfitindia.com/'
 
@@ -68,7 +73,8 @@ export const ProjectDatas = [
     {
         id: 8,
         name: "Kridas (Mobile APP)",
-        des: "React Native",
+
+        des: "React Native, JavaScript, HTML and Sass, Bootstrap, Responsive Web Design, Create the necessary components, such as headers, sections, and footers, using React components.",
 
 
         button: "Live Demo",
@@ -79,7 +85,8 @@ export const ProjectDatas = [
     {
         id: 9,
         name: "NEET/JEE (Landing Page)",
-        des: "Reactjs",
+        des: "React.js, JavaScript, HTML and Sass, Bootstrap, Responsive Web Design, Create the necessary components, such as headers, sections, and footers, using React components.",
+
 
 
         button: "Live Demo",
@@ -90,7 +97,8 @@ export const ProjectDatas = [
     {
         id: 10,
         name: "Eco Car Wash",
-        des: "Reactjs",
+        des: "React.js, JavaScript, HTML and Sass, Bootstrap, Responsive Web Design, Create the necessary components, such as headers, sections, and footers, using React components.",
+
 
 
         button: "Live Demo",
@@ -100,8 +108,7 @@ export const ProjectDatas = [
     {
         id: 11,
         name: "Campus Avenue (Landing Page)",
-        des: "Reactjs",
-
+        des: "React.js, JavaScript, HTML and Sass, Bootstrap, Responsive Web Design, Create the necessary components, such as headers, sections, and footers, using React components.",
         button: "Live Demo",
         url: ''
 
