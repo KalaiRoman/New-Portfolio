@@ -36,7 +36,7 @@ export const PersonalContent = {
         },
         {
             id: 3,
-            name: "Telungu"
+            name: "Telugu"
         }
     ]
 }

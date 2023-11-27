@@ -192,7 +192,7 @@ function Aboutus({ colorName }) {
                                 </div>}
                             </div>
 
-                            <div className='mt-4'>
+                            {/* <div className='mt-4'>
                                 {selectName == "Personal Info" && <div className='mt-4'>
 
                                     <div className='about-boxs mt-5'>
@@ -220,7 +220,7 @@ function Aboutus({ colorName }) {
                                         </div>
                                     </div>
                                 </div>}
-                            </div>
+                            </div> */}
 
 
                         </div>

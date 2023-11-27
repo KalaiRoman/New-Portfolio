@@ -19,7 +19,6 @@ import Contact from './component/contact/Contact';
 function App() {
 
 
-
   const [ResponseSection, setResponseSection] = useState("Desktop-section")
 
 
@@ -163,6 +162,7 @@ function App() {
             outerAlpha={0.4}
             innerScale={0.6}
             outerScale={0}
+            className="mouse-section"
           />
           <div className={"Dektop-section "}>
             <div className="main-section">

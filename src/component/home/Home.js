@@ -1,4 +1,4 @@
-import React from 'react'
+import React, { useState } from 'react'
 import './styles/Home.scss';
 
 import { Swiper, SwiperSlide } from 'swiper/react';
@@ -9,7 +9,15 @@ import person1 from '../../assests/images/person1.png';
 import person2 from '../../assests/images/person2.png';
 import person3 from '../../assests/images/person3.png';
 import { Typewriter } from 'react-simple-typewriter'
+import Modal from 'react-bootstrap/Modal';
+import pdf from '../../assests/Kalai-resume.pdf';
 function Home({ colorName, theme }) {
+
+
+    const [show, setShow] = useState(false);
+
+    const handleClose = () => setShow(false);
+
 
     const datas = [
         {
@@ -42,6 +50,9 @@ function Home({ colorName, theme }) {
     return (
         <>
             <div className='main-home-section' id="Home">
+
+
+
                 <div className='empty-circle'>
 
                 </div>
@@ -119,7 +130,9 @@ function Home({ colorName, theme }) {
                                 </div>
                                 <div>
                                     <button className='donwloadbutton'>
-                                        Download CV
+                                        <a href={pdf} download="Kalai-resume.pdf" className='pdf'>
+                                            Download CV
+                                        </a>
                                     </button>
                                 </div>
                             </div>
