@@ -77,9 +77,7 @@ function Aboutus({ colorName }) {
                             </div>
                             <div className='mt-4 inside-about-section-lefts'>
                                 {selectName == "Personal Info" && <div>
-                                    <div className='decsription' data-aos="fade-down"
-                                        data-aos-easing="linear"
-                                        data-aos-duration="1500">
+                                    <div className='decsription' >
                                         {PersonalContent?.desc}
                                     </div>
                                     <div className='mainabout-skill mt-4'>
@@ -166,25 +164,17 @@ function Aboutus({ colorName }) {
                                         {Qualifications?.map((item, index) => {
                                             return (
                                                 <div className='qulification-box mb-3 mt-3' key={index}>
-                                                    <div className='box' data-aos="fade-down"
-                                                        data-aos-easing="linear"
-                                                        data-aos-duration="1500">
+                                                    <div className='box' >
                                                         <i class="fa-solid fa-user-graduate icon-graduvate"></i>
                                                     </div>
                                                     <div className='list-educations'>
-                                                        <div className='matername' data-aos="fade-right"
-                                                            data-aos-easing="linear"
-                                                            data-aos-duration="1500">
+                                                        <div className='matername' >
                                                             {item?.name}
                                                         </div>
-                                                        <div className='matername' data-aos="fade-left"
-                                                            data-aos-easing="linear"
-                                                            data-aos-duration="1500">
+                                                        <div className='matername' >
                                                             {item?.dgname}
                                                         </div>
-                                                        <div className='clgname' data-aos="fade-down"
-                                                            data-aos-easing="linear"
-                                                            data-aos-duration="1500">
+                                                        <div className='clgname'>
                                                             {item?.clgName}
                                                         </div>
                                                         <div className='clgnames d-flex gap-2'>
