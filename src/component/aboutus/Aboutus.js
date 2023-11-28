@@ -77,7 +77,9 @@ function Aboutus({ colorName }) {
                             </div>
                             <div className='mt-4 inside-about-section-lefts'>
                                 {selectName == "Personal Info" && <div>
-                                    <div className='decsription' >
+                                    <div className='decsription' data-aos="fade-right"
+                                        data-aos-easing="linear"
+                                        data-aos-duration="1500" >
                                         {PersonalContent?.desc}
                                     </div>
                                     <div className='mainabout-skill mt-4'>
@@ -85,7 +87,9 @@ function Aboutus({ colorName }) {
                                             <div>
                                                 <i class="fa-regular fa-user left-icons"></i>
                                             </div>
-                                            <div className='main-about-texts' >
+                                            <div className='main-about-texts' data-aos="fade-down"
+                                                data-aos-easing="linear"
+                                                data-aos-duration="1500" >
                                                 {PersonalContent?.name}
                                             </div>
                                         </div>
@@ -93,7 +97,9 @@ function Aboutus({ colorName }) {
                                             <div>
                                                 <i class="fa-solid fa-phone-volume left-icons"></i>
                                             </div>
-                                            <div className='main-about-texts' >
+                                            <div className='main-about-texts' data-aos="fade-up"
+                                                data-aos-easing="linear"
+                                                data-aos-duration="1500"  >
                                                 {PersonalContent?.phoneno}
                                             </div>
                                         </div>
@@ -104,7 +110,9 @@ function Aboutus({ colorName }) {
                                             <div>
                                                 <i class="fa-regular fa-envelope left-icons "></i>
                                             </div>
-                                            <div className='main-about-texts' >
+                                            <div className='main-about-texts' data-aos="fade-left"
+                                                data-aos-easing="linear"
+                                                data-aos-duration="1500"  >
                                                 {PersonalContent?.emailid}
                                             </div>
                                         </div>
@@ -112,7 +120,9 @@ function Aboutus({ colorName }) {
                                             <div>
                                                 <i class="fa-regular fa-calendar left-icons"></i>
                                             </div>
-                                            <div className='main-about-texts' >
+                                            <div className='main-about-texts' data-aos="fade-up"
+                                                data-aos-easing="linear"
+                                                data-aos-duration="1500"  >
                                                 {PersonalContent?.dob}
                                             </div>
                                         </div>
@@ -124,7 +134,9 @@ function Aboutus({ colorName }) {
                                             <div>
                                                 <i class="fa-solid fa-user-graduate  left-icons"></i>
                                             </div>
-                                            <div className='main-about-texts' >
+                                            <div className='main-about-texts' data-aos="fade-left"
+                                                data-aos-easing="linear"
+                                                data-aos-duration="1500"  >
                                                 {PersonalContent?.deggre}
                                             </div>
                                         </div>
@@ -132,7 +144,9 @@ function Aboutus({ colorName }) {
                                             <div>
                                                 <i class="fa-solid fa-location-dot left-icons"></i>
                                             </div>
-                                            <div className='main-about-texts' >
+                                            <div className='main-about-texts' data-aos="fade-up"
+                                                data-aos-easing="linear"
+                                                data-aos-duration="1500" >
                                                 {PersonalContent?.address}
                                             </div>
                                         </div>
@@ -155,7 +169,8 @@ function Aboutus({ colorName }) {
                                     </div>
                                 </div>}
                                 {selectName == "Qualifications" && <div>
-                                    <div className='bolt-awesome mb-4 mt-2' data-aos="fade-up"
+                                    <div className='bolt-awesome mb-4 mt-2'
+                                        data-aos="fade-up"
                                         data-aos-easing="linear"
                                         data-aos-duration="1500">
                                         {PersonalContent?.MyAwesomeJourney}
@@ -168,19 +183,27 @@ function Aboutus({ colorName }) {
                                                         <i class="fa-solid fa-user-graduate icon-graduvate"></i>
                                                     </div>
                                                     <div className='list-educations'>
-                                                        <div className='matername' >
+                                                        <div className='matername' data-aos="fade-down"
+                                                            data-aos-easing="linear"
+                                                            data-aos-duration="1500">
                                                             {item?.name}
                                                         </div>
-                                                        <div className='matername' >
+                                                        <div className='matername' data-aos="fade-right"
+                                                data-aos-easing="linear"
+                                                data-aos-duration="1500"  >
                                                             {item?.dgname}
                                                         </div>
-                                                        <div className='clgname'>
+                                                        <div className='clgname' data-aos="fade-up"
+                                                data-aos-easing="linear"
+                                                data-aos-duration="1500" >
                                                             {item?.clgName}
                                                         </div>
-                                                        <div className='clgnames d-flex gap-2'>
+                                                        <div className='clgnames d-flex gap-2' data-aos="fade-down"
+                                                data-aos-easing="linear"
+                                                data-aos-duration="1500" >
                                                             <span>{item?.calicon}</span>  {item?.year}
                                                         </div>
-                                                        <div className='clgname'>
+                                                        <div className='clgname' >
                                                             {item?.place}
                                                         </div>
                                                     </div>
