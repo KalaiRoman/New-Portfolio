@@ -13,6 +13,8 @@ import Modal from 'react-bootstrap/Modal';
 import pdf from '../../assests/Kalai-resume.pdf';
 
 import AOS from 'aos';
+
+import CountUp from 'react-countup';
 function Home({ colorName, theme }) {
 
 
@@ -209,7 +211,7 @@ function Home({ colorName, theme }) {
                             </div>
                             <div className='happy-client-text' >
                                 <div className='text-years'>
-                                    3+</div>
+                                    <CountUp end={3}duration={5} />+</div>
                                 <div className='year-text'>
                                     Years of <br />Experience
                                 </div>
@@ -223,7 +225,7 @@ function Home({ colorName, theme }) {
                             </div>
                             <div className='happy-client-text'>
                                 <div className='text-years'>
-                                    10+</div>
+                                    <CountUp end={10} duration={5} />+</div>
                                 <div className='year-text'>
                                     Projects <br />Completed
                                 </div>
@@ -238,7 +240,7 @@ function Home({ colorName, theme }) {
                             </div>
                             <div className='happy-client-text'>
                                 <div className='text-years'>
-                                    4+</div>
+                                    <CountUp end={5} duration={5} />+</div>
                                 <div className='year-text'>
                                     Happy<br />Clients
                                 </div>
