@@ -3,9 +3,7 @@ import './styles/Aboutus.scss';
 import aboutimg from '../../assests/images/about-img.png';
 import CommonHeader from '../../CommonHeader/CommonHeader';
 import { PersonalContent, Qualifications, Skills, TabContent } from '../../commoncontent/AboutusData';
-import backgroudimage from '../../assests/images/background.png'
-import sad from '../../assests/images/sad.png';
-import happy from '../../assests/images/happy.png';
+
 
 import AOS from 'aos';
 
@@ -189,18 +187,18 @@ function Aboutus({ colorName }) {
                                                             {item?.name}
                                                         </div>
                                                         <div className='matername' data-aos="fade-right"
-                                                data-aos-easing="linear"
-                                                data-aos-duration="1500"  >
+                                                            data-aos-easing="linear"
+                                                            data-aos-duration="1500"  >
                                                             {item?.dgname}
                                                         </div>
                                                         <div className='clgname' data-aos="fade-up"
-                                                data-aos-easing="linear"
-                                                data-aos-duration="1500" >
+                                                            data-aos-easing="linear"
+                                                            data-aos-duration="1500" >
                                                             {item?.clgName}
                                                         </div>
                                                         <div className='clgnames d-flex gap-2' data-aos="fade-down"
-                                                data-aos-easing="linear"
-                                                data-aos-duration="1500" >
+                                                            data-aos-easing="linear"
+                                                            data-aos-duration="1500" >
                                                             <span>{item?.calicon}</span>  {item?.year}
                                                         </div>
                                                         <div className='clgname' >

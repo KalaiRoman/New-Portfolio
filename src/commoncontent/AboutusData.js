@@ -103,13 +103,22 @@ export const Skills = [
         name: "Nodejs"
     },
     {
-        id: 5,
-        name: "Context Api"
+        id: 6,
+        name: "Redux Toolkit"
     },
     {
         id: 6,
-        name: "Redux"
+        name: "MongoDB"
     },
+    {
+        id: 10,
+        name: 'RESTful APIs'
+    },
+    {
+        id: 5,
+        name: "Context Api"
+    },
+
     {
         id: 5,
         name: "Javascript"
