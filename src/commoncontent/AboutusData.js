@@ -20,7 +20,7 @@ export const PersonalContent = {
     emailid: "kalaimca685@gmail.com",
     dob: "Born on 12 June,1998",
     deggre: "Master on Computer Science",
-    address: "chennai",
+    address: "Chennai",
     desc: "I specialize in crafting intuitive websites with cutting-edge techonogy, delivering dynamic and enaging user experiences.",
     languageName: "Language Skill",
     MyAwesomeJourney: 'My Awesome Journey',

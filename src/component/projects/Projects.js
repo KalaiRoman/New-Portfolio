@@ -7,7 +7,7 @@ import SlideNextArrow from './slidenextarrow/SlideNextArrow';
 import SlidePreArrow from './slideprearrow/SlidePreArrow';
 import AOS from 'aos';
 
-function Projects() {
+function Projects({colorName}) {
 
     useEffect(() => {
         AOS.init();
@@ -81,7 +81,7 @@ function Projects() {
 
                 </div>
                 <div>
-                    <CommonHeader title={"Projects"} />
+                    <CommonHeader title={"Projects"} colorName={colorName}/>
                 </div>
                 <div className='container'>
 

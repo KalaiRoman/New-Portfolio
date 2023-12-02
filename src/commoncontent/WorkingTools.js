@@ -5,6 +5,8 @@ import android from '../assests/images/android.png'
 import nodejs from '../assests/images/thunder.png'
 import gitlab from '../assests/images/gitlab.png'
 import figma from '../assests/images/figma.png'
+import mongoose from '../assests/images/mongoodb.png'
+
 export const Tools = [
     {
         id: 1,
@@ -17,6 +19,10 @@ export const Tools = [
     {
         id: 3,
         image: nodejs
+    },
+    {
+        id:10,
+        image:mongoose,
     },
     {
         id: 4,

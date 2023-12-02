@@ -106,12 +106,12 @@ function Home({ colorName, theme }) {
                                 data-aos-easing="linear"
                                 data-aos-duration="1500"
                             >
-                                <span className='k-text'>K</span>alaisurya <span style={{ color: 'orange', fontWeight: 'bold', fontSize: "1rem" }}>(
+                                <span className='k-text' style={{ color: colorName }}>K</span>alaisurya <span style={{ color: `${colorName}`, fontWeight: 'bold', fontSize: "1rem" }}>(
                                     <Typewriter
                                         words={['Reactjs 😃', 'Nextjs 😃', 'ReactNative 😃', 'Nodejs 😃']}
                                         loop={5}
                                         cursor
-                                        cursorStyle='_'
+                                        cursorStyle='*'
                                         typeSpeed={70}
                                         deleteSpeed={50}
                                         delaySpeed={1000}

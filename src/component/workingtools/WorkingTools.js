@@ -4,7 +4,7 @@ import CommonHeader from './../../CommonHeader/CommonHeader';
 import { ToolOffer, Tools } from '../../commoncontent/WorkingTools';
 import AOS from 'aos';
 
-function WorkingTools() {
+function WorkingTools({colorName}) {
     useEffect(() => {
         AOS.init();
     }, [])
@@ -28,7 +28,7 @@ function WorkingTools() {
 
                 </div>
                 <div>
-                    <CommonHeader title={"Working Tools"} />
+                    <CommonHeader title={"Working Tools"} colorName={colorName}/>
                 </div>
                 <div className='mt-5 row tool-row-section gap-4'>
                     {Tools?.map((item,) => {
@@ -41,7 +41,7 @@ function WorkingTools() {
                     })}
                 </div>
                 <div className='mt-3'>
-                    <CommonHeader title={"What I Offer"} />
+                    <CommonHeader title={"What I Offer"} colorName={colorName}/>
                 </div>
                 <div className='row offer-card-tools mt-3'>
                     {ToolOffer?.map((item,) => {
