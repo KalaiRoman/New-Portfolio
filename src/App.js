@@ -25,8 +25,7 @@ function App() {
   const [settingcolor, setSettingColor] = useState(false);
 
 
-  const [Username, setUserName] = useState("/")
-
+  const Username = window.location.pathname;
   // const ThemeLoader = () => {
   //   return localStorage.getItem("loader") ? JSON.parse(localStorage.getItem("loader")) : true
   // }
@@ -173,7 +172,7 @@ function App() {
                     return (
                       <div key={index} className={Username == item?.path ? "activename" : "inactivename"}
                         onClick={() => {
-                          setUserName(item?.path)
+
                           navigate(item?.path)
                         }}
                       >

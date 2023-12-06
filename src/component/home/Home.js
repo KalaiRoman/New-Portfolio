@@ -211,7 +211,7 @@ function Home({ colorName, theme }) {
                             </div>
                             <div className='happy-client-text' >
                                 <div className='text-years'>
-                                    <CountUp end={3}duration={5} />+</div>
+                                    <CountUp end={3} duration={5} />+</div>
                                 <div className='year-text'>
                                     Years of <br />Experience
                                 </div>
