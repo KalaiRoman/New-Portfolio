@@ -149,7 +149,20 @@ function Aboutus({ colorName }) {
                                             </div>
                                         </div>
                                     </div>
-                                    <div className='mt-5' >
+                                    <div className='mt-4'>
+                                        <div className='language-names'>
+                                            Resume :
+                                        </div>
+                                        <div onClick={() => window.open('https://kalairesume.netlify.app/')} className='mt-3 mb-3 resume-texts'>
+                                            <div>
+                                                <i class="fa-solid fa-file"></i>
+                                            </div>
+                                            <div className='text-dashed'>
+                                                https://kalairesume.netlify.app/
+                                            </div>
+                                        </div>
+                                    </div>
+                                    <div className='mt-2' >
                                         <div className='language-names'>
                                             {PersonalContent?.languageName} :
                                         </div>

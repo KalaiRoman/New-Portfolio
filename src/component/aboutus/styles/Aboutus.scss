@@ -12,6 +12,16 @@
         padding-top: 10%;
         padding-bottom: 20%;
     }
+    @include smBreakPoint {
+        height: auto;
+        padding-top: 10%;
+        padding-bottom: 20%;
+    }
+    @include mdBreakPoint {
+        height: auto;
+        padding-top: 10%;
+        padding-bottom: 20%;
+    }
     .background-image {
         position: absolute;
         left: 0;
@@ -127,6 +137,12 @@
                 @include xsBreakPoint {
                     padding-top: 10%;
                 }
+                @include smBreakPoint {
+                    padding-top: 10%;
+                }
+                @include mdBreakPoint {
+                    padding-top: 10%;
+                }
 
                 @include lgBreakPoint {
                     width: 100%;
@@ -200,6 +216,10 @@
                         flex-direction: column;
                         gap: 30px;
                     }
+                    @include smBreakPoint {
+                        flex-direction: column;
+                        gap: 30px;
+                    }
                     @include lgBreakPoint {
                         gap: 40px;
                     }
@@ -211,6 +231,9 @@
                         @include xsBreakPoint {
                             width: 100%;
                         }
+                        @include smBreakPoint {
+                            width: 100%;
+                        }
                     }
                     .main-right {
                         width: 40%;
@@ -219,6 +242,9 @@
                         align-items: center;
                         @include xsBreakPoint {
                             width: 100%;
+                        }
+                        @include smBreakPoint {
+                            width: 60%;
                         }
                     }
                     .left-icons {
@@ -435,4 +461,26 @@
 
 .cal-icon {
     color: #ba68c8;
+}
+
+.resume-texts {
+    display: flex;
+    gap: 10px;
+    font-size: 1.3rem;
+    color: #2f327d;
+    text-decoration: dashed;
+    border-bottom: 1px solid dashed;
+    font-weight: 500;
+    transition: 2s;
+}
+.text-dashed {
+    text-decoration: dashed;
+    border-color: #5b72ee;
+    border-bottom: 1px solid dashed;
+}
+
+.resume-texts:hover {
+    transform: scale(1.1);
+    color: #33efa0;
+    padding-left: 5%;
 }
