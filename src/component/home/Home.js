@@ -96,7 +96,8 @@ function Home({ colorName, theme }) {
                         <div className='left-inside-home'>
                             <div className='web-text mb-2' style={{ color: colorName }} data-aos-easing="linear"
                                 data-aos-duration="1500" data-aos="fade-down">
-                                <span className='w-text animate__animated animate__bounce animate__repeat-3 	3 animate__slow 2s'> W</span>EB<span className='w-text animate__animated animate__bounce animate__repeat-2 	2 animate__slow 3s'>D</span>EVELOPER
+                                Full Stack Developer
+                                {/* (<span className='w-text animate__animated animate__bounce animate__repeat-3 	3 animate__slow 2s'> W</span>EB<span className='w-text animate__animated animate__bounce animate__repeat-2 	2 animate__slow 3s'>D</span>EVELOPER) */}
                             </div>
                             <div className='myname-text' data-aos="fade-right"
                                 data-aos-easing="linear"
@@ -211,7 +212,7 @@ function Home({ colorName, theme }) {
                             </div>
                             <div className='happy-client-text' >
                                 <div className='text-years'>
-                                    <CountUp end={3} duration={5} />+</div>
+                                    <CountUp end={4} duration={5} /></div>
                                 <div className='year-text'>
                                     Years of <br />Experience
                                 </div>
