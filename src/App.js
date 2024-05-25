@@ -10,17 +10,17 @@ import rocket from './assests/images/rocket-img.png'
 import Home from './component/home/Home';
 import { Tooltip as ReactTooltip } from 'react-tooltip'
 import Aboutus from './component/aboutus/Aboutus';
-
 import { Route, Routes, useNavigate } from "react-router-dom";
 import Projects from './component/projects/Projects';
 import WorkingTools from './component/workingtools/WorkingTools';
 import Contact from './component/contact/Contact';
-
+import whatsimage from './assests/images/whatsapp.png';
+import Chat from './component/chat/Chat';
 function App() {
 
 
-  const [ResponseSection, setResponseSection] = useState("Desktop-section")
 
+  const [ResponseSection, setResponseSection] = useState("Desktop-section")
 
   const [settingcolor, setSettingColor] = useState(false);
 
@@ -108,7 +108,6 @@ function App() {
       ToolName: "Projects"
 
     },
-
     {
       id: 7,
       name: "Contact Us",
@@ -116,8 +115,6 @@ function App() {
       path: "/contact",
       heightScroll: 0,
       ToolName: "Contact Us"
-
-
     }
   ]
 
@@ -154,7 +151,7 @@ function App() {
         </div>
       </div> : <>
         <div className={theme ? "theme--dark" : "theme--light"}>
-          <AnimatedCursor
+          {/* <AnimatedCursor
             innerSize={10}
             outerSize={30}
             color='255, 46, 99'
@@ -162,7 +159,7 @@ function App() {
             innerScale={0.6}
             outerScale={0}
             className="mouse-section"
-          />
+          /> */}
           <div className={"Dektop-section "}>
             <div className="main-section">
               <div className='middle-header'>
@@ -217,10 +214,10 @@ function App() {
                 </div>
 
                 {settingcolor ?
-                  <div className='box-setting-colors row align-items-center justify-content-center'>
+                  <div className='box-setting-colors'>
                     {colors?.map((item, index) => {
                       return (
-                        <div key={index} className='col-lg-3 col-xs-3 col-sm-6 mb-1 mt-1 box-color' onClick={() => {
+                        <div key={index} className='mt-1 box-color' onClick={() => {
                           handleChange(item)
                           setSettingColor(false);
                         }}>
@@ -238,6 +235,10 @@ function App() {
                   </div> : null}
               </div>
 
+              <div onClick={()=> navigate("/chat")}>
+                <img src={whatsimage} alt="no image" className='whats-app-image'  onClick={()=>navigate("/chat")}/>
+              </div>
+
               <div className='body-sections'>
                 <Routes>
                   <Route exact path="/" element={<Home colorName={state?.ColorName} ResponseSection={ResponseSection} theme={theme} />} />
@@ -245,6 +246,8 @@ function App() {
                   <Route path="/projects" element={<Projects colorName={state?.ColorName} />} />
                   <Route path="/tools" element={<WorkingTools colorName={state?.ColorName} />} />
                   <Route path="/contact" element={<Contact colorName={state?.ColorName} />} />
+                  <Route path="/chat" element={<Chat colorName={state?.ColorName} />} />
+
                 </Routes>
               </div>
             </div>

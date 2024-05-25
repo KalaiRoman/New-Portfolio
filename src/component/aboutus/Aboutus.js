@@ -166,7 +166,7 @@ function Aboutus({ colorName }) {
                                         <div className='language-names'>
                                             {PersonalContent?.languageName} :
                                         </div>
-                                        <div className='row'>
+                                        <div className='row gap-5'>
                                             {PersonalContent?.languages?.map((item, index) => {
                                                 return (
                                                     <div key={index} className='mt-4 language-texts'
@@ -186,7 +186,7 @@ function Aboutus({ colorName }) {
                                         data-aos-duration="1500">
                                         {PersonalContent?.MyAwesomeJourney}
                                     </div>
-                                    <div className='qualification-section row'>
+                                    <div className='qualification-section '>
                                         {Qualifications?.map((item, index) => {
                                             return (
                                                 <div className='qulification-box mb-3 mt-3' key={index}>
@@ -227,10 +227,10 @@ function Aboutus({ colorName }) {
                                     <div className='bolt-awesome mb-4 mt-2'>
                                         {PersonalContent?.tools}
                                     </div>
-                                    <div className='row gap-3'>
+                                    <div className='row gap-3 skill-main-box'>
                                         {Skills?.map((item, index) => {
                                             return (
-                                                <div className='skill-box mb-4 mt-2'>
+                                                <div className='skill-box mb-3 mt-2' key={index}>
                                                     {item?.name}
                                                 </div>
                                             )

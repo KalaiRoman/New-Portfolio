@@ -8,6 +8,8 @@ import 'swiper/css/autoplay';
 import person1 from '../../assests/images/person1.png';
 import person2 from '../../assests/images/person2.png';
 import person3 from '../../assests/images/person3.png';
+import person4 from '../../assests/images/3d male.png';
+
 import { Typewriter } from 'react-simple-typewriter'
 import Modal from 'react-bootstrap/Modal';
 import pdf from '../../assests/Kalai-resume.pdf';
@@ -40,6 +42,10 @@ function Home({ colorName, theme }) {
         {
             id: 1,
             image: person3
+        },
+        {
+            id: 1,
+            image: person4
         }
     ]
 
@@ -94,15 +100,11 @@ function Home({ colorName, theme }) {
                 <div className='inside-section'>
                     <div className='home-left' style={{ color: colorName }}>
                         <div className='left-inside-home'>
-                            <div className='web-text mb-2' style={{ color: colorName }} data-aos-easing="linear"
-                                data-aos-duration="1500" data-aos="fade-down">
-                                Full Stack Developer
-                                {/* (<span className='w-text animate__animated animate__bounce animate__repeat-3 	3 animate__slow 2s'> W</span>EB<span className='w-text animate__animated animate__bounce animate__repeat-2 	2 animate__slow 3s'>D</span>EVELOPER) */}
-                            </div>
+                          
                             <div className='myname-text' data-aos="fade-right"
                                 data-aos-easing="linear"
                                 data-aos-duration="1500">
-                                Hello, My name is
+                                Hello, I am 
                             </div>
                             <div className='myname-text'
                                 data-aos="flip-left"
@@ -123,12 +125,18 @@ function Home({ colorName, theme }) {
                                     /> )
                                 </span>
                             </div>
-                            <div className='build-text mt-3' data-aos="zoom-in-right"
+                            <div className='web-text mb-2 mt-3' style={{ color: colorName }} data-aos-easing="linear"
+                                data-aos-duration="1500" data-aos="fade-down">
+                                Full Stack Developer
+                                {/* (<span className='w-text animate__animated animate__bounce animate__repeat-3 	3 animate__slow 2s'> W</span>EB<span className='w-text animate__animated animate__bounce animate__repeat-2 	2 animate__slow 3s'>D</span>EVELOPER) */}
+                            </div>
+                            {/* <div className='build-text mt-3' data-aos="zoom-in-right"
                                 data-aos-easing="linear"
                                 data-aos-duration="1500"
                             >
                                 A Building Applications with Front End Developer Operations.
-                            </div>
+                                Building applications involves Front End Developer Operations for the user interface and backend handling for data processing and server-side functionalities.
+                            </div> */}
                             <div className='home-social-icons mt-4 mb-2'>
                                 <div data-aos="fade-right"
                                     data-aos-easing="linear"
@@ -147,17 +155,14 @@ function Home({ colorName, theme }) {
                                 </div>
                             </div>
                             <div className='home-button'>
-                                <div data-aos="fade-up"
-                                    data-aos-duration="3000">
+                                <div >
                                     <button className='hireme'>
                                         <a href="mailto:kalaimca685@gmail.com">
                                             Hire Me
                                         </a>
                                     </button>
                                 </div>
-                                <div data-aos="fade-down"
-                                    data-aos-easing="linear"
-                                    data-aos-duration="1500">
+                                <div >
                                     <button className='donwloadbutton'>
                                         <a href={pdf} download="Kalai-resume.pdf" className='pdf'>
                                             Download CV

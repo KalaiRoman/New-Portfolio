@@ -4,7 +4,7 @@ import CommonHeader from './../../CommonHeader/CommonHeader';
 import { ToolOffer, Tools } from '../../commoncontent/WorkingTools';
 import AOS from 'aos';
 
-function WorkingTools({colorName}) {
+function WorkingTools({ colorName }) {
     useEffect(() => {
         AOS.init();
     }, [])
@@ -28,27 +28,32 @@ function WorkingTools({colorName}) {
 
                 </div>
                 <div>
-                    <CommonHeader title={"Working Tools"} colorName={colorName}/>
+                    <CommonHeader title={"Working Tools"} colorName={colorName} />
                 </div>
-                <div className='mt-5 row tool-row-section gap-4'>
-                    {Tools?.map((item,) => {
+                <div className='mt-5  tool-row-section'>
+                    {Tools?.map((item) => {
                         return (
-                            <div className='box-tootles' data-aos="fade-down"
+                            <div className='box-tootles mb-3 mt-2' data-aos="fade-down"
                                 data-aos-duration="3000">
-                                <img src={item?.image} alt={"no image"} className='tool-img' />
+                                <div>
+                                    <img src={item?.image} alt={"no image"} className='tool-img' />
+
+                                </div>
+                                <div className='tool-name'>
+                                    {item?.name}
+                                </div>
                             </div>
                         )
                     })}
                 </div>
                 <div className='mt-3'>
-                    <CommonHeader title={"What I Offer"} colorName={colorName}/>
+                    <CommonHeader title={"What I Offer"} colorName={colorName} />
                 </div>
                 <div className='row offer-card-tools mt-3'>
                     {ToolOffer?.map((item,) => {
                         return (
                             <div className='offer-card' data-aos="fade-up"
                                 data-aos-duration="3000">
-
                                 <div className='icon-tool' data-aos="fade-down"
                                     data-aos-duration="3000">
                                     {item?.image}
@@ -62,10 +67,8 @@ function WorkingTools({colorName}) {
                                     {item?.dec}
                                 </div>
                                 <div className='boxes'>
-
                                 </div>
                                 <div className='boxes1'>
-
                                 </div>
                             </div>
                         )

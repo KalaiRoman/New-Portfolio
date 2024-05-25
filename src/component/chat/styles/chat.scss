@@ -1,0 +1,148 @@
+@use "../../../sass/abstract/" as *;
+
+.main-chat-box {
+  width: 100%;
+  height: 100vh;
+  padding: 10vh 0px;
+  .inside-chat-box {
+    width: 70%;
+    height: 100%;
+    margin: 0 auto;
+    box-shadow: rgba(0, 0, 0, 0.1) 0px 4px 12px;
+    background-color: white;
+    display: flex;
+    gap: 20px;
+    border-radius: 20px;
+    padding: 10px 10px;
+    position: relative;
+
+    .left-chat-box {
+      width: 30%;
+      box-shadow: rgba(17, 12, 46, 0.15) 0px 48px 100px 0px;
+      border-radius: 20px;
+      padding: 10px 20px;
+    }
+    .right-chat-box {
+      box-shadow: rgba(17, 12, 46, 0.15) 0px 48px 100px 0px;
+      width: 70%;
+      border-radius: 20px;
+      padding: 10px 20px;
+      .right-inside-chat-box {
+        width: 100%;
+        height: 100%;
+        .top-header-section-chat {
+          width: 100%;
+          height: 12%;
+          border: 2px solid #f4e7ff;
+          box-shadow: rgba(50, 50, 93, 0.25) 0px 50px 100px -20px,
+            rgba(0, 0, 0, 0.3) 0px 30px 60px -30px;
+          background-color: white;
+          border-radius: 5px;
+          padding: 5px 10px;
+        }
+        .middle-section-chat {
+          width: 100%;
+          height: 75%;
+          border: 2px solid #f4e7ff;
+          box-shadow: rgba(50, 50, 93, 0.25) 0px 50px 100px -20px,
+            rgba(0, 0, 0, 0.3) 0px 30px 60px -30px;
+          background-color: white;
+          border-radius: 5px;
+          padding: 5px 10px;
+          background-color: #f4e7ff;
+        }
+        .bottom-header-section-chat {
+          width: 100%;
+          height: 13%;
+          border: 2px solid #f4e7ff;
+          box-shadow: rgba(17, 17, 26, 0.05) 0px 4px 16px,
+            rgba(17, 17, 26, 0.05) 0px 8px 32px;
+          background-color: white;
+          border-radius: 5px;
+          padding: 5px 10px;
+          display: flex;
+          .logo-bottom {
+            width: 12%;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            cursor: pointer;
+            font-size: 2.1rem;
+            .box-emojies {
+              position: absolute;
+              top: -0vh;
+            }
+          }
+          .chat-bottom {
+            width: 78%;
+
+            .chat-form {
+              width: 98%;
+              border: none;
+              outline: none;
+              padding: 13px 10px;
+              border-radius: 10px;
+              box-shadow: rgba(0, 0, 0, 0.09) 0px 3px 12px;
+            }
+          }
+          .send-bottom {
+            width: 10%;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            .fa-paper-plane-top {
+              font-size: 2rem;
+              cursor: pointer;
+              transition: 0.2s;
+            }
+            .fa-paper-plane-top:hover {
+              transform: rotate(-20deg);
+              color: orangered;
+              transition: 0.2s;
+            }
+          }
+        }
+      }
+    }
+  }
+}
+.login-texts {
+  font-size: 2rem;
+  font-weight: 600;
+  text-align: center;
+}
+
+.chat-form {
+  width: 100%;
+  border: none;
+  outline: none;
+  box-shadow: rgba(0, 0, 0, 0.05) 0px 0px 0px 1px,
+    rgb(209, 213, 219) 0px 0px 0px 1px inset;
+  background-color: white;
+  cursor: pointer;
+  padding: 10px 10px;
+  border-radius: 10px;
+}
+
+.login-button {
+  width: 75%;
+  padding: 10px;
+  cursor: pointer;
+  background-color: orange;
+  outline: none;
+  border-radius: 10px;
+  border: none;
+  font-weight: 600;
+  font-size: 1.2rem;
+  color: white;
+}
+
+.input-box-otp {
+  width: 90px !important;
+  margin: 0 auto;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  box-shadow: rgba(17, 17, 26, 0.1) 0px 8px 24px,
+    rgba(17, 17, 26, 0.1) 0px 16px 56px, rgba(17, 17, 26, 0.1) 0px 24px 80px;
+}
