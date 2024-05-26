@@ -4,6 +4,7 @@
   width: 100%;
   height: 100vh;
   padding: 10vh 0px;
+
   .inside-chat-box {
     width: 70%;
     height: 100%;
@@ -15,12 +16,14 @@
     border-radius: 20px;
     padding: 10px 10px;
     position: relative;
+    overflow: hidden;
 
     .left-chat-box {
       width: 30%;
       box-shadow: rgba(17, 12, 46, 0.15) 0px 48px 100px 0px;
       border-radius: 20px;
-      padding: 10px 20px;
+      padding: 10px 5px;
+      position: relative;
     }
     .right-chat-box {
       box-shadow: rgba(17, 12, 46, 0.15) 0px 48px 100px 0px;
@@ -38,10 +41,9 @@
             rgba(0, 0, 0, 0.3) 0px 30px 60px -30px;
           background-color: white;
           border-radius: 5px;
-          padding: 5px 10px;
+          padding: 3px 10px;
         }
         .middle-section-chat {
-          width: 100%;
           height: 75%;
           border: 2px solid #f4e7ff;
           box-shadow: rgba(50, 50, 93, 0.25) 0px 50px 100px -20px,
@@ -50,6 +52,8 @@
           border-radius: 5px;
           padding: 5px 10px;
           background-color: #f4e7ff;
+          overflow-y: scroll;
+          // overflow: hidden;
         }
         .bottom-header-section-chat {
           width: 100%;
@@ -145,4 +149,163 @@
   justify-content: center;
   box-shadow: rgba(17, 17, 26, 0.1) 0px 8px 24px,
     rgba(17, 17, 26, 0.1) 0px 16px 56px, rgba(17, 17, 26, 0.1) 0px 24px 80px;
+}
+
+// header section
+
+.avatar-image {
+  width: 45px;
+  height: 45px;
+  border-radius: 50%;
+  cursor: pointer;
+  object-fit: cover;
+}
+
+.avatar-images {
+  width: 45px;
+  height: 45px;
+  border-radius: 50%;
+  cursor: pointer;
+  object-fit: cover;
+}
+
+.user-name-texts {
+  font-size: 1.2rem;
+  font-weight: 600;
+}
+
+.date-texts {
+  font-size: 0.779rem;
+  color: #868686;
+}
+
+// sidebar
+.sidebar-card {
+  width: 100%;
+  padding: 10px 10px;
+  background-color: white;
+  box-shadow: rgba(0, 0, 0, 0.15) 0px 2px 8px;
+  border-radius: 10px;
+  display: flex;
+  gap: 10px;
+  cursor: pointer;
+}
+
+.sidebar-card-active {
+  border: 2px solid blue;
+}
+
+// .sender-message {
+//   width: 140px;
+//   border-radius: 10px;
+//   position: relative;
+//   float: right;
+//   flex-wrap: wrap;
+//   text-wrap: wrap;
+//   padding: 8px 10px;
+//   margin-right: 12px;
+//   background-color: white;
+//   box-shadow: rgba(0, 0, 0, 0.15) 0px 15px 25px,
+//     rgba(0, 0, 0, 0.05) 0px 5px 10px;
+//   position: absolute;
+// }
+
+.sender-message {
+  display: flex;
+  justify-content: flex-end;
+  margin: 10px 0px;
+  width: auto;
+  flex-wrap: wrap;
+  text-wrap: wrap;
+  padding: 8px 10px;
+  margin-right: 12px;
+}
+.receiver-message {
+  display: flex;
+  justify-content: flex-start;
+  margin: 10px 0px;
+}
+
+.sender-messagess {
+  display: flex;
+  justify-content: flex-end;
+  flex-direction: column;
+  margin: 2px 0px;
+  width: auto;
+  position: relative;
+  background-color: white;
+  box-shadow: rgba(0, 0, 0, 0.15) 0px 15px 25px,
+    rgba(0, 0, 0, 0.05) 0px 5px 10px;
+  padding: 15px 70px 15px 20px;
+  border-radius: 10px;
+}
+.receiver-messages {
+  display: flex;
+  justify-content: flex-start;
+  margin: 10px 0px;
+  padding: 5px 20px;
+  border-top-right-radius: 30px;
+  box-shadow: rgba(0, 0, 0, 0.15) 0px 15px 25px,
+    rgba(0, 0, 0, 0.05) 0px 5px 10px;
+  padding: 15px 70px 15px 20px;
+  border-radius: 10px;
+  background-color: white;
+  flex-direction: column;
+  width: auto;
+  position: relative;
+}
+
+.avatar-image-chat {
+  position: absolute;
+  top: -6px;
+  width: 25px;
+  height: 25px;
+  border-radius: 50%;
+  right: -3%;
+  border: 2px solid green;
+  cursor: pointer;
+}
+
+.time-text {
+  font-size: 0.989rem;
+  padding-top: 4%;
+  color: #868686;
+  text-align: end;
+  display: flex;
+  justify-content: flex-end;
+}
+
+.avatar-image-chats {
+  position: absolute;
+  top: -10%;
+  width: 30px;
+  height: 30px;
+  border-radius: 50%;
+  right: -2%;
+  object-fit: cover;
+  border: 2px solid orangered;
+  cursor: pointer;
+}
+
+.help-box {
+  width: 100%;
+  height: 50%;
+  padding: 30px 10px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  margin-top: 14vh;
+  border-radius: 10px;
+  cursor: pointer;
+  // background-color: #fff2e3;
+}
+
+.user-image {
+  width: 100%;
+  height: 200px;
+  object-fit: contain;
+  position: absolute;
+  top: 25%;
+  left: 0;
+  transform: translateY(-50%, -50%);
 }
