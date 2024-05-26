@@ -1,17 +1,19 @@
 import React,{useEffect, useState} from 'react'
 import '../styles/chat.scss';
-import { getUserData } from '../../../services/auth_services/auth_services';
+import { getUserAdminData, getUserData } from '../../../services/auth_services/auth_services';
 import moment from 'moment';
-function Headerchat({setUserIdMain}) {
+function Headerchat({setUserIdMai,userimageadmin}) {
   const token=localStorage.getItem("port-token");
     const [user,setUser]=useState([]);
     useEffect(()=>{
 
         if(token)
             {
-                getUserData().then((res)=>{
-                    setUser(res?.data?.user);
-                    setUserIdMain(res?.data?.user?._id)
+                
+
+                getUserAdminData().then((res)=>{
+                    setUser(res?.data?.adminuser[0]);
+                    userimageadmin(res?.data?.adminuser[0]?.avatar)
                 }).catch((err)=>{
                     console.log(err);
                 })

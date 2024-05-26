@@ -42,3 +42,14 @@ export function getUserAdminData() {
         })
     })
 }
+
+
+export function MailRegister(data) {
+    return new Promise((resolve, reject) => {
+        instanceBaseurl.post(`/portfolio/mail/register`, data).then(response => {
+            resolve(response)
+        }).catch(err => {
+            reject(err)
+        })
+    })
+}

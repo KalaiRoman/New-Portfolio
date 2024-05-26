@@ -62,6 +62,9 @@ function Projects({colorName}) {
     const NavigatePath = (data) => {
         window.open(data);
     }
+
+
+    const tabs=["Ractjs","Nextjs","Nodejs","ReacNative"]
     return (
         <div className='projects-main-section'>
             <div className='inside-project-section'>
@@ -85,8 +88,44 @@ function Projects({colorName}) {
                 </div>
                 <div className='container'>
 
+
+{/* <div className='tab-section-projects'>
+    {tabs?.map((item,index)=>{
+        return(
+            <div className='tab-box'>
+                {item}
+            </div>
+        )
+    })}
+</div> */}
                     <div className='main-slider-section'>
-                        <Slider {...settings}>
+
+
+                    {ProjectDatas?.map((item) => {
+                                return (
+                                    <div className='cards mt-2 mb-4' >
+                                        <div className='project-title'>
+                                            {item?.name}
+                                        </div>
+                                        <div className='text-center mb-5 mt-2 desc' >
+                                            {item?.des}
+                                        </div>
+                                        <div className='mt-4' >
+                                            <button className='button-project' onClick={() => NavigatePath(item?.url)}>
+                                                {item?.button}
+                                            </button>
+                                        </div>
+                                        <div className="card-emty-box">
+
+                                        </div>
+                                        <div className="card-emty-box1">
+
+                                        </div>
+                                    </div>
+                                )
+                            })}
+                        {/* </Slider>  */}
+                        {/* <Slider {...settings}>
                             {ProjectDatas?.map((item) => {
                                 return (
                                     <div className='cards mt-2 mb-4' data-aos="fade-left"
@@ -114,7 +153,7 @@ function Projects({colorName}) {
                                     </div>
                                 )
                             })}
-                        </Slider>
+                        </Slider> */}
                     </div>
 
 

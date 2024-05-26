@@ -199,20 +199,26 @@ useEffect(()=>{
     <div className='main-chat-box'>
         <div className='inside-chat-box'>
 <div className='left-chat-box'>
-    <Sidebarchat setUserImageadmin={setUserImageadmin}/>
+    <Sidebarchat setUserIdMain={setUserIdMain}/>
+    
     <div className='help-box'>
       <img src={thumb} alt="no image" className='user-image'/>
     </div>
+
+    <div>
+        <button className='hire-me-btn'>Hire Me</button>
+    </div>
+   
 </div>
 <div className='right-chat-box'>
 <div className='right-inside-chat-box'>
 <div className='top-header-section-chat'>
 <div className='top-header-body-section'>
-<Headerchat setUserIdMain={setUserIdMain}/>
+<Headerchat  userimageadmin={userimageadmin}/>
 </div>
 </div>
 <div className='middle-section-chat'>
-<ChatBox messagesref={messagesref} user={user} userimage={userimage} userimageadmin={userimageadmin}/>
+<ChatBox messagesref={messagesref} user={user} userimage={userimage} />
 </div>
 <div className='bottom-header-section-chat'>
 <div className='logo-bottom' onClick={handleShow}>

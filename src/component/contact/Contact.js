@@ -4,9 +4,9 @@ import CommonHeader from './../../CommonHeader/CommonHeader';
 import contactimg from '../../assests/images/Contact us-amico 1.png';
 import { ContactDatas } from '../../commoncontent/ContactData';
 import Form from 'react-bootstrap/Form';
-import emailjs from '@emailjs/browser';
 import AOS from 'aos';
-
+import { MailRegister } from '../../services/auth_services/auth_services';
+import { toast } from 'react-toastify';
 function Contact({ colorName }) {
 
 
@@ -27,7 +27,7 @@ function Contact({ colorName }) {
     const handleChange = (e) => {
         setSendMail({ ...sendmails, [e.target.name]: e.target.value });
     }
-    const SubmitContactDetails = (e) => {
+    const SubmitContactDetails = async(e) => {
         e.preventDefault();
 
         if (user_email?.length === 0 || user_message?.length === 0 || user_name?.length === 0) {
@@ -36,16 +36,29 @@ function Contact({ colorName }) {
 
         if (user_email && user_name && user_message) {
             setLoader(true);
-            setTimeout(() => {
-                setLoader(false);
-                setSuccess(true);
-                setError(false);
-                setSendMail({
-                    user_email: "",
-                    user_name: "",
-                    user_message: ""
-                })
-            }, 1000);
+
+const data={
+    email:user_email,
+    username:user_name,
+    message:user_message
+}
+            const response=await MailRegister(data);
+
+            if(response)
+                {
+                    toast.success("Thank you for send Mail")
+                    setTimeout(() => {
+                        setLoader(false);
+                        setSuccess(true);
+                        setError(false);
+                        setSendMail({
+                            user_email: "",
+                            user_name: "",
+                            user_message: ""
+                        })
+                    }, 1000);
+                }
+           
         }
 
     }

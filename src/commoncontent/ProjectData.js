@@ -1,18 +1,16 @@
 export const ProjectDatas = [
     {
         id: 1,
-        name: "Womeyn (Seller and End User(B2c)",
+        name: "Womeyn",
         des: "React.js,Nextjs, JavaScript, HTML and Sass, Bootstrap, Responsive Web Design, Create the necessary components, such as headers, sections, and footers, using React components.",
         button: "Live Demo",
-        url: 'https://staging.womeyn.com/'
+        url: 'https://staging.womeyn.com/',
+        path:"reactjs"
     },
     {
         id: 2,
-        name: "Womeyn (Landing Page)",
+        name: "Womeyn",
         des: "React.js, JavaScript, HTML and Sass, Bootstrap, Responsive Web Design, Create the necessary components, such as headers, sections, and footers, using React components.",
-
-
-
         button: "Live Demo",
         url: 'https://staging.womeyn.com/'
 
@@ -63,7 +61,7 @@ export const ProjectDatas = [
     },
     {
         id: 7,
-        name: "Crofit (Mobile App)",
+        name: "Crofit",
         des: "React.js, JavaScript, HTML and Sass, Bootstrap, Responsive Web Design, Create the necessary components, such as headers, sections, and footers, using React components.",
 
         button: "Live Demo",
@@ -72,7 +70,7 @@ export const ProjectDatas = [
     },
     {
         id: 8,
-        name: "Kridas (Mobile APP)",
+        name: "Kridas",
 
         des: "React Native, JavaScript, HTML and Sass, Bootstrap, Responsive Web Design, Create the necessary components, such as headers, sections, and footers, using React components.",
 
@@ -84,7 +82,16 @@ export const ProjectDatas = [
     },
     {
         id: 9,
-        name: "NEET/JEE (Landing Page)",
+        name: "Digital Hire",
+        des: "Next.js, JavaScript, HTML and Sass, Bootstrap, Responsive Web Design, Create the necessary components, such as headers, sections, and footers, using React components.",
+        button: "Live Demo",
+        url: 'https://digital-hire.cdp360.org/'
+
+
+    },
+    {
+        id: 9,
+        name: "NEET/JEE",
         des: "React.js, JavaScript, HTML and Sass, Bootstrap, Responsive Web Design, Create the necessary components, such as headers, sections, and footers, using React components.",
 
 
@@ -107,10 +114,17 @@ export const ProjectDatas = [
     },
     {
         id: 11,
-        name: "Campus Avenue (Landing Page)",
+        name: "Campus Avenue",
         des: "React.js, JavaScript, HTML and Sass, Bootstrap, Responsive Web Design, Create the necessary components, such as headers, sections, and footers, using React components.",
         button: "Live Demo",
         url: ''
 
+    },
+    {
+        id: 11,
+        name: "Blog App",
+        des: "React.js, JavaScript, HTML and Sass, Bootstrap, Responsive Web Design, Create the necessary components, such as headers, sections, and footers, using React components.",
+        button: "Live Demo",
+        url: ''
     }
 ]
