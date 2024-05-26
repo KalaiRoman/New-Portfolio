@@ -2,7 +2,7 @@ import React,{useEffect, useState} from 'react'
 import '../styles/chat.scss';
 import { getUserAdminData, getUserData } from '../../../services/auth_services/auth_services';
 import Modal from 'react-bootstrap/Modal';
-function Sidebarchat({setUserIdMain}) {
+function Sidebarchat({setUserIdMain,handleShow1}) {
     const token=localStorage.getItem("port-token");
     const [user,setUser]=useState([]);
     const [user1,setUser1]=useState([]);
@@ -33,6 +33,9 @@ function Sidebarchat({setUserIdMain}) {
     },[token])
   return (
     <>
+   
+   {user?.avatar?<>
+   
     <div className='sidebar-cards d-flex gap-3 border p-3 rounded'>
 <div>
 <img src={user?.avatar} alt="no image"  className='avatar-images'/>
@@ -51,10 +54,15 @@ function Sidebarchat({setUserIdMain}) {
 
 
     </div>
+   </>:null}
 
     <div>
         <hr/>
     </div>
+  
+  {user1?.avatar?<>
+  
+  
     <div className='mt-3 mb-5 sidebar-card' onClick={handleShow}>
     <div>
 <img src={user1?.avatar} alt="no image"  className='avatar-images'/>
@@ -70,6 +78,9 @@ function Sidebarchat({setUserIdMain}) {
 </div>
 </div>
     </div>
+  </>:<div className='text-center'>
+    <button className='hire-me-btns' onClick={handleShow1}>Please Login</button>
+    </div>}
 
     <Modal
         show={show}

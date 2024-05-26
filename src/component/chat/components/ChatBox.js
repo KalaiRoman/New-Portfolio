@@ -6,6 +6,7 @@ import TimeAgo from 'javascript-time-ago';
 
 import en from 'javascript-time-ago/locale/en.json';
 import ru from 'javascript-time-ago/locale/en.json';
+import chat from '../../../assests/images/chat.webp';
 TimeAgo.addDefaultLocale(en);
 function ChatBox({messagesref,user,userimage,userimageadmin}) {
 
@@ -23,6 +24,11 @@ function ChatBox({messagesref,user,userimage,userimageadmin}) {
     // },[token])
   return (
     <div className='main-chat-box-bodys'>
+
+        {user?.length===0?<div className='main-chat-box-bodyss'>
+    
+            <img src={chat} alt="no image"  className='chat-image'/>
+        </div>:<></>}
 {user?.map((item,index)=>{
     return(
         <div className={`${item?.type==="sender"?"sender-message":"receiver-message"}`}>

@@ -199,11 +199,14 @@ useEffect(()=>{
     <div className='main-chat-box'>
         <div className='inside-chat-box'>
 <div className='left-chat-box'>
-    <Sidebarchat setUserIdMain={setUserIdMain}/>
+    <Sidebarchat setUserIdMain={setUserIdMain} handleShow1={handleShow1}/>
     
-    <div className='help-box'>
+    {thumb?<>
+      <div className='help-box'>
       <img src={thumb} alt="no image" className='user-image'/>
     </div>
+    </>:null}
+  
 
     <div>
         <button className='hire-me-btn'>Hire Me</button>
