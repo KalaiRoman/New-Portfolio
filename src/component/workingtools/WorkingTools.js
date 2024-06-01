@@ -33,8 +33,7 @@ function WorkingTools({ colorName }) {
                 <div className='mt-5  tool-row-section'>
                     {Tools?.map((item) => {
                         return (
-                            <div className='box-tootles mb-3 mt-2' data-aos="fade-down"
-                                data-aos-duration="3000">
+                            <div className='box-tootles mb-3 mt-2' >
                                 <div>
                                     <img src={item?.image} alt={"no image"} className='tool-img' />
 
@@ -46,10 +45,10 @@ function WorkingTools({ colorName }) {
                         )
                     })}
                 </div>
-                <div className='mt-3'>
+                {/* <div className='mt-3'>
                     <CommonHeader title={"What I Offer"} colorName={colorName} />
-                </div>
-                <div className='row offer-card-tools mt-3'>
+                </div> */}
+                {/* <div className='row offer-card-tools mt-3'>
                     {ToolOffer?.map((item,) => {
                         return (
                             <div className='offer-card' data-aos="fade-up"
@@ -73,7 +72,7 @@ function WorkingTools({ colorName }) {
                             </div>
                         )
                     })}
-                </div>
+                </div> */}
             </div>
         </div>
     )

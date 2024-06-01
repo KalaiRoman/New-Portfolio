@@ -3,10 +3,29 @@
 .main-chat-box {
   width: 100%;
   height: 100vh;
-  padding: 10vh 0px;
-
+  padding: 5vh 0px;
+  position: relative;
+  .box1 {
+    width: 160px;
+    height: 160px;
+    border-radius: 50%;
+    background-color: #f4e7ff;
+    position: absolute;
+    left: -4%;
+    top: 15%;
+  }
+  .box2 {
+    width: 160px;
+    height: 160px;
+    border-radius: 50%;
+    background-color: #fe924a;
+    position: absolute;
+    right: -4%;
+    bottom: 15%;
+    opacity: 0.3;
+  }
   .inside-chat-box {
-    width: 70%;
+    width: 90%;
     height: 100%;
     margin: 0 auto;
     box-shadow: rgba(0, 0, 0, 0.1) 0px 4px 12px;
@@ -17,7 +36,6 @@
     padding: 10px 10px;
     position: relative;
     overflow: hidden;
-
     @include xsBreakPoint {
       width: 90%;
     }
@@ -46,6 +64,9 @@
       @include smBreakPoint {
         display: none;
       }
+      @include mdBreakPoint {
+        display: none;
+      }
     }
     .right-chat-box {
       box-shadow: rgba(17, 12, 46, 0.15) 0px 48px 100px 0px;
@@ -56,6 +77,9 @@
         width: 100%;
       }
       @include smBreakPoint {
+        width: 100%;
+      }
+      @include mdBreakPoint {
         width: 100%;
       }
       .right-inside-chat-box {
@@ -106,17 +130,26 @@
             }
             .box-emojies {
               position: absolute;
-              top: -0vh;
+              top: 11%;
               @include mdBreakPoint {
-                top: 18%;
+                top: 25%;
+                left: 30%;
               }
               @include smBreakPoint {
-                top: 18%;
+                top: 25%;
                 left: 6%;
               }
               @include xsBreakPoint {
-                top: 18%;
+                top: 24%;
                 left: 1%;
+              }
+              @include lgBreakPoint {
+                top: 25%;
+                left: 20%;
+              }
+              @include xlBreakPoint {
+                top: 25%;
+                left: 20%;
               }
             }
           }
@@ -195,6 +228,9 @@
   justify-content: center;
   box-shadow: rgba(17, 17, 26, 0.1) 0px 8px 24px,
     rgba(17, 17, 26, 0.1) 0px 16px 56px, rgba(17, 17, 26, 0.1) 0px 24px 80px;
+  @include xsBreakPoint {
+    width: 50px !important;
+  }
 }
 
 // header section
@@ -221,8 +257,10 @@
 }
 
 .date-texts {
-  font-size: 0.779rem;
+  font-size: 0.999rem;
   color: #868686;
+  padding-top: 2%;
+  cursor: pointer;
 }
 
 // sidebar
@@ -266,6 +304,9 @@
   text-wrap: wrap;
   padding: 8px 10px;
   margin-right: 12px;
+  @include xsBreakPoint {
+    margin-right: 4px;
+  }
 }
 .receiver-message {
   display: flex;
@@ -285,6 +326,13 @@
     rgba(0, 0, 0, 0.05) 0px 5px 10px;
   padding: 15px 70px 15px 20px;
   border-radius: 10px;
+  cursor: pointer;
+
+  @include xsBreakPoint {
+    font-size: 0.867rem;
+    padding: 15px 20px 15px 10px;
+    margin: 0px;
+  }
 }
 .receiver-messages {
   display: flex;
@@ -313,6 +361,19 @@
   cursor: pointer;
 }
 
+.tick-mark {
+  position: absolute;
+  right: 5px;
+  bottom: 2px;
+  cursor: pointer;
+}
+.activetick {
+  color: #687eff;
+}
+.inactivetick {
+  color: #868686;
+  font-size: 0.868rem;
+}
 .time-text {
   font-size: 0.989rem;
   padding-top: 4%;
@@ -322,6 +383,38 @@
   justify-content: flex-end;
 }
 
+.arrow-bar {
+  position: absolute;
+  left: 0;
+  top: 0;
+  font-size: 1.2rem;
+  opacity: 0;
+}
+
+.delete-bar {
+  position: absolute;
+  left: -34px;
+  background-color: white;
+  opacity: 0;
+  top: 10px;
+  width: 30px;
+  height: 30px;
+  border-radius: 50%;
+  padding: 10px;
+  cursor: pointer;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  color: orangered;
+}
+.sender-messagess:hover .arrow-bar {
+  opacity: 1;
+  cursor: pointer;
+}
+.sender-messagess:hover .delete-bar {
+  opacity: 1;
+  cursor: pointer;
+}
 .avatar-image-chats {
   position: absolute;
   top: -10%;
@@ -396,20 +489,65 @@
   height: 100%;
   object-fit: cover;
 }
-
 .chat-image {
-  width: 200px;
-  height: 200px;
+  width: 320px;
+  height: 320px;
   object-fit: cover;
   display: flex;
   align-items: center;
   justify-content: center;
+  @include xsBreakPoint {
+    width: 100%;
+    height: 100%;
+    object-fit: contain;
+    margin-top: 35%;
+  }
 }
-
 .main-chat-box-bodyss {
   display: flex;
   align-items: center;
   justify-content: center;
   height: 100%;
-  margin-top: 10%;
+  margin-top: 2%;
+}
+
+.cancel-btn {
+  border: 1px solid orangered;
+  padding: 6px 20px;
+  border-radius: 20px;
+  cursor: pointer;
+  border: none;
+  outline: none;
+}
+
+.delete-btn {
+  background-color: orangered;
+  padding: 6px 20px;
+  border-radius: 20px;
+  cursor: pointer;
+  color: white;
+  border: none;
+  outline: none;
+}
+
+.fa-circle-dot {
+  color: #009588;
+  transition: 0.2s;
+  animation: zooms 3s ease-in-out infinite;
+  cursor: pointer;
+}
+@keyframes zooms {
+  0% {
+    transform: scale(1);
+  }
+  50% {
+    transform: scale(1.3);
+  }
+  100% {
+    transform: scale(1);
+  }
+}
+
+.header-modal {
+  z-index: 98989898989898989898989898989989898 !important;
 }

@@ -8,11 +8,9 @@ import SlidePreArrow from './slideprearrow/SlidePreArrow';
 import AOS from 'aos';
 
 function Projects({colorName}) {
-
     useEffect(() => {
         AOS.init();
     }, [])
-
     const settings = {
         dots: false,
         infinite: true,
@@ -99,18 +97,16 @@ function Projects({colorName}) {
     })}
 </div> */}
                     <div className='main-slider-section'>
-
-
                     {ProjectDatas?.map((item) => {
                                 return (
                                     <div className='cards mt-2 mb-4' >
                                         <div className='project-title'>
                                             {item?.name}
                                         </div>
-                                        <div className='text-center mb-5 mt-2 desc' >
+                                        <div className='text-center mb-4 mt-2 desc' >
                                             {item?.des}
                                         </div>
-                                        <div className='mt-4' >
+                                        <div className='mt-2' >
                                             <button className='button-project' onClick={() => NavigatePath(item?.url)}>
                                                 {item?.button}
                                             </button>

@@ -66,6 +66,7 @@
       @include xsBreakPoint {
         width: 100%;
         margin-top: 15%;
+        flex-direction: column;
       }
       @include mdBreakPoint {
         margin-top: 15%;
@@ -94,7 +95,8 @@
         box-shadow: rgba(0, 0, 0, 0.1) 0px 4px 12px;
 
         @include xsBreakPoint {
-          width: 100%;
+          width: 100% !important;
+          flex-direction: column;
         }
 
         .card-emty-box {
@@ -119,11 +121,11 @@
         }
       }
       .project-title {
-        font-size: 1.4rem;
+        font-size: 1rem;
         text-align: center;
         font-weight: 600;
         color: #ba68c8;
-        height: 70px;
+        padding-bottom: 2%;
       }
 
       .button-project {
@@ -151,6 +153,8 @@
 .desc {
   width: 100%;
   text-align: center;
+  font-size: 0.987rem;
+  line-height: 25px;
   @include themed() {
     color: t($greytextgrey);
   }

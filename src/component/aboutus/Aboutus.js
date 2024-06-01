@@ -3,7 +3,7 @@ import './styles/Aboutus.scss';
 import aboutimg from '../../assests/images/about-img.png';
 import CommonHeader from '../../CommonHeader/CommonHeader';
 import { PersonalContent, Qualifications, Skills, TabContent } from '../../commoncontent/AboutusData';
-
+import educationdetails from '../../assests/images/education.png';
 
 import AOS from 'aos';
 
@@ -75,9 +75,7 @@ function Aboutus({ colorName }) {
                             </div>
                             <div className='mt-4 inside-about-section-lefts'>
                                 {selectName == "Personal Info" && <div>
-                                    <div className='decsription' data-aos="fade-right"
-                                        data-aos-easing="linear"
-                                        data-aos-duration="1500" >
+                                    <div className='decsription'  >
                                         {PersonalContent?.desc}
                                     </div>
                                     <div className='mainabout-skill mt-4'>
@@ -85,9 +83,7 @@ function Aboutus({ colorName }) {
                                             <div>
                                                 <i class="fa-regular fa-user left-icons"></i>
                                             </div>
-                                            <div className='main-about-texts' data-aos="fade-down"
-                                                data-aos-easing="linear"
-                                                data-aos-duration="1500" >
+                                            <div className='main-about-texts'  >
                                                 {PersonalContent?.name}
                                             </div>
                                         </div>
@@ -95,9 +91,7 @@ function Aboutus({ colorName }) {
                                             <div>
                                                 <i class="fa-solid fa-phone-volume left-icons"></i>
                                             </div>
-                                            <div className='main-about-texts' data-aos="fade-up"
-                                                data-aos-easing="linear"
-                                                data-aos-duration="1500"  >
+                                            <div className='main-about-texts'   >
                                                 {PersonalContent?.phoneno}
                                             </div>
                                         </div>
@@ -108,9 +102,7 @@ function Aboutus({ colorName }) {
                                             <div>
                                                 <i class="fa-regular fa-envelope left-icons "></i>
                                             </div>
-                                            <div className='main-about-texts' data-aos="fade-left"
-                                                data-aos-easing="linear"
-                                                data-aos-duration="1500"  >
+                                            <div className='main-about-texts'   >
                                                 {PersonalContent?.emailid}
                                             </div>
                                         </div>
@@ -118,9 +110,7 @@ function Aboutus({ colorName }) {
                                             <div>
                                                 <i class="fa-regular fa-calendar left-icons"></i>
                                             </div>
-                                            <div className='main-about-texts' data-aos="fade-up"
-                                                data-aos-easing="linear"
-                                                data-aos-duration="1500"  >
+                                            <div className='main-about-texts' >
                                                 {PersonalContent?.dob}
                                             </div>
                                         </div>
@@ -132,9 +122,7 @@ function Aboutus({ colorName }) {
                                             <div>
                                                 <i class="fa-solid fa-user-graduate  left-icons"></i>
                                             </div>
-                                            <div className='main-about-texts' data-aos="fade-left"
-                                                data-aos-easing="linear"
-                                                data-aos-duration="1500"  >
+                                            <div className='main-about-texts'   >
                                                 {PersonalContent?.deggre}
                                             </div>
                                         </div>
@@ -142,9 +130,7 @@ function Aboutus({ colorName }) {
                                             <div>
                                                 <i class="fa-solid fa-location-dot left-icons"></i>
                                             </div>
-                                            <div className='main-about-texts' data-aos="fade-up"
-                                                data-aos-easing="linear"
-                                                data-aos-duration="1500" >
+                                            <div className='main-about-texts' >
                                                 {PersonalContent?.address}
                                             </div>
                                         </div>
@@ -166,10 +152,10 @@ function Aboutus({ colorName }) {
                                         <div className='language-names'>
                                             {PersonalContent?.languageName} :
                                         </div>
-                                        <div className='row gap-5'>
+                                        <div className='row main-languauges'>
                                             {PersonalContent?.languages?.map((item, index) => {
                                                 return (
-                                                    <div key={index} className='mt-4 language-texts'
+                                                    <div key={index} className='language-texts'
 
                                                     >
                                                         {item?.name}
@@ -181,9 +167,7 @@ function Aboutus({ colorName }) {
                                 </div>}
                                 {selectName == "Qualifications" && <div>
                                     <div className='bolt-awesome mb-4 mt-2'
-                                        data-aos="fade-up"
-                                        data-aos-easing="linear"
-                                        data-aos-duration="1500">
+                                      >
                                         {PersonalContent?.MyAwesomeJourney}
                                     </div>
                                     <div className='qualification-section '>
@@ -191,30 +175,21 @@ function Aboutus({ colorName }) {
                                             return (
                                                 <div className='qulification-box mb-3 mt-3' key={index}>
                                                     <div className='box' >
-                                                        <i class="fa-solid fa-user-graduate icon-graduvate"></i>
+                                                <img src={educationdetails} alt="no image" className='education'/>
+
                                                     </div>
                                                     <div className='list-educations'>
-                                                        <div className='matername' data-aos="fade-down"
-                                                            data-aos-easing="linear"
-                                                            data-aos-duration="1500">
+                                                        <div className='matername' >
                                                             {item?.name}
                                                         </div>
-                                                        <div className='matername' data-aos="fade-right"
-                                                            data-aos-easing="linear"
-                                                            data-aos-duration="1500"  >
-                                                            {item?.dgname}
-                                                        </div>
-                                                        <div className='clgname' data-aos="fade-up"
-                                                            data-aos-easing="linear"
-                                                            data-aos-duration="1500" >
+                                                      
+                                                        <div className='clgname mt-2 mb-2' >
                                                             {item?.clgName}
                                                         </div>
-                                                        <div className='clgnames d-flex gap-2' data-aos="fade-down"
-                                                            data-aos-easing="linear"
-                                                            data-aos-duration="1500" >
+                                                        <div className='clgnames d-flex gap-2'>
                                                             <span>{item?.calicon}</span>  {item?.year}
                                                         </div>
-                                                        <div className='clgname' >
+                                                        <div className='clgname mt-2 mb-2' >
                                                             {item?.place}
                                                         </div>
                                                     </div>

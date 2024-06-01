@@ -156,10 +156,8 @@ function Home({ colorName, theme }) {
                             </div>
                             <div className='home-button'>
                                 <div >
-                                    <button className='hireme'>
-                                        <a href="mailto:kalaimca685@gmail.com">
+                                    <button className='hireme' onClick={()=>window.location.assign("/contact")}>
                                             Hire Me
-                                        </a>
                                     </button>
                                 </div>
                                 <div >

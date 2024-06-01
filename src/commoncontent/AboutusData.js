@@ -1,3 +1,6 @@
+
+
+
 export const TabContent = [
     {
         id: 1,
@@ -45,7 +48,7 @@ export const PersonalContent = {
 export const Qualifications = [
     {
         id: 1,
-        name: "Master Of Computer Application",
+        name: "Master Of Computer Application (MCA)",
         dgname: "( MCA )",
         clgName: "Karpagam Academy Of Higher Education",
         year: "2018 - 2020",
@@ -54,7 +57,7 @@ export const Qualifications = [
     },
     {
         id: 2,
-        name: "Bachlore of Computer Application",
+        name: "Bachlore of Computer Application (BCA)",
         dgname: "( BCA )",
         year: "2015 - 2018",
         clgName: "Sri Vidya Mandir Arts and Science College",
@@ -95,12 +98,21 @@ export const Skills = [
         name: "Nextjs"
     },
     {
+        id: 4,
+        name: "Nodejs"
+    },
+    {
         id: 3,
         name: "React Native"
     },
+    
     {
-        id: 4,
-        name: "Nodejs"
+        id: 5,
+        name: "Javascript"
+    },
+    {
+        id: 5,
+        name: "Context Api"
     },
     {
         id: 6,
@@ -114,15 +126,8 @@ export const Skills = [
         id: 10,
         name: 'RESTful APIs'
     },
-    {
-        id: 5,
-        name: "Context Api"
-    },
+   
 
-    {
-        id: 5,
-        name: "Javascript"
-    },
     {
         id: 6,
         name: "HTML"
@@ -142,6 +147,18 @@ export const Skills = [
     {
         id: 10,
         name: "Bootstrap"
+    },
+    {
+        id: 10,
+        name: "React Bootstrap"
+    },
+    {
+        id: 10,
+        name: "Tailwind CSS"
+    },
+    {
+        id: 10,
+        name: "Unit Testing"
     },
     {
         id: 11,

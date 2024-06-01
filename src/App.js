@@ -163,13 +163,12 @@ function App() {
           <div className={"Dektop-section "}>
             <div className="main-section">
               <div className='middle-header'>
-                <div className='list-names'>
+                <div className='list-names '>
 
                   {iconsData?.map((item, index) => {
                     return (
                       <div key={index} className={Username == item?.path ? "activename" : "inactivename"}
                         onClick={() => {
-
                           navigate(item?.path)
                         }}
                       >
@@ -232,6 +231,46 @@ function App() {
                         </div>
                       )
                     })}
+
+<div className='borders'>
+  
+</div>
+<div className='middle-headers'>
+{iconsData?.map((item, index) => {
+                    return (
+                      <div key={index} className={Username == item?.path ? "activenames" : "inactiveclasss"}
+                        onClick={() => {
+                          navigate(item?.path)
+                        }}
+                      >
+                        {Username === item?.path ? <div
+                        >
+                          <div className={'activeclass'}>
+                            <div >
+                              {item?.icon}
+                            </div>
+                            <div className='active-texts'>
+                              {item?.name}
+                            </div>
+                          </div>
+                        </div> : <>
+
+                          <div className='inactiveclass' data-tooltip-id={item?.ToolName}>
+                            {item?.icon}
+                          </div>
+                          <ReactTooltip
+                            id={item?.ToolName}
+                            place="left"
+                            content={item?.ToolName}
+                            className='kalai'
+                          /></>
+                        }
+                      </div>
+                    )
+                  })}
+
+</div>
+                    
                   </div> : null}
               </div>
 

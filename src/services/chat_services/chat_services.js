@@ -11,3 +11,13 @@ export function chatUser(data) {
         })
     })
 }
+
+export function chatDeleteUser(data) {
+    return new Promise((resolve, reject) => {
+        instanceBaseurl.post(`/portfolio/chat/message/delete`, data).then(response => {
+            resolve(response)
+        }).catch(err => {
+            reject(err)
+        })
+    })
+}
