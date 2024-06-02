@@ -218,4 +218,7 @@
   font-size: 1.2rem;
   font-weight: 650;
   padding-top: 4%;
+  @include themed() {
+    color: t($greytextfixed);
+  }
 }

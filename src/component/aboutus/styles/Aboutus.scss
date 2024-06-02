@@ -2,8 +2,9 @@
 
 .aboutus {
   width: 100%;
-  height: 100vh;
+  height: 100%;
   position: relative;
+  padding-bottom: 4%;
   @include xsBreakPoint {
     padding-top: 10%;
     padding-bottom: 20%;
@@ -294,12 +295,12 @@
           background-color: white;
           cursor: pointer;
           box-shadow: rgba(0, 0, 0, 0.1) 0px 4px 12px;
+          @include themed() {
+            color: t($greytextfixed);
+          }
           @include xsBreakPoint {
             width: 80%;
             margin: 20px 0px !important;
-          }
-          @include themed() {
-            color: t($greytextgrey);
           }
         }
       }
@@ -347,7 +348,10 @@
             width: 100%;
           }
           @include lgBreakPoint {
-            width: 100%;
+            width: 80%;
+          }
+          @include xlBreakPoint {
+            width: 80%;
           }
         }
       }
@@ -368,7 +372,7 @@
       .clgname {
         font-weight: 500;
         @include themed() {
-          color: t($greytextgrey);
+          color: t($greytextfixed);
         }
       }
       .clgnames {
@@ -394,6 +398,10 @@
         border-radius: 10px;
         box-shadow: rgba(0, 0, 0, 0.1) 0px 4px 12px;
         font-weight: 500;
+        background-color: white;
+        @include themed() {
+          color: t($greytextfixed);
+        }
       }
       .skill-box:hover {
         background-color: #33efa0;

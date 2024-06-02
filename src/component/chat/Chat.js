@@ -8,7 +8,7 @@ import { getUserAdminData, getUserData, loginRegister, otpConfirmation } from '.
 import Headerchat from './components/Headerchat';
 import Sidebarchat from './components/Sidebarchat';
 import ChatBox from './components/ChatBox';
-import { chatUser } from '../../services/chat_services/chat_services';
+import { chatUpdateStatusUser, chatUser } from '../../services/chat_services/chat_services';
 import thumb from '../../assests/images/smile.jpg';
 import { toast } from 'react-toastify';
 import { v4 as uuidv4 } from 'uuid';
@@ -33,6 +33,9 @@ function Chat() {
   const messagesRef = useRef(null);
   const [userMessages, setUserMessages] = useState([]);
 
+
+  const [useridstatus,setUserIdStatus]=useState("");
+
   const handleClose1 = () => setShow1(false);
   const handleShow1 = () => setShow1(true);
   const handleShow = () => setShow(!show);
@@ -52,7 +55,16 @@ function Chat() {
     // setUser([...user, datas1]);
     try {
       const response = await chatUser(datas);
+      const ids={
+        userid:useridstatus,type:"receiver"
+      }
+      chatUpdateStatusUser(ids).then((res)=>{
+  
+      }).catch((err)=>{
+        console.log(err);
+      })
       if (response) {
+        
         const insideResponse=await getUserData();
      if(insideResponse)
       {
@@ -68,6 +80,14 @@ function Chat() {
 
   const handleEnter = async (e) => {
     if (e.key === "Enter") {
+      const ids={
+        userid:useridstatus,type:"receiver"
+      }
+      chatUpdateStatusUser(ids).then((res)=>{
+  
+      }).catch((err)=>{
+        console.log(err);
+      })
       await submitCommand();
     }
   };
@@ -136,6 +156,7 @@ function Chat() {
       getUserData()
         .then((res) => {
           setUser(res.data.user.chat);
+          setUserIdStatus(res?.data?.user?._id);
           setUserMessages(res?.data?.user?.chat);
           setUserImage(res.data.user.avatar);
         })
@@ -157,10 +178,30 @@ function Chat() {
 
   useEffect(() => {
     messagesRef.current?.scrollIntoView();
-  }, [user]);
+  }, [user,useridstatus]);
+
+
+
+
+  useEffect(()=>{
+if(token)
+  {
+
+
+    const ids={
+      userid:useridstatus,type:"receiver"
+    }
+    chatUpdateStatusUser(ids).then((res)=>{
+
+    }).catch((err)=>{
+      console.log(err);
+    })
+  }
+  },[])
 
   return (
     <div className='main-chat-box'>
+
       <div className='box1'></div>
       <div className='box2'></div>
       <div className='inside-chat-box'>
@@ -189,6 +230,7 @@ function Chat() {
                 userimage={userImage}
                 userMessages={userMessages}
                 setUserMessages={setUserMessages}
+                handleShow1={handleShow1}
               />
             </div>
             <div className='bottom-header-section-chat'>

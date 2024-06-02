@@ -10,7 +10,7 @@ import { getUserAdminData, getUserData } from '../../../services/auth_services/a
 
 TimeAgo.addDefaultLocale(en);
 
-function ChatBox({ messagesref, user, userimage, userimageadmin, userMessages, setUserMessages }) {
+function ChatBox({ messagesref, user, userimage, userimageadmin, userMessages, setUserMessages,handleShow1 }) {
     const [messageId, setMessageId] = useState("");
     const [show, setShow] = useState(false);
     const token = localStorage.getItem('port-token');
@@ -71,6 +71,9 @@ function ChatBox({ messagesref, user, userimage, userimageadmin, userMessages, s
             {user?.length === 0 ? (
                 <div className='main-chat-box-bodyss'>
                     <img src={chat} alt="no image" className='chat-image' />
+                    <div>
+                        <button className='login-buttons' onClick={handleShow1}>Login</button>
+                    </div>
                 </div>
             ) : null}
             {userMessages && userMessages.map((item, index) => (

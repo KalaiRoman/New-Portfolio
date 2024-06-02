@@ -212,6 +212,16 @@
   gap: 46px;
   z-index: 998 !important;
 
+  @include lgBreakPoint {
+    display: none;
+  }
+  @include xlBreakPoint {
+    display: none;
+  }
+  @include xxlBreakPoint {
+    display: none;
+  }
+
   .list-namess {
     display: flex;
     gap: 10px;
@@ -235,6 +245,9 @@
     }
     @include mdBreakPoint {
       right: 2%;
+    }
+    @include lgBreakPoint {
+      display: none;
     }
   }
   .activeclasss {
@@ -391,10 +404,10 @@
     transform: translate(0px);
   }
   50% {
-    transform: translateY(-10px) scale(1.2);
+    transform: translateY(-10px) scale(1.1);
   }
   100% {
-    transform: translateY(0px) scale(1.2);
+    transform: translateY(0px) scale(1);
   }
 }
 .logo-icon {
@@ -424,4 +437,30 @@
 
 .mouse-section {
   // z-index: 9898989898989898989898989898989 !important;
+}
+
+.whatsapp-box {
+  // position: relative;
+}
+
+.whatsapp-message-status {
+  position: absolute;
+  width: 20px;
+  height: 20px;
+  padding: 10px;
+  border-radius: 50%;
+  background-color: red;
+  color: white;
+  cursor: pointer;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  right: 0%;
+  font-weight: 600;
+  bottom: 5vh;
+}
+
+.whats-app {
+  width: 50px;
+  height: 50px;
 }

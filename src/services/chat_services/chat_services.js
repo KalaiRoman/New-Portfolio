@@ -21,3 +21,20 @@ export function chatDeleteUser(data) {
         })
     })
 }
+
+
+// admin user chat update
+
+
+export function chatUpdateStatusUser(data) {
+
+    console.log(data,"kalai")
+    return new Promise((resolve, reject) => {
+        instanceBaseurl.post(`/admin/auth/chat/user/status/update`, data).then(response => {
+            resolve(response)
+        }).catch(err => {
+            reject(err)
+        })
+    })
+}
+

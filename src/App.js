@@ -16,6 +16,7 @@ import WorkingTools from './component/workingtools/WorkingTools';
 import Contact from './component/contact/Contact';
 import whatsimage from './assests/images/whatsapp.png';
 import Chat from './component/chat/Chat';
+import { getUserData } from './services/auth_services/auth_services';
 function App() {
 
 
@@ -133,6 +134,49 @@ function App() {
 
   const navigate = useNavigate();
 
+
+  const [userStatus,setUserStatus]=useState(0);
+
+
+
+  const UpdateMessageList=async()=>{
+    try {
+      
+      var count=0;
+      const response=await getUserData();
+
+      if(response)
+        {
+
+
+          console.log(response,'response')
+          response?.data?.user?.chat?.map((item,index)=>{
+
+            if(item?.type=="receiver")
+              {
+                if(item?.userstatusSaw===false)
+                  {
+                    count++;
+                  }
+              }
+
+          })
+        }
+
+        setUserStatus(count);
+
+    } catch (error) {
+      
+    }
+  }
+
+  
+  useEffect(()=>{
+    UpdateMessageList();
+  },[userStatus])
+
+
+  console.log(userStatus,'userStatus')
 
 
 
@@ -274,9 +318,7 @@ function App() {
                   </div> : null}
               </div>
 
-              <div onClick={()=> navigate("/chat")}>
-                <img src={whatsimage} alt="no image" className='whats-app-image'  onClick={()=>navigate("/chat")}/>
-              </div>
+             
 
               <div className='body-sections'>
                 <Routes>
@@ -291,6 +333,18 @@ function App() {
               </div>
             </div>
           </div>
+
+          <div onClick={()=> navigate("/chat")} className='whatsapp-box'>
+                
+                <div className='whats-app-image'>
+                  {userStatus===0?null: <div className='whatsapp-message-status'>
+                  {userStatus}
+                </div>}
+               
+                <img src={whatsimage} alt="no image"   onClick={()=>navigate("/chat")} className='whats-app'/>
+
+                </div>
+              </div>
 
         </div>
       </>}
