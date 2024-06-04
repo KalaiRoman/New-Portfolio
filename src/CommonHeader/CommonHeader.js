@@ -8,7 +8,7 @@ function CommonHeader({ title, colorName,smalltext }) {
             <div className='span-box'>
                 <div className='span-active-text' style={{
                     color:colorName
-                }}>{title?.slice(0, 1)}</div><div className='span-text'>{title?.slice(1, 100)}</div>
+                }}>{title?.slice(0, 3)}</div><div className='span-text'>{title?.slice(3, 100)}</div>
             </div>
         </div>
     )

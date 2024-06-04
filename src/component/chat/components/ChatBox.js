@@ -4,17 +4,17 @@ import ReactTimeAgo from 'react-time-ago';
 import TimeAgo from 'javascript-time-ago';
 import en from 'javascript-time-ago/locale/en.json';
 import chat from '../../../assests/images/chat.webp';
-import { chatDeleteUser } from '../../../services/chat_services/chat_services';
+import { chatDeleteUser, chatUpdateLikeUser, chatUpdateStatusUser } from '../../../services/chat_services/chat_services';
 import Modal from 'react-bootstrap/Modal';
 import { getUserAdminData, getUserData } from '../../../services/auth_services/auth_services';
+import { toast } from 'react-toastify';
 
 TimeAgo.addDefaultLocale(en);
 
-function ChatBox({ messagesref, user, userimage, userimageadmin, userMessages, setUserMessages,handleShow1 }) {
+function ChatBox({ messagesref, user, userimage, userimageadmin, userMessages, setUserMessages,handleShow1,handleClickCallbackChet }) {
     const [messageId, setMessageId] = useState("");
     const [show, setShow] = useState(false);
     const token = localStorage.getItem('port-token');
-
     const [adminimage,setAdminImage]=useState("");
     const handleClose = () => setShow(false);
     const handleShow = (id) => {
@@ -66,8 +66,111 @@ function ChatBox({ messagesref, user, userimage, userimageadmin, userMessages, s
         }
       }, [token]);
 
+      const likelists = [
+        {
+            id: 1,
+            name: "👍like",
+            image: "👍"
+
+        },
+        {
+            id: 2,
+            name: "❤️heart",
+            image: "❤️"
+
+        },
+        {
+            id: 3,
+            name: "🥰love",
+            image: "🥰"
+
+        },
+        {
+            id: 4,
+            name: "😆smile",
+            image: "😆"
+
+        },
+        {
+            id: 5,
+            name: "😃happy",
+            image: "😃"
+
+        }, {
+            id: 6,
+            name: "🥲sad",
+            image: "🥲"
+
+        }
+        , {
+            id: 7,
+            name: "😡angry",
+            image: "😡"
+
+        }
+    ]
+
+    const handleSubmitLike=async(image,chatmessageid)=>{
+        try {
+
+            const datas={
+                chatId:chatmessageid,like:image
+            }
+            const {status,message,data}=await chatUpdateLikeUser(datas);
+            if(status)
+                {
+            toast.success("Updated Like");
+                }
+        } catch (error) {
+            
+        }
+    }
+    const [messageStatus,setMessageStatus]=useState(false);
+    useEffect(()=>{
+        if(userMessages)
+            {
+                userMessages?.map((item)=>{
+                    if(item?.type==="receiver" && item?.userstatusSaw===false)
+                        {
+                            setMessageStatus(true);
+                        }
+                })
+            }
+    },[userMessages,messageStatus]);
+
+    console.log(userMessages,'userMessages')
+    
+    const refreshDataUsermessage = async () => {
+        try {
+            const response = await getUserData();
+            if (response) {
+                setUserMessages(response.data.user.chat);
+            }
+            const ids={
+                userid:user?._id,type:"receiver"
+              }
+              chatUpdateStatusUser(ids).then((res)=>{
+          
+              }).catch((err)=>{
+                console.log(err);
+              })
+        } catch (error) {
+            console.log(error);
+        }
+    };
+
+    console.log(messageStatus,'messageStatus')
     return (
         <div className='main-chat-box-bodys'>
+
+{messageStatus?<>
+
+    <div className='refresh-button' onClick={refreshDataUsermessage}>
+            <i class="fa-solid fa-arrows-rotate"></i>
+            </div>
+</>:null}
+
+          
             {user?.length === 0 ? (
                 <div className='main-chat-box-bodyss'>
                     <img src={chat} alt="no image" className='chat-image' />
@@ -83,6 +186,26 @@ function ChatBox({ messagesref, user, userimage, userimageadmin, userMessages, s
                         <div>
                             <img src={item?.type === "sender" ? userimage : adminimage} alt="no image" className={item?.type === "sender" ? 'avatar-image-chat' : "avatar-image-chats"} />
                         </div>
+
+                        {item?.type === "sender" || item?.type==="receiver"?<>
+                        
+                        <div className='like-image-show'>
+                        {item?.likeUser}
+                        </div>
+                        <div className='dotts-list'>
+                        {/* <i class="fa-solid fa-angle-down"></i> */}
+                        </div>
+                        <div className='lists-box'>
+                            {likelists?.map((items,index)=>{
+                                return(
+                                    <div key={index} className='emoji' onClick={()=>handleSubmitLike(items?.image,item?._id)}>
+                                        {items?.image}
+                                    </div>
+                                )
+                            })}
+                        </div>
+                        </>:null}
+                        
                         <div className='tick-mark'>
                             {item?.type === "sender" && (
                                 <>
@@ -94,6 +217,7 @@ function ChatBox({ messagesref, user, userimage, userimageadmin, userMessages, s
                                 </>
                             )}
                         </div>
+                        
                         <div className='delete-bar' onClick={() => handleShow(item?._id)}>
                             <i className="fa-solid fa-trash"></i>
                         </div>

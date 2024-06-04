@@ -287,6 +287,18 @@
   gap: 10px;
   cursor: pointer;
   border: 2px solid orangered;
+  position: relative;
+}
+.logout-user {
+  position: absolute;
+  right: 20px;
+  top: 30px;
+  cursor: pointer;
+  display: flex;
+  gap: 10px;
+  align-items: center;
+  color: orange;
+  font-weight: 600;
 }
 
 .sidebar-card-active {
@@ -337,7 +349,7 @@
   background-color: white;
   box-shadow: rgba(0, 0, 0, 0.15) 0px 15px 25px,
     rgba(0, 0, 0, 0.05) 0px 5px 10px;
-  padding: 15px 70px 15px 20px;
+  padding: 20px 100px 30px 20px;
   border-radius: 10px;
   cursor: pointer;
 
@@ -564,4 +576,157 @@
 
 .header-modal {
   z-index: 98989898989898989898989898989989898 !important;
+}
+
+.chat-box-modal {
+  width: 80%;
+  height: 100%;
+  background-color: white;
+  box-shadow: rgba(0, 0, 0, 0.1) 0px 4px 12px;
+  border-radius: 20px;
+  padding: 10px !important;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  flex-direction: column;
+  gap: 40px;
+}
+
+.cancel {
+  background-color: orange;
+  border: none;
+  outline: none;
+  padding: 10px 30px;
+  outline: none;
+  border-radius: 10px;
+  cursor: pointer;
+  color: white;
+  width: 100%;
+}
+
+.logout {
+  background-color: orangered;
+  border: none;
+  outline: none;
+  padding: 10px 30px;
+  outline: none;
+  border-radius: 10px;
+  cursor: pointer;
+  color: white;
+  width: 100%;
+}
+
+.are {
+  font-size: 1.2rem;
+  color: #868686;
+}
+
+.list-image {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 20px !important;
+  align-items: center;
+}
+.user-image-lists {
+  width: 50px;
+  height: 50px;
+  border-radius: 50%;
+  cursor: pointer;
+}
+.user-image-lists-active {
+  width: 60px;
+  height: 60px;
+  border-radius: 50%;
+  cursor: pointer;
+  border: 3px solid orangered;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  padding: 10px;
+}
+
+.dotts-list {
+  position: absolute;
+  left: 4%;
+  bottom: -3%;
+  color: #868686;
+  opacity: 0;
+}
+
+.sender-messagess:hover .dotts-list {
+  opacity: 1;
+  cursor: pointer;
+}
+
+.lists-box {
+  width: 100%;
+  background-color: white;
+  border-radius: 10px;
+  opacity: 0;
+  position: absolute;
+  bottom: -20%;
+  left: 0;
+  padding: 5px 2px;
+  box-shadow: rgba(0, 0, 0, 0.1) 0px 4px 12px;
+  z-index: 9898 !important;
+  display: flex;
+  gap: 6px;
+}
+.like-image-show {
+  position: absolute;
+  left: 2%;
+  bottom: 2%;
+  color: #868686;
+}
+
+.emoji {
+  transition: 1s;
+}
+.emoji:hover {
+  transform: translateY(-10px);
+  transition: 1s;
+  cursor: pointer;
+}
+.sender-messagess:hover .lists-box {
+  opacity: 1;
+  cursor: pointer;
+  box-shadow: rgba(0, 0, 0, 0.1) 0px 4px 12px;
+}
+
+.receiver-messages:hover .lists-box {
+  opacity: 1;
+  cursor: pointer;
+  box-shadow: rgba(0, 0, 0, 0.1) 0px 4px 12px;
+}
+.user-image-round {
+  width: 150px;
+  height: 150px;
+  border-radius: 50%;
+  object-fit: cover;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+.refresh-button {
+  position: absolute;
+  bottom: 20%;
+  left: 35%;
+  background-color: white;
+  padding: 10px;
+  border-radius: 50%;
+  width: 40px;
+  height: 40px;
+  cursor: pointer;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  z-index: 9898989 !important;
+  transform: translateX(-50%, -50%);
+  transition: 3s;
+}
+
+.refresh-button:hover {
+  transform: rotate(360deg);
+  transition: 2s;
 }

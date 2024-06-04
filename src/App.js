@@ -149,7 +149,6 @@ function App() {
         {
 
 
-          console.log(response,'response')
           response?.data?.user?.chat?.map((item,index)=>{
 
             if(item?.type=="receiver")

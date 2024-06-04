@@ -53,3 +53,18 @@ export function MailRegister(data) {
         })
     })
 }
+
+// profile Updated
+export async function profileUpdated(data) {
+    try {
+        const response=await instanceBaseurl.post(`/portfolio/update/profile`, data);
+        if(response)
+            {
+                await getUserData();
+                return response;
+            }
+    } catch (error) {
+        return error;
+    }
+    
+}

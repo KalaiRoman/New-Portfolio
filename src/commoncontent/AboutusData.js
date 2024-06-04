@@ -111,6 +111,10 @@ export const Skills = [
         name: "Javascript"
     },
     {
+        id: 4,
+        name: "Type script"
+    },
+    {
         id: 5,
         name: "Context Api"
     },
@@ -171,6 +175,10 @@ export const Skills = [
     {
         id: 13,
         name: "Responsive UI Designs"
+    },
+    {
+        id: 14,
+        name: "JSON"
     },
 
 

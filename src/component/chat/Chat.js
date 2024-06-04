@@ -12,7 +12,7 @@ import { chatUpdateStatusUser, chatUser } from '../../services/chat_services/cha
 import thumb from '../../assests/images/smile.jpg';
 import { toast } from 'react-toastify';
 import { v4 as uuidv4 } from 'uuid';
-
+import chatserimage from '../../assests/images/chat-user.png'; 
 function Chat() {
   const [userId, setUserIdMain] = useState("");
   const [loading, setLoading] = useState(false);
@@ -84,7 +84,7 @@ function Chat() {
         userid:useridstatus,type:"receiver"
       }
       chatUpdateStatusUser(ids).then((res)=>{
-  
+      
       }).catch((err)=>{
         console.log(err);
       })
@@ -127,18 +127,17 @@ function Chat() {
 
   const otpVerification = async () => {
     setLoading(true);
-
     if (otp.trim().length !== 4) {
       setOtpError("Please Enter a valid 4-digit OTP");
       setLoading(false);
       return;
     }
-
     try {
       const data = { otp, userid: userIdInput };
       const response = await otpConfirmation(data);
       if (response) {
         localStorage.setItem("port-token", JSON.stringify(response.data.token));
+        window.alert(response?.data?.userid)
         setTimeout(() => {
           handleClose1();
           setLoading(false);
@@ -150,7 +149,6 @@ function Chat() {
       setLoading(false);
     }
   };
-
   useEffect(() => {
     if (token) {
       getUserData()
@@ -164,7 +162,6 @@ function Chat() {
           console.error(err);
         });
     }
-
     getUserAdminData()
       .then((res) => {
         const adminUser = res?.data?.adminuser[0];
@@ -175,33 +172,33 @@ function Chat() {
         console.error(err);
       });
   }, [token, userImageAdmin]);
-
   useEffect(() => {
     messagesRef.current?.scrollIntoView();
   }, [user,useridstatus]);
-
-
-
-
   useEffect(()=>{
 if(token)
   {
-
-
-    const ids={
+    const chatIdMessage={
       userid:useridstatus,type:"receiver"
     }
-    chatUpdateStatusUser(ids).then((res)=>{
 
-    }).catch((err)=>{
-      console.log(err);
-    })
+    if(chatIdMessage?.userid && chatIdMessage?.type)
+      {
+        chatUpdateStatusUser(chatIdMessage).then((res)=>{
+        }).catch((err)=>{
+          console.log(err);
+        })
+      }
+  
   }
-  },[])
+  },[useridstatus])
+
+  const handleClickCallbackChat=async()=>{
+    handleShow1();
+  }
 
   return (
     <div className='main-chat-box'>
-
       <div className='box1'></div>
       <div className='box2'></div>
       <div className='inside-chat-box'>
@@ -216,7 +213,10 @@ if(token)
             <button className='hire-me-btn' onClick={() => window.location.assign("/contact")}>Hire Me</button>
           </div>
         </div>
-        <div className='right-chat-box'>
+
+        {token?<>
+        
+          <div className='right-chat-box'>
           <div className='right-inside-chat-box'>
             <div className='top-header-section-chat'>
               <div className='top-header-body-section'>
@@ -231,6 +231,7 @@ if(token)
                 userMessages={userMessages}
                 setUserMessages={setUserMessages}
                 handleShow1={handleShow1}
+                handleClickCallbackChet={handleClickCallbackChat}
               />
             </div>
             <div className='bottom-header-section-chat'>
@@ -271,6 +272,18 @@ if(token)
             </div>
           </div>
         </div>
+        </>:<>
+        <div className='chat-box-modal'>
+          <div>
+            <img src={chatserimage} alt="no image" className='chat-image'/>
+          </div>
+<div>
+
+  <button  className='login-buttons'onClick={handleClickCallbackChat}>Login</button>
+</div>
+        </div>
+        </>}
+       
       </div>
 
       <Modal
