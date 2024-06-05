@@ -171,7 +171,39 @@ function App() {
 
   
   useEffect(()=>{
-    UpdateMessageList();
+    let timeoutId;
+    const fetchData = async () => {
+      try {
+        var count=0;
+        const response=await getUserData();
+        if(response)
+          {
+
+            response?.data?.user?.chat?.map((item,index)=>{
+  
+              if(item?.type=="receiver")
+                {
+                  if(item?.userstatusSaw===false)
+                    {
+                      count++;
+                    }
+                }
+  
+            })
+          }
+  
+          setUserStatus(count);
+      } catch (error) {
+        console.error('Error fetching data:', error);
+      } finally {
+        timeoutId = setTimeout(fetchData, 60000); // 60 seconds
+      }
+    };
+
+    fetchData();
+    return () => {
+      clearTimeout(timeoutId);
+    };
   },[userStatus])
 
 

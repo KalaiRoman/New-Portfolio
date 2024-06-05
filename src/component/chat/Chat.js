@@ -150,27 +150,99 @@ function Chat() {
     }
   };
   useEffect(() => {
-    if (token) {
-      getUserData()
-        .then((res) => {
-          setUser(res.data.user.chat);
-          setUserIdStatus(res?.data?.user?._id);
-          setUserMessages(res?.data?.user?.chat);
-          setUserImage(res.data.user.avatar);
-        })
-        .catch((err) => {
-          console.error(err);
-        });
-    }
-    getUserAdminData()
-      .then((res) => {
-        const adminUser = res?.data?.adminuser[0];
-        setUser(adminUser);
-        setUserImageAdmin(res?.data?.adminuser[0]?.avatar);
-      })
-      .catch((err) => {
-        console.error(err);
-      });
+
+    // if (token) {
+    //   var timeoutId;
+
+
+    //   const fetchData1=async()=>{
+    //    try {
+        
+    //     const res=await getUserData();
+
+    //     if(res)
+    //       {
+    //         setUser(res.data.user.chat);
+    //           setUserIdStatus(res?.data?.user?._id);
+    //           setUserMessages(res?.data?.user?.chat);
+    //           setUserImage(res.data.user.avatar);
+    //       }
+      
+    //    } catch (error) {
+        
+    //    } finally {
+    //     timeoutId = setTimeout(fetchData1, 60000); 
+    //   }
+    //   }
+
+
+    //   const fetchData2=async()=>{
+    //     try {
+         
+    //      const res=await getUserAdminData();
+ 
+    //      if(res)
+    //        {
+            // const adminUser = res?.data?.adminuser[0];
+            // setUser(adminUser);
+            // setUserImageAdmin(res?.data?.adminuser[0]?.avatar);
+    //        }
+       
+    //     } catch (error) {
+         
+    //     } finally {
+    //      timeoutId = setTimeout(fetchData2, 60000); 
+    //    }
+    //    }
+    // fetchData1();
+    // fetchData2();
+    // }
+
+    if(token)
+      {
+        var timeoutId;
+        const fetchData = async () => {
+          try {
+            
+            const res=await getUserData();
+                if(res)
+                  {
+                    setUser(res.data.user.chat);
+                      setUserIdStatus(res?.data?.user?._id);
+                      setUserMessages(res?.data?.user?.chat);
+                      setUserImage(res.data.user.avatar);
+                  }
+          } catch (error) {
+            console.error('Error fetching data:', error);
+          } finally {
+            timeoutId = setTimeout(fetchData, 60000); // 60 seconds
+          }
+        };
+
+
+        const fetchData1 = async () => {
+          try {
+            
+            const res=await getUserAdminData();
+                if(res)
+                  {
+                    const adminUser = res?.data?.adminuser[0];
+                    setUser(adminUser);
+                    setUserImageAdmin(res?.data?.adminuser[0]?.avatar);
+                  }
+          } catch (error) {
+            console.error('Error fetching data:', error);
+          } finally {
+            timeoutId = setTimeout(fetchData1, 60000); // 60 seconds
+          }
+        };
+    
+        fetchData();
+        fetchData1();
+        return () => {
+          clearTimeout(timeoutId);
+        };
+      }
   }, [token, userImageAdmin]);
   useEffect(() => {
     messagesRef.current?.scrollIntoView();

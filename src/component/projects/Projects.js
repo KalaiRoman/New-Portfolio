@@ -103,14 +103,14 @@ function Projects({colorName}) {
                                         <div className='project-title'>
                                             {item?.name}
                                         </div>
-                                        <div className='text-center mb-4 mt-2 desc' >
+                                        <div className='text-center mb-1 mt-4 desc' >
                                             {item?.des}
                                         </div>
-                                        <div className='mt-2' >
+                                        {/* <div className='mt-2' >
                                             <button className='button-project' onClick={() => NavigatePath(item?.url)}>
                                                 {item?.button}
                                             </button>
-                                        </div>
+                                        </div> */}
                                         <div className="card-emty-box">
 
                                         </div>

@@ -8,9 +8,7 @@ import { chatDeleteUser, chatUpdateLikeUser, chatUpdateStatusUser } from '../../
 import Modal from 'react-bootstrap/Modal';
 import { getUserAdminData, getUserData } from '../../../services/auth_services/auth_services';
 import { toast } from 'react-toastify';
-
 TimeAgo.addDefaultLocale(en);
-
 function ChatBox({ messagesref, user, userimage, userimageadmin, userMessages, setUserMessages,handleShow1,handleClickCallbackChet }) {
     const [messageId, setMessageId] = useState("");
     const [show, setShow] = useState(false);
