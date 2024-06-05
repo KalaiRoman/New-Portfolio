@@ -162,7 +162,7 @@ function Home({ colorName, theme }) {
                                 </div>
                                 <div >
                                     <button className='donwloadbutton'>
-                                        <a href={pdf} download="Kalai-resume.pdf" className='pdf'>
+                                        <a href={pdf} download="Kalaisurya.pdf" className='pdf'>
                                             Download CV
                                         </a>
                                     </button>

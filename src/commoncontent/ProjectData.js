@@ -31,9 +31,6 @@ export const ProjectDatas = [
         id: 4,
         name: "Kridas",
         des: "Nextjs, JavaScript, HTML and Sass, Bootstrap, Responsive Web Design, Create the necessary components, such as headers, sections, and footers, using React components.",
-
-
-
         button: "Live Demo",
         url: 'https://kridas.com/'
 
@@ -121,10 +118,12 @@ export const ProjectDatas = [
 
     },
     {
-        id: 11,
+        id: 12,
         name: "Blog App",
         des: "React.js, JavaScript, HTML and Sass, Bootstrap, Responsive Web Design, Create the necessary components, such as headers, sections, and footers, using React components.",
         button: "Live Demo",
         url: ''
-    }
+    },
+   
+   
 ]
