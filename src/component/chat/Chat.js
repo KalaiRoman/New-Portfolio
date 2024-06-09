@@ -13,6 +13,9 @@ import thumb from '../../assests/images/smile.jpg';
 import { toast } from 'react-toastify';
 import { v4 as uuidv4 } from 'uuid';
 import chatserimage from '../../assests/images/chat-user.png'; 
+import otpimage from '../../assests/images/Enter OTP-amico.png';
+import whatsimage from '../../assests/images/whats app images.jpeg';
+
 function Chat() {
   const [userId, setUserIdMain] = useState("");
   const [loading, setLoading] = useState(false);
@@ -27,6 +30,8 @@ function Chat() {
   const [userIdInput, setUserId] = useState("");
   const [loginShow, setLoginShow] = useState(false);
   const [show1, setShow1] = useState(false);
+  const [show2, setShow2] = useState(false);
+
   const [show, setShow] = useState(false);
   const [command, setCommand] = useState("");
   const [commandError, setCommandError] = useState("");
@@ -38,6 +43,10 @@ function Chat() {
 
   const handleClose1 = () => setShow1(false);
   const handleShow1 = () => setShow1(true);
+  const handleShow2 = () => setShow2(true);
+  const handleClose2 = () => setShow2(false);
+
+
   const handleShow = () => setShow(!show);
 
   const handleEmojiClick = (emoji) => {
@@ -137,7 +146,6 @@ function Chat() {
       const response = await otpConfirmation(data);
       if (response) {
         localStorage.setItem("port-token", JSON.stringify(response.data.token));
-        window.alert(response?.data?.userid)
         setTimeout(() => {
           handleClose1();
           setLoading(false);
@@ -151,52 +159,7 @@ function Chat() {
   };
   useEffect(() => {
 
-    // if (token) {
-    //   var timeoutId;
 
-
-    //   const fetchData1=async()=>{
-    //    try {
-        
-    //     const res=await getUserData();
-
-    //     if(res)
-    //       {
-    //         setUser(res.data.user.chat);
-    //           setUserIdStatus(res?.data?.user?._id);
-    //           setUserMessages(res?.data?.user?.chat);
-    //           setUserImage(res.data.user.avatar);
-    //       }
-      
-    //    } catch (error) {
-        
-    //    } finally {
-    //     timeoutId = setTimeout(fetchData1, 60000); 
-    //   }
-    //   }
-
-
-    //   const fetchData2=async()=>{
-    //     try {
-         
-    //      const res=await getUserAdminData();
- 
-    //      if(res)
-    //        {
-            // const adminUser = res?.data?.adminuser[0];
-            // setUser(adminUser);
-            // setUserImageAdmin(res?.data?.adminuser[0]?.avatar);
-    //        }
-       
-    //     } catch (error) {
-         
-    //     } finally {
-    //      timeoutId = setTimeout(fetchData2, 60000); 
-    //    }
-    //    }
-    // fetchData1();
-    // fetchData2();
-    // }
 
     if(token)
       {
@@ -268,6 +231,43 @@ if(token)
   const handleClickCallbackChat=async()=>{
     handleShow1();
   }
+
+
+  const [timeLeft, setTimeLeft] = useState(60); 
+  const [resendTimeLeft, setResendTimeLeft] = useState(60); 
+  const [isResendDisabled, setIsResendDisabled] = useState(true);
+
+
+  useEffect(() => {
+    if (timeLeft === 0) return;
+
+    const timerId = setInterval(() => {
+      setTimeLeft(prevTime => prevTime - 1);
+    }, 1000);
+
+    return () => clearInterval(timerId);
+  }, [timeLeft]);
+
+  useEffect(() => {
+    if (resendTimeLeft === 0) {
+      setIsResendDisabled(false);
+      return;
+    }
+
+    const resendTimerId = setInterval(() => {
+      setResendTimeLeft(prevTime => prevTime - 1);
+    }, 1000);
+
+    return () => clearInterval(resendTimerId);
+  }, [resendTimeLeft]);
+
+  const handleResendOtp = () => {
+    setOtp("");
+    setTimeLeft(60);
+    setResendTimeLeft(60); 
+    setIsResendDisabled(true); 
+    loginUser();
+  };
 
   return (
     <div className='main-chat-box'>
@@ -349,9 +349,10 @@ if(token)
           <div>
             <img src={chatserimage} alt="no image" className='chat-image'/>
           </div>
-<div>
+<div className='d-flex gap-4'>
 
-  <button  className='login-buttons'onClick={handleClickCallbackChat}>Login</button>
+  <button  className='login-buttons' onClick={handleClickCallbackChat}>Login</button>
+  <button className='login-buttonss' onClick={handleShow2}>Chat Preview</button>
 </div>
         </div>
         </>}
@@ -366,20 +367,41 @@ if(token)
         centered
       >
         <Modal.Header closeButton>
-          <Modal.Title>{loginShow ? "OTP Verification" : "Login"}</Modal.Title>
+          <Modal.Title>{loginShow ? "OTP " : "Login"}</Modal.Title>
         </Modal.Header>
         <Modal.Body>
           <div>
             {loginShow ? (
               <div className='mb-5 mt-5'>
+              <div className='mb-3 mt-2'>
+<img src={otpimage} alt="no image" className='otp-image'/>
+              </div>
                 <OtpInput
                   value={otp}
                   onChange={(e) => setOtp(e)}
                   numInputs={4}
                   renderSeparator={<span style={{ marginLeft: "0px" }}> </span>}
-                  renderInput={(props) => <input {...props} className="input-box-otp" />}
+                  renderInput={(props) => <input {...props} className="input-box-otp" placeholder='*' />}
                 />
                 {otpError && <p className="text-danger mt-2">{otpError}</p>}
+                <div className='button-section-otp'>
+                  {timeLeft>0?<>
+                    <div>
+                  OTP expires in:  <span className='time-left'>00 :  {timeLeft<10?<>0{timeLeft}</>:timeLeft}</span> Seconds
+                  </div>
+                  </>:null}
+                 
+                <div>
+    
+        <button
+          onClick={handleResendOtp}
+          disabled={isResendDisabled} 
+          className={isResendDisabled?"disabled-time":"reset-time"}
+        >
+          Resend OTP 
+        </button>
+      </div>
+                </div>
               </div>
             ) : (
               <div className='d-flex align-items-center justify-content-center mt-2 mb-3'>
@@ -401,6 +423,26 @@ if(token)
                 {loading ? "Loading..." : loginShow ? "OTP Verification" : "Login"}
               </button>
             </div>
+          </div>
+        </Modal.Body>
+      </Modal>
+
+
+
+      <Modal
+        show={show2}
+        onHide={handleClose2}
+        backdrop="static"
+        keyboard={false}
+        centered
+      >
+        <Modal.Header closeButton>
+          <Modal.Title>User Chat Preview</Modal.Title>
+        </Modal.Header>
+        <Modal.Body>
+          <div>
+           
+           <img src={whatsimage} alt="no image" className='chat-images'/>
           </div>
         </Modal.Body>
       </Modal>
