@@ -350,7 +350,6 @@ if(token)
             <img src={chatserimage} alt="no image" className='chat-image'/>
           </div>
 <div className='d-flex gap-4'>
-
   <button  className='login-buttons' onClick={handleClickCallbackChat}>Login</button>
   <button className='login-buttonss' onClick={handleShow2}>Chat Preview</button>
 </div>
@@ -426,9 +425,6 @@ if(token)
           </div>
         </Modal.Body>
       </Modal>
-
-
-
       <Modal
         show={show2}
         onHide={handleClose2}

@@ -37,19 +37,19 @@
     position: relative;
     overflow: hidden;
     @include xsBreakPoint {
-      width: 90%;
+      width: 100%;
     }
     @include smBreakPoint {
-      width: 90%;
+      width: 100%;
     }
     @include mdBreakPoint {
-      width: 90%;
+      width: 100%;
     }
     @include lgBreakPoint {
-      width: 90%;
+      width: 95%;
     }
     @include xlBreakPoint {
-      width: 88%;
+      width: 90%;
     }
 
     .left-chat-box {
@@ -594,6 +594,16 @@
   justify-content: center;
   flex-direction: column;
   gap: 40px;
+
+  @include xsBreakPoint {
+    width: 100%;
+  }
+  @include smBreakPoint {
+    width: 100%;
+  }
+  @include mdBreakPoint {
+    width: 100%;
+  }
 }
 
 .cancel {
