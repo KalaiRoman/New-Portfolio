@@ -101,10 +101,10 @@ export const Skills = [
         id: 4,
         name: "Nodejs"
     },
-    {
-        id: 3,
-        name: "React Native"
-    },
+    // {
+    //     id: 3,
+    //     name: "React Native"
+    // },
     
     {
         id: 5,

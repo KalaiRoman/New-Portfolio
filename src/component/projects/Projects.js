@@ -1,12 +1,10 @@
-import React, { useEffect, useState } from 'react'
+import React, { useEffect} from 'react'
 import './styles/Projects.scss';
 import CommonHeader from './../../CommonHeader/CommonHeader';
-import Slider from "react-slick";
 import { ProjectDatas } from '../../commoncontent/ProjectData';
 import SlideNextArrow from './slidenextarrow/SlideNextArrow';
 import SlidePreArrow from './slideprearrow/SlidePreArrow';
 import AOS from 'aos';
-
 function Projects({colorName}) {
     useEffect(() => {
         AOS.init();
@@ -57,12 +55,8 @@ function Projects({colorName}) {
         ]
     };
 
-    const NavigatePath = (data) => {
-        window.open(data);
-    }
 
 
-    const tabs=["Ractjs","Nextjs","Nodejs","ReacNative"]
     return (
         <div className='projects-main-section'>
             <div className='inside-project-section'>
@@ -87,69 +81,43 @@ function Projects({colorName}) {
                 <div className='container'>
 
 
-{/* <div className='tab-section-projects'>
-    {tabs?.map((item,index)=>{
-        return(
-            <div className='tab-box'>
-                {item}
-            </div>
-        )
-    })}
-</div> */}
-                    <div className='main-slider-section'>
-                    {ProjectDatas?.map((item) => {
+         <div className='main-slider-section'>
+                    {ProjectDatas?.map((item,index) => {
                                 return (
-                                    <div className='cards mt-2 mb-4' >
-                                        <div className='project-title'>
-                                            {item?.name}
-                                        </div>
-                                        <div className='text-center mb-1 mt-4 desc' >
-                                            {item?.des}
-                                        </div>
-                                        {/* <div className='mt-2' >
-                                            <button className='button-project' onClick={() => NavigatePath(item?.url)}>
-                                                {item?.button}
-                                            </button>
-                                        </div> */}
-                                        <div className="card-emty-box">
+                                    // <div className='cards mt-2 mb-4' key={index} >
+                                    //     <div className='project-title'>
+                                    //         {item?.name}
+                                    //     </div>
+                                    //     <div className='text-center mb-1 mt-4 desc' >
+                                    //         {item?.des}
+                                    //     </div>
+                                       
+                                    //     <div className="card-emty-box">
 
-                                        </div>
-                                        <div className="card-emty-box1">
+                                    //     </div>
+                                    //     <div className="card-emty-box1">
 
-                                        </div>
-                                    </div>
+                                    //     </div>
+                                    // </div>
+                                    <div  className="box-wrapper" key={index}>
+  <figure className="shape-box shape-box_half">
+    <img src="https://images.unsplash.com/photo-1534670007418-fbb7f6cf32c3?ixlib=rb-1.2.1&ixid=eyJhcHBfaWQiOjEyMDd9&auto=format&fit=crop&w=334&q=80" alt />
+    <div className="brk-abs-overlay z-index-0 bg-black opacity-60" />
+    <figcaption>
+      <div className="show-cont">
+        <h3 className="card-no">{index<9?<>0{index+1}</>:<>{index+1}</>}</h3>
+        <h4 className="card-main-title">{item?.name}</h4>
+      </div>
+      <p className="card-content"> {item?.des}</p>
+      {/* <a href="#" className="read-more-btn">Read More</a> */}
+    </figcaption>
+    <span className="after" />
+  </figure>
+</div>
+
                                 )
                             })}
-                        {/* </Slider>  */}
-                        {/* <Slider {...settings}>
-                            {ProjectDatas?.map((item) => {
-                                return (
-                                    <div className='cards mt-2 mb-4' data-aos="fade-left"
-                                        data-aos-duration="3000">
-                                        <div className='project-title' data-aos="fade-up"
-                                            data-aos-duration="3000">
-                                            {item?.name}
-                                        </div>
-                                        <div className='text-center mb-5 mt-2 desc' data-aos="fade-right"
-                                            data-aos-duration="3000">
-                                            {item?.des}
-                                        </div>
-                                        <div className='mt-4' data-aos="fade-down"
-                                            data-aos-duration="3000">
-                                            <button className='button-project' onClick={() => NavigatePath(item?.url)}>
-                                                {item?.button}
-                                            </button>
-                                        </div>
-                                        <div className="card-emty-box">
-
-                                        </div>
-                                        <div className="card-emty-box1">
-
-                                        </div>
-                                    </div>
-                                )
-                            })}
-                        </Slider> */}
+                      
                     </div>
 
 
