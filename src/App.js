@@ -207,7 +207,6 @@ function App() {
   },[userStatus])
 
 
-  console.log(userStatus,'userStatus')
 
 
 
@@ -301,15 +300,14 @@ function App() {
                               backgroundColor: item
                             }}
                           >
-
                           </div>
                         </div>
                       )
                     })}
 
-<div className='borders'>
+{/* <div className='borders'>
   
-</div>
+</div> */}
 <div className='middle-headers'>
 {iconsData?.map((item, index) => {
                     return (

@@ -12,7 +12,7 @@ import person4 from '../../assests/images/3d male.png';
 
 import { Typewriter } from 'react-simple-typewriter'
 import Modal from 'react-bootstrap/Modal';
-import pdf from '../../assests/Kalai-resume.pdf';
+import pdf from '../../assests/Kalai- resume.pdf';
 
 import AOS from 'aos';
 
@@ -58,6 +58,9 @@ function Home({ colorName, theme }) {
         window.open('https://github.com/KalaiRoman?tab=repositories')
     }
     const handleType = (count) => {
+    }
+    const faceBookLink=()=>{
+        window.open("https://www.facebook.com/")
     }
 
     const handleDone = () => {
@@ -111,9 +114,9 @@ function Home({ colorName, theme }) {
                                 data-aos-easing="linear"
                                 data-aos-duration="1500"
                             >
-                                <span className='k-text' style={{ color: colorName }}>K</span>alaisurya <span style={{ color: `${colorName}`, fontWeight: 'bold', fontSize: "1rem" }}>(
+                                <span className='k-text' style={{ color: colorName }}>K</span>alaisurya <span style={{ color: `${colorName || "#96C9F4"}`, fontWeight: 'bold', fontSize: "1rem" }}>(
                                     <Typewriter
-                                        words={['Reactjs 😃', 'Nextjs 😃', 'ReactNative 😃', 'Nodejs 😃']}
+                                        words={['Reactjs', 'Nextjs','Nodejs']}
                                         loop={5}
                                         cursor
                                         cursorStyle='*'
@@ -140,7 +143,7 @@ function Home({ colorName, theme }) {
                             <div className='home-social-icons mt-4 mb-2'>
                                 <div data-aos="fade-right"
                                     data-aos-easing="linear"
-                                    data-aos-duration="1500">
+                                    data-aos-duration="1500" onClick={faceBookLink}>
                                     <i class="fa-brands fa-facebook logo-icon"></i>
                                 </div>
                                 <div onClick={LinkedInPath} data-aos="fade-down"
