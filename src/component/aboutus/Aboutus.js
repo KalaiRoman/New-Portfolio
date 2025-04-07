@@ -135,7 +135,7 @@ function Aboutus({ colorName }) {
                                             </div>
                                         </div>
                                     </div>
-                                    <div className='mt-4'>
+                                    {/* <div className='mt-4'>
                                         <div className='language-names'>
                                             Resume :
                                         </div>
@@ -147,8 +147,8 @@ function Aboutus({ colorName }) {
                                                 https://kalairesume.netlify.app/
                                             </div>
                                         </div>
-                                    </div>
-                                    <div className='mt-2' >
+                                    </div> */}
+                                    <div className='mt-4' >
                                         <div className='language-names'>
                                             {PersonalContent?.languageName} :
                                         </div>

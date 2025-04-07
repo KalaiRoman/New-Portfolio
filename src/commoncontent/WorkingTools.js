@@ -16,7 +16,7 @@ export const Tools = [
     {
         id: 2,
         image: react,
-        name: "Reactjs"
+        name: "PostMan"
     },
     {
         id: 3,
@@ -41,12 +41,12 @@ export const Tools = [
         name: "GitHub"
 
     },
-    {
-        id: 6,
-        image: android,
-        name: "Android"
+    // {
+    //     id: 6,
+    //     image: android,
+    //     name: "Android"
 
-    },
+    // },
     {
         id: 7,
         image: gitlab,
