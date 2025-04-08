@@ -196,7 +196,7 @@ function App() {
             outerScale={0}
             className="mouse-section"
           /> */}
-            <div className={"Dektop-section "}>
+            <div className={"Dektop-section"}>
               <div className="main-section">
                 <div className="middle-header">
                   <div className="list-names ">

@@ -28,8 +28,10 @@ function WorkingTools({ colorName }) {
 
                 </div>
                 <div>
-                    <CommonHeader title={"Working Tools"} colorName={colorName} />
+                    <CommonHeader title={"My Tech Stack"} colorName={colorName} />
+                    
                 </div>
+                
                 <div className='mt-5  tool-row-section'>
                     {Tools?.map((item) => {
                         return (
@@ -38,9 +40,9 @@ function WorkingTools({ colorName }) {
                                     <img src={item?.image} alt={"no image"} className='tool-img' />
 
                                 </div>
-                                <div className='tool-name'>
+                                {/* <div className='tool-name'>
                                     {item?.name}
-                                </div>
+                                </div> */}
                             </div>
                         )
                     })}

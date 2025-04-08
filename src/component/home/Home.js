@@ -9,7 +9,6 @@ import person1 from "../../assests/images/person1.png";
 import person2 from "../../assests/images/person2.png";
 import person3 from "../../assests/images/person3.png";
 import person4 from "../../assests/images/3d male.png";
-
 import { Typewriter } from "react-simple-typewriter";
 import Modal from "react-bootstrap/Modal";
 import pdf from "../../assests/Kalai- resume.pdf";
@@ -17,6 +16,7 @@ import pdf from "../../assests/Kalai- resume.pdf";
 import AOS from "aos";
 
 import CountUp from "react-countup";
+import kalaiImage from "../../assests/images/kalai_image.jpeg";
 function Home({ colorName, theme }) {
   useEffect(() => {
     AOS.init();
@@ -29,20 +29,20 @@ function Home({ colorName, theme }) {
   const datas = [
     {
       id: 1,
-      image: person1,
+      image: kalaiImage,
     },
-    {
-      id: 1,
-      image: person2,
-    },
-    {
-      id: 1,
-      image: person3,
-    },
-    {
-      id: 1,
-      image: person4,
-    },
+    // {
+    //   id: 1,
+    //   image: person2,
+    // },
+    // {
+    //   id: 1,
+    //   image: person3,
+    // },
+    // {
+    //   id: 1,
+    //   image: person4,
+    // },
   ];
 
   const LinkedInPath = () => {
@@ -92,7 +92,7 @@ function Home({ colorName, theme }) {
                 data-aos-easing="linear"
                 data-aos-duration="1500"
               >
-                Hello, I am
+                Hello, I am 👋
               </div>
               <div
                 className="myname-text"
@@ -127,13 +127,13 @@ function Home({ colorName, theme }) {
                 </span>
               </div>
               <div
-                className="web-text mb-2 mt-3"
+                // className="web-text mb-2 mt-3"
                 style={{ color: colorName }}
                 data-aos-easing="linear"
                 data-aos-duration="1500"
                 data-aos="fade-down"
               >
-                Full Stack Developer
+                {/* Full Stack Developer */}
                 {/* (<span className='w-text animate__animated animate__bounce animate__repeat-3 	3 animate__slow 2s'> W</span>EB<span className='w-text animate__animated animate__bounce animate__repeat-2 	2 animate__slow 3s'>D</span>EVELOPER) */}
               </div>
               {/* <div className='build-text mt-3' data-aos="zoom-in-right"
@@ -143,7 +143,16 @@ function Home({ colorName, theme }) {
                                 A Building Applications with Front End Developer Operations.
                                 Building applications involves Front End Developer Operations for the user interface and backend handling for data processing and server-side functionalities.
                             </div> */}
-              <div className="home-social-icons mt-4 mb-2">
+
+              <p
+                className="text-gray-600 max-w-lg mx-auto mt-2"
+                style={{ color: "grey", fontSize: "17px", lineHeight: "28px" }}
+              >
+                Passionate full-stack developer with expertise in building
+                scalable and interactive applications using React, Node.js, and
+                MongoDB.
+              </p>
+              <div className="home-social-icons mt-2 mb-2">
                 <div
                   data-aos="fade-right"
                   data-aos-easing="linear"
@@ -213,8 +222,8 @@ function Home({ colorName, theme }) {
                         alt="no image"
                         className="person-images"
                       />
-                      <div className="empty-boxes"></div>
-                      <div className="fade-box"></div>
+                      {/* <div className="empty-boxes"></div> */}
+                      {/* <div className="fade-box"></div> */}
                     </div>
                   </SwiperSlide>
                 );
@@ -279,6 +288,36 @@ function Home({ colorName, theme }) {
                 </div>
               </div>
             </div>
+
+            {/* <div className="profile-container">
+              <div className="floating-card card1">
+                <div className="icon">💼</div>
+                <div>
+                  <p className="number">4</p>
+                  <p className="label">Years of Experience</p>
+                </div>
+              </div>
+
+              <div className="floating-card card2">
+                <div className="icon">📁</div>
+                <div>
+                  <p className="number">10+</p>
+                  <p className="label">Projects Completed</p>
+                </div>
+              </div>
+
+              <div className="floating-card card3">
+                <div className="icon">👥</div>
+                <div>
+                  <p className="number">5+</p>
+                  <p className="label">Happy Clients</p>
+                </div>
+              </div>
+
+              <div className="profile-photo">
+                <img src={kalaiImage} alt="Profile" />
+              </div>
+            </div> */}
           </div>
         </div>
       </div>
