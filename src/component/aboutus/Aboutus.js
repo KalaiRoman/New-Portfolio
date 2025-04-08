@@ -75,7 +75,7 @@ function Aboutus({ colorName }) {
                             </div>
                             <div className='mt-4 inside-about-section-lefts'>
                                 {selectName == "Personal Info" && <div>
-                                    <div className='decsription'  >
+                                    <div className='decsription'  style={{fontSize:"15px"}} >
                                         {PersonalContent?.desc}
                                     </div>
                                     <div className='mainabout-skill mt-4'>
@@ -83,7 +83,7 @@ function Aboutus({ colorName }) {
                                             <div>
                                                 <i class="fa-regular fa-user left-icons"></i>
                                             </div>
-                                            <div className='main-about-texts'  >
+                                            <div className='main-about-texts' style={{fontSize:"16px"}} >
                                                 {PersonalContent?.name}
                                             </div>
                                         </div>
@@ -200,7 +200,7 @@ function Aboutus({ colorName }) {
                                 </div>}
                                 {selectName == "Skills" && <div>
                                     <div className='bolt-awesome mb-4 mt-2'>
-                                        {PersonalContent?.tools}
+                                        {/* {PersonalContent?.tools} */}
                                     </div>
                                     <div className='row gap-3 skill-main-box'>
                                         {Skills?.map((item, index) => {
