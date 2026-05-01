@@ -2,41 +2,39 @@
 
 .hireme {
   border: none;
-  padding: 10px 50px;
+  padding: 10px 40px;
   color: white !important;
   border-radius: 8px;
   cursor: pointer;
-  background: #f48c06;
+  background: #0db75f;
   width: 100%;
   font-weight: 600;
 }
 
 .donwloadbutton {
-  border: 1px solid #f48c06;
-  padding: 10px 50px;
-  color: orangered;
+  padding: 10px 30px;
   border-radius: 8px;
   cursor: pointer;
   background: white;
   width: 100%;
   font-weight: 600;
   transition: 1s;
-
-  @include themed() {
-    color: t($greytextfixed);
-  }
+  border: none;
+  outline: none;
+  display: flex;
+  gap: 10px;
+  align-items: center;
+  justify-content: center;
 }
 
 // hover section
 
 .donwloadbutton:hover {
   background-color: #f48c06;
-  padding: 10px 50px;
-  color: white;
+  padding: 10px 30px;
   transition: 1s;
 }
 
-// a tags
 a {
   color: white !important;
   text-align: none !important;

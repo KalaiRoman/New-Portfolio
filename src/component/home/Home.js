@@ -100,31 +100,28 @@ function Home({ colorName, theme }) {
                 data-aos-easing="linear"
                 data-aos-duration="1500"
               >
-                <span className="k-text" style={{ color: colorName }}>
-                  K
-                </span>
-                alaisurya{" "}
+                  Kalaisurya{" "}
                 <span
                   style={{
-                    color: `${colorName || "#96C9F4"}`,
+                    color: `${colorName || "#0db75f"}`,
                     fontWeight: "bold",
                     fontSize: "1rem",
                   }}
                 >
-                  (
+                  ( 
                   <Typewriter
-                    words={["Reactjs", "Nextjs", "Nodejs"]}
+                    words={["ReactJs", "Javascript" ,"NextJs", "NodeJs"]}
                     loop={5}
                     cursor
-                    cursorStyle="*"
+                    cursorStyle="👨‍💻"
                     typeSpeed={70}
                     deleteSpeed={50}
                     delaySpeed={1000}
                     onLoopDone={handleDone}
                     onType={handleType}
                   />{" "}
-                  )
-                </span>
+                   )
+                </span> Developer
               </div>
               <div
                 // className="web-text mb-2 mt-3"
@@ -143,14 +140,17 @@ function Home({ colorName, theme }) {
                                 A Building Applications with Front End Developer Operations.
                                 Building applications involves Front End Developer Operations for the user interface and backend handling for data processing and server-side functionalities.
                             </div> */}
-
-              <p
-                className="text-gray-600 max-w-lg mx-auto mt-2"
-                style={{ color: "grey", fontSize: "17px", lineHeight: "28px" }}
+    <p
+                className="text-gray-600 max-w-lg mt-3"
+                style={{ color: "grey", fontSize: "17px", lineHeight: "18px" }}
               >
-                Passionate full-stack developer with expertise in building
-                scalable and interactive applications using React, Node.js, and
-                MongoDB.
+             Full Stack Developer specializing in React & Node.js.
+              </p>
+              <p
+                className="text-gray-600 max-w-lg  mt-1"
+                style={{ color: "grey", fontSize: "16px", lineHeight: "28px" }}
+              >
+               I build scalable, high-performance web applications with clean UI/UX. Focused on delivering seamless user experiences and optimized performance.
               </p>
               <div className="home-social-icons mt-2 mb-2">
                 <div
@@ -189,8 +189,9 @@ function Home({ colorName, theme }) {
                 </div>
                 <div>
                   <button className="donwloadbutton">
+                     <i class="fa-solid fa-download"></i>
                     <a href={pdf} download="Kalaisurya.pdf" className="pdf">
-                      Download CV
+                     Get CV
                     </a>
                   </button>
                 </div>
@@ -241,11 +242,11 @@ function Home({ colorName, theme }) {
               </div>
               <div className="happy-client-text">
                 <div className="text-years">
-                  <CountUp end={4} duration={5} />
+                  <CountUp end={5} duration={5} />+
                 </div>
                 <div className="year-text">
-                  Years of <br />
-                  Experience
+                  Years <br />
+                
                 </div>
               </div>
             </div>
@@ -263,8 +264,7 @@ function Home({ colorName, theme }) {
                   <CountUp end={10} duration={5} />+
                 </div>
                 <div className="year-text">
-                  Projects <br />
-                  Completed
+                  Projects
                 </div>
               </div>
             </div>
@@ -282,8 +282,6 @@ function Home({ colorName, theme }) {
                   <CountUp end={5} duration={5} />+
                 </div>
                 <div className="year-text">
-                  Happy
-                  <br />
                   Clients
                 </div>
               </div>
