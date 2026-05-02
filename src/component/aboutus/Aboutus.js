@@ -85,11 +85,11 @@ const qualifications = [
 const skillGroups = [
   {
     title: "Frontend",
-    skills: ["Nextjs","React.js", "HTML5", "CSS3", "JavaScript (ES6+)", "Tailwind CSS", "Bootstrap","Context Api","Redux","RESTful APIs","TypeScript","Sass","UI/UX"],
+    skills: ["React.js","NextJs","HTML5", "CSS3", "JavaScript (ES6+)", "Tailwind CSS", "Bootstrap","Context Api","Redux","Redux Toolkit","RESTful APIs","TypeScript","Sass","UI/UX","React Bootstrap","Unit Testing","Responsive UI Designs","JSON"],
   },
   {
     title: "Backend",
-    skills: ["Node.js", "Express.js", "REST APIs", "MongoDB"],
+    skills: ["Node.js", "REST APIs", "MongoDB"],
   },
   {
     title: "Tools & DevOps",
