@@ -154,8 +154,7 @@ color: #ffffff !important;
           width: 100%;
           display: flex;
           gap: 30px;
-
-          .logo-icon {
+          .logo-icons {
             width: 40px;
             height: 40px;
             border-radius: 50%;
@@ -163,15 +162,15 @@ color: #ffffff !important;
             align-items: center;
             justify-content: center;
             cursor: pointer;
-            background-color: white;
+            background-color: white !important;
             animation: topicon 5s ease-in-out;
             transition: 1s;
-            color: #0db75f;
+            color: #0db75f !important;
             font-size: 1.3rem;
             box-shadow: rgba(149, 157, 165, 0.2) 0px 8px 24px;
           }
 
-          .logo-icon:hover {
+          .logo-icons:hover {
             transform: translateY(-12px) rotate(360deg);
           }
         }

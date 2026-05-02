@@ -1,168 +1,219 @@
-import React, { useState, useEffect } from 'react'
-import './styles/Contact.scss';
-import CommonHeader from './../../CommonHeader/CommonHeader';
-import contactimg from '../../assests/images/Contact us-amico 1.png';
-import { ContactDatas } from '../../commoncontent/ContactData';
-import Form from 'react-bootstrap/Form';
-import AOS from 'aos';
-import { MailRegister } from '../../services/auth_services/auth_services';
-import { toast } from 'react-toastify';
-function Contact({ colorName }) {
+// ── Contact.jsx ──
+import { useState } from "react";
+import "./styles/Contact.css";
 
+/* ── SVG Icons ── */
+const LocationIcon = () => (
+  <svg viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg">
+    <path d="M12 2C8.13 2 5 5.13 5 9c0 5.25 7 13 7 13s7-7.75 7-13c0-3.87-3.13-7-7-7zm0 9.5c-1.38 0-2.5-1.12-2.5-2.5s1.12-2.5 2.5-2.5 2.5 1.12 2.5 2.5-1.12 2.5-2.5 2.5z"/>
+  </svg>
+);
 
-    useEffect(() => {
-        AOS.init();
-    }, [])
+const PhoneIcon = () => (
+  <svg viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg">
+    <path d="M6.62 10.79c1.44 2.83 3.76 5.14 6.59 6.59l2.2-2.2c.27-.27.67-.36 1.02-.24 1.12.37 2.33.57 3.57.57.55 0 1 .45 1 1V20c0 .55-.45 1-1 1-9.39 0-17-7.61-17-17 0-.55.45-1 1-1h3.5c.55 0 1 .45 1 1 0 1.25.2 2.45.57 3.57.11.35.03.74-.25 1.02l-2.2 2.2z"/>
+  </svg>
+);
 
-    const [error, setError] = useState(false);
-    const [success, setSuccess] = useState(false);
-    const [loader, setLoader] = useState(false);
-    const [sendmails, setSendMail] = useState({
-        user_name: "",
-        user_email: "",
-        user_message: ""
-    });
+const EmailIcon = () => (
+  <svg viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg">
+    <path d="M20 4H4c-1.1 0-2 .9-2 2v12c0 1.1.9 2 2 2h16c1.1 0 2-.9 2-2V6c0-1.1-.9-2-2-2zm0 4l-8 5-8-5V6l8 5 8-5v2z"/>
+  </svg>
+);
 
-    const { user_email, user_name, user_message } = sendmails;
-    const handleChange = (e) => {
-        setSendMail({ ...sendmails, [e.target.name]: e.target.value });
+/* ── Contact Illustration (inline SVG) ── */
+const ContactIllustration = () => (
+  <svg viewBox="0 0 320 240" xmlns="http://www.w3.org/2000/svg">
+    {/* Background circle */}
+    <ellipse cx="160" cy="210" rx="110" ry="18" fill="#ddd6fe" opacity="0.5"/>
+
+    {/* Phone body */}
+    <rect x="100" y="30" width="120" height="185" rx="18" fill="#1e1b4b"/>
+    <rect x="107" y="44" width="106" height="157" rx="10" fill="#ede9fe"/>
+
+    {/* Screen content */}
+    <rect x="114" y="60" width="92" height="100" rx="6" fill="#0cb65e" opacity="0.4"/>
+
+    {/* Person silhouette */}
+    <circle cx="160" cy="95" r="18" fill="#0cb65e"/>
+    <ellipse cx="160" cy="128" rx="20" ry="14" fill="#0cb65e"/>
+
+    {/* Headset arc */}
+    <path d="M143 90 Q143 72 160 72 Q177 72 177 90" fill="none" stroke="#0cb65e" strokeWidth="3.5" strokeLinecap="round"/>
+    <rect x="140" y="88" width="7" height="10" rx="3" fill="#0cb65e"/>
+    <rect x="173" y="88" width="7" height="10" rx="3" fill="#0cb65e"/>
+
+    {/* "CONTACT US" text bar */}
+    <rect x="114" y="162" width="92" height="18" rx="4" fill="#0cb65e"/>
+    <rect x="127" y="167" width="66" height="6" rx="3" fill="#fff" opacity="0.8"/>
+
+    {/* Notch */}
+    <rect x="142" y="38" width="36" height="6" rx="3" fill="#312e81"/>
+
+    {/* Floating icon cards */}
+    <rect x="58" y="55" width="36" height="36" rx="8" fill="#0cb65e"/>
+    <path d="M68 66 Q76 60 84 66 L84 82 Q76 76 68 82 Z" fill="#fff" opacity="0.85" transform="scale(0.7) translate(38,32)"/>
+    {/* phone icon on card */}
+    <text x="76" y="78" textAnchor="middle" fontSize="16" fill="#fff">📞</text>
+
+    <rect x="58" y="103" width="36" height="36" rx="8" fill="#0cb65e"/>
+    <text x="76" y="126" textAnchor="middle" fontSize="16" fill="#fff">@</text>
+
+    <rect x="58" y="151" width="36" height="36" rx="8" fill="#0cb65e"/>
+    <text x="76" y="174" textAnchor="middle" fontSize="15" fill="#fff">✉</text>
+
+    {/* Decorative leaf */}
+    <ellipse cx="234" cy="190" rx="14" ry="22" fill="#0cb65e" opacity="0.5" transform="rotate(-20 234 190)"/>
+    <ellipse cx="244" cy="185" rx="10" ry="18" fill="#0cb65e" opacity="0.35" transform="rotate(-35 244 185)"/>
+  </svg>
+);
+
+const contactInfo = [
+  {
+    label: "Location",
+    value: "Chennai, India",
+    icon: <LocationIcon />,
+  },
+  {
+    label: "Phone",
+    value: "+91 87783 77119",
+    icon: <PhoneIcon />,
+  },
+  {
+    label: "Email",
+    value: "kalaimca685@gmail.com",
+    icon: <EmailIcon />,
+  },
+];
+
+export default function Contact() {
+  const [form, setForm] = useState({ name: "", email: "", message: "" });
+  const [submitted, setSubmitted] = useState(false);
+  const [errors, setErrors] = useState({});
+
+  const validate = () => {
+    const errs = {};
+    if (!form.name.trim()) errs.name = "Name is required";
+    if (!form.email.trim()) errs.email = "Email is required";
+    else if (!/\S+@\S+\.\S+/.test(form.email)) errs.email = "Enter a valid email";
+    if (!form.message.trim()) errs.message = "Message is required";
+    return errs;
+  };
+
+  const handleChange = (e) => {
+    const { name, value } = e.target;
+    setForm((prev) => ({ ...prev, [name]: value }));
+    if (errors[name]) setErrors((prev) => ({ ...prev, [name]: "" }));
+  };
+
+  const handleSubmit = () => {
+    const errs = validate();
+    if (Object.keys(errs).length > 0) {
+      setErrors(errs);
+      return;
     }
-    const SubmitContactDetails = async(e) => {
-        e.preventDefault();
+    setSubmitted(true);
+    setForm({ name: "", email: "", message: "" });
+  };
 
-        if (user_email?.length === 0 || user_message?.length === 0 || user_name?.length === 0) {
-            setError(true);
-        }
+  return (
+    <section className="contact-section">
+      {/* Page title */}
+      <h1 className="contact-page-title">
+        <span>Con</span>tact Me
+      </h1>
 
-        if (user_email && user_name && user_message) {
-            setLoader(true);
+      <div className="contact-wrapper">
+        {/* ── LEFT: Form ── */}
+        <div className="contact-form-card">
+          <h2 className="form-heading">Get in touch</h2>
+          <p className="form-subheading">We are here for you! How can we help?</p>
 
-const data={
-    email:user_email,
-    username:user_name,
-    message:user_message
-}
-            const response=await MailRegister(data);
+          {/* Name */}
+          <div className="form-group">
+            <label className="form-label" htmlFor="name">Name</label>
+            <input
+              id="name"
+              name="name"
+              type="text"
+              className="form-input"
+              placeholder="Enter your name"
+              value={form.name}
+              onChange={handleChange}
+              style={errors.name ? { borderColor: "#ef4444" } : {}}
+            />
+            {errors.name && (
+              <p style={{ color: "#ef4444", fontSize: 12, marginTop: 4 }}>{errors.name}</p>
+            )}
+          </div>
 
-            if(response)
-                {
-                    toast.success("Thank you for send Mail")
-                    setTimeout(() => {
-                        setLoader(false);
-                        setSuccess(true);
-                        setError(false);
-                        setSendMail({
-                            user_email: "",
-                            user_name: "",
-                            user_message: ""
-                        })
-                    }, 1000);
-                }
-           
-        }
+          {/* Email */}
+          <div className="form-group">
+            <label className="form-label" htmlFor="email">Email</label>
+            <input
+              id="email"
+              name="email"
+              type="email"
+              className="form-input"
+              placeholder="Enter your email"
+              value={form.email}
+              onChange={handleChange}
+              style={errors.email ? { borderColor: "#ef4444" } : {}}
+            />
+            {errors.email && (
+              <p style={{ color: "#ef4444", fontSize: 12, marginTop: 4 }}>{errors.email}</p>
+            )}
+          </div>
 
-    }
-    return (
-        <div className='main-contact-section'>
-            <div className='inside-contact-section'>
-                <CommonHeader title={"Contact Me"} colorName={colorName} />
-                <div className='contact-box'>
-                    <div className='left-contact-box'>
-                        <div className='getin' data-aos="fade-down"
-                            data-aos-duration="3000">
-                            Get in touch
-                        </div>
-                        <div className='we-texts' data-aos="fade-up"
-                            data-aos-duration="3000">
-                            We are here for you!
-                            {/* How can we help? */}
-                        </div>
-                        <div className='mt-4' data-aos="flip-left"
-                            data-aos-easing="ease-out-cubic"
-                            data-aos-duration="2000">
-                            <Form onSubmit={SubmitContactDetails}>
-                                <div className='mb-3'>
-                                    <Form.Group className="mb-3">
-                                        <Form.Label className="label-texts">Name</Form.Label>
-                                        <Form.Control type="text" placeholder="Enter Name" className='form-section' onChange={handleChange} value={user_name} name="user_name" />
-                                        <Form.Text className="text-muted">
-                                            {error && user_name?.length <= 0 ? <span className='text-danger'>Name is Required</span> : null}
-                                        </Form.Text>
-                                    </Form.Group>
-                                </div>
-                                <div className='mb-3'>
-                                    <Form.Group className="mb-3">
-                                        <Form.Label className="label-texts">Email</Form.Label>
-                                        <Form.Control type="email" placeholder="Enter Email" className='form-section' onChange={handleChange} value={user_email} name="user_email" />
-                                        <Form.Text className="text-muted">
-                                            {error && user_email?.length <= 0 ? <span className='text-danger'>Email is Required</span> : null}
+          {/* Message */}
+          <div className="form-group">
+            <label className="form-label" htmlFor="message">Message</label>
+            <textarea
+              id="message"
+              name="message"
+              className="form-textarea"
+              placeholder="Leave a comment here..."
+              value={form.message}
+              onChange={handleChange}
+              style={errors.message ? { borderColor: "#ef4444" } : {}}
+            />
+            {errors.message && (
+              <p style={{ color: "#ef4444", fontSize: 12, marginTop: 4 }}>{errors.message}</p>
+            )}
+          </div>
 
-                                        </Form.Text>
-                                    </Form.Group>
-                                </div>
+          <button className="form-submit" onClick={handleSubmit}>
+            Send Message
+          </button>
 
-                                <div className='mb-2'>
-                                    <Form.Group className="mb-1">
-                                        <Form.Label className="label-texts">Message</Form.Label>
-                                        <Form.Control
-                                            as="textarea"
-                                            placeholder="Leave a comment here"
-                                            style={{ height: '100px' }}
-                                            className='form-section'
-                                            onChange={handleChange} value={user_message}
-                                            name="user_message"
-                                        />
-                                        <Form.Text className="text-muted">
-                                            {error && user_message?.length <= 0 ? <span className='text-danger'>Message is Required</span> : null}
-
-                                        </Form.Text>
-                                    </Form.Group>
-                                </div>
-
-                                <div>
-                                    {success && <div className='text-success'>Message Send Successfully!</div>}
-                                </div>
-
-                                <div className='mt-1'>
-                                    <button variant="primary" type="submit" className='buttonsubmit mt-3'>
-                                        {loader ? <>Loading...</> : <>Submit</>}
-                                    </button>
-                                </div>
-                            </Form>
-                        </div>
-                    </div>
-
-                    <div className='right-contact-box'>
-                        <div data-aos="fade-right"
-                            data-aos-offset="500"
-                        >
-                            <img src={contactimg} alt="no image" className='contactimage' />
-
-                        </div>
-                        <div >
-                            {ContactDatas?.conntactList?.map((item, index) => {
-                                return (
-                                    <div>
-                                        <div className='box-forms mb-3 mt-2'>
-                                            <div>
-                                                {item?.image}
-                                            </div>
-                                            <div className='contactname'>
-                                                {item?.name}
-                                            </div>
-                                        </div>
-                                    </div>
-                                )
-                            })}
-                        </div>
-
-
-                    </div>
-                </div>
+          {submitted && (
+            <div className="form-success">
+              Message sent successfully! I'll get back to you soon.
             </div>
-
+          )}
         </div>
-    )
-}
 
-export default Contact
+        {/* ── RIGHT: Info Panel ── */}
+        <div className="contact-info-panel">
+          {/* Illustration */}
+          <div className="contact-illustration">
+            <ContactIllustration />
+          </div>
+
+          {/* Info cards */}
+          <div className="info-cards">
+            {contactInfo.map((item) => (
+              <div key={item.label} className="info-card">
+                <div className="info-icon">{item.icon}</div>
+                <div className="info-text">
+                  <span className="info-label">{item.label}</span>
+                  <span className="info-value">{item.value}</span>
+                </div>
+              </div>
+            ))}
+          </div>
+        </div>
+      </div>
+    </section>
+  );
+}

@@ -196,7 +196,9 @@ function App() {
             outerScale={0}
             className="mouse-section"
           /> */}
-            <div className={"Dektop-section"}>
+
+          
+            {/* <div className={"Dektop-section"}>
               <div className="main-section">
                 <div className="middle-header">
                   <div className="list-names ">
@@ -217,7 +219,6 @@ function App() {
                             <div>
                               <div className={"activeclass"}>
                                 <div>{item?.icon}</div>
-                                <div className="active-texts">{item?.name}</div>
                               </div>
                             </div>
                           ) : (
@@ -232,7 +233,7 @@ function App() {
                                 id={item?.ToolName}
                                 place="left"
                                 content={item?.ToolName}
-                                className="kalai"
+                                className="tool-tip"
                               />
                             </>
                           )}
@@ -280,9 +281,7 @@ function App() {
                         );
                       })}
 
-                      {/* <div className='borders'>
-  
-</div> */}
+                    
                       <div className="middle-headers">
                         {iconsData?.map((item, index) => {
                           return (
@@ -298,14 +297,10 @@ function App() {
                               }}
                             >
                               {Username === item?.path ? (
-                                <div>
-                                  <div className={"activeclass"}>
+                                  <div className={"activeclasss"}>
                                     <div>{item?.icon}</div>
-                                    <div className="active-texts">
-                                      {item?.name}
-                                    </div>
+                                  
                                   </div>
-                                </div>
                               ) : (
                                 <>
                                   <div
@@ -314,12 +309,7 @@ function App() {
                                   >
                                     {item?.icon}
                                   </div>
-                                  <ReactTooltip
-                                    id={item?.ToolName}
-                                    place="left"
-                                    content={item?.ToolName}
-                                    className="kalai"
-                                  />
+                                
                                 </>
                               )}
                             </div>
@@ -331,6 +321,48 @@ function App() {
                 </div>
 
                 <div className="body-sections">
+                  <Routes>
+                    <Route
+                      exact
+                      path="/"
+                      element={
+                        <Home
+                          colorName={state?.ColorName}
+                          ResponseSection={ResponseSection}
+                          theme={theme}
+                        />
+                      }
+                    />
+                    <Route
+                      path="/aboutus"
+                      element={<Aboutus colorName={state?.ColorName} />}
+                    />
+                    <Route
+                      path="/projects"
+                      element={<Projects colorName={state?.ColorName} />}
+                    />
+                    <Route
+                      path="/tools"
+                      element={<WorkingTools colorName={state?.ColorName} />}
+                    />
+                    <Route
+                      path="/contact"
+                      element={<Contact colorName={state?.ColorName} />}
+                    />
+                    <Route
+                      path="/chat"
+                      element={<Chat colorName={state?.ColorName} />}
+                    />
+                  </Routes>
+                </div>
+              </div>
+            </div> */}
+
+            <div>
+              <Header/>
+
+              <div>
+                 <div className="body-sections">
                   <Routes>
                     <Route
                       exact

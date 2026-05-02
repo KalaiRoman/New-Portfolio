@@ -159,7 +159,7 @@ function Home({ colorName, theme }) {
                   data-aos-duration="1500"
                   onClick={faceBookLink}
                 >
-                  <i class="fa-brands fa-facebook logo-icon"></i>
+                  <i class="fa-brands fa-facebook logo-icons"></i>
                 </div>
                 <div
                   onClick={LinkedInPath}
@@ -167,7 +167,7 @@ function Home({ colorName, theme }) {
                   data-aos-easing="linear"
                   data-aos-duration="1500"
                 >
-                  <i class="fa-brands fa-linkedin-in logo-icon"></i>
+                  <i class="fa-brands fa-linkedin-in logo-icons"></i>
                 </div>
                 <div
                   onClick={GithubPath}
@@ -175,7 +175,7 @@ function Home({ colorName, theme }) {
                   data-aos-easing="linear"
                   data-aos-duration="1500"
                 >
-                  <i class="fa-brands fa-github logo-icon"></i>
+                  <i class="fa-brands fa-github logo-icons"></i>
                 </div>
               </div>
               <div className="home-button">

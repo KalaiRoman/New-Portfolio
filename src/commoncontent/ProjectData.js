@@ -51,14 +51,7 @@ export const ProjectDatas = [
     button: "Live Demo",
     url: "https://www.passionaiari.com/",
   },
-  // {
-  //     id: 6,
-  //     name: "Eternosoft",
-  //     des: "HTML and Sass,Javascript, Bootstrap, Responsive Web Design, Create the necessary components, such as headers, sections, and footers, using React components.",
-  //     button: "Live Demo",
-  //     url: 'https://eternosoft.in/'
 
-  // },
   {
     id: 7,
     name: "Crofit",

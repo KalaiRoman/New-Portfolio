@@ -1,83 +1,68 @@
-import React, { useEffect, useState } from 'react'
-import './WorkingTools.scss';
-import CommonHeader from './../../CommonHeader/CommonHeader';
-import { ToolOffer, Tools } from '../../commoncontent/WorkingTools';
-import AOS from 'aos';
+// ── TechStack.jsx ──
+import { useState } from "react";
+import "./WorkingTools.css";
 
-function WorkingTools({ colorName }) {
-    useEffect(() => {
-        AOS.init();
-    }, [])
-    return (
-        <div className='main-tool-section'>
-            <div className='inside-tool-section'>
+const techs = [
+  { name: "HTML5",      cat: "Markup",    img: "https://cdn.jsdelivr.net/gh/devicons/devicon/icons/html5/html5-original.svg" },
+  { name: "CSS3",       cat: "Styling",   img: "https://cdn.jsdelivr.net/gh/devicons/devicon/icons/css3/css3-original.svg" },
+  { name: "JavaScript", cat: "Language",  img: "https://cdn.jsdelivr.net/gh/devicons/devicon/icons/javascript/javascript-original.svg" },
+  { name: "React",      cat: "Framework", img: "https://cdn.jsdelivr.net/gh/devicons/devicon/icons/react/react-original.svg" },
+  { name: "Bootstrap",  cat: "Styling",   img: "https://cdn.jsdelivr.net/gh/devicons/devicon/icons/bootstrap/bootstrap-original.svg" },
+  { name: "Sass",       cat: "Styling",   img: "https://cdn.jsdelivr.net/gh/devicons/devicon/icons/sass/sass-original.svg" },
+  { name: "Tailwind",   cat: "Styling",   img: "https://cdn.jsdelivr.net/gh/devicons/devicon/icons/tailwindcss/tailwindcss-original.svg" },
+  { name: "Redux",      cat: "Framework", img: "https://cdn.jsdelivr.net/gh/devicons/devicon/icons/redux/redux-original.svg" },
+  { name: "Git",        cat: "Tools",     img: "https://cdn.jsdelivr.net/gh/devicons/devicon/icons/git/git-original.svg" },
+  { name: "VS Code",    cat: "Tools",     img: "https://cdn.jsdelivr.net/gh/devicons/devicon/icons/vscode/vscode-original.svg" },
+  { name: "GitHub",     cat: "Tools",     img: "https://cdn.jsdelivr.net/gh/devicons/devicon/icons/github/github-original.svg" },
+];
 
-                <div className='firstbox'>
+const categories = ["All", ...new Set(techs.map((t) => t.cat))];
 
-                </div>
-                <div className='secondbox'>
+export default function WorkingTools() {
+  const [active, setActive] = useState("All");
 
-                </div>
-                <div className='thirdbox'>
+  const filtered = active === "All" ? techs : techs.filter((t) => t.cat === active);
 
-                </div>
-                <div className='fourthbox'>
+  const grouped =
+    active === "All"
+      ? categories.slice(1).reduce((acc, cat) => {
+          acc[cat] = techs.filter((t) => t.cat === cat);
+          return acc;
+        }, {})
+      : { [active]: filtered };
 
-                </div>
-                <div className='fifthbox'>
+  return (
+    <section className="tech-stack">
+      {/* Title */}
+      <h2 className="tech-stack__title mb-5 mt-5">
+        <span>My</span>Tech Stack
+      </h2>
 
-                </div>
-                <div>
-                    <CommonHeader title={"My Tech Stack"} colorName={colorName} />
-                    
-                </div>
-                
-                <div className='mt-5  tool-row-section'>
-                    {Tools?.map((item) => {
-                        return (
-                            <div className='box-tootles mb-3 mt-2' >
-                                <div>
-                                    <img src={item?.image} alt={"no image"} className='tool-img' />
+      <div className="tech-stack__filters">
+        {categories.map((cat) => (
+          <button
+            key={cat}
+            className={`filter-tab ${active === cat ? "active" : ""}`}
+            onClick={() => setActive(cat)}
+          >
+            {cat}
+          </button>
+        ))}
+      </div>
 
-                                </div>
-                                {/* <div className='tool-name'>
-                                    {item?.name}
-                                </div> */}
-                            </div>
-                        )
-                    })}
-                </div>
-                {/* <div className='mt-3'>
-                    <CommonHeader title={"What I Offer"} colorName={colorName} />
-                </div> */}
-                {/* <div className='row offer-card-tools mt-3'>
-                    {ToolOffer?.map((item,) => {
-                        return (
-                            <div className='offer-card' data-aos="fade-up"
-                                data-aos-duration="3000">
-                                <div className='icon-tool' data-aos="fade-down"
-                                    data-aos-duration="3000">
-                                    {item?.image}
-                                </div>
-                                <div className='tool-text mt-3' data-aos="fade-left"
-                                    data-aos-duration="3000">
-                                    {item?.name}
-                                </div>
-                                <div className='mt-3 des' data-aos="fade-right"
-                                    data-aos-duration="3000">
-                                    {item?.dec}
-                                </div>
-                                <div className='boxes'>
-                                </div>
-                                <div className='boxes1'>
-                                </div>
-                            </div>
-                        )
-                    })}
-                </div> */}
-            </div>
-        </div>
-    )
+      {/* {Object.entries(grouped).map(([cat, items]) => ( */}
+        {/* <div key={cat}> */}
+          <p className="tech-stack__category-label mt-3">{active=="All"?"":active}</p>   
+          <div className="tech-stack__grid mt-4">
+            {filtered.map((tech) => (
+              <div key={tech.name} className="tech-card">
+                <img src={tech.img} alt={tech.name} />
+                <span className="tech-card__name">{tech.name}</span>
+              </div>
+            ))}
+          </div>
+        {/* </div> */}
+      {/* ))} */}
+    </section>
+  );
 }
-
-export default WorkingTools
