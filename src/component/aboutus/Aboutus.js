@@ -67,18 +67,23 @@ const personalInfo = [
 const qualifications = [
   {
     degree: "Master of Computer Applications (MCA)",
-    school: "Anna University, Chennai",
-    year: "2020 – 2022",
+    school: "Karpagam Academy Of Higher Education, Coimbatore",
+    year: "2018 – 2020",
   },
   {
-    degree: "Bachelor of Computer Science (BCS)",
-    school: "Madras University, Chennai",
-    year: "2017 – 2020",
+    degree: "Bachelor of Computer Application (BCA)",
+    school: "Sri Vidya Mandir Arts and Science College",
+    year: "2015 – 2018",
   },
   {
     degree: "Higher Secondary Certificate (HSC)",
-    school: "State Board, Tamil Nadu",
-    year: "2017",
+    school: "Government Boys Higher Secondary School, Krishnagiri",
+    year: "2013 – 2015",
+  },
+  {
+    degree: "Secondary School Leaving Certificate (SSLC)",
+    school: "Government Higher Secondary School, Krishnagiri",
+    year: "2013",
   },
 ];
 
@@ -222,7 +227,7 @@ const styles = {
     borderRadius: "20px",
     padding: "2rem 1.5rem",
     boxShadow: "0 2px 24px rgba(0,0,0,0.07)",
-    height:"90vh"
+    height:"100%"
   },
   header: {
     textAlign: "center",

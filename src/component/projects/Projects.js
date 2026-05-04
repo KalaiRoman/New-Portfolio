@@ -44,7 +44,7 @@ const projects = [
     year: "2022",
     category: "Job Portal",
     desc: "A smart hiring platform bridging startups and top talent with AI-powered job matching and applicant tracking.",
-    techs: ["Next.js", "Tailwind", "PostgreSQL"],
+    techs: ["Next.js", "Redux","Node.js","MongoDB"],
     img: "https://images.unsplash.com/photo-1553877522-43269d4ea984?w=600&q=80",
   },
     {

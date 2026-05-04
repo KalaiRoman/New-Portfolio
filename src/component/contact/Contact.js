@@ -32,39 +32,39 @@ const ContactIllustration = () => (
     <rect x="107" y="44" width="106" height="157" rx="10" fill="#ede9fe"/>
 
     {/* Screen content */}
-    <rect x="114" y="60" width="92" height="100" rx="6" fill="#0cb65e" opacity="0.4"/>
+    <rect x="114" y="60" width="92" height="100" rx="6" fill="#c4b5fd" opacity="0.4"/>
 
     {/* Person silhouette */}
-    <circle cx="160" cy="95" r="18" fill="#0cb65e"/>
-    <ellipse cx="160" cy="128" rx="20" ry="14" fill="#0cb65e"/>
+    <circle cx="160" cy="95" r="18" fill="#7c3aed"/>
+    <ellipse cx="160" cy="128" rx="20" ry="14" fill="#7c3aed"/>
 
     {/* Headset arc */}
-    <path d="M143 90 Q143 72 160 72 Q177 72 177 90" fill="none" stroke="#0cb65e" strokeWidth="3.5" strokeLinecap="round"/>
-    <rect x="140" y="88" width="7" height="10" rx="3" fill="#0cb65e"/>
-    <rect x="173" y="88" width="7" height="10" rx="3" fill="#0cb65e"/>
+    <path d="M143 90 Q143 72 160 72 Q177 72 177 90" fill="none" stroke="#4c1d95" strokeWidth="3.5" strokeLinecap="round"/>
+    <rect x="140" y="88" width="7" height="10" rx="3" fill="#4c1d95"/>
+    <rect x="173" y="88" width="7" height="10" rx="3" fill="#4c1d95"/>
 
     {/* "CONTACT US" text bar */}
-    <rect x="114" y="162" width="92" height="18" rx="4" fill="#0cb65e"/>
+    <rect x="114" y="162" width="92" height="18" rx="4" fill="#7c3aed"/>
     <rect x="127" y="167" width="66" height="6" rx="3" fill="#fff" opacity="0.8"/>
 
     {/* Notch */}
     <rect x="142" y="38" width="36" height="6" rx="3" fill="#312e81"/>
 
     {/* Floating icon cards */}
-    <rect x="58" y="55" width="36" height="36" rx="8" fill="#0cb65e"/>
+    <rect x="58" y="55" width="36" height="36" rx="8" fill="#8b5cf6"/>
     <path d="M68 66 Q76 60 84 66 L84 82 Q76 76 68 82 Z" fill="#fff" opacity="0.85" transform="scale(0.7) translate(38,32)"/>
     {/* phone icon on card */}
     <text x="76" y="78" textAnchor="middle" fontSize="16" fill="#fff">📞</text>
 
-    <rect x="58" y="103" width="36" height="36" rx="8" fill="#0cb65e"/>
+    <rect x="58" y="103" width="36" height="36" rx="8" fill="#a78bfa"/>
     <text x="76" y="126" textAnchor="middle" fontSize="16" fill="#fff">@</text>
 
-    <rect x="58" y="151" width="36" height="36" rx="8" fill="#0cb65e"/>
+    <rect x="58" y="151" width="36" height="36" rx="8" fill="#c4b5fd"/>
     <text x="76" y="174" textAnchor="middle" fontSize="15" fill="#fff">✉</text>
 
     {/* Decorative leaf */}
-    <ellipse cx="234" cy="190" rx="14" ry="22" fill="#0cb65e" opacity="0.5" transform="rotate(-20 234 190)"/>
-    <ellipse cx="244" cy="185" rx="10" ry="18" fill="#0cb65e" opacity="0.35" transform="rotate(-35 244 185)"/>
+    <ellipse cx="234" cy="190" rx="14" ry="22" fill="#a78bfa" opacity="0.5" transform="rotate(-20 234 190)"/>
+    <ellipse cx="244" cy="185" rx="10" ry="18" fill="#7c3aed" opacity="0.35" transform="rotate(-35 244 185)"/>
   </svg>
 );
 
