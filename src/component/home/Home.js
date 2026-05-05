@@ -88,7 +88,6 @@ function useTyped(words, typeSpeed = 80, deleteSpeed = 40, pause = 1800) {
   return display;
 }
 
-/* ── Nav links ── */
 
 
   const handleUrl = (params) => {
@@ -103,9 +102,9 @@ const SOCIALS = [
 ];
 
 const STATS = [
-  { icon: <BriefcaseIcon />, num: "5+", label: "Years Exp." },
-  { icon: <PersonsIcon />,   num: "20+", label: "Happy Clients" },
-  { icon: <FolderIcon />,    num: "10+", label: "Projects" },
+  { icon: <BriefcaseIcon />, num: "5+", label: "Years Exp.", },
+  { icon: <PersonsIcon />,   num: "20+", label: "Happy Clients", },
+  { icon: <FolderIcon />,    num: "10+", label: "Projects",url:"/projects" },
 ];
 
 export default function Home() {
@@ -138,6 +137,10 @@ export default function Home() {
     }
   };
 
+
+  const handlePage=(path)=>{
+    navigate(path);
+  }
 
   return (
     <div className="hero-page">
@@ -213,7 +216,7 @@ export default function Home() {
 
           {/* Floating stats */}
           {STATS.map((s, i) => (
-            <div key={i} className="stat-badge">
+            <div key={i} className="stat-badge" onClick={() => handlePage(s.url)}>
               <div className="stat-icon">{s.icon}</div>
               <div>
                 <div className="stat-num">

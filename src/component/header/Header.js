@@ -1,5 +1,5 @@
 import { useState,useEffect } from "react";
-import { useNavigate } from "react-router-dom";
+import { useLocation, useNavigate } from "react-router-dom";
 import "./styles/Header.css";
 import Modal from 'react-bootstrap/Modal';
 import kalaiImage from "../../assests/images/kalai_image.jpeg";
@@ -21,23 +21,12 @@ export default function Header() {
 
   const handleClose = () => setShow(false);
   const handleShow = () => setShow(true);
-
+const location = useLocation();
 
   const navigate = useNavigate();
 
+console.log(location.pathname)
 
-  useEffect(()=>{
-const path=window.location.pathname;
-if(path=="/")
-{
-  setActive("Home");
-}
-else
-{
-  setActive(path.substring(1).charAt(0).toUpperCase() + path.substring(2));
-}
-
-  },[])
   const KLogo = (size) => {
     const scale = size / 80;
 
@@ -107,10 +96,10 @@ else
           {navItems.map((item) => (
             <button
               key={item.label}
-              className={`nav-item${active === item.label ? " active" : ""}`}
+              className={`nav-item${location.pathname === item.path ? " active" : ""}`}
               onClick={() => handleNavClick(item.label, item.path)}
             >
-              <span className={`${active === item.label ? "label-active" : "label-inactive"}`}>
+              <span className={`${location.pathname ==item.path ? "label-active" : "label-inactive"}`}>
                 {item.icon}
               </span>
               {item.label}
