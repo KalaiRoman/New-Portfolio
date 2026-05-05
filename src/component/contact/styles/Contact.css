@@ -1,7 +1,5 @@
-/* ── Contact.css ── */
 @import url('https://fonts.googleapis.com/css2?family=Playfair+Display:wght@700&family=DM+Sans:wght@400;500;600&display=swap');
 
-/* ── Section ── */
 .contact-section {
   min-height: 100vh;
   background: #f8f7ff;
@@ -12,7 +10,6 @@
   padding: 3.5rem 1.5rem 5rem;
 }
 
-/* ── Page Title ── */
 .contact-page-title {
   font-family: 'DM Sans', sans-serif;
   font-size: 2.2rem;
@@ -27,7 +24,6 @@
   color: #F5A623;
 }
 
-/* ── Two-column layout ── */
 .contact-wrapper {
   display: grid;
   grid-template-columns: 1fr 1fr;
@@ -37,9 +33,7 @@
   align-items: start;
 }
 
-/* ══════════════════════
-   LEFT — Form Card
-══════════════════════ */
+
 .contact-form-card {
   background: #fff;
   border-radius: 24px;
@@ -62,7 +56,6 @@
   margin: 0 0 2rem;
 }
 
-/* Field group */
 .form-group {
   margin-bottom: 1.4rem;
 }
@@ -108,7 +101,6 @@
   resize: vertical;
 }
 
-/* Submit button */
 .form-submit {
   width: 100%;
   padding: 0.85rem;
@@ -135,7 +127,6 @@
   opacity: 0.9;
 }
 
-/* Success message */
 .form-success {
   margin-top: 1rem;
   padding: 0.75rem 1rem;
@@ -148,16 +139,13 @@
   text-align: center;
 }
 
-/* ══════════════════════
-   RIGHT — Info Panel
-══════════════════════ */
+
 .contact-info-panel {
   display: flex;
   flex-direction: column;
   gap: 2rem;
 }
 
-/* Illustration box */
 .contact-illustration {
   background: linear-gradient(135deg, #ede9fe 0%, #f5f3ff 100%);
   border-radius: 24px;
@@ -175,7 +163,6 @@
   height: auto;
 }
 
-/* Info cards row */
 .info-cards {
   display: flex;
   flex-direction: column;
@@ -236,9 +223,7 @@
   color: #374151;
 }
 
-/* ══════════════════════
-   RESPONSIVE
-══════════════════════ */
+
 @media (max-width: 700px) {
   .contact-page-title { font-size: 1.8rem; }
 
@@ -247,7 +232,6 @@
     gap: 2rem;
   }
 
-  /* Show info panel above form on mobile */
   .contact-info-panel { order: -1; }
 
   .contact-illustration { min-height: 160px; padding: 1.5rem; }

@@ -1,4 +1,3 @@
-// ── TechStack.jsx ──
 import { useState } from "react";
 import "./WorkingTools.css";
 
@@ -45,8 +44,7 @@ export default function WorkingTools() {
 
   return (
     <section className="tech-stack">
-      {/* Title */}
-      <h2 className="tech-stack__title mb-5 mt-5">
+      <h2 className="tech-stack__title mb-5">
         <span>My</span>Tech Stack
       </h2>
 
@@ -61,9 +59,6 @@ export default function WorkingTools() {
           </button>
         ))}
       </div>
-
-      {/* {Object.entries(grouped).map(([cat, items]) => ( */}
-        {/* <div key={cat}> */}
           <p className="tech-stack__category-label mt-3">{active=="All"?"":active}</p>   
           <div className="tech-stack__grid mt-4">
             {filtered.map((tech) => (
@@ -73,8 +68,7 @@ export default function WorkingTools() {
               </div>
             ))}
           </div>
-        {/* </div> */}
-      {/* ))} */}
+      
     </section>
   );
 }

@@ -9,7 +9,6 @@
   outline: none;
 }
 
-// desktop
 
 .Dektop-section {
   width: 100%;
@@ -17,27 +16,23 @@
   overflow: hidden;
   overflow-y: auto;
 
-  // margin-bottom: 10%;
   @include themed() {
     background: t($background);
     color: t($text);
   }
 }
 
-// tablet
 
 .Tablet-section {
   width: 768px;
   height: auto;
 
-  // margin-bottom: 10%;
   @include themed() {
     background: t($background);
     color: t($text);
   }
 }
 
-// mobile
 .Mobile-section {
   width: 375px;
   margin: 0 auto;
@@ -105,7 +100,6 @@
   }
 }
 
-// header main section css
 
 .main-section {
   width: 100%;
@@ -214,7 +208,6 @@
   }
 }
 
-// mobile section
 
 .middle-headers {
   width: 100%;
@@ -354,7 +347,6 @@
   }
 }
 
-// color
 
 .setting-color {
   position: fixed;
@@ -407,9 +399,7 @@
 .color-box-shadow {
   width: 30px;
   height: 30px;
-  // border-top-right-radius: 50%;
-  // border-bottom-left-radius: 50%;
-  // border-radius: 50%;
+
   border-radius: 67% 33% 49% 51% / 45% 40% 60% 55%;
 }
 
@@ -444,19 +434,7 @@
   }
 }
 
-// .logo-icon {
-//   width: 40px;
-//   height: 40px;
-//   border-radius: 50%;
-//   display: flex;
-//   align-items: center;
-//   justify-content: center;
-//   cursor: pointer;
-//   background-color: #f3e8dc;
-//   transition: 1s;
-//   color: #00b7ff;
-//   font-size: 1.3rem;
-// }
+
 
 .inactiveclass:hover {
   transform: translateY(-1px) rotate(360deg);
@@ -471,11 +449,9 @@
 }
 
 .mouse-section {
-  // z-index: 9898989898989898989898989898989 !important;
 }
 
 .whatsapp-box {
-  // position: relative;
 }
 
 .whatsapp-message-status {
@@ -500,7 +476,6 @@
   height: 50px;
 }
 
-// whats app
 
 .pulse i {
   position: relative;

@@ -18,7 +18,6 @@ export function chatDeleteUser(data) {
     })
 }
 
-// admin user chat update
 
 
 export function chatUpdateStatusUser(data) {
@@ -32,7 +31,6 @@ export function chatUpdateStatusUser(data) {
     })
 }
 
-// like
 
 export function chatUpdateLikeUser(data) {
 

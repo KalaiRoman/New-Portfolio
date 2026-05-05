@@ -19,13 +19,8 @@ import Chat from "./component/chat/Chat";
 import { getUserData } from "./services/auth_services/auth_services";
 function App() {
   const [ResponseSection, setResponseSection] = useState("Desktop-section");
-
   const [settingcolor, setSettingColor] = useState(false);
-
   const Username = window.location.pathname;
-  // const ThemeLoader = () => {
-  //   return localStorage.getItem("loader") ? JSON.parse(localStorage.getItem("loader")) : true
-  // }
   const [loader, setLoader] = useState(true);
 
   const ThemeColor = () => {
@@ -143,35 +138,7 @@ function App() {
     } catch (error) {}
   };
 
-  useEffect(() => {
-    let timeoutId;
-    const fetchData = async () => {
-      try {
-        var count = 0;
-        const response = await getUserData();
-        if (response) {
-          response?.data?.user?.chat?.map((item, index) => {
-            if (item?.type == "receiver") {
-              if (item?.userstatusSaw === false) {
-                count++;
-              }
-            }
-          });
-        }
 
-        setUserStatus(count);
-      } catch (error) {
-        console.error("Error fetching data:", error);
-      } finally {
-        timeoutId = setTimeout(fetchData, 60000); // 60 seconds
-      }
-    };
-
-    fetchData();
-    return () => {
-      clearTimeout(timeoutId);
-    };
-  }, [userStatus]);
 
   return (
     <>
@@ -186,234 +153,45 @@ function App() {
         </div>
       ) : (
         <>
-          <div className={theme ? "theme--dark" : "theme--light"}>
-            {/* <AnimatedCursor
-            innerSize={10}
-            outerSize={30}
-            color='255, 46, 99'
-            outerAlpha={0.4}
-            innerScale={0.6}
-            outerScale={0}
-            className="mouse-section"
-          /> */}
-
-          
-            {/* <div className={"Dektop-section"}>
-              <div className="main-section">
-                <div className="middle-header">
-                  <div className="list-names ">
-                    {iconsData?.map((item, index) => {
-                      return (
-                        <div
-                          key={index}
-                          className={
-                            Username == item?.path
-                              ? "activename"
-                              : "inactivename"
-                          }
-                          onClick={() => {
-                            navigate(item?.path);
-                          }}
-                        >
-                          {Username === item?.path ? (
-                            <div>
-                              <div className={"activeclass"}>
-                                <div>{item?.icon}</div>
-                              </div>
-                            </div>
-                          ) : (
-                            <>
-                              <div
-                                className="inactiveclass"
-                                data-tooltip-id={item?.ToolName}
-                              >
-                                {item?.icon}
-                              </div>
-                              <ReactTooltip
-                                id={item?.ToolName}
-                                place="left"
-                                content={item?.ToolName}
-                                className="tool-tip"
-                              />
-                            </>
-                          )}
-                        </div>
-                      );
-                    })}
-
-                    <div className="theme-button" onClick={handleChnageColor}>
-                      {theme ? (
-                        <div className="light-theme">
-                          <i class="fa-solid fa-cloud-moon"></i>
-                        </div>
-                      ) : (
-                        <div className="dark-theme">
-                          <i class="fa-solid fa-sun suns"></i>
-                        </div>
-                      )}
-                    </div>
-                  </div>
-                </div>
-                <div className="setting-color" onClick={changeSettingColor}>
-                  <div className="setcolor">
-                    <i class="fa-solid fa-gear "></i>
-                  </div>
-
-                  {settingcolor ? (
-                    <div className="box-setting-colors">
-                      {colors?.map((item, index) => {
-                        return (
-                          <div
-                            key={index}
-                            className="mt-1 box-color"
-                            onClick={() => {
-                              handleChange(item);
-                              setSettingColor(false);
-                            }}
-                          >
-                            <div
-                              className="color-box-shadow"
-                              style={{
-                                backgroundColor: item,
-                              }}
-                            ></div>
-                          </div>
-                        );
-                      })}
-
-                    
-                      <div className="middle-headers">
-                        {iconsData?.map((item, index) => {
-                          return (
-                            <div
-                              key={index}
-                              className={
-                                Username == item?.path
-                                  ? "activenames"
-                                  : "inactiveclasss"
-                              }
-                              onClick={() => {
-                                navigate(item?.path);
-                              }}
-                            >
-                              {Username === item?.path ? (
-                                  <div className={"activeclasss"}>
-                                    <div>{item?.icon}</div>
-                                  
-                                  </div>
-                              ) : (
-                                <>
-                                  <div
-                                    className="inactiveclass"
-                                    data-tooltip-id={item?.ToolName}
-                                  >
-                                    {item?.icon}
-                                  </div>
-                                
-                                </>
-                              )}
-                            </div>
-                          );
-                        })}
-                      </div>
-                    </div>
-                  ) : null}
-                </div>
-
-                <div className="body-sections">
-                  <Routes>
-                    <Route
-                      exact
-                      path="/"
-                      element={
-                        <Home
-                          colorName={state?.ColorName}
-                          ResponseSection={ResponseSection}
-                          theme={theme}
-                        />
-                      }
+          <div>
+            <Header />
+            <div className="body-sections">
+              <Routes>
+                <Route
+                  exact
+                  path="/"
+                  element={
+                    <Home
+                      colorName={state?.ColorName}
+                      ResponseSection={ResponseSection}
+                      theme={theme}
                     />
-                    <Route
-                      path="/aboutus"
-                      element={<Aboutus colorName={state?.ColorName} />}
-                    />
-                    <Route
-                      path="/projects"
-                      element={<Projects colorName={state?.ColorName} />}
-                    />
-                    <Route
-                      path="/tools"
-                      element={<WorkingTools colorName={state?.ColorName} />}
-                    />
-                    <Route
-                      path="/contact"
-                      element={<Contact colorName={state?.ColorName} />}
-                    />
-                    <Route
-                      path="/chat"
-                      element={<Chat colorName={state?.ColorName} />}
-                    />
-                  </Routes>
-                </div>
-              </div>
-            </div> */}
-
-            <div>
-              <Header/>
-
-              <div>
-                 <div className="body-sections">
-                  <Routes>
-                    <Route
-                      exact
-                      path="/"
-                      element={
-                        <Home
-                          colorName={state?.ColorName}
-                          ResponseSection={ResponseSection}
-                          theme={theme}
-                        />
-                      }
-                    />
-                    <Route
-                      path="/aboutus"
-                      element={<Aboutus colorName={state?.ColorName} />}
-                    />
-                    <Route
-                      path="/projects"
-                      element={<Projects colorName={state?.ColorName} />}
-                    />
-                    <Route
-                      path="/tools"
-                      element={<WorkingTools colorName={state?.ColorName} />}
-                    />
-                    <Route
-                      path="/contact"
-                      element={<Contact colorName={state?.ColorName} />}
-                    />
-                    <Route
-                      path="/chat"
-                      element={<Chat colorName={state?.ColorName} />}
-                    />
-                  </Routes>
-                </div>
-              </div>
+                  }
+                />
+                <Route
+                  path="/aboutus"
+                  element={<Aboutus colorName={state?.ColorName} />}
+                />
+                <Route
+                  path="/projects"
+                  element={<Projects colorName={state?.ColorName} />}
+                />
+                <Route
+                  path="/tools"
+                  element={<WorkingTools colorName={state?.ColorName} />}
+                />
+                <Route
+                  path="/contact"
+                  element={<Contact colorName={state?.ColorName} />}
+                />
+                <Route
+                  path="/chat"
+                  element={<Chat colorName={state?.ColorName} />}
+                />
+              </Routes>
             </div>
 
-            {/* <div onClick={() => navigate("/chat")} className="whatsapp-box">
-              <div className="whats-app-image">
-                {userStatus === 0 ? null : (
-                  <div className="whatsapp-message-status">{userStatus}</div>
-                )}
-
-                <img
-                  src={whatsimage}
-                  alt="no image"
-                  onClick={() => navigate("/chat")}
-                  className="whats-app"
-                />
-              </div>
-            </div> */}
+          
 
             <div>
               <div>
@@ -422,7 +200,6 @@ function App() {
                   href="https://api.whatsapp.com/send?phone=8778377119&text="
                   target="_blank"
                 >
-                  {/* <i class="fa fa-whatsapp"></i> */}
                   <i class="fa-brands fa-whatsapp"></i>
                 </a>
               </div>

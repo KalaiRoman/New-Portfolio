@@ -1,8 +1,5 @@
 @use "../abstract" as *;
 
-//card in course
-
-//card active
 
 .cardactive {
   border: 1px solid #e5e5e5;
@@ -26,7 +23,6 @@
   }
 }
 
-//buy course
 
 .buycardactive {
   border: 1px solid #263468;
@@ -72,7 +68,6 @@
   }
 }
 
-//pagination
 
 .pagination-data {
   padding: 0;

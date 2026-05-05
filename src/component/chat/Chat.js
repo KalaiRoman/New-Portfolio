@@ -61,7 +61,6 @@ function Chat() {
   
     const datas = { message: command, userid: userId, type: "sender" };
     const datas1 = { ...datas, createdAt: new Date() };
-    // setUser([...user, datas1]);
     try {
       const response = await chatUser(datas);
       const ids={
@@ -186,15 +185,12 @@ function Chat() {
         }
       };
   
-      // Fetch data immediately
       fetchData();
       fetchData1();
   
-      // Set up intervals
-      const intervalId1 = setInterval(fetchData, 60000); // 60 seconds
-      const intervalId2 = setInterval(fetchData1, 60000); // 60 seconds
+      const intervalId1 = setInterval(fetchData, 60000); 
+      const intervalId2 = setInterval(fetchData1, 60000);
   
-      // Cleanup function to clear intervals
       return () => {
         clearInterval(intervalId1);
         clearInterval(intervalId2);

@@ -1,0 +1,232 @@
+.page {
+  min-height: 100vh;
+  background-color: #f9fafb;
+  display: flex;
+  align-items: flex-start;
+  justify-content: center;
+  padding: 2rem 1rem;
+ width:100%;
+}
+
+.containers {
+  width: 100%;
+  max-width: 1100px;
+  background-color: #ffffff;
+  border-radius: 20px;
+  padding: 2rem 1.5rem;
+  box-shadow: 0 2px 24px rgba(0, 0, 0, 0.07);
+  height: 100%;
+}
+.skillGroupTitle { fontSize: 12px; fontWeight: 600; color: #6b7280; textTransform: uppercase; letterSpacing: 0.06em; marginBottom: 10px; };
+
+.header {
+  text-align: center;
+  margin-bottom: 1.5rem;
+}
+
+.title {
+  font-size: clamp(22px, 5vw, 30px);
+  font-weight: 600;
+  color: #111827;
+  margin: 0 0 6px;
+}
+
+.qualContent
+{
+  display: flex;
+  gap: 14px;
+  flex-wrap: wrap;
+}
+
+.titleAccent {
+  color: #16a34a;
+}
+
+.subtitle {
+  font-size: 14px;
+  color: #6b7280;
+  margin: 0;
+}
+
+.tabRow {
+  display: flex;
+  gap: 8px;
+  background-color: #f3f4f6;
+  border-radius: 12px;
+  padding: 5px;
+  margin-bottom: 1.5rem;
+  flex-wrap: wrap;
+}
+
+.tab {
+  flex: 1 1 auto;
+  min-width: 80px;
+  padding: 9px 12px;
+  border: none;
+  border-radius: 8px;
+  font-size: 13px;
+  font-weight: 500;
+  cursor: pointer;
+  transition: all 0.15s ease;
+}
+
+.tabActive {
+  background-color: #16a34a;
+  color: #ffffff;
+}
+
+.tabInactive {
+  background-color: transparent;
+  color: #6b7280;
+}
+
+.panel {
+  animation: fadeIn 0.2s ease;
+}
+
+.bio {
+  font-size: 14px;
+  color: #374151;
+  line-height: 1.75;
+  padding: 14px 16px;
+  background-color: #f0fdf4;
+  border-left: 3px solid #16a34a;
+  border-radius: 0 10px 10px 0;
+  margin-bottom: 1.25rem;
+}
+
+.infoGrid {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+  gap: 12px;
+  margin-bottom: 1.25rem;
+}
+
+.infoCard {
+  display: flex;
+  align-items: center;
+  gap: 12px;
+  padding: 14px 16px;
+  background-color: #f9fafb;
+  border: 1px solid #e5e7eb;
+  border-radius: 12px;
+}
+
+.infoIcon {
+  width: 38px;
+  height: 38px;
+  border-radius: 10px;
+  background-color: #dcfce7;
+  color: #16a34a;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  flex-shrink: 0;
+}
+
+.infoLabel {
+  font-size: 11px;
+  color: #9ca3af;
+  text-transform: uppercase;
+  letter-spacing: 0.05em;
+  margin-bottom: 2px;
+}
+
+.infoValue {
+  font-size: 13px;
+  font-weight: 600;
+  color: #111827;
+}
+
+.langSection {
+  margin-top: 0.5rem;
+}
+
+.langTitle {
+  font-size: 12px;
+  font-weight: 600;
+  color: #6b7280;
+  text-transform: uppercase;
+  letter-spacing: 0.06em;
+  margin-bottom: 10px;
+}
+
+.langPills {
+  display: flex;
+  gap: 10px;
+  flex-wrap: wrap;
+}
+
+.langPill {
+  padding: 7px 20px;
+  background-color: #f0fdf4;
+  border: 1px solid #86efac;
+  border-radius: 20px;
+  font-size: 13px;
+  font-weight: 500;
+  color: #166534;
+}
+
+.qualCard {
+  display: flex;
+  justify-content: space-between;
+  align-items: flex-start;
+  gap: 14px;
+  padding: 16px;
+  background-color: #f9fafb;
+  border: 1px solid #e5e7eb;
+  border-radius: 12px;
+  margin-bottom: 10px;
+  flex-wrap: wrap;
+}
+
+@media (max-width: 640px) {
+  .qualCard {
+    flex-direction: column;
+    align-items: flex-start;
+  }
+}
+
+.qualDot {
+  width: 10px;
+  height: 10px;
+  border-radius: 50%;
+  background-color: #16a34a;
+  margin-top: 5px;
+}
+
+.qualDegree {
+  font-size: 14px;
+  font-weight: 600;
+}
+
+.qualSchool {
+  font-size: 13px;
+  color: #6b7280;
+}
+
+.qualYear {
+  font-size: 12px;
+  color: #16a34a;
+  font-weight: bold;
+  background-color: #dcfce7;
+  padding: 6px 16px;
+  border-radius: 20px;
+  margin-top: 8px;
+  display: inline-block;
+}
+
+.skillTags {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 18px;
+}
+
+.skillTag {
+  padding: 6px 14px;
+  background-color: #f0fdf4;
+  border: 1px solid #86efac;
+  border-radius: 20px;
+  font-size: 13px;
+  color: #166534;
+}

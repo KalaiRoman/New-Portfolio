@@ -1,6 +1,5 @@
 @use "theme" as *;
 
-//sass theming
 @mixin themed() {
   @each $theme, $map in $themes {
     .theme--#{$theme} & {
@@ -61,7 +60,6 @@
   }
 }
 
-//quality of life mixins
 @mixin noSelectionAllowed {
   -webkit-touch-callout: none; /* iOS Safari */
   -webkit-user-select: none; /* Safari */

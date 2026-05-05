@@ -1,13 +1,11 @@
 @use "../abstract/" as *;
 
-// large text
 
 .large-text {
     font-size: 24px;
     font-weight: 500;
 }
 
-// medium text
 
 .medium-text {
     font-size: 20px !important;
@@ -16,14 +14,12 @@
     color: #333333 !important;
 }
 
-// middle text
 
 .middle-text {
     font-size: 16px;
     font-weight: 500;
 }
 
-// button text
 
 .button-text {
     font-size: 16px;
@@ -31,7 +27,6 @@
   
 }
 
-// paragraph text
 
 .pragraph-text {
     font-size: 16px;
@@ -39,7 +34,6 @@
    
 }
 
-// lable text
 
 .label-text {
     font-size: 14px;
@@ -47,7 +41,6 @@
    
 }
 
-// small text
 .small-text {
     font-size: 12px;
     font-weight: 500;

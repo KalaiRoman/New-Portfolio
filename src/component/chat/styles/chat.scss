@@ -105,7 +105,6 @@
           padding: 5px 10px;
           background-color: #f4e7ff;
           overflow-y: scroll;
-          // overflow: hidden;
         }
         .bottom-header-section-chat {
           width: 100%;
@@ -246,11 +245,9 @@
   }
 }
 ::placeholder {
-  // font-size: 30px;
   padding-top: 200px !important;
 }
 
-// header section
 
 .avatar-image {
   width: 45px;
@@ -280,7 +277,6 @@
   cursor: pointer;
 }
 
-// sidebar
 .sidebar-card {
   width: 100%;
   padding: 10px 10px;
@@ -309,20 +305,7 @@
   border: 2px solid blue;
 }
 
-// .sender-message {
-//   width: 140px;
-//   border-radius: 10px;
-//   position: relative;
-//   float: right;
-//   flex-wrap: wrap;
-//   text-wrap: wrap;
-//   padding: 8px 10px;
-//   margin-right: 12px;
-//   background-color: white;
-//   box-shadow: rgba(0, 0, 0, 0.15) 0px 15px 25px,
-//     rgba(0, 0, 0, 0.05) 0px 5px 10px;
-//   position: absolute;
-// }
+
 
 .sender-message {
   display: flex;
@@ -466,7 +449,6 @@
   margin-top: 14vh;
   border-radius: 10px;
   cursor: pointer;
-  // background-color: #fff2e3;
 }
 
 .user-image {

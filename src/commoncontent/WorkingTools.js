@@ -39,12 +39,10 @@ export const Tools = [
   {
     id: 7,
     image: tenth,
-    // name: "Gitlab"
   },
   {
     id: 9,
     image: neinth,
-    // name: "Gitlab"
   },
   {
     id: 10,
@@ -59,7 +57,6 @@ export const Tools = [
   {
     id: 8,
     image: eigth,
-    // name: "Gitlab"
   },
 
 ];

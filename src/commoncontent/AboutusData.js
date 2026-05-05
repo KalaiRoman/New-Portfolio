@@ -65,26 +65,7 @@ export const Qualifications = [
         calicon: <i class="fa-regular fa-calendar cal-icon"></i>
 
     },
-    // {
-    //     id: 3,
-    //     name: "Higher Secondary School",
-    //     dgname: "( HSC )",
-    //     year: "2013 - 2015",
-    //     clgName: "Government Boys Higher Secondary School",
-    //     place: "Krishnagiri",
-    //     calicon: <i class="fa-regular fa-calendar cal-icon"></i>
-
-    // },
-    // {
-    //     id: 4,
-    //     name: "Secondary School Leaving Certificate",
-    //     dgname: "( SSLC )",
-    //     year: "2013",
-    //     clgName: "Government Higher Secondary School",
-    //     place: "Krishnagiri",
-    //     calicon: <i class="fa-regular fa-calendar cal-icon"></i>
-
-    // }
+   
 ]
 
 
@@ -101,10 +82,7 @@ export const Skills = [
         id: 4,
         name: "Nodejs"
     },
-    // {
-    //     id: 3,
-    //     name: "React Native"
-    // },
+  
     
     {
         id: 5,
