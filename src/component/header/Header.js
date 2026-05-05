@@ -151,7 +151,8 @@ else
         .nav-item:hover { background: #e8e8e8; }
         .nav-item.active { background: #0cb65e; color: white; border: none; }
         .label-active { background: white; width: 22px; height: 22px; border-radius: 50%; display: flex; align-items: center; justify-content: center; color: #0cb65e; font-size: 12px; font-weight: 700; }
-
+.label-inactive{
+  background: white; width: 22px; height: 22px; border-radius: 50%; display: flex; align-items: center; justify-content: center; color: #999; font-size: 12px; font-weight: 700;}
         .actions { display: flex; align-items: center; gap: 10px; }
 
         .search-box {
@@ -298,7 +299,7 @@ else
               className={`nav-item${active === item.label ? " active" : ""}`}
               onClick={() => handleNavClick(item.label, item.path)}
             >
-              <span className={`${active === item.label ? "label-active" : ""}`}>
+              <span className={`${active === item.label ? "label-active" : "label-inactive"}`}>
                 {item.icon}
               </span>
               {item.label}
@@ -306,21 +307,18 @@ else
           ))}
         </nav>
 
-        <div className="actions">
-          {/* Avatar */}
-          <div className="avatar" role="button" aria-label="User menu">
-            Working...
+        <div className="nav-right">
+          <div className="nav-available">
+            <span className="nav-dot" />
+            Employed
           </div>
-
-          {/* Hamburger */}
+          <div className="nav-avatar">KS</div>
           <button
-            className={`hamburger${menuOpen ? " open" : ""}`}
-            onClick={() => setMenuOpen((v) => !v)}
-            aria-label="Toggle navigation menu"
+            className="nav-hamburger"
+            onClick={() => setMenuOpen(!menuOpen)}
+            aria-label="Toggle menu"
           >
-            <span />
-            <span />
-            <span />
+            <span /><span /><span />
           </button>
         </div>
       </header>

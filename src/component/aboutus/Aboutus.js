@@ -360,6 +360,7 @@ const styles = {
     border: "1px solid #e5e7eb",
     borderRadius: "12px",
     marginBottom: "10px",
+    position: "relative",
   },
   qualDot: {
     width: "10px",
@@ -384,6 +385,14 @@ const styles = {
     color: "#16a34a",
     fontWeight: 600,
     marginTop: "4px",
+    position: "absolute",
+    right:"10px",
+    top:"15px",
+    width:"auto",
+    backgroundColor: "#dcfce7",
+    padding:"5px 30px",
+    borderRadius:"0 12px 0 12px",
+    fontWeight:"bold"
   },
   skillGroup: {
     marginBottom: "1.25rem",
@@ -399,7 +408,7 @@ const styles = {
   skillTags: {
     display: "flex",
     flexWrap: "wrap",
-    gap: "8px",
+    gap: "18px",
   },
   skillTag: {
     padding: "6px 14px",
