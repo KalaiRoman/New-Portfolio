@@ -177,11 +177,13 @@ export default function Aboutus() {
           <div style={styles.panel}>
             {qualifications.map((q, i) => (
               <div key={i} style={styles.qualCard}>
-                <div style={styles.qualDot} />
-                <div>
-                  <div style={styles.qualDegree}>{q.degree}</div>
-                  <div style={styles.qualSchool}>{q.school}</div>
-                  <div style={styles.qualYear}>{q.year}</div>
+                <div style={{ display: "flex", gap: "14px", flex: 1, width: "100%" }}>
+                  <div style={styles.qualDot} />
+                  <div style={{ flex: 1, width: "100%" }}>
+                    <div style={styles.qualDegree}>{q.degree}</div>
+                    <div style={styles.qualSchool}>{q.school}</div>
+                    <div style={styles.qualYear}>{q.year}</div>
+                  </div>
                 </div>
               </div>
             ))}
@@ -354,13 +356,20 @@ const styles = {
   },
   qualCard: {
     display: "flex",
+    flexDirection: "row",
+    justifyContent: "space-between",
+    alignItems: "flex-start",
     gap: "14px",
     padding: "16px",
     backgroundColor: "#f9fafb",
     border: "1px solid #e5e7eb",
     borderRadius: "12px",
     marginBottom: "10px",
-    position: "relative",
+    flexWrap: "wrap",
+    "@media (max-width: 640px)": {
+      flexDirection: "column",
+      alignItems: "flex-start",
+    },
   },
   qualDot: {
     width: "10px",
@@ -383,16 +392,13 @@ const styles = {
   qualYear: {
     fontSize: "12px",
     color: "#16a34a",
-    fontWeight: 600,
-    marginTop: "4px",
-    position: "absolute",
-    right:"10px",
-    top:"15px",
-    width:"auto",
+    fontWeight: "bold",
     backgroundColor: "#dcfce7",
-    padding:"5px 30px",
-    borderRadius:"0 12px 0 12px",
-    fontWeight:"bold"
+    padding:"6px 16px",
+    borderRadius:"20px",
+    whiteSpace: "nowrap",
+    marginTop: "8px",
+    display: "inline-block",
   },
   skillGroup: {
     marginBottom: "1.25rem",
