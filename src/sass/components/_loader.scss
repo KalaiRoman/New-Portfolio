@@ -24,7 +24,7 @@
     animation-iteration-count: infinite;
 }
 .loading-cont::before {
-    content: "Kalai ..😎.. ";
+    content: "Kalai. Dev 🚀";
     position: absolute;
     top: 50%;
     left: 50%;
@@ -32,12 +32,12 @@
     width: 90%;
     height: 90%;
     border-radius: 50%;
-    color: #f48c06;
+    color: white;
     display: flex;
     justify-content: center;
     align-items: center;
     font-weight: bold;
-    text-transform: uppercase;
+    // text-transform: uppercase;
     text-shadow: 0 0 5px yellowgreen;
   
     z-index: 111;
@@ -47,7 +47,7 @@
     position: absolute;
     width: 50%;
     height: 50%;
-    background-color: #23bdee;
+    background-color: #16a34a;
 }
 .loading-cont .cont span:first-child {
     top: 0;
