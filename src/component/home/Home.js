@@ -103,8 +103,8 @@ const SOCIALS = [
 
 const STATS = [
   { icon: <BriefcaseIcon />, num: "5+", label: "Years Exp.", },
-  { icon: <PersonsIcon />,   num: "20+", label: "Happy Clients", },
-  { icon: <FolderIcon />,    num: "10+", label: "Projects",url:"/projects" },
+  { icon: <PersonsIcon />,   num: "15+", label: "Happy Clients", },
+  { icon: <FolderIcon />,    num: "20+", label: "Projects",url:"/projects" },
 ];
 
 export default function Home() {
