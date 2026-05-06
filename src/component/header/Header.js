@@ -6,8 +6,9 @@ import kalaiImage from "../../assests/images/kalai_image.jpeg";
 const navItems = [
   { label: "Home", icon: "🏠", path: "/" },
   { label: "Aboutus", icon: "👤", path: "/aboutus" },
+  { label: "Experience", icon: "🎓", path: "/experience" },
   { label: "Tools", icon: "🔧", path: "/tools" },
-  { label: "Projects", icon: "🎓", path: "/projects" },
+  { label: "Projects", icon: "📁", path: "/projects" },
   { label: "Contact", icon: "📞", path: "/contact" },
 ];
 
@@ -25,7 +26,6 @@ const location = useLocation();
 
   const navigate = useNavigate();
 
-console.log(location.pathname)
 
   const KLogo = (size) => {
     const scale = size / 80;
@@ -108,7 +108,8 @@ console.log(location.pathname)
         </nav>
 
         <div className="nav-right">
-          <div className="nav-available">
+          
+          <div className="nav-availables">
             <span className="nav-dot" />
             Employed
           </div>
@@ -145,6 +146,8 @@ console.log(location.pathname)
         <div className="mobile-divider" />
         
         <div className="mobile-profile">
+          
+        
           <div className="mobile-avatar" onClick={handleShow}>
             KS
           </div>

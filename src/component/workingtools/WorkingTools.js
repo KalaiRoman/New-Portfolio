@@ -45,7 +45,7 @@ export default function WorkingTools() {
   return (
     <section className="tech-stack">
       <h2 className="tech-stack__title mb-5">
-        <span>My</span>Tech Stack
+        <span style={{color:"#0cb65e"}}>My</span>Tech Stack
       </h2>
 
       <div className="tech-stack__filters">

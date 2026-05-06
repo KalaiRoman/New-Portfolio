@@ -17,6 +17,7 @@ import Contact from "./component/contact/Contact";
 import whatsimage from "./assests/images/whatsapp.png";
 import Chat from "./component/chat/Chat";
 import { getUserData } from "./services/auth_services/auth_services";
+import Experience from "./component/experience/Experience";
 function App() {
   const [ResponseSection, setResponseSection] = useState("Desktop-section");
   const [settingcolor, setSettingColor] = useState(false);
@@ -187,6 +188,10 @@ function App() {
                 <Route
                   path="/chat"
                   element={<Chat colorName={state?.ColorName} />}
+                />
+                    <Route
+                  path="/experience"
+                  element={<Experience colorName={state?.ColorName} />}
                 />
               </Routes>
             </div>
