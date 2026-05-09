@@ -86,7 +86,7 @@ const BriefcaseIcon = () => (
 
 export default function Experience() {
   return (
-    <div className="we-page">
+    <div className="we-page" id="experience">
       <div className="we-container">
         {/* Header */}
         <div className="we-header">

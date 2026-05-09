@@ -18,6 +18,7 @@ import whatsimage from "./assests/images/whatsapp.png";
 import Chat from "./component/chat/Chat";
 import { getUserData } from "./services/auth_services/auth_services";
 import Experience from "./component/experience/Experience";
+import VSCodePortfolio from "./component/vscode/VSCodePortfolio";
 function App() {
   const [ResponseSection, setResponseSection] = useState("Desktop-section");
   const [settingcolor, setSettingColor] = useState(false);
@@ -60,6 +61,9 @@ function App() {
   };
 
   const [scrollTop, setScrollTop] = useState(0);
+
+  const [mode,setMode]=useState("Single Page");
+  const [activeTab, setActiveTab] = useState("Home");
 
   const iconsData = [
     {
@@ -116,6 +120,47 @@ function App() {
     };
   }, [scrollTop, ResponseSection]);
 
+  useEffect(() => {
+  if (mode === "Single Page") {
+
+    const sections = [
+      { id: "home", name: "Home" },
+      { id: "aboutus", name: "About Us" },
+      { id: "projects", name: "Projects" },
+      { id: "experience", name: "Experience" },
+
+      { id: "tools", name: "Tools" },
+      { id: "contact", name: "Contact Us" },
+    ];
+
+    const handleScroll = () => {
+      const scrollPosition = window.scrollY + 200;
+
+      sections.forEach((section) => {
+        const element = document.getElementById(section.id);
+
+        if (element) {
+          const offsetTop = element.offsetTop;
+          const offsetHeight = element.offsetHeight;
+
+          if (
+            scrollPosition >= offsetTop &&
+            scrollPosition < offsetTop + offsetHeight
+          ) {
+            setActiveTab(section.name);
+          }
+        }
+      });
+    };
+
+    window.addEventListener("scroll", handleScroll);
+
+    return () => {
+      window.removeEventListener("scroll", handleScroll);
+    };
+  }
+}, [mode]);
+
   const navigate = useNavigate();
 
   const [userStatus, setUserStatus] = useState(0);
@@ -155,9 +200,29 @@ function App() {
       ) : (
         <>
           <div>
-            <Header />
+           <Header
+  setMode={setMode}
+  mode={mode}
+  activeTab={activeTab}
+/>
             <div className="body-sections">
-              <Routes>
+
+              {mode=="Single Page" ?<>
+            <Home id="home" />
+<Aboutus id="aboutus" />
+<Experience  id="experience"/>
+<WorkingTools id="tools" />
+<Projects id="projects" />
+<Contact id="contact" />
+              </>:<>
+
+
+              {mode=="VsCode"?<>
+              <VSCodePortfolio/>
+              
+              </>:<>
+              
+                <Routes>
                 <Route
                   exact
                   path="/"
@@ -194,6 +259,11 @@ function App() {
                   element={<Experience colorName={state?.ColorName} />}
                 />
               </Routes>
+              </>}
+              
+               
+              </>}
+           
             </div>
 
           

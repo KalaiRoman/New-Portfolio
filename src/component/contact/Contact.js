@@ -104,7 +104,7 @@ export default function Contact() {
   };
 
   return (
-    <section className="contact-section">
+    <section className="contact-section" id="contact">
       {/* Page title */}
       <h1 className="contact-page-title">
         <span style={{color:"#0cb65e"}}>Con</span>tact Me

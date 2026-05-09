@@ -109,7 +109,7 @@ export default function Aboutus() {
   const [activeTab, setActiveTab] = useState(0);
 
   return (
-    <div style={styles.page}>
+    <div style={styles.page} id="aboutus">
       <div style={styles.container}>
         {/* Header */}
         <div style={styles.header}>

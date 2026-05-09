@@ -130,7 +130,7 @@ export default function Projects() {
   };
 
   return (
-    <section className="projects-section">
+    <section className="projects-section" id="projects">
       {/* Header */}
       <h2 className="projects-title">
         Pro<span style={{color:"#0cb65e"}}>j</span>ects

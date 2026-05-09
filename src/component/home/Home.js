@@ -143,7 +143,7 @@ export default function Home() {
   }
 
   return (
-    <div className="hero-page">
+    <div className="hero-page" id="home">
 
   
 

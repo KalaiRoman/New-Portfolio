@@ -3,16 +3,17 @@ import { useLocation, useNavigate } from "react-router-dom";
 import "./styles/Header.css";
 import Modal from 'react-bootstrap/Modal';
 import kalaiImage from "../../assests/images/kalai_image.jpeg";
+import ThreeDotDropdown from "./ThreeDotDropdown";
 const navItems = [
   { label: "Home", icon: "🏠", path: "/" },
-  { label: "Aboutus", icon: "👤", path: "/aboutus" },
+  { label: "About Us", icon: "👤", path: "/aboutus" },
   { label: "Experience", icon: "🎓", path: "/experience" },
   { label: "Tools", icon: "🔧", path: "/tools" },
   { label: "Projects", icon: "📁", path: "/projects" },
-  { label: "Contact", icon: "📞", path: "/contact" },
+  { label: "Contact Us", icon: "📞", path: "/contact" },
 ];
 
-export default function Header() {
+export default function Header({setMode,mode,activeTab}) {
   const [active, setActive] = useState("Home");
   const [search, setSearch] = useState("");
   const [menuOpen, setMenuOpen] = useState(false);
@@ -89,11 +90,30 @@ const location = useLocation();
       <header className="header">
         <div className="logo" onClick={() => handleNavClick("Home", "/")} role="button" aria-label="Go to Home">
           Kalai.<span>dev</span>
+
         </div>
 
         {/* Desktop nav */}
+     {mode=="VsCode"?null:<>
+     
         <nav className="desktop-nav">
-          {navItems.map((item) => (
+
+          {mode=="Single Page"?<>
+           {navItems.map((item) => (
+            <button
+              key={item.label}
+        className={`nav-item ${activeTab === item.label ? "active" : ""}`}
+              onClick={() => handleNavClick(item.label, item.path)}
+            >
+              <span className={`${activeTab ==item.label ? "label-active" : "label-inactive"}`}>
+                {item.icon}
+              </span>
+              {item.label}
+            </button>
+          ))}
+          
+          </>:<>
+           {navItems.map((item) => (
             <button
               key={item.label}
               className={`nav-item${location.pathname === item.path ? " active" : ""}`}
@@ -105,9 +125,20 @@ const location = useLocation();
               {item.label}
             </button>
           ))}
+          </>}
+         
         </nav>
+     </>}
 
         <div className="nav-right">
+
+          <div>
+<ThreeDotDropdown
+setMode={setMode}
+mode={mode}
+/>
+
+          </div>
           
           <div className="nav-availables">
             <span className="nav-dot" />

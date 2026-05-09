@@ -127,12 +127,13 @@
 }
 
 .project-card {
-  background: #fff;
+  background: #fff !important;
   border-radius: 18px;
-  border: 1px solid #ebebeb;
+  border: none !important;
   box-shadow: 0 2px 18px rgba(0, 0, 0, 0.06);
   overflow: hidden;
   cursor: pointer;
+  outline: none !important;
   transition: transform 0.25s ease, box-shadow 0.25s ease;
 }
 
