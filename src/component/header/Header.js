@@ -137,7 +137,6 @@ const location = useLocation();
 setMode={setMode}
 mode={mode}
 />
-
           </div>
           
           <div className="nav-availables">
