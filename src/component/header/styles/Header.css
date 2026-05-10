@@ -172,20 +172,19 @@
   flex-direction: column;
   justify-content: center;
   gap: 5px;
-  background: none;
-  border: none;
   cursor: pointer;
   padding: 6px;
   border-radius: 6px;
+
 }
 
 .nav-hamburger span {
   display: block;
   width: 22px;
   height: 2.5px;
-  background: #000;
   border-radius: 2px;
   transition: all 0.3s ease;
+
 }
 
 .nav-hamburger.open span:nth-child(1) {
@@ -341,9 +340,9 @@
 
 .dotButton {
   border: none;
-  background: #f3f4f6;
-  width: 42px;
-  height: 42px;
+  /* background: #f3f4f6; */
+  width: 22px;
+  height: 22px;
   border-radius: 10px;
   cursor: pointer;
   font-size: 22px;
@@ -460,20 +459,21 @@
 }
 
 .dotButton {
-  width: 42px;
-  height: 42px;
+  width: 35px;
+  height: 35px;
   border: none;
   border-radius: 10px;
-  background: #f3f4f6;
+  background: #0cb65e;
   cursor: pointer;
   font-size: 24px;
   font-weight: bold;
   transition: 0.3s;
-  color: #111827;
+  color: white;
 }
 
 .dotButton:hover {
-  background: #e5e7eb;
+  background: #0cb65e;
+
 }
 
 .dropdownMenu {

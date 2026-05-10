@@ -1,4 +1,3 @@
-// VSCodePortfolio.jsx
 
 import { useState } from "react";
 import {

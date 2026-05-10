@@ -13,7 +13,16 @@ const navItems = [
   { label: "Contact Us", icon: "📞", path: "/contact" },
 ];
 
-export default function Header({setMode,mode,activeTab}) {
+const navItemsSingle = [
+  { label: "Home", icon: "🏠", path: "#home" },
+  { label: "About Us", icon: "👤", path: "#aboutus" },
+  { label: "Experience", icon: "🎓", path: "#experience" },
+  { label: "Tools", icon: "🔧", path: "#tools" },
+  { label: "Projects", icon: "📁", path: "#projects" },
+  { label: "Contact Us", icon: "📞", path: "#contact" },
+];
+
+export default function Header({setMode,mode,activeTab,setActiveTab}) {
   const [active, setActive] = useState("Home");
   const [search, setSearch] = useState("");
   const [menuOpen, setMenuOpen] = useState(false);
@@ -84,6 +93,20 @@ const location = useLocation();
     navigate(path);
   };
 
+  const handleNavClickSingle = (label, path) => {
+
+  setActiveTab(label);
+    setMenuOpen(false);
+  const section = document.querySelector(path);
+
+  if (section) {
+    section.scrollIntoView({
+      behavior: "smooth",
+      block: "start",
+    });
+  }
+};
+
   return (
     <>
       {/* ── Header Bar ── */}
@@ -99,11 +122,13 @@ const location = useLocation();
         <nav className="desktop-nav">
 
           {mode=="Single Page"?<>
-           {navItems.map((item) => (
+           {navItemsSingle.map((item) => (
             <button
               key={item.label}
         className={`nav-item ${activeTab === item.label ? "active" : ""}`}
-              onClick={() => handleNavClick(item.label, item.path)}
+          onClick={() =>
+          handleNavClickSingle(item.label, item.path)
+        }
             >
               <span className={`${activeTab ==item.label ? "label-active" : "label-inactive"}`}>
                 {item.icon}
@@ -137,6 +162,7 @@ const location = useLocation();
 setMode={setMode}
 mode={mode}
 />
+
           </div>
           
           <div className="nav-availables">
@@ -145,15 +171,17 @@ mode={mode}
           </div>
           <div className="nav-avatar" onClick={handleShow}>KS</div>
 
-          {mode=="Multi Page" && <>
-          <button
-            className={`nav-hamburger${menuOpen ? " open" : ""}`}
-            onClick={() => setMenuOpen(!menuOpen)}
-            aria-label="Toggle menu"
-          >
-            <span /><span /><span />
-          </button>
-          </>}
+       {(mode === "Multi Page" || mode === "Single Page") && (
+  <button
+    className={`nav-hamburger${menuOpen ? " open" : ""}`}
+    onClick={() => setMenuOpen(!menuOpen)}
+    aria-label="Toggle menu"
+  >
+    <span />
+    <span />
+    <span />
+  </button>
+)}
         </div>
       </header>
 
@@ -165,7 +193,22 @@ mode={mode}
 
       {/* ── Mobile Nav Drawer ── */}
       <nav className={`mobile-nav${menuOpen ? " open" : ""}`}>
-        {navItems.map((item) => (
+
+        {mode=="Single Page"?<>
+        
+           {navItemsSingle.map((item) => (
+          <button
+            key={item.label}
+            className={`mobile-nav-item${activeTab === item.label ? " active" : ""}`}
+            onClick={() => handleNavClickSingle(item.label, item.path)}
+          >
+            <span className="m-icon">{item.icon}</span>
+            {item.label}
+          </button>
+        ))}
+        </>:<>
+        
+           {navItems.map((item) => (
           <button
             key={item.label}
             className={`mobile-nav-item${active === item.label ? " active" : ""}`}
@@ -175,6 +218,8 @@ mode={mode}
             {item.label}
           </button>
         ))}
+        </>}
+     
 
         <div className="mobile-divider" />
         

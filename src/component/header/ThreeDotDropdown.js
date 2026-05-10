@@ -40,7 +40,6 @@ export default function ThreeDotDropdown({ setMode, mode }) {
 
   }, []);
 
-  // OPTIONS WITH ICONS
   const options = [
     {
       name: "Single Page",
