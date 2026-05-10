@@ -1,14 +1,12 @@
-/* ── TechStack.css ── */
 
 .tech-stacks {
   padding: 2.5rem 2rem;
-  background: #ffffff;
+  background: #ffffff !important;
   font-family: 'Segoe UI', sans-serif;
   max-width: 960px;
   margin: 0 auto;
 }
 
-/* Title */
 .tech-stack__title {
   font-size: 2rem;
   font-weight: 700;
@@ -22,7 +20,6 @@
   color: #F5A623;
 }
 
-/* ── Filter Tabs ── */
 .tech-stack__filters {
   display: flex;
   flex-wrap: wrap;
@@ -54,7 +51,6 @@
   border-color: #16a34a;
 }
 
-/* ── Category Label ── */
 .tech-stack__category-label {
   font-size: 11px;
   font-weight: 600;
@@ -64,7 +60,6 @@
   margin: 0 0 10px 2px;
 }
 
-/* ── Cards Grid ── */
 .tech-stack__grid {
   display: grid;
   grid-template-columns: repeat(auto-fill, minmax(190px, 1fr));
@@ -73,7 +68,6 @@
   cursor:pointer;
 }
 
-/* ── Tech Card ── */
 .tech-card {
   display: flex;
   flex-direction: column;

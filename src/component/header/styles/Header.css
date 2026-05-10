@@ -1,3 +1,12 @@
+/* =========================
+   HEADER CSS
+========================= */
+
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+}
 
 .header {
   background: white;
@@ -6,19 +15,23 @@
   align-items: center;
   justify-content: space-between;
   height: 64px;
-  box-shadow: 0 2px 12px rgba(0,0,0,0.08);
-  position: sticky;      
-  top: 0;                
-  z-index: 1000;     
-  font-family: 'Segoe UI', sans-serif;
+  box-shadow: 0 2px 12px rgba(0, 0, 0, 0.08);
+  position: sticky;
+  top: 0;
+  z-index: 1000;
+  font-family: "Segoe UI", sans-serif;
   width: 100%;
 }
 
+/* =========================
+   LOGO
+========================= */
+
 .logo {
-  display: flex; 
-  align-items: center; 
+  display: flex;
+  align-items: center;
   gap: 6px;
-  text-decoration: none; 
+  text-decoration: none;
   flex-shrink: 0;
   color: #000;
   font-weight: bold;
@@ -26,92 +39,86 @@
   cursor: pointer;
 }
 
-.logo span { 
-  color: #0cb45d; 
+.logo span {
+  color: #0cb45d;
 }
 
 .logo-icon {
-  width: 36px; 
+  width: 36px;
   height: 36px;
   background: #0cb65e;
   border-radius: 10px;
-  display: flex; 
-  align-items: center; 
+  display: flex;
+  align-items: center;
   justify-content: center;
-  font-size: 18px; 
+  font-size: 18px;
   color: #fff;
 }
 
-.logo-text { 
-  color: #fff; 
-  font-size: 20px; 
-  font-weight: 700; 
+.logo-text {
+  color: #fff;
+  font-size: 20px;
+  font-weight: 700;
 }
 
-/* ── Desktop Navigation ── */
-.desktop-nav { 
-  display: flex; 
-  align-items: center; 
-  gap: 15px; 
+/* =========================
+   DESKTOP NAV
+========================= */
+
+.desktop-nav {
+  display: flex;
+  align-items: center;
+  gap: 15px;
 }
 
 .nav-item {
-  display: flex; 
-  align-items: center; 
+  display: flex;
+  align-items: center;
   gap: 10px;
   padding: 8px 14px;
   border-radius: 10px;
   cursor: pointer;
-  color: #000; 
-  font-size: 14px; 
+  color: #000;
+  font-size: 14px;
   font-weight: 500;
-  border: 1px solid #f4f4f4; 
-  background: #f4f4f4; 
-  transition: all 0.2s;
+  border: 1px solid #f4f4f4;
+  background: #f4f4f4;
+  transition: all 0.2s ease;
   white-space: nowrap;
   outline: none;
 }
 
-.nav-item:hover { 
-  background: #e8e8e8; 
+.nav-item:hover {
+  background: #e8e8e8;
 }
 
-.nav-item.active { 
-  background: #0cb65e; 
-  color: white; 
-  border: none; 
+.nav-item.active {
+  background: #0cb65e;
+  color: white;
+  border: none;
 }
 
-.label-active { 
-  background: white; 
-  width: 22px; 
-  height: 22px; 
-  border-radius: 50%; 
-  display: flex; 
-  align-items: center; 
-  justify-content: center; 
-  color: #0cb65e; 
-  font-size: 12px; 
-  font-weight: 700; 
-}
-
+.label-active,
 .label-inactive {
-  background: white; 
-  width: 22px; 
-  height: 22px; 
-  border-radius: 50%; 
-  display: flex; 
-  align-items: center; 
-  justify-content: center; 
-  color: #0cb65e; 
-  font-size: 12px; 
+  background: white;
+  width: 22px;
+  height: 22px;
+  border-radius: 50%;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  color: #0cb65e;
+  font-size: 12px;
   font-weight: 700;
 }
 
-/* ── Right Side Actions ── */
+/* =========================
+   RIGHT SECTION
+========================= */
+
 .nav-right {
-  display: flex; 
-  align-items: center; 
+  display: flex;
+  align-items: center;
   gap: 12px;
 }
 
@@ -136,64 +143,70 @@
 }
 
 .nav-avatar {
-  height: 36px; 
+  height: 36px;
   border-radius: 10px;
   background: #f0fdf4;
-  display: flex; 
-  align-items: center; 
+  display: flex;
+  align-items: center;
   justify-content: center;
-  color: #4da06c; 
-  font-weight: 700; 
-  font-size: 14px; 
+  color: #4da06c;
+  font-weight: 700;
+  font-size: 14px;
   cursor: pointer;
-  border: 2px solid transparent; 
-  transition: border-color 0.2s;
+  border: 2px solid transparent;
+  transition: border-color 0.2s ease;
   flex-shrink: 0;
   padding: 0 12px;
 }
 
-.nav-avatar:hover { 
-  border-color: #0cb65e; 
+.nav-avatar:hover {
+  border-color: #0cb65e;
 }
 
-/* ── Hamburger Menu ── */
+/* =========================
+   HAMBURGER
+========================= */
+
 .nav-hamburger {
-  display: none; 
-  flex-direction: column; 
+  display: none;
+  flex-direction: column;
   justify-content: center;
-  gap: 5px; 
-  background: none; 
-  border: none; 
+  gap: 5px;
+  background: none;
+  border: none;
   cursor: pointer;
-  padding: 6px; 
+  padding: 6px;
   border-radius: 6px;
 }
 
 .nav-hamburger span {
-  display: block; 
-  width: 22px; 
+  display: block;
+  width: 22px;
   height: 2.5px;
-  background: #000; 
-  border-radius: 2px; 
-  transition: all 0.3s;
+  background: #000;
+  border-radius: 2px;
+  transition: all 0.3s ease;
 }
 
-.nav-hamburger.open span:nth-child(1) { 
-  transform: translateY(8px) rotate(45deg); 
-  background: #0cb65e; 
+.nav-hamburger.open span:nth-child(1) {
+  transform: translateY(8px) rotate(45deg);
+  background: #0cb65e;
 }
 
-.nav-hamburger.open span:nth-child(2) { 
-  opacity: 0; 
-  transform: scaleX(0); 
+.nav-hamburger.open span:nth-child(2) {
+  opacity: 0;
+  transform: scaleX(0);
 }
 
-.nav-hamburger.open span:nth-child(3) { 
-  transform: translateY(-8px) rotate(-45deg); 
-  background: #0cb65e; 
+.nav-hamburger.open span:nth-child(3) {
+  transform: translateY(-8px) rotate(-45deg);
+  background: #0cb65e;
 }
 
-/* ── Mobile Backdrop Overlay ── */
+/* =========================
+   MOBILE BACKDROP
+========================= */
+
 .mobile-backdrop {
   position: fixed;
   top: 64px;
@@ -205,11 +218,14 @@
   z-index: 998;
 }
 
-.mobile-backdrop.open { 
-  display: block; 
+.mobile-backdrop.open {
+  display: block;
 }
 
-/* ── Mobile Navigation Drawer ── */
+/* =========================
+   MOBILE NAV
+========================= */
+
 .mobile-nav {
   position: fixed;
   top: 64px;
@@ -224,55 +240,59 @@
   max-height: calc(100vh - 64px);
   overflow-y: auto;
   z-index: 1001;
-  box-shadow: 0 4px 12px rgba(0,0,0,0.15);
+  box-shadow: 0 4px 12px rgba(0, 0, 0, 0.15);
+  transition: all 0.3s ease;
 }
 
-.mobile-nav.open { 
-  display: flex; 
+.mobile-nav.open {
+  display: flex !important;
 }
 
 .mobile-nav-item {
-  display: flex; 
-  align-items: center; 
+  display: flex;
+  align-items: center;
   gap: 12px;
-  padding: 14px 20px; 
-  border-radius: 0; 
+  padding: 14px 20px;
+  border-radius: 0;
   cursor: pointer;
-  color: #1a1a1a; 
-  font-size: 15px; 
+  color: #1a1a1a;
+  font-size: 15px;
   font-weight: 500;
-  border: none; 
-  background: transparent; 
+  border: none;
+  background: transparent;
   width: 100%;
-  text-align: left; 
-  transition: all 0.2s;
+  text-align: left;
+  transition: all 0.2s ease;
   border-bottom: 1px solid #f0f0f0;
 }
 
-.mobile-nav-item:hover { 
-  background: #f9f9f9; 
-  color: #0cb65e; 
+.mobile-nav-item:hover {
+  background: #f9f9f9;
+  color: #0cb65e;
 }
 
-.mobile-nav-item.active { 
-  background: #f0fdf4; 
-  color: #0cb65e; 
-  border-left: 4px solid #0cb65e; 
-  padding-left: 16px; 
+.mobile-nav-item.active {
+  background: #f0fdf4;
+  color: #0cb65e;
+  border-left: 4px solid #0cb65e;
+  padding-left: 16px;
 }
 
-.mobile-nav-item .m-icon { 
-  font-size: 18px; 
-  width: 24px; 
-  text-align: center; 
+.mobile-nav-item .m-icon {
+  font-size: 18px;
+  width: 24px;
+  text-align: center;
 }
 
-/* ── Mobile Divider ── */
 .mobile-divider {
-  height: 1px; 
+  height: 1px;
   background: #f0f0f0;
   margin: 8px 0;
 }
+
+/* =========================
+   MOBILE PROFILE
+========================= */
 
 .mobile-profile {
   padding: 12px 20px;
@@ -310,48 +330,9 @@
   font-size: 12px;
 }
 
-/* ── Responsive ── */
-@media (max-width: 900px) {
-  .desktop-nav { 
-    display: none !important; 
-  }
-  
-  .nav-hamburger { 
-    display: flex !important; 
-  }
-}
-
-@media (max-width: 480px) {
-  .header { 
-    padding: 0 16px; 
-  }
-  
-  .logo { 
-    font-size: 16px; 
-  }
-  
-  .nav-avatar { 
-    padding: 0 8px; 
-    font-size: 13px; 
-  }
-  
-  .nav-available {
-    display: none;
-  }
-}
-
-@media (max-width: 360px) {
-  .logo { 
-    font-size: 14px; 
-  }
-  
-  .nav-avatar { 
-    display: none; 
-  }
-}
-
-
-//latest css
+/* =========================
+   DROPDOWN
+========================= */
 
 .dropdownContainer {
   position: relative;
@@ -367,18 +348,20 @@
   cursor: pointer;
   font-size: 22px;
   font-weight: bold;
-  transition: 0.2s;
+  transition: 0.2s ease;
+  display: flex;
+  align-items: center;
+  justify-content: center;
 }
 
 .dotButton:hover {
   background: #e5e7eb;
 }
 
-/* Dropdown */
 .dropdownMenu {
   position: absolute;
-  top: 60px;
-  right: 30px;
+  top: calc(100% + 10px);
+  right: 0;
   width: 180px;
   background: #ffffff;
   border-radius: 12px;
@@ -386,7 +369,6 @@
   padding: 8px;
   z-index: 100;
   animation: dropdownFade 0.2s ease;
-  background:white;
 }
 
 .dropdownItem {
@@ -394,22 +376,17 @@
   border-radius: 8px;
   cursor: pointer;
   font-size: 14px;
-  transition: 0.2s;
+  transition: 0.2s ease;
 }
 
 .dropdownItem:hover {
   background: #f3f4f6;
 }
 
-@keyframes dropdownFade {
-  from {
-    opacity: 0;
-    transform: translateY(-8px);
-  }
-  to {
-    opacity: 1;
-    transform: translateY(0);
-  }
+.activeItem {
+  background-color: #dcfce7;
+  color: #16a34a;
+  font-weight: 600;
 }
 
 .selectedText {
@@ -419,8 +396,57 @@
   color: #111827;
 }
 
-.activeItem {
-  background-color: #dcfce7;
-  color: #16a34a;
-  font-weight: 600;
+@keyframes dropdownFade {
+  from {
+    opacity: 0;
+    transform: translateY(-8px);
+  }
+
+  to {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}
+
+/* =========================
+   RESPONSIVE
+========================= */
+
+@media (max-width: 900px) {
+  .desktop-nav {
+    display: none !important;
+  }
+
+  .nav-hamburger {
+    display: flex !important;
+  }
+}
+
+@media (max-width: 480px) {
+  .header {
+    padding: 0 16px;
+  }
+
+  .logo {
+    font-size: 16px;
+  }
+
+  .nav-avatar {
+    padding: 0 8px;
+    font-size: 13px;
+  }
+
+  .nav-availables {
+    display: none;
+  }
+}
+
+@media (max-width: 360px) {
+  .logo {
+    font-size: 14px;
+  }
+
+  .nav-avatar {
+    display: none;
+  }
 }

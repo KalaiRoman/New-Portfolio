@@ -29,6 +29,12 @@ export default function VSCodePortfolio() {
 
   const [darkMode, setDarkMode] = useState(true);
 
+
+  const srcFiles=[
+    "src",
+    "component",
+  ]
+
   const files = [
     "Home.js",
     "About.js",
@@ -92,8 +98,13 @@ export default function VSCodePortfolio() {
         <div className="logo-section">
 
           <div className="logo-left">
-            <FaReact className="logo-icon" />
+           <div>
+             👨‍💻 
+           </div>
+           <div className="mt-2">
             <h3>Kalai.dev</h3>
+
+           </div>
           </div>
 
           {/* THEME */}
@@ -190,7 +201,7 @@ export default function VSCodePortfolio() {
         <div className="statusbar">
 
           <div className="status-left">
-            <span>⚛ Kalai.Dev</span>
+            <span> Kalai.Dev</span>
             <span>{activeTab}</span>
           </div>
 
