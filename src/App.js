@@ -21,6 +21,7 @@ import Experience from "./component/experience/Experience";
 import VSCodePortfolio from "./component/vscode/VSCodePortfolio";
 import GithubPortfolio from "./component/github/GithubPortfolio";
 import PostmanPortfolio from "./component/postman/PostmanPortfolio";
+import Footer from "./component/footer/Footer";
 function App() {
   const [ResponseSection, setResponseSection] = useState("Desktop-section");
   const [settingcolor, setSettingColor] = useState(false);
@@ -294,6 +295,10 @@ function App() {
                   <i class="fa-brands fa-whatsapp"></i>
                 </a>
               </div>
+            </div>
+
+            <div>
+              <Footer/>
             </div>
           </div>
         </>
