@@ -1,347 +1,587 @@
+/* =========================================
+   RESET
+========================================= */
 
-
-.dark-theme{
-  --bg:#1e1e1e;
-  --sidebar:#181818;
-  --topbar:#252526;
-  --card:#2d2d2d;
-  --text:#ffffff;
-  --textLight:#c9d1d9;
-  --border:#333;
-  --active:#22c55e;
+*,
+*::before,
+*::after {
+  box-sizing: border-box;
+  margin: 0;
+  padding: 0;
 }
 
-.light-theme{
-  --bg:#f5f5f5;
-  --sidebar:#ffffff;
-  --topbar:#ececec;
-  --card:#ffffff;
-  --text:#111827;
-  --textLight:#4b5563;
-  --border:#d1d5db;
-  --active:#22c55e;
+button {
+  border: none;
+  outline: none;
+  background: none;
+  cursor: pointer;
+  font-family: inherit;
 }
 
+/* =========================================
+   ROOT
+========================================= */
 
-
-.vscode{
-  width:100%;
-  height:90vh;
-  display:flex;
-  background:var(--bg);
-  overflow:hidden;
+.vsc-root {
+  width: 100%;
+  height: 100vh;
+  overflow: hidden;
+  display: flex;
+  flex-direction: column;
+  font-family: "Segoe UI", sans-serif;
+  background: #1e1e1e;
+  color: #d4d4d4;
 }
 
+/* =========================================
+   DARK / LIGHT THEME
+========================================= */
 
-
-.sidebar{
-  width:260px;
-  min-width:260px;
-  background:var(--sidebar);
-  border-right:1px solid var(--border);
-  display:flex;
-  flex-direction:column;
-  transition:0.3s ease;
-  z-index:1000;
+.vsc-dark {
+  --bg-main: #1e1e1e;
+  --bg-sidebar: #252526;
+  --bg-tabs: #2d2d2d;
+  --bg-active: #1e1e1e;
+  --bg-hover: #37373d;
+  --border: #333;
+  --text: #d4d4d4;
+  --text-light: #9ca3af;
+  --accent: #007acc;
+  --status: #007acc;
 }
 
-.logo-section{
-  height:60px;
-  padding:0 16px;
-  display:flex;
-  align-items:center;
-  justify-content:space-between;
-  border-bottom:1px solid var(--border);
+.vsc-light {
+  --bg-main: #ffffff;
+  --bg-sidebar: #f3f3f3;
+  --bg-tabs: #e5e5e5;
+  --bg-active: #ffffff;
+  --bg-hover: #dcdcdc;
+  --border: #d4d4d4;
+  --text: #111827;
+  --text-light: #6b7280;
+  --accent: #007acc;
+  --status: #007acc;
 }
 
-.logo-left{
-  display:flex;
-  align-items:center;
-  justify-content:center;
-  gap:10px;
+/* =========================================
+   TITLEBAR
+========================================= */
+
+.vsc-titlebar {
+  height: 32px;
+  background: #323233;
+  border-bottom: 1px solid var(--border);
+  display: flex;
+  align-items: center;
+  padding: 0 10px;
+  gap: 14px;
+  flex-shrink: 0;
 }
 
-.logo-left h3{
-  color:var(--text);
-  font-size:18px;
+.vsc-titlebar-dots {
+  display: flex;
+  align-items: center;
+  gap: 6px;
 }
 
-.logo-icon{
-  font-size:28px;
-  color:#61dafb;
+.vsc-dot-r,
+.vsc-dot-y,
+.vsc-dot-g {
+  width: 12px;
+  height: 12px;
+  border-radius: 50%;
 }
 
-.theme-btn{
-  width:36px;
-  height:36px;
-  border:none;
-  border-radius:8px;
-  cursor:pointer;
-  background:var(--card);
-  color:var(--text);
-  font-size:16px;
+.vsc-dot-r {
+  background: #ff5f57;
 }
 
-
-.explorer{
-  padding:18px 14px;
-  overflow-y:auto;
+.vsc-dot-y {
+  background: #febc2e;
 }
 
-.explorer-title{
-  color:var(--textLight);
-  font-size:12px;
-  letter-spacing:1px;
-  margin-bottom:18px;
+.vsc-dot-g {
+  background: #28c840;
 }
 
-.folder-name{
-  color:var(--text);
-  display:flex;
-  align-items:center;
-  gap:10px;
-  font-size:14px;
-  font-weight:600;
-  margin-bottom:14px;
+.vsc-titlebar-menus {
+  display: flex;
+  align-items: center;
+  gap: 12px;
 }
 
-.file-list{
-  display:flex;
-  flex-direction:column;
-  gap:6px;
+.vsc-menu-item {
+  font-size: 12px;
+  color: #d4d4d4;
 }
 
-.file-item{
-  display:flex;
-  align-items:center;
-  gap:10px;
-  padding:10px 12px;
-  border-radius:8px;
-  color:var(--textLight);
-  cursor:pointer;
-  transition:0.3s;
-  font-size:14px;
+.vsc-titlebar-center {
+  flex: 1;
+  display: flex;
+  justify-content: center;
+  gap: 6px;
+  align-items: center;
+  font-size: 12px;
+  color: #d4d4d4;
 }
 
-.file-item:hover{
-  background:var(--card);
+.vsc-theme-toggle {
+  color: #fff;
+  font-size: 15px;
 }
 
-.active-file{
-  background:var(--active);
-  color:#ffffff;
+/* =========================================
+   BODY
+========================================= */
+
+.vsc-body {
+  flex: 1;
+  display: flex;
+  overflow: hidden;
 }
 
-.file-icon{
-  color:#f7df1e;
+/* =========================================
+   ACTIVITY BAR
+========================================= */
+
+.vsc-activity {
+  width: 48px;
+  background: #333333;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  padding-top: 5px;
+  flex-shrink: 0;
 }
 
-
-
-.main{
-  flex:1;
-  display:flex;
-  flex-direction:column;
-  overflow:hidden;
+.vsc-activity-btn {
+  width: 48px;
+  height: 48px;
+  color: #858585;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  font-size: 22px;
+  transition: 0.2s;
 }
 
-
-
-.topbar{
-  width:100%;
-  height:55px;
-  background:var(--topbar);
-  border-bottom:1px solid var(--border);
-  overflow-x:auto;
-  overflow-y:hidden;
+.vsc-activity-btn:hover {
+  color: #ffffff;
 }
 
-.tabs{
-  display:flex;
-  min-width:max-content;
+.vsc-activity-btn--active {
+  color: #ffffff;
+  border-left: 2px solid #ffffff;
 }
 
-.tab{
-  height:55px;
-  padding:0 20px;
-  display:flex;
-  align-items:center;
-  gap:10px;
-  border-right:1px solid var(--border);
-  color:var(--textLight);
-  cursor:pointer;
-  white-space:nowrap;
-  transition:0.3s;
+.vsc-activity-spacer {
+  flex: 1;
 }
 
-.tab:hover{
-  background:var(--card);
+/* =========================================
+   SIDEBAR
+========================================= */
+
+.vsc-sidebar {
+  width: 250px;
+  background: var(--bg-sidebar);
+  border-right: 1px solid var(--border);
+  display: flex;
+  flex-direction: column;
+  overflow: hidden;
+  transition: 0.3s ease;
 }
 
-.active-tab{
-  background:var(--bg);
-  color:var(--text);
-  border-top:3px solid var(--active);
+.vsc-sidebar-header {
+  padding: 10px 12px;
+  font-size: 11px;
+  font-weight: 700;
+  color: var(--text-light);
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
 }
 
-.tab-icon{
-  color:#f7df1e;
+.vsc-sidebar-dots {
+  color: var(--text-light);
 }
 
-
-.editor{
-  flex:1;
-  display:flex;
-  overflow:hidden;
+.vsc-sidebar-section {
+  padding-bottom: 10px;
 }
 
-
-.line-numbers{
-  width:55px;
-  min-width:55px;
-  background:var(--sidebar);
-  border-right:1px solid var(--border);
-  display:flex;
-  flex-direction:column;
-  align-items:center;
-  padding-top:15px;
-  gap:10px;
-  color:#6b7280;
-  font-size:12px;
-  overflow:hidden;
+.vsc-section-title {
+  width: 100%;
+  display: flex;
+  align-items: center;
+  gap: 5px;
+  padding: 6px 10px;
+  color: var(--text-light);
+  font-size: 11px;
+  font-weight: 700;
+  text-transform: uppercase;
 }
 
-
-.editor-content{
-  flex:1;
-  overflow-y:auto;
-  overflow-x:hidden;
-  background:var(--bg);
-  padding:0;
+.vsc-tree {
+  overflow-y: auto;
 }
 
-
-
-.statusbar{
-  height:38px;
-  background:var(--active);
-  display:flex;
-  align-items:center;
-  justify-content:space-between;
-  padding:0 16px;
-  color:white;
-  font-size:13px;
-  flex-wrap:wrap;
+.vsc-tree-row {
+  width: 100%;
+  height: 28px;
+  display: flex;
+  align-items: center;
+  gap: 7px;
+  color: var(--text);
+  padding-right: 10px;
+  transition: 0.2s;
 }
 
-.status-left,
-.status-right{
-  display:flex;
-  align-items:center;
-  gap:16px;
+.vsc-tree-row:hover {
+  background: var(--bg-hover);
 }
 
-
-
-.mobile-menu-btn{
-  position:fixed;
-  top:10px;
-  right:10px;
-  z-index:1200;
-  width:42px;
-  height:42px;
-  border:none;
-  border-radius:8px;
-  background:#22c55e;
-  color:white;
-  font-size:18px;
-  display:none;
-  cursor:pointer;
+.vsc-tree-file--active {
+  background: #094771;
 }
 
-
-
-.sidebar-overlay{
-  position:fixed;
-  inset:0;
-  background:rgba(0,0,0,0.5);
-  z-index:999;
+.vsc-tree-name {
+  overflow: hidden;
+  text-overflow: ellipsis;
+  white-space: nowrap;
 }
 
+.vsc-dot {
+  width: 6px;
+  height: 6px;
+  background: #3dc9b0;
+  border-radius: 50%;
+}
 
+/* =========================================
+   ICONS
+========================================= */
 
-@media(max-width:900px){
+.vsc-icon {
+  min-width: 18px;
+  height: 14px;
+  border-radius: 2px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  font-size: 9px;
+  font-weight: 700;
+}
 
-  .mobile-menu-btn{
-    display:flex;
-    align-items:center;
-    justify-content:center;
+.vsc-icon--js {
+  background: #f7df1e;
+  color: #000;
+}
+
+.vsc-icon--json {
+  background: #f7df1e;
+  color: #000;
+}
+
+.vsc-icon--md {
+  background: #519aba;
+  color: #fff;
+}
+
+.vsc-icon--env {
+  background: #888;
+  color: #fff;
+}
+
+.vsc-icon--git {
+  background: #f14e32;
+  color: #fff;
+}
+
+/* =========================================
+   EDITOR AREA
+========================================= */
+
+.vsc-editor-area {
+  flex: 1;
+  display: flex;
+  flex-direction: column;
+  overflow: hidden;
+  background: var(--bg-main);
+  position: relative;
+}
+
+/* =========================================
+   MOBILE MENU BUTTON
+========================================= */
+
+.vsc-hamburger {
+  display: none;
+  position: absolute;
+  top: 5px;
+  left: 8px;
+  z-index: 200;
+  width: 34px;
+  height: 34px;
+  border-radius: 6px;
+  background: #2d2d2d;
+  color: white;
+  align-items: center;
+  justify-content: center;
+}
+
+/* =========================================
+   TABS
+========================================= */
+
+.vsc-tabs {
+  display: flex;
+  overflow-x: auto;
+  background: var(--bg-tabs);
+  border-bottom: 1px solid var(--border);
+}
+
+.vsc-tabs::-webkit-scrollbar {
+  display: none;
+}
+
+.vsc-tab {
+  min-width: 120px;
+  height: 35px;
+  padding: 0 12px;
+  display: flex;
+  align-items: center;
+  gap: 7px;
+  border-right: 1px solid var(--border);
+  color: var(--text-light);
+  background: var(--bg-tabs);
+  transition: 0.2s;
+}
+
+.vsc-tab:hover {
+  background: var(--bg-hover);
+}
+
+.vsc-tab--active {
+  background: var(--bg-active);
+  color: var(--text);
+  border-top: 2px solid var(--accent);
+}
+
+.vsc-tab-name {
+  overflow: hidden;
+  text-overflow: ellipsis;
+  white-space: nowrap;
+}
+
+.vsc-tab-close {
+  font-size: 16px;
+}
+
+/* =========================================
+   BREADCRUMB
+========================================= */
+
+.vsc-breadcrumb {
+  height: 32px;
+  padding: 0 14px;
+  display: flex;
+  align-items: center;
+  gap: 6px;
+  border-bottom: 1px solid var(--border);
+  font-size: 12px;
+  color: var(--text-light);
+}
+
+.vsc-bc-active {
+  color: var(--text);
+}
+
+/* =========================================
+   EDITOR
+========================================= */
+
+.vsc-editor {
+  flex: 1;
+  display: flex;
+  overflow: hidden;
+}
+
+/* LINE NUMBERS */
+
+.vsc-line-numbers {
+  width: 50px;
+  background: var(--bg-main);
+  border-right: 1px solid var(--border);
+  color: #858585;
+  font-size: 12px;
+  display: flex;
+  flex-direction: column;
+  align-items: flex-end;
+  padding: 10px 8px 10px 0;
+  overflow: hidden;
+}
+
+.vsc-line-numbers span {
+  line-height: 22px;
+}
+
+/* CODE AREA */
+
+.vsc-code-area {
+  flex: 1;
+  overflow-y: auto;
+  overflow-x: hidden;
+  padding: 14px;
+  color: var(--text);
+}
+
+/* MINIMAP */
+
+.vsc-minimap {
+  width: 70px;
+  background: #252526;
+  border-left: 1px solid var(--border);
+  padding: 10px 5px;
+}
+
+.vsc-minimap-line {
+  height: 2px;
+  background: #555;
+  margin-bottom: 4px;
+  border-radius: 2px;
+}
+
+/* =========================================
+   STATUSBAR
+========================================= */
+
+.vsc-statusbar {
+  height: 24px;
+  background: var(--status);
+  color: white;
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  padding: 0 10px;
+  font-size: 12px;
+}
+
+.vsc-status-left,
+.vsc-status-right {
+  display: flex;
+  align-items: center;
+  gap: 12px;
+}
+
+/* =========================================
+   OVERLAY
+========================================= */
+
+.vsc-overlay {
+  position: fixed;
+  inset: 0;
+  background: rgba(0,0,0,0.5);
+  z-index: 100;
+}
+
+/* =========================================
+   TABLET RESPONSIVE
+========================================= */
+
+@media screen and (max-width: 768px) {
+
+  .vsc-titlebar-menus {
+    display: none;
   }
 
-  .sidebar{
-    position:fixed;
-    top:0;
-    left:-100%;
-    height:100vh;
+  .vsc-activity {
+    display: none;
   }
 
-  .show-sidebar{
-    left:0;
+  .vsc-sidebar {
+    position: fixed;
+    top: 32px;
+    left: 0;
+    bottom: 0;
+    width: 240px;
+    z-index: 150;
+    transform: translateX(-100%);
+    box-shadow: 2px 0 12px rgba(0,0,0,0.4);
   }
 
-  .line-numbers{
-    display:none;
+  .vsc-sidebar--open {
+    transform: translateX(0);
   }
 
-  .topbar{
-    padding-left:60px;
+  .vsc-hamburger {
+    display: flex;
   }
 
-  .tab{
-    padding:0 14px;
-    font-size:13px;
+  .vsc-tabs {
+    padding-left: 45px;
   }
 
-  .statusbar{
-    height:auto;
-    padding:8px 12px;
-    gap:6px;
-    font-size:12px;
+  /* HIDE LINE NUMBERS */
+
+  .vsc-line-numbers {
+    display: none;
   }
 
-  .status-left,
-  .status-right{
-    width:100%;
-    justify-content:center;
+  .vsc-code-area {
+    width: 100%;
+    padding: 12px;
+  }
+
+  .vsc-minimap {
+    display: none;
+  }
+
+  .vsc-status-right span:nth-child(n+3) {
+    display: none;
+  }
+
+  .vsc-tab {
+    min-width: 95px;
+    font-size: 12px;
   }
 }
 
-@media(max-width:600px){
+/* =========================================
+   SMALL MOBILE
+========================================= */
 
-  .sidebar{
-    width:230px;
-    min-width:230px;
+@media screen and (max-width: 480px) {
+
+  .vsc-titlebar-center {
+    display: none;
   }
 
-  .logo-left h3{
-    font-size:15px;
+  .vsc-sidebar {
+    width: 220px;
   }
 
-  .tab span{
-    display:none;
+  .vsc-tab {
+    min-width: 80px;
+    padding: 0 8px;
+    font-size: 11px;
   }
 
-  .tab{
-    width:55px;
-    justify-content:center;
-    padding:0;
+  .vsc-tab-name {
+    max-width: 50px;
   }
 
-  .editor-content{
-    padding:0;
+  .vsc-code-area {
+    font-size: 12px;
+    padding: 10px;
   }
 
-  .statusbar{
-    display:none;
+  .vsc-status-right {
+    display: none;
+  }
+
+  .vsc-breadcrumb {
+    font-size: 10px;
+    overflow-x: auto;
   }
 }

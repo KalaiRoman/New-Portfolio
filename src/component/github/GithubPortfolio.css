@@ -1,0 +1,547 @@
+/* GithubPortfolio.css */
+
+/* ── CSS VARIABLES ── */
+.gh-root {
+  --gh-font: -apple-system, BlinkMacSystemFont, "Segoe UI", Helvetica, Arial, sans-serif;
+  --gh-radius: 6px;
+  --gh-radius-lg: 10px;
+  min-height: 90vh;
+  font-family: var(--gh-font);
+  font-size: 14px;
+  line-height: 1.5;
+  transition: background 0.25s, color 0.25s;
+}
+
+/* ── DARK THEME ── */
+.gh-dark {
+  --bg-canvas:       #0d1117;
+  --bg-subtle:       #161b22;
+  --bg-muted:        #21262d;
+  --bg-overlay:      #30363d;
+  --border-default:  #30363d;
+  --border-muted:    #21262d;
+  --text-primary:    #e6edf3;
+  --text-secondary:  #8b949e;
+  --text-link:       #58a6ff;
+  --accent:          #238636;
+  --accent-hover:    #2ea043;
+  --accent-text:     #ffffff;
+  --tab-active-border: #f78166;
+  --badge-bg:        #21262d;
+  --badge-text:      #8b949e;
+  --file-active-bg:  #1f6feb22;
+  --file-active-border: #1f6feb;
+  --btn-bg:          #21262d;
+  --btn-border:      #30363d;
+  --btn-hover:       #30363d;
+  --js-color:        #f0db4f;
+  --md-color:        #519aba;
+  --scrollbar:       #30363d;
+}
+
+/* ── LIGHT THEME ── */
+.gh-light {
+  --bg-canvas:       #ffffff;
+  --bg-subtle:       #f6f8fa;
+  --bg-muted:        #eaeef2;
+  --bg-overlay:      #d0d7de;
+  --border-default:  #d0d7de;
+  --border-muted:    #eaeef2;
+  --text-primary:    #1f2328;
+  --text-secondary:  #656d76;
+  --text-link:       #0969da;
+  --accent:          #1f883d;
+  --accent-hover:    #1a7f37;
+  --accent-text:     #ffffff;
+  --tab-active-border: #fd8c73;
+  --badge-bg:        #eaeef2;
+  --badge-text:      #57606a;
+  --file-active-bg:  #ddf4ff;
+  --file-active-border: #0969da;
+  --btn-bg:          #f6f8fa;
+  --btn-border:      #d0d7de;
+  --btn-hover:       #eaeef2;
+  --js-color:        #d4a017;
+  --md-color:        #0550ae;
+  --scrollbar:       #d0d7de;
+}
+
+/* ── GLOBAL ── */
+*, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
+button { cursor: pointer; font-family: var(--gh-font); }
+
+/* ── NAVBAR ── */
+.gh-navbar {
+  position: sticky;
+  top: 0;
+  z-index: 100;
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  gap: 12px;
+  padding: 0 16px;
+  height: 56px;
+  background: var(--bg-subtle);
+  border-bottom: 1px solid var(--border-default);
+}
+
+.gh-nav-left {
+  display: flex;
+  align-items: center;
+  gap: 12px;
+  min-width: 0;
+  flex: 1;
+}
+
+.gh-hamburger {
+  display: none;
+  background: none;
+  border: none;
+  color: var(--text-secondary);
+  font-size: 18px;
+  padding: 4px;
+  border-radius: var(--gh-radius);
+}
+.gh-hamburger:hover { color: var(--text-primary); background: var(--bg-muted); }
+
+.gh-octocat {
+  font-size: 28px;
+  color: var(--text-primary);
+  flex-shrink: 0;
+}
+
+.gh-repo-path {
+  display: flex;
+  align-items: center;
+  gap: 6px;
+  font-size: 14px;
+  font-weight: 500;
+  white-space: nowrap;
+  overflow: hidden;
+  text-overflow: ellipsis;
+}
+.gh-owner { color: var(--text-link); }
+.gh-owner:hover { text-decoration: underline; }
+.gh-sep { color: var(--text-secondary); font-size: 18px; font-weight: 300; }
+.gh-reponame { color: var(--text-link); font-weight: 600; }
+.gh-reponame:hover { text-decoration: underline; }
+.gh-badge {
+  font-size: 11px;
+  font-weight: 500;
+  padding: 1px 7px;
+  border: 1px solid var(--border-default);
+  border-radius: 20px;
+  color: var(--text-secondary);
+}
+
+.gh-nav-right {
+  display: flex;
+  align-items: center;
+  gap: 8px;
+  flex-shrink: 0;
+}
+
+.gh-nav-btn {
+  display: flex;
+  align-items: center;
+  gap: 5px;
+  padding: 5px 12px;
+  font-size: 13px;
+  font-weight: 500;
+  color: var(--text-primary);
+  background: var(--btn-bg);
+  border: 1px solid var(--btn-border);
+  border-radius: var(--gh-radius);
+  transition: background 0.15s;
+}
+.gh-nav-btn:hover { background: var(--btn-hover); }
+
+.gh-star-btn { color: var(--text-primary); }
+
+.gh-count {
+  font-size: 12px;
+  padding: 0 6px;
+  background: var(--bg-overlay);
+  border-radius: 20px;
+  color: var(--text-secondary);
+}
+
+.gh-theme-btn {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  width: 32px;
+  height: 32px;
+  background: var(--btn-bg);
+  border: 1px solid var(--btn-border);
+  border-radius: var(--gh-radius);
+  color: var(--text-secondary);
+  font-size: 15px;
+  transition: background 0.15s, color 0.15s;
+}
+.gh-theme-btn:hover { background: var(--btn-hover); color: var(--text-primary); }
+
+/* ── SUBNAV ── */
+.gh-subnav {
+  display: flex;
+  align-items: center;
+  gap: 0;
+  padding: 0 16px;
+  background: var(--bg-canvas);
+  border-bottom: 1px solid var(--border-default);
+  overflow-x: auto;
+  scrollbar-width: none;
+}
+.gh-subnav::-webkit-scrollbar { display: none; }
+
+.gh-subnav-item {
+  display: flex;
+  align-items: center;
+  gap: 6px;
+  padding: 12px 14px;
+  font-size: 14px;
+  font-weight: 400;
+  color: var(--text-secondary);
+  background: none;
+  border: none;
+  border-bottom: 2px solid transparent;
+  white-space: nowrap;
+  transition: color 0.15s, border-color 0.15s;
+}
+.gh-subnav-item:hover { color: var(--text-primary); }
+.gh-subnav-item.active {
+  color: var(--text-primary);
+  font-weight: 600;
+  border-bottom: 2px solid #f78166;
+}
+
+/* ── BODY LAYOUT ── */
+.gh-body {
+  display: flex;
+  align-items: flex-start;
+  max-width: 1280px;
+  margin: 0 auto;
+  padding: 24px 16px;
+  gap: 24px;
+  min-height: calc(100vh - 112px);
+  background: var(--bg-canvas);
+}
+
+/* ── OVERLAY ── */
+.gh-overlay {
+  position: fixed;
+  inset: 0;
+  background: rgba(0,0,0,0.5);
+  z-index: 50;
+}
+
+/* ── SIDEBAR ── */
+.gh-sidebar {
+  width: 260px;
+  flex-shrink: 0;
+  display: flex;
+  flex-direction: column;
+  gap: 16px;
+}
+
+.gh-sidebar-header { }
+
+.gh-profile-card {
+  display: flex;
+  align-items: center;
+  gap: 12px;
+  padding: 12px;
+  background: var(--bg-subtle);
+  border: 1px solid var(--border-default);
+  border-radius: var(--gh-radius-lg);
+}
+
+.gh-avatar {
+  width: 42px;
+  height: 42px;
+  border-radius: 50%;
+  background: linear-gradient(135deg, #6e40c9, #1f6feb);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  font-size: 16px;
+  font-weight: 700;
+  color: #fff;
+  flex-shrink: 0;
+}
+
+.gh-profile-info { min-width: 0; }
+.gh-profile-name {
+  font-size: 14px;
+  font-weight: 600;
+  color: var(--text-primary);
+  white-space: nowrap;
+  overflow: hidden;
+  text-overflow: ellipsis;
+}
+.gh-profile-role {
+  font-size: 12px;
+  color: var(--text-secondary);
+}
+
+.gh-repo-box {
+  padding: 12px;
+  background: var(--bg-subtle);
+  border: 1px solid var(--border-default);
+  border-radius: var(--gh-radius-lg);
+  display: flex;
+  flex-direction: column;
+  gap: 8px;
+}
+.gh-repo-label {
+  font-size: 11px;
+  font-weight: 600;
+  text-transform: uppercase;
+  letter-spacing: 0.06em;
+  color: var(--text-secondary);
+}
+.gh-repo-title {
+  display: flex;
+  align-items: center;
+  gap: 8px;
+  font-size: 14px;
+  font-weight: 600;
+  color: var(--text-link);
+}
+.gh-folder-icon { color: #54aeff; font-size: 16px; }
+
+.gh-branch-row {
+  display: flex;
+  align-items: center;
+  gap: 6px;
+  font-size: 12px;
+  color: var(--text-secondary);
+}
+.gh-commits-badge {
+  margin-left: auto;
+  font-size: 11px;
+  padding: 1px 6px;
+  background: var(--badge-bg);
+  border-radius: 20px;
+  color: var(--badge-text);
+}
+
+.gh-file-list {
+  background: var(--bg-subtle);
+  border: 1px solid var(--border-default);
+  border-radius: var(--gh-radius-lg);
+  overflow: hidden;
+}
+.gh-file-list-header {
+  padding: 8px 14px;
+  font-size: 11px;
+  font-weight: 600;
+  text-transform: uppercase;
+  letter-spacing: 0.06em;
+  color: var(--text-secondary);
+  border-bottom: 1px solid var(--border-muted);
+}
+
+.gh-file-item {
+  width: 100%;
+  display: flex;
+  align-items: center;
+  gap: 8px;
+  padding: 7px 14px;
+  background: none;
+  border: none;
+  border-left: 3px solid transparent;
+  color: var(--text-primary);
+  font-size: 13px;
+  text-align: left;
+  transition: background 0.1s, border-color 0.1s;
+}
+.gh-file-item:hover { background: var(--bg-muted); }
+.gh-file-item--active {
+  background: var(--file-active-bg);
+  border-left-color: var(--file-active-border);
+  color: var(--text-link);
+  font-weight: 500;
+}
+
+.gh-file-icon { display: flex; align-items: center; flex-shrink: 0; }
+.fi-js { color: var(--js-color); font-size: 14px; }
+.fi-md { color: var(--md-color); font-size: 14px; }
+.gh-file-name { overflow: hidden; text-overflow: ellipsis; white-space: nowrap; }
+
+/* ── MAIN ── */
+.gh-main {
+  flex: 1;
+  min-width: 0;
+  display: flex;
+  flex-direction: column;
+  gap: 0;
+}
+
+/* ── TABS ── */
+.gh-tabs-bar {
+  border-bottom: 1px solid var(--border-default);
+  margin-bottom: 0;
+}
+.gh-tabs {
+  display: flex;
+  gap: 0;
+  overflow-x: auto;
+  scrollbar-width: none;
+}
+.gh-tabs::-webkit-scrollbar { display: none; }
+
+.gh-tab {
+  display: flex;
+  align-items: center;
+  gap: 6px;
+  padding: 10px 14px;
+  background: none;
+  border: none;
+  border-bottom: 2px solid transparent;
+  color: var(--text-secondary);
+  font-size: 13px;
+  white-space: nowrap;
+  flex-shrink: 0;
+  transition: color 0.15s, border-color 0.15s, background 0.15s;
+}
+.gh-tab:hover {
+  color: var(--text-primary);
+  background: var(--bg-muted);
+}
+.gh-tab--active {
+  color: var(--text-primary);
+  font-weight: 600;
+  border-bottom: 2px solid var(--tab-active-border);
+  background: var(--bg-canvas);
+}
+.gh-tab-icon { display: flex; align-items: center; }
+.gh-tab-label { }
+
+/* ── FILE HEADER ── */
+.gh-file-header {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  gap: 12px;
+  padding: 10px 16px;
+  background: var(--bg-subtle);
+  border: 1px solid var(--border-default);
+  border-top: none;
+  border-radius: 0;
+  flex-wrap: wrap;
+  gap: 8px;
+}
+
+.gh-file-meta {
+  display: flex;
+  align-items: center;
+  gap: 8px;
+  font-size: 13px;
+  color: var(--text-secondary);
+  min-width: 0;
+  flex-wrap: wrap;
+}
+.gh-file-avatar {
+  width: 22px; height: 22px;
+  border-radius: 50%;
+  background: linear-gradient(135deg, #6e40c9, #1f6feb);
+  display: flex; align-items: center; justify-content: center;
+  font-size: 11px; font-weight: 700; color: #fff; flex-shrink: 0;
+}
+.gh-file-author { font-weight: 600; color: var(--text-primary); }
+.gh-file-msg { color: var(--text-secondary); }
+
+.gh-file-actions {
+  display: flex;
+  align-items: center;
+  gap: 6px;
+  flex-wrap: wrap;
+}
+.gh-action-btn {
+  display: flex;
+  align-items: center;
+  gap: 5px;
+  padding: 4px 10px;
+  font-size: 12px;
+  font-weight: 500;
+  color: var(--text-primary);
+  background: var(--btn-bg);
+  border: 1px solid var(--btn-border);
+  border-radius: var(--gh-radius);
+  transition: background 0.15s;
+}
+.gh-action-btn:hover { background: var(--btn-hover); }
+
+/* ── CONTENT BODY ── */
+.gh-content-body {
+  border: 1px solid var(--border-default);
+  border-top: none;
+  border-radius: 0 0 var(--gh-radius-lg) var(--gh-radius-lg);
+  background: var(--bg-canvas);
+  min-height: 60vh;
+  padding: 24px;
+  overflow-x: auto;
+}
+
+/* ── SCROLLBAR ── */
+::-webkit-scrollbar { width: 6px; height: 6px; }
+::-webkit-scrollbar-track { background: transparent; }
+::-webkit-scrollbar-thumb { background: var(--scrollbar); border-radius: 3px; }
+
+/* ────────────────────────────────────────────
+   RESPONSIVE BREAKPOINTS
+   ──────────────────────────────────────────── */
+
+/* ── Tablet (≤ 900px) ── */
+@media (max-width: 900px) {
+  .gh-sidebar {
+    position: fixed;
+    top: 0; left: 0; bottom: 0;
+    width: 280px;
+    z-index: 60;
+    background: var(--bg-subtle);
+    border-right: 1px solid var(--border-default);
+    padding: 16px 12px;
+    transform: translateX(-100%);
+    transition: transform 0.25s ease;
+    overflow-y: auto;
+  }
+  .gh-sidebar--open { transform: translateX(0); }
+
+  .gh-hamburger { display: flex; }
+  .gh-body { padding: 16px 12px; }
+  .gh-nav-btn span:not(.gh-count) { display: none; }
+  .gh-nav-btn { padding: 5px 8px; gap: 4px; }
+}
+
+/* ── Mobile (≤ 600px) ── */
+@media (max-width: 600px) {
+  .gh-navbar { padding: 0 10px; height: 50px; }
+  .gh-octocat { font-size: 22px; }
+  .gh-repo-path { font-size: 13px; gap: 4px; }
+  .gh-badge { display: none; }
+
+  .gh-subnav-item { padding: 10px 10px; font-size: 12px; }
+
+  .gh-body { padding: 10px 8px; gap: 0; }
+
+  .gh-tabs { gap: 0; }
+  .gh-tab { padding: 8px 10px; font-size: 12px; gap: 4px; }
+  .gh-tab-label { display: none; }
+  .gh-tab--active .gh-tab-label { display: inline; }
+
+  .gh-file-header { padding: 8px 10px; }
+  .gh-file-msg { display: none; }
+
+  .gh-content-body { padding: 14px 10px; }
+
+  .gh-nav-right .gh-nav-btn:not(:last-of-type):not(.gh-theme-btn) { display: none; }
+}
+
+/* ── Very small (≤ 380px) ── */
+@media (max-width: 380px) {
+  .gh-repo-path { font-size: 12px; }
+  .gh-reponame { max-width: 100px; overflow: hidden; text-overflow: ellipsis; }
+  .gh-subnav-item { padding: 8px 8px; font-size: 11px; }
+}

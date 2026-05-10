@@ -1,21 +1,35 @@
 import { useState, useRef, useEffect } from "react";
+
+import {
+  FaGlobe,
+  FaLayerGroup,
+  FaCode,
+  FaGithub,
+} from "react-icons/fa";
+
+import { SiPostman } from "react-icons/si";
+
 import "./styles/Header.css";
 
-export default function ThreeDotDropdown({setMode,mode}) {
-  
-  const [selected, setSelected] = useState("Single Page");
+export default function ThreeDotDropdown({ setMode, mode }) {
+
+  const [selected, setSelected] = useState(mode || "Single Page");
 
   const [open, setOpen] = useState(false);
+
   const dropdownRef = useRef(null);
 
   useEffect(() => {
+
     function handleClickOutside(event) {
+
       if (
         dropdownRef.current &&
         !dropdownRef.current.contains(event.target)
       ) {
         setOpen(false);
       }
+
     }
 
     document.addEventListener("mousedown", handleClickOutside);
@@ -23,15 +37,38 @@ export default function ThreeDotDropdown({setMode,mode}) {
     return () => {
       document.removeEventListener("mousedown", handleClickOutside);
     };
+
   }, []);
 
-  const options = ["Single Page", "Multiple Page", "VsCode"];
-
-  console.log(mode,"mode")
+  // OPTIONS WITH ICONS
+  const options = [
+    {
+      name: "Single Page",
+      icon: <FaGlobe />,
+    },
+    {
+      name: "Multi Page",
+      icon: <FaLayerGroup />,
+    },
+    {
+      name: "VsCode",
+      icon: <FaCode />,
+    },
+    {
+      name: "Github",
+      icon: <FaGithub />,
+    },
+      {
+      name: "Postman",
+       icon: <SiPostman />,
+    },
+  ];
 
   return (
+
     <div className="dropdownContainer" ref={dropdownRef}>
 
+      {/* BUTTON */}
       <button
         className="dotButton"
         onClick={() => setOpen(!open)}
@@ -39,25 +76,41 @@ export default function ThreeDotDropdown({setMode,mode}) {
         ⋮
       </button>
 
+      {/* DROPDOWN */}
       {open && (
+
         <div className="dropdownMenu">
+
           {options.map((item) => (
+
             <div
-              key={item}
+              key={item.name}
               className={`dropdownItem ${
-                selected === item ? "activeItem" : ""
+                selected === item.name ? "activeItem" : ""
               }`}
               onClick={() => {
-                setSelected(item);
-                setMode(item)
+                setSelected(item.name);
+                setMode(item.name);
                 setOpen(false);
               }}
             >
-              {item}
+
+              <span className="dropdownIcon">
+                {item.icon}
+              </span>
+
+              <span>
+                {item.name}
+              </span>
+
             </div>
+
           ))}
+
         </div>
+
       )}
+
     </div>
   );
 }

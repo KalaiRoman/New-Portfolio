@@ -19,6 +19,8 @@ import Chat from "./component/chat/Chat";
 import { getUserData } from "./services/auth_services/auth_services";
 import Experience from "./component/experience/Experience";
 import VSCodePortfolio from "./component/vscode/VSCodePortfolio";
+import GithubPortfolio from "./component/github/GithubPortfolio";
+import PostmanPortfolio from "./component/postman/PostmanPortfolio";
 function App() {
   const [ResponseSection, setResponseSection] = useState("Desktop-section");
   const [settingcolor, setSettingColor] = useState(false);
@@ -221,8 +223,16 @@ function App() {
               <VSCodePortfolio/>
               
               </>:<>
+              {mode=="Github"?<>
+              <GithubPortfolio/>
+              </>:<>
               
-                <Routes>
+            {mode=="Postman"?<>
+            
+            <PostmanPortfolio/>
+            </>:<>
+            
+               <Routes>
                 <Route
                   exact
                   path="/"
@@ -259,6 +269,12 @@ function App() {
                   element={<Experience colorName={state?.ColorName} />}
                 />
               </Routes>
+            
+            </>}
+              
+              
+              </>}
+               
               </>}
               
                

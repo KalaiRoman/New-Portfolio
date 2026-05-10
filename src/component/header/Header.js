@@ -94,7 +94,7 @@ const location = useLocation();
         </div>
 
         {/* Desktop nav */}
-     {mode=="VsCode"?null:<>
+     {mode=="VsCode" || mode=="Postman"?null:<>
      
         <nav className="desktop-nav">
 
@@ -145,6 +145,8 @@ mode={mode}
             Employed
           </div>
           <div className="nav-avatar" onClick={handleShow}>KS</div>
+
+          {mode=="Multi Page" && <>
           <button
             className={`nav-hamburger${menuOpen ? " open" : ""}`}
             onClick={() => setMenuOpen(!menuOpen)}
@@ -152,6 +154,7 @@ mode={mode}
           >
             <span /><span /><span />
           </button>
+          </>}
         </div>
       </header>
 
