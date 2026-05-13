@@ -222,6 +222,8 @@ body {
   .testimonial-header h2 {
     font-size: 32px;
   }
+
+
 }
 
 /* ===================================
@@ -237,6 +239,7 @@ body {
   .testimonial-grid {
     grid-template-columns: 1fr;
   }
+  
 
   .testimonial-card {
     min-height: auto;
@@ -263,6 +266,7 @@ body {
     width: 40px;
     height: 40px;
     font-size: 18px;
+    
   }
 }
 
@@ -306,5 +310,8 @@ body {
   .tag {
     font-size: 12px;
     padding: 8px 12px;
+  }
+    .nav-btn{
+    display: none;
   }
 }
