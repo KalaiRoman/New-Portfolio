@@ -122,7 +122,7 @@ export default function Contact() {
     <section className="contact-section" id="contact">
       {/* Page title */}
       <h1 className="contact-page-title">
-        <span style={{color:"#0cb65e"}}>Con</span>tact Me ( 📬  Get In Touch )
+        <span style={{color:"#0cb65e"}}>Con</span>tact Me 
       </h1>
 
       <div className="contact-wrapper">
