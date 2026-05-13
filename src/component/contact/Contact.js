@@ -19,6 +19,16 @@ const EmailIcon = () => (
   </svg>
 );
 
+const WatchTimerIcon = () => (
+  <svg
+    viewBox="0 0 24 24"
+    xmlns="http://www.w3.org/2000/svg"
+    fill="currentColor"
+  >
+    <path d="M15.07 1H8.93v2h6.14V1zM11 14h2V8h-2v6zm8.03-7.39l1.42-1.42-1.41-1.41-1.42 1.42A8.962 8.962 0 0 0 12 4a9 9 0 1 0 9 9c0-2.21-.8-4.24-2.12-5.8zM12 20a7 7 0 1 1 0-14 7 7 0 0 1 0 14z"/>
+  </svg>
+);
+
 const ContactIllustration = () => (
   <svg viewBox="0 0 320 240" xmlns="http://www.w3.org/2000/svg">
     <ellipse cx="160" cy="210" rx="110" ry="18" fill="#ddd6fe" opacity="0.5"/>
@@ -58,7 +68,7 @@ const ContactIllustration = () => (
 const contactInfo = [
   {
     label: "Location",
-    value: "Chennai, India",
+    value: "Chennai, Tamil Nadu, India",
     icon: <LocationIcon />,
   },
   {
@@ -70,6 +80,11 @@ const contactInfo = [
     label: "Email",
     value: "kalaimca685@gmail.com",
     icon: <EmailIcon />,
+  },
+  {
+    label: "Response Time",
+    value: "Usually within 24 hours",
+    icon: <WatchTimerIcon />,
   },
 ];
 
@@ -107,14 +122,16 @@ export default function Contact() {
     <section className="contact-section" id="contact">
       {/* Page title */}
       <h1 className="contact-page-title">
-        <span style={{color:"#0cb65e"}}>Con</span>tact Me
+        <span style={{color:"#0cb65e"}}>Con</span>tact Me ( 📬  Get In Touch )
       </h1>
 
       <div className="contact-wrapper">
         {/* ── LEFT: Form ── */}
         <div className="contact-form-card">
-          <h2 className="form-heading">Get in touch</h2>
-          <p className="form-subheading">We are here for you! How can we help?</p>
+          <h2 className="form-heading">Drop me a message 👇</h2>
+          <p className="form-subheading mt-3">
+              Whether you need a new product built from scratch, want to revamp an existing one, or just want to chat about tech — I'm all ears.
+          </p>
 
           {/* Name */}
           <div className="form-group">

@@ -10,6 +10,7 @@ const navItems = [
   { label: "Experience", icon: "🎓", path: "/experience" },
   { label: "Tools", icon: "🔧", path: "/tools" },
   { label: "Projects", icon: "📁", path: "/projects" },
+  {label: "Testimonials", icon: "💬",path:"/testimonials"},
   { label: "Contact Us", icon: "📞", path: "/contact" },
 ];
 
@@ -19,6 +20,7 @@ const navItemsSingle = [
   { label: "Experience", icon: "🎓", path: "#experience" },
   { label: "Tools", icon: "🔧", path: "#tools" },
   { label: "Projects", icon: "📁", path: "#projects" },
+  {label: "Testimonials", icon: "💬",path:"#testimonials"},
   { label: "Contact Us", icon: "📞", path: "#contact" },
 ];
 
@@ -94,7 +96,6 @@ const location = useLocation();
   };
 
   const handleNavClickSingle = (label, path) => {
-
   setActiveTab(label);
     setMenuOpen(false);
   const section = document.querySelector(path);
@@ -115,6 +116,7 @@ const location = useLocation();
           Kalai.<span>dev</span>
 
         </div>
+
 
         {/* Desktop nav */}
      {mode=="VsCode" || mode=="Postman"?null:<>

@@ -22,6 +22,7 @@ import VSCodePortfolio from "./component/vscode/VSCodePortfolio";
 import GithubPortfolio from "./component/github/GithubPortfolio";
 import PostmanPortfolio from "./component/postman/PostmanPortfolio";
 import Footer from "./component/footer/Footer";
+import Testimonials from "./component/testimonials/Testimonials";
 function App() {
   const [ResponseSection, setResponseSection] = useState("Desktop-section");
   const [settingcolor, setSettingColor] = useState(false);
@@ -144,6 +145,14 @@ function App() {
       heightScroll: 0,
       ToolName: "Projects",
     },
+        {
+      id: 5,
+      name: "Testimonials",
+      icon: <i class="fa-solid fa-user-graduate"></i>,
+      path: "/testimonials",
+      heightScroll: 0,
+      ToolName: "Testimonials",
+    },
     {
       id: 7,
       name: "Contact Us",
@@ -174,8 +183,8 @@ function App() {
       { id: "aboutus", name: "About Us" },
       { id: "projects", name: "Projects" },
       { id: "experience", name: "Experience" },
-
       { id: "tools", name: "Tools" },
+      { id: "testimonials", name: "Testimonials" },
       { id: "contact", name: "Contact Us" },
     ];
 
@@ -260,7 +269,9 @@ function App() {
 <Experience  id="experience"/>
 <WorkingTools id="tools" />
 <Projects id="projects" />
+<Testimonials id="testimonials" />
 <Contact id="contact" />
+
               </>:<>
 
 
@@ -312,6 +323,10 @@ function App() {
                     <Route
                   path="/experience"
                   element={<Experience colorName={state?.ColorName} />}
+                />
+                   <Route
+                  path="/testimonials"
+                  element={<Testimonials colorName={state?.ColorName} />}
                 />
               </Routes>
             

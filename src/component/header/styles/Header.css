@@ -74,12 +74,12 @@
 .nav-item {
   display: flex;
   align-items: center;
-  gap: 10px;
-  padding: 8px 14px;
+  gap: 5px;
+  padding: 5px 10px;
   border-radius: 10px;
   cursor: pointer;
   color: #000;
-  font-size: 14px;
+  font-size: 13px;
   font-weight: 500;
   border: 1px solid #f4f4f4;
   background: #f4f4f4;
@@ -459,13 +459,13 @@
 }
 
 .dotButton {
-  width: 35px;
-  height: 35px;
+  width: 28px;
+  height: 28px;
   border: none;
   border-radius: 10px;
   background: #0cb65e;
   cursor: pointer;
-  font-size: 24px;
+  font-size: 20px;
   font-weight: bold;
   transition: 0.3s;
   color: white;

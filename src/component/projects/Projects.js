@@ -134,7 +134,7 @@ export default function Projects() {
       {/* Header */}
       <h2 className="projects-title">
         Pro<span style={{color:"#0cb65e"}}>j</span>ects
-      </h2>
+      </h2> 
       <p className="projects-subtitle">Life Journey · Build · Ship · Repeat</p>
 
       {/* Timeline */}
