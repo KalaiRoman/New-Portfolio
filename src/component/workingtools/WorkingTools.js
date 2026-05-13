@@ -22,7 +22,7 @@ const techs = [
   { name: "Postman",    cat: "Tools",     img: "https://cdn.jsdelivr.net/gh/devicons/devicon/icons/postman/postman-original.svg" },
   { name: "npm",        cat: "Tools",     img: "https://cdn.jsdelivr.net/gh/devicons/devicon/icons/npm/npm-original-wordmark.svg" },
   { name: "Jest",       cat: "Testing",   img: "https://cdn.jsdelivr.net/gh/devicons/devicon/icons/jest/jest-plain.svg" },
-  { name: "Storybook",  cat: "Testing",   img: "https://cdn.jsdelivr.net/gh/devicons/devicon/icons/storybook/storybook-original.svg" },
+  // { name: "Storybook",  cat: "Testing",   img: "https://cdn.jsdelivr.net/gh/devicons/devicon/icons/storybook/storybook-original.svg" },
 
 
 ];

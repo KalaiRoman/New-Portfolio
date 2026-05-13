@@ -36,7 +36,7 @@ const experiences = [
       "Optimized code quality, performance, and maintainability through best practices, automated testing, and efficient UI development",
       "Collaborated with designers to deliver polished interfaces using Bootstrap, Tailwind CSS, and SASS",
     ],
-    tags: ["React.js", "Next.js", "Node.js", "JavaScript", "Bootstrap", "Tailwind CSS", "SASS"],
+    tags: ["React.js", "Next.js", "Node.js", "JavaScript", "Bootstrap", "Tailwind CSS", "SASS","HTML5","CSS3","Redux","REST APIs",],
   },
   {
     title: "Front End Developer",
@@ -50,7 +50,7 @@ const experiences = [
       "Designed fully responsive UIs with Bootstrap and custom CSS, improving cross-device compatibility and load speed",
       "Built reusable React components and maintained consistent front-end architecture across projects",
     ],
-    tags: ["React.js", "HTML5", "CSS3", "JavaScript", "SASS", "Redux"],
+    tags: ["React.js", "HTML5", "CSS3", "JavaScript", "SASS", "Redux","Bootstrap","REST APIs"],
   },
 ];
 

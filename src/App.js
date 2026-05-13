@@ -53,49 +53,49 @@ function App() {
     }, 2000);
   }, [loader, settingcolor]);
 
-  useEffect(() => {
+//   useEffect(() => {
 
-  // Disable Right Click
-  const disableRightClick = (e) => {
-    e.preventDefault();
-  };
+//   // Disable Right Click
+//   const disableRightClick = (e) => {
+//     e.preventDefault();
+//   };
 
-  // Disable DevTools Keys
-  const disableKeys = (e) => {
+//   // Disable DevTools Keys
+//   const disableKeys = (e) => {
 
-    // F12
-    if (e.key === "F12") {
-      e.preventDefault();
-    }
+//     // F12
+//     if (e.key === "F12") {
+//       e.preventDefault();
+//     }
 
-    // Ctrl+Shift+I
-    if (e.ctrlKey && e.shiftKey && e.key === "I") {
-      e.preventDefault();
-    }
+//     // Ctrl+Shift+I
+//     if (e.ctrlKey && e.shiftKey && e.key === "I") {
+//       e.preventDefault();
+//     }
 
-    // Ctrl+Shift+J
-    if (e.ctrlKey && e.shiftKey && e.key === "J") {
-      e.preventDefault();
-    }
+//     // Ctrl+Shift+J
+//     if (e.ctrlKey && e.shiftKey && e.key === "J") {
+//       e.preventDefault();
+//     }
 
-    if (e.ctrlKey && e.key === "u") {
-      e.preventDefault();
-    }
+//     if (e.ctrlKey && e.key === "u") {
+//       e.preventDefault();
+//     }
 
-    if (e.ctrlKey && e.key === "c") {
-      e.preventDefault();
-    }
-  };
+//     if (e.ctrlKey && e.key === "c") {
+//       e.preventDefault();
+//     }
+//   };
 
-  document.addEventListener("contextmenu", disableRightClick);
-  document.addEventListener("keydown", disableKeys);
+//   document.addEventListener("contextmenu", disableRightClick);
+//   document.addEventListener("keydown", disableKeys);
 
-  return () => {
-    document.removeEventListener("contextmenu", disableRightClick);
-    document.removeEventListener("keydown", disableKeys);
-  };
+//   return () => {
+//     document.removeEventListener("contextmenu", disableRightClick);
+//     document.removeEventListener("keydown", disableKeys);
+//   };
 
-}, []);
+// }, []);
   const handleChnageColor = () => {
     setTheme(!theme);
   };
