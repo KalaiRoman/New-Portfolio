@@ -19,7 +19,7 @@ const testimonials = [
     role: "Chief Executive Officer",
     quote:
       "Working with Kalai was an excellent experience. He delivered a high-performance Next.js platform with smooth communication.",
-    location: "Chennai, India",
+    location: "Chennai, Tamil Nadu, India",
     tag: "React & Next.js",
   },
   {
@@ -29,7 +29,7 @@ const testimonials = [
     role: "Chief Executive Officer",
     quote:
       "Kalaisurya transformed our frontend with modern and high-performance development. Great communication throughout the project.",
-    location: "Tamil Nadu, India",
+    location: "Chennai, Tamil Nadu, India",
     tag: "Frontend ReactJS",
   },
 ];

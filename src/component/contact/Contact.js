@@ -1,5 +1,6 @@
 import { useState } from "react";
 import "./styles/Contact.css";
+import { MailRegister } from "../../services/auth_services/auth_services";
 
 const LocationIcon = () => (
   <svg viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg">
@@ -108,15 +109,60 @@ export default function Contact() {
     if (errors[name]) setErrors((prev) => ({ ...prev, [name]: "" }));
   };
 
-  const handleSubmit = () => {
+const handleSubmit = async () => {
+  try {
+
+    /* =========================
+       VALIDATION
+    ========================= */
+
     const errs = validate();
+
     if (Object.keys(errs).length > 0) {
       setErrors(errs);
       return;
     }
+
+    /* =========================
+       REQUEST DATA
+    ========================= */
+
+    const data = {
+      name: form.name,
+      email: form.email,
+      message: form.message,
+    };
+
+    /* =========================
+       API CALL
+    ========================= */
+
+    const response = await MailRegister(data);
+
+    console.log(response, "response");
+
+    /* =========================
+       SUCCESS
+    ========================= */
+
     setSubmitted(true);
-    setForm({ name: "", email: "", message: "" });
-  };
+
+    setErrors({});
+
+    setForm({
+      name: "",
+      email: "",
+      message: "",
+    });
+
+  } catch (error) {
+
+    console.log(error);
+
+    alert("Something went wrong!");
+
+  }
+};
 
   return (
     <section className="contact-section" id="contact">
