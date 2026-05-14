@@ -92,6 +92,8 @@ const contactInfo = [
 export default function Contact() {
   const [form, setForm] = useState({ name: "", email: "", message: "" });
   const [submitted, setSubmitted] = useState(false);
+  const [submittederror, setSubmittedError] = useState("");
+
   const [errors, setErrors] = useState({});
 
   const validate = () => {
@@ -111,56 +113,29 @@ export default function Contact() {
 
 const handleSubmit = async () => {
   try {
-
-    /* =========================
-       VALIDATION
-    ========================= */
-
     const errs = validate();
-
     if (Object.keys(errs).length > 0) {
       setErrors(errs);
       return;
     }
-
-    /* =========================
-       REQUEST DATA
-    ========================= */
-
     const data = {
       name: form.name,
       email: form.email,
       message: form.message,
     };
-
-    /* =========================
-       API CALL
-    ========================= */
-
     const response = await MailRegister(data);
-
-    console.log(response, "response");
-
-    /* =========================
-       SUCCESS
-    ========================= */
-
     setSubmitted(true);
-
+    setSubmittedError("");
     setErrors({});
-
     setForm({
       name: "",
       email: "",
       message: "",
     });
-
   } catch (error) {
+    setSubmitted(false);
 
-    console.log(error);
-
-    alert("Something went wrong!");
-
+setSubmittedError(error?.response?.data?.message || "An error occurred while sending your message. Please try again later.")
   }
 };
 
@@ -239,6 +214,12 @@ const handleSubmit = async () => {
           {submitted && (
             <div className="form-success">
               Message sent successfully! I'll get back to you soon.
+            </div>
+          )}
+
+          {submittederror && (
+            <div className="form-error">
+              {submittederror}
             </div>
           )}
         </div>
