@@ -57,6 +57,12 @@ export default function Testimonials() {
     );
   };
 
+  const StarIcon = () => (
+  <svg viewBox="0 0 24 24" aria-hidden="true">
+    <path d="M12 2l3.09 6.26L22 9.27l-5 4.87 1.18 6.88L12 17.77l-6.18 3.25L7 14.14 2 9.27l6.91-1.01L12 2z" />
+  </svg>
+);
+
   return (
     <section className="testimonial-section" id="testimonials">
       
@@ -96,14 +102,16 @@ export default function Testimonials() {
                 </div>
 
                 <div>
-                  <h3>{item.name}</h3>
-                  <span>{item.role}</span>
+                  <div className="name-user">{item.name}</div>
+                  <div className="role-user">{item.role}</div>
                 </div>
 
               </div>
 
               <div className="stars">
-                ⭐⭐⭐⭐⭐
+                 {Array(5).fill(0).map((_, i) => (
+                  <StarIcon key={i} />
+                ))}
               </div>
 
               <p className="quote">

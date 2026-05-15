@@ -315,3 +315,24 @@ body {
     display: none;
   }
 }
+
+.stars svg {
+  width: 20px;
+  height: 20px;
+  fill: #16a34a;
+}
+
+.name-user
+{
+  /* color:#b4b4b4 !important; */
+  font-size: 15px;
+  font-weight: 600;
+
+}
+
+.role-user
+{
+  color:#0cb65e !important;
+  font-size: 12px;
+  font-weight: 600;
+}
