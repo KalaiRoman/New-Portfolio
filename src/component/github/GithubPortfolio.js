@@ -23,22 +23,25 @@ import Projects from "../projects/Projects";
 import WorkingTools from "../workingtools/WorkingTools";
 import Contact from "../contact/Contact";
 import Experience from "../experience/Experience";
+import Testimonials from "../testimonials/Testimonials";
 
 const FILE_ICONS = {
   "README.md": <FaMarkdown className="fi-md" />,
-  "About.js": <FaJs className="fi-js" />,
+  "About Us.js": <FaJs className="fi-js" />,
   "Experience.js": <FaJs className="fi-js" />,
-  "Projects.js": <FaJs className="fi-js" />,
   "Skills.js": <FaJs className="fi-js" />,
+  "Projects.js": <FaJs className="fi-js" />,
+  "Testimonials.js": <FaJs className="fi-js" />,
   "Contact.js": <FaJs className="fi-js" />,
 };
 
 const files = [
   "README.md",
-  "About.js",
+  "About Us.js",
   "Experience.js",
-  "Projects.js",
   "Skills.js",
+  "Projects.js",
+  "Testimonials.js",
   "Contact.js",
 ];
 
@@ -50,10 +53,11 @@ export default function GithubPortfolio() {
   const renderContent = () => {
     switch (activeTab) {
       case "README.md":    return <Home />;
-      case "About.js":     return <Aboutus />;
+      case "About Us.js":     return <Aboutus />;
       case "Experience.js":return <Experience />;
       case "Projects.js":  return <Projects />;
       case "Skills.js":    return <WorkingTools />;
+      case "Testimonials.js": return <Testimonials />;
       case "Contact.js":   return <Contact />;
       default:             return null;
     }
@@ -79,7 +83,7 @@ export default function GithubPortfolio() {
           </button>
           <FaGithub className="gh-octocat" />
           <span className="gh-repo-path">
-            <span className="gh-owner">KalaiRoman</span>
+            <span className="gh-owner">Kalaisurya</span>
             <span className="gh-sep">/</span>
             <span className="gh-reponame">Portfolio</span>
             <span className="gh-badge">Public</span>
@@ -131,7 +135,7 @@ export default function GithubPortfolio() {
             <div className="gh-profile-card">
               <div className="gh-avatar">KR</div>
               <div className="gh-profile-info">
-                <p className="gh-profile-name">Kalai Roman</p>
+                <p className="gh-profile-name">Kalaisurya</p>
                 <p className="gh-profile-role">Full Stack Developer</p>
               </div>
             </div>

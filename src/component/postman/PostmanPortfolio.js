@@ -13,20 +13,22 @@ import Projects from "../projects/Projects";
 import WorkingTools from "../workingtools/WorkingTools";
 import Contact from "../contact/Contact";
 import Experience from "../experience/Experience";
+import Testimonials from "../testimonials/Testimonials";
 
 const REQUESTS = {
   "GET_Home":       { method: "GET",    label: "Home",       component: <Home /> },
   "GET_About":      { method: "GET",    label: "About",      component: <Aboutus /> },
   "GET_Experience": { method: "GET",    label: "Experience", component: <Experience /> },
-  "POST_Projects":  { method: "POST",   label: "Projects",   component: <Projects /> },
   "GET_Skills":     { method: "GET",    label: "Skills",     component: <WorkingTools /> },
+  "POST_Projects":  { method: "POST",   label: "Projects",   component: <Projects /> },
+  "GET_Testimonials": { method: "GET",  label: "Testimonials", component: <Testimonials /> },
   "POST_Contact":   { method: "POST",   label: "Contact",    component: <Contact /> },
 };
 
 const HISTORY = [
   { date: "Today", items: ["GET_Home", "GET_About"] },
   { date: "Yesterday", items: ["GET_Experience", "POST_Projects"] },
-  { date: "Last Week", items: ["GET_Skills", "POST_Contact"] },
+  { date: "Last Week", items: ["GET_Skills","GET_Testimonials", "POST_Contact"] },
 ];
 
 const METHOD_COLORS = {

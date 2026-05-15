@@ -43,7 +43,7 @@ export default function WorkingTools() {
       : { [active]: filtered };
 
   return (
-    <section className="tech-stacks" id="tools">
+    <section className="tech-stacks" id="skills">
       <h2 className="tech-stack__title mb-5">
         <span style={{color:"#0cb65e"}}>My</span>Tech Stack
       </h2>

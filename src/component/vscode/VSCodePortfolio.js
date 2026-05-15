@@ -15,13 +15,15 @@ import Projects from "../projects/Projects";
 import WorkingTools from "../workingtools/WorkingTools";
 import Contact from "../contact/Contact";
 import Experience from "../experience/Experience";
+import Testimonials from "../testimonials/Testimonials";
 
 const FILE_MAP = {
   "Home.js":       { component: <Home />,         icon: "js" },
   "About.js":      { component: <Aboutus />,       icon: "js" },
   "Experience.js": { component: <Experience />,    icon: "js" },
-  "Projects.js":   { component: <Projects />,      icon: "js" },
   "Skills.js":     { component: <WorkingTools />,  icon: "js" },
+  "Projects.js":   { component: <Projects />,      icon: "js" },
+  "Testimonials.js": { component: <Testimonials />, icon: "js" },
   "Contact.js":    { component: <Contact />,       icon: "js" },
 };
 

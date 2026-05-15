@@ -183,7 +183,7 @@ function App() {
       { id: "aboutus", name: "About Us" },
       { id: "projects", name: "Projects" },
       { id: "experience", name: "Experience" },
-      { id: "tools", name: "Tools" },
+      { id: "skills", name: "Skills" },
       { id: "testimonials", name: "Testimonials" },
       { id: "contact", name: "Contact Us" },
     ];
@@ -267,7 +267,7 @@ function App() {
             <Home id="home" />
 <Aboutus id="aboutus" />
 <Experience  id="experience"/>
-<WorkingTools id="tools" />
+<WorkingTools id="skills" />
 <Projects id="projects" />
 <Testimonials id="testimonials" />
 <Contact id="contact" />
