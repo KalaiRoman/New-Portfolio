@@ -141,10 +141,7 @@ export default function Aboutus() {
         {activeTab === 0 && (
           <div style={styles.panel}>
             <div style={styles.bio}>
-              I'm a passionate Full Stack Developer with 5+ years of experience
-              building scalable, high-performance web applications. I specialize
-              in React and Node.js, delivering clean code and seamless user
-              experiences that solve real problems.
+             I’m a passionate Full Stack Developer with 5+ years of experience building scalable and high-performance web applications across multiple domains. I specialize in React.js, Next.js, Node.js, and modern JavaScript technologies to create responsive, user-friendly, and production-ready applications. I have strong expertise in developing reusable UI components, integrating REST APIs, and optimizing application performance for seamless user experiences. My experience includes working on enterprise-level products, secure authentication systems, payment integrations, and real-time application features. I focus on writing clean, maintainable, and efficient code while following modern development best practices and responsive design principles. I enjoy solving complex technical challenges, collaborating with teams, and transforming business requirements into impactful digital solutions. With a strong passion for continuous learning and innovation, I consistently deliver reliable, scalable, and visually polished applications that drive business growth and user satisfaction.
             </div>
 
             <div style={styles.infoGrid}>

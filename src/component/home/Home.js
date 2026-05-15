@@ -176,8 +176,7 @@ export default function Home() {
 
           {/* Bio */}
           <p className="hero-bio">
-         I turn ideas into fast, clean web apps using React & Node.js. <br />
-  10+ projects delivered with clean UI and optimized performance.
+        I transform ideas into scalable and high-performance web applications using React.js, Next.js, and Node.js. Experienced in building modern, responsive, and user-focused solutions with clean UI/UX, optimized performance, and maintainable code. Successfully delivered 10+ projects across multiple domains with a strong focus on scalability, quality, seamless user experience, and business-driven results.
           </p>
 
           {/* Socials */}
