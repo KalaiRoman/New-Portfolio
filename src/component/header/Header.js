@@ -9,8 +9,8 @@ const navItems = [
   { label: "About Us", icon: "👤", path: "/aboutus" },
   { label: "Experience", icon: "🎓", path: "/experience" },
   { label: "Skills", icon: "🔧", path: "/tools" },
-  { label: "Projects", icon: "📁", path: "/projects" },
   {label: "Testimonials", icon: "💬",path:"/testimonials"},
+  { label: "Projects", icon: "📁", path: "/projects" },
   { label: "Contact Us", icon: "📞", path: "/contact" },
 ];
 
@@ -19,8 +19,8 @@ const navItemsSingle = [
   { label: "About Us", icon: "👤", path: "#aboutus" },
   { label: "Experience", icon: "🎓", path: "#experience" },
   { label: "Skills", icon: "🔧", path: "#tools" },
-  { label: "Projects", icon: "📁", path: "#projects" },
   {label: "Testimonials", icon: "💬",path:"#testimonials"},
+  { label: "Projects", icon: "📁", path: "#projects" },
   { label: "Contact Us", icon: "📞", path: "#contact" },
 ];
 

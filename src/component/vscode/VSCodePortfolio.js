@@ -22,8 +22,8 @@ const FILE_MAP = {
   "About.js":      { component: <Aboutus />,       icon: "js" },
   "Experience.js": { component: <Experience />,    icon: "js" },
   "Skills.js":     { component: <WorkingTools />,  icon: "js" },
-  "Projects.js":   { component: <Projects />,      icon: "js" },
   "Testimonials.js": { component: <Testimonials />, icon: "js" },
+  "Projects.js":   { component: <Projects />,      icon: "js" },
   "Contact.js":    { component: <Contact />,       icon: "js" },
 };
 

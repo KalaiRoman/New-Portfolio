@@ -1,338 +1,436 @@
-@import url("https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;500;600;700&display=swap");
+/* ════════════════════════════════════════
+   Testimonials.css
+   Color: #dcfce7 mint green card design
+   Usage: import "./Testimonials.css";
+════════════════════════════════════════ */
 
-* {
-  margin: 0;
-  padding: 0;
-  box-sizing: border-box;
-}
 
-body {
-  background: #f8fafc;
-  font-family: "Poppins", sans-serif;
-}
-
-/* ===================================
-   SECTION
-=================================== */
-
-.testimonial-section {
-  width: 100%;
-  padding: 70px 20px;
+/* ── SECTION ── */
+.ts-section {
   background: #f0fdf4;
+  padding: 3.5rem 1.25rem 3rem;
+  max-width: 1100px;
+  margin: 0 auto;
 }
 
-.testimonial-header {
+/* ── HEADER ── */
+.ts-header {
   text-align: center;
-  margin-bottom: 50px;
+  margin-bottom: 2.5rem;
 }
 
-.testimonial-badge {
-  display: inline-block;
-  padding: 8px 18px;
+.ts-badge {
+  display: inline-flex;
+  align-items: center;
+  gap: 6px;
+  font-size: 11px;
+  font-weight: 700;
+  letter-spacing: 0.1em;
+  text-transform: uppercase;
   background: #dcfce7;
   color: #166534;
-  border-radius: 40px;
-  font-size: 13px;
-  font-weight: 600;
-  margin-bottom: 15px;
+  border: 1px solid #86efac;
+  border-radius: 999px;
+  padding: 5px 14px;
+  margin-bottom: 0.85rem;
 }
 
-.testimonial-header h2 {
-  font-size: 40px;
+.ts-title {
+  font-size: clamp(1.75rem, 4vw, 2.5rem);
+  font-weight: 800;
   color: #0f172a;
-  margin-bottom: 12px;
+  letter-spacing: -1px;
+  margin-bottom: 0.4rem;
+  line-height: 1.1;
 }
 
-.testimonial-header p {
+.ts-title-accent {
+  color: #16a34a;
+}
+
+.ts-subtitle {
+  font-size: 0.92rem;
   color: #64748b;
-  font-size: 16px;
+  margin: 0;
 }
 
-/* ===================================
-   WRAPPER
-=================================== */
+/* ── GRID ── */
+.ts-grid {
+  display: grid;
+  grid-template-columns: repeat(3, 1fr);
+  gap: 1.25rem;
+  align-items: start;
+}
 
-.testimonial-wrapper {
-  max-width: 1300px;
-  margin: auto;
+/* ── CARD BASE ── */
+.ts-card {
+  background: #dcfce7;
+  border: 1.5px solid #bbf7d0;
+  border-radius: 18px;
+  padding: 1.25rem 1.25rem 1rem;
+  position: relative;
+  display: flex;
+  flex-direction: column;
+  box-shadow: 0 4px 18px rgba(22, 163, 74, 0.1);
+  transition: transform 0.22s ease, box-shadow 0.22s ease;
+  animation: tsCardUp 0.5s ease both;
+}
+
+.ts-card:nth-child(1) { animation-delay: 0.05s; }
+.ts-card:nth-child(3) { animation-delay: 0.25s; }
+
+@keyframes tsCardUp {
+  from { opacity: 0; transform: translateY(20px); }
+  to   { opacity: 1; transform: translateY(0); }
+}
+
+.ts-card:not(.ts-card--featured):hover {
+  transform: translateY(-6px);
+  box-shadow: 0 14px 36px rgba(22, 163, 74, 0.18);
+}
+
+/* ── FEATURED CARD ── */
+.ts-card--featured {
+  border: 2px solid #16a34a;
+  transform: scale(1.04);
+  box-shadow: 0 10px 32px rgba(22, 163, 74, 0.22);
+  animation: tsCardUpFeat 0.5s 0.15s ease both;
+}
+
+.ts-card--featured:hover {
+  transform: scale(1.04) translateY(-6px);
+  box-shadow: 0 18px 44px rgba(22, 163, 74, 0.28);
+}
+
+@keyframes tsCardUpFeat {
+  from { opacity: 0; transform: scale(1.04) translateY(20px); }
+  to   { opacity: 1; transform: scale(1.04) translateY(0); }
+}
+
+/* ── FEATURED LABEL ── */
+.ts-feat-label {
+  position: absolute;
+  top: 11px;
+  left: 50%;
+  transform: translateX(-50%);
+  font-size: 9px;
+  font-weight: 700;
+  letter-spacing: 0.08em;
+  text-transform: uppercase;
+  background: #16a34a;
+  color: #ffffff;
+  border-radius: 999px;
+  padding: 3px 11px;
+  white-space: nowrap;
+}
+
+/* ── LOGO BADGE ── */
+.ts-logo {
+  position: absolute;
+  top: 11px;
+  right: 13px;
+  font-size: 9px;
+  font-weight: 700;
+  letter-spacing: 0.07em;
+  color: #166534;
+  background: rgba(255, 255, 255, 0.7);
+  border: 0.5px solid #bbf7d0;
+  border-radius: 4px;
+  padding: 2px 8px;
+}
+
+/* ── CARD TOP ROW ── */
+.ts-card-top {
+  display: flex;
+  align-items: flex-start;
+  justify-content: space-between;
+  gap: 10px;
+  margin-bottom: 0.85rem;
+}
+
+.ts-card-top--label {
+  margin-top: 1.5rem;
+}
+
+/* ── CARD HEADING ── */
+.ts-heading {
+  font-size: 4rem;
+  font-weight: 700;
+  color: #bbf7d0;
+  margin-top: 3px;
+}
+
+/* ── PHOTO FRAME ── */
+.ts-photo-wrap {
+  flex-shrink: 0;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+}
+.logo
+{
+  width:40px;
+  height:40px;
+  object-fit:contain;
+}
+
+.ts-photo {
+  width: 66px;
+  height: 66px;
+  border-radius: 10px;
+  border: 2.5px solid rgba(255, 255, 255, 0.9);
+  overflow: hidden;
   position: relative;
   display: flex;
   align-items: center;
-  gap: 20px;
-}
-
-/* ===================================
-   GRID
-=================================== */
-
-.testimonial-grid {
-  flex: 1;
-  display: grid;
-  grid-template-columns: repeat(3, 1fr);
-  gap: 25px;
-}
-
-/* ===================================
-   CARD
-=================================== */
-
-.testimonial-card {
-  background: #ffffff;
-  border-radius: 22px;
-  padding: 28px;
-  border: 1px solid #d1fae5;
-  transition: 0.3s ease;
-  min-height: 380px;
-}
-
-.testimonial-card:hover {
-  transform: translateY(-5px);
-  box-shadow: 0 10px 30px rgba(0,0,0,0.08);
-}
-
-/* ===================================
-   TOP
-=================================== */
-
-.card-top {
-  display: flex;
-  align-items: center;
-  gap: 15px;
-  margin-bottom: 20px;
-}
-
-.avatar {
-  width: 65px;
-  height: 65px;
-  border-radius: 50%;
-
-  display: flex;
-  align-items: center;
   justify-content: center;
-
-  font-weight: 700;
-  font-size: 22px;
+  box-shadow: 0 3px 10px rgba(0, 0, 0, 0.1);
 }
 
-.av-1 {
+.ts-silhouette {
+  position: absolute;
+  inset: 0;
+  width: 100%;
+  height: 100%;
+}
+
+.ts-initials {
+  position: relative;
+  z-index: 1;
+  font-family: "Syne", sans-serif;
+  font-size: 1.05rem;
+  font-weight: 800;
+  letter-spacing: -0.5px;
+}
+
+/* puzzle notch */
+.ts-notch {
+  width: 22px;
+  height: 11px;
   background: #dcfce7;
-  color: #166534;
+  border-radius: 0 0 12px 12px;
+  position: relative;
 }
 
-.av-2 {
-  background: #d1fae5;
-  color: #065f46;
+.ts-notch::before {
+  content: "";
+  position: absolute;
+  top: -2px;
+  left: 50%;
+  transform: translateX(-50%);
+  width: 14px;
+  height: 14px;
+  border-radius: 50%;
+  background: #dcfce7;
+  border: 2px solid #bbf7d0;
 }
 
-.av-3 {
-  background: #bbf7d0;
-  color: #14532d;
-}
-
-.card-top h3 {
-  font-size: 20px;
-  color: #0f172a;
-  margin-bottom: 4px;
-}
-
-.card-top span {
-  font-size: 14px;
-  color: #16a34a;
-  font-weight: 600;
-}
-
-/* ===================================
-   STARS
-=================================== */
-
-.stars {
-  font-size: 20px;
-  margin-bottom: 18px;
-}
-
-/* ===================================
-   QUOTE
-=================================== */
-
-.quote {
-  color: #475569;
-  line-height: 1.9;
-  font-size: 15px;
-  margin-bottom: 25px;
-}
-
-/* ===================================
-   FOOTER
-=================================== */
-
-.card-footer {
-  border-top: 1px solid #e2e8f0;
-  padding-top: 18px;
-
+/* ── INNER PANEL ── */
+.ts-panel {
+  background: white;
+  border-radius: 10px;
+  padding: 0.85rem 1rem 0.8rem;
   display: flex;
   flex-direction: column;
-  gap: 14px;
+  gap: 0.55rem;
+  flex: 1;
+  color: black !important;
 }
 
-.card-footer p {
-  color: #64748b;
-  font-size: 14px;
+.ts-panel-top {
+  border-bottom: 0.5px solid rgba(255, 255, 255, 0.2);
+  padding-bottom: 0.5rem;
 }
 
-.tag {
-  background: #dcfce7;
-  color: #166534;
-  padding: 10px 16px;
-  border-radius: 40px;
-  font-size: 13px;
+.ts-name {
+  /* font-family: "Syne", sans-serif; */
+  /* font-size: 0.72rem; */
   font-weight: 600;
-  text-align: center;
+  /* color: #ffffff; */
+  /* letter-spacing: 0.04em; */
+  margin: 0 0 2px;
 }
 
-/* ===================================
-   BUTTONS
-=================================== */
-
-.nav-btn {
-  width: 45px;
-  height: 45px;
-  border: none;
-  border-radius: 50%;
-  background: #dcfce7;
-  color: #166534;
-  cursor: pointer;
-  font-size: 22px;
-  transition: 0.3s;
+.ts-role {
+  font-size: 0.62rem;
+  font-weight: 500;
+  color: grey;
+  margin: 0;
 }
 
-.nav-btn:hover {
+.ts-quote {
+  font-size: 0.67rem;
+  line-height: 1.7;
+  margin: 0;
+}
+
+/* panel footer */
+.ts-panel-footer {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  flex-wrap: wrap;
+  gap: 0.3rem;
+  border-top: 0.5px solid rgba(255, 255, 255, 0.15);
+  padding-top: 0.5rem;
+}
+
+.ts-website {
+  font-size: 0.62rem;
+  /* color: #bbf7d0; */
+  font-style: italic;
+}
+
+/* ── STARS ── */
+.ts-stars {
+  display: flex;
+  gap: 2px;
+}
+
+.ts-star-svg {
+  width: 11px;
+  height: 11px;
+  fill: #16a34a;
+}
+
+/* ── TAG PILL ── */
+.ts-tag {
+  display: inline-block;
+  font-size: 0.6rem;
+  font-weight: 700;
   background: #bbf7d0;
+  color: #166534;
+  border: 0.5px solid #86efac;
+  border-radius: 999px;
+  padding: 3px 11px;
+  margin-top: 0.7rem;
+  letter-spacing: 0.04em;
 }
 
-/* ===================================
-   TABLET
-=================================== */
-
-@media screen and (max-width: 992px) {
-
-  .testimonial-grid {
-    grid-template-columns: repeat(2, 1fr);
-  }
-
-  .testimonial-header h2 {
-    font-size: 32px;
-  }
-
-
+/* ── CTA ROW ── */
+.ts-cta {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  gap: 0.85rem;
+  margin-top: 2.5rem;
+  flex-wrap: wrap;
 }
 
-/* ===================================
-   MOBILE
-=================================== */
+.ts-btn-primary {
+  display: inline-block;
+  padding: 0.7rem 2rem;
+  border-radius: 999px;
+  background: #16a34a;
+  border: none;
+  cursor: pointer;
+  font-family: "DM Sans", sans-serif;
+  font-size: 0.9rem;
+  font-weight: 600;
+  color: #ffffff;
+  text-decoration: none;
+  box-shadow: 0 4px 16px rgba(22, 163, 74, 0.3);
+  transition: transform 0.2s ease, box-shadow 0.2s ease;
+}
 
-@media screen and (max-width: 768px) {
+.ts-btn-primary:hover {
+  transform: translateY(-2px);
+  box-shadow: 0 8px 24px rgba(22, 163, 74, 0.4);
+}
 
-  .testimonial-wrapper {
-    flex-direction: column;
-  }
+.ts-btn-ghost {
+  display: inline-block;
+  padding: 0.7rem 2rem;
+  border-radius: 999px;
+  background: transparent;
+  border: 1.5px solid #86efac;
+  cursor: pointer;
+  font-family: "DM Sans", sans-serif;
+  font-size: 0.9rem;
+  font-weight: 500;
+  color: #16a34a !important;
+  text-decoration: none;
+  transition: background 0.2s ease, border-color 0.2s ease;
+}
 
-  .testimonial-grid {
+.ts-btn-ghost:hover {
+  background: #bbf7d0;
+  border-color: #4ade80;
+}
+
+/* ════════════════════════════════════════
+   RESPONSIVE BREAKPOINTS
+════════════════════════════════════════ */
+
+/* Tablet */
+@media (max-width: 900px) {
+  .ts-grid {
     grid-template-columns: 1fr;
-  }
-  
-
-  .testimonial-card {
-    min-height: auto;
-    padding: 22px;
+    max-width: 380px;
+    margin: 0 auto;
   }
 
-  .testimonial-header h2 {
-    font-size: 26px;
+  .ts-card--featured {
+    transform: none;
   }
 
-  .testimonial-header p {
-    font-size: 14px;
+  .ts-card--featured:hover {
+    transform: translateY(-6px);
   }
 
-  .card-top h3 {
-    font-size: 18px;
-  }
-
-  .quote {
-    font-size: 14px;
-  }
-
-  .nav-btn {
-    width: 40px;
-    height: 40px;
-    font-size: 18px;
-    
-  }
-}
-
-/* ===================================
-   SMALL MOBILE
-=================================== */
-
-@media screen and (max-width: 480px) {
-
-  .testimonial-section {
-    padding: 50px 14px;
-  }
-
-  .testimonial-card {
-    padding: 18px;
-    border-radius: 18px;
-  }
-
-  .avatar {
-    width: 55px;
-    height: 55px;
-    font-size: 18px;
-  }
-
-  .card-top {
-    gap: 12px;
-  }
-
-  .card-top h3 {
-    font-size: 16px;
-  }
-
-  .card-top span {
-    font-size: 12px;
-  }
-
-  .quote {
-    line-height: 1.8;
-  }
-
-  .tag {
-    font-size: 12px;
-    padding: 8px 12px;
-  }
-    .nav-btn{
+  .ts-feat-label {
     display: none;
   }
 }
 
-.stars svg {
-  width: 20px;
-  height: 20px;
-  fill: #16a34a;
+/* Mobile */
+@media (max-width: 600px) {
+  .ts-section {
+    padding: 2.5rem 1rem 2rem;
+  }
+
+  .ts-card {
+    padding: 1rem 1rem 0.85rem;
+    border-radius: 14px;
+  }
+
+  .ts-photo {
+    width: 56px;
+    height: 56px;
+  }
+
+  .ts-initials {
+    font-size: 0.9rem;
+  }
+
+  .ts-grid {
+    gap: 0.9rem;
+  }
+
+  .ts-cta {
+    flex-direction: column;
+    align-items: center;
+    width: 100%;
+  }
+
+  .ts-btn-primary,
+  .ts-btn-ghost {
+    width: 100%;
+    text-align: center;
+  }
 }
 
-.name-user
-{
-  /* color:#b4b4b4 !important; */
-  font-size: 15px;
-  font-weight: 600;
+/* Small mobile */
+@media (max-width: 400px) {
+  .ts-section {
+    padding: 2rem 0.75rem 1.75rem;
+  }
 
-}
+  .ts-card {
+    padding: 0.9rem 0.85rem 0.75rem;
+  }
 
-.role-user
-{
-  color:#0cb65e !important;
-  font-size: 12px;
-  font-weight: 600;
+  .ts-quote {
+    font-size: 0.62rem;
+  }
 }

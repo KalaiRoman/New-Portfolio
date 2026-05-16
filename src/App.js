@@ -268,8 +268,8 @@ function App() {
 <Aboutus id="aboutus" />
 <Experience  id="experience"/>
 <WorkingTools id="skills" />
+<Testimonials id="testimonials" mode={mode}/>
 <Projects id="projects" />
-<Testimonials id="testimonials" />
 <Contact id="contact" />
 
               </>:<>
@@ -326,7 +326,7 @@ function App() {
                 />
                    <Route
                   path="/testimonials"
-                  element={<Testimonials colorName={state?.ColorName} />}
+                  element={<Testimonials colorName={state?.ColorName} mode={mode} />}
                 />
               </Routes>
             
