@@ -20,8 +20,8 @@ const REQUESTS = {
   "GET_About":      { method: "GET",    label: "About",      component: <Aboutus /> },
   "GET_Experience": { method: "GET",    label: "Experience", component: <Experience /> },
   "GET_Skills":     { method: "GET",    label: "Skills",     component: <WorkingTools /> },
-  "POST_Projects":  { method: "POST",   label: "Projects",   component: <Projects /> },
   "GET_Testimonials": { method: "GET",  label: "Testimonials", component: <Testimonials /> },
+  "POST_Projects":  { method: "POST",   label: "Projects",   component: <Projects /> },
   "POST_Contact":   { method: "POST",   label: "Contact",    component: <Contact /> },
 };
 
