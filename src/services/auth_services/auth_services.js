@@ -56,7 +56,7 @@ export function MailRegister(data) {
 
 export async function profileUpdated(data) {
     try {
-        const response=await instanceBaseurl.post(`/portfolio/update/profile`, data);
+        const response=await instanceBaseurl.post(`/update/profile`, data);
         if(response)
             {
                 await getUserData();
@@ -66,4 +66,50 @@ export async function profileUpdated(data) {
         return error;
     }
     
+}
+
+export async function userDowloadResume(){
+    try{
+        const response=await instanceBaseurl.post(`/download/resume`);
+        if(response)
+            return response;
+    }
+    catch(err){
+        return err;
+    }
+}
+
+export async function getuserDowloadResume(){
+    try{
+        const response=await instanceBaseurl.get(`/download/resume/count`);
+        if(response)
+            return response;
+    }
+    catch(err){
+        return err;
+    }
+}
+
+
+
+export async function userVisiter(){
+    try{
+        const response=await instanceBaseurl.post(`/visiter`);
+        if(response)
+            return response;
+    }
+    catch(err){
+        return err;
+    }
+}
+
+export async function getuserVisiterCount(){
+    try{
+        const response=await instanceBaseurl.get(`/visiter/count`);
+        if(response)
+            return response;
+    }
+    catch(err){
+        return err;
+    }
 }

@@ -5,6 +5,7 @@ import kalaiImage from "../../assests/images/kalai_image.jpeg";
 import { useState, useEffect, useRef } from "react";
 import { useNavigate } from "react-router-dom";
 import "./styles/Home.css";
+import { userDowloadResume } from "../../services/auth_services/auth_services";
 
 const PHOTO_URL = kalaiImage; 
 
@@ -117,20 +118,31 @@ export default function Home() {
     navigate("/contact");
   };
 
+  const handleDownloadResume=async()=>{
+    try {
+      const response=await userDowloadResume();
+      if(response)
+      {
+        return response;
+      }
+    } catch (error) {
+      
+    }
+  }
+
   const downloadCV = async () => {
     try {
       const response = await fetch(pdf);
       const blob = await response.blob();
       const url = window.URL.createObjectURL(blob);
-
       const link = document.createElement("a");
       link.href = url;
       link.download = "Kalaisurya.pdf";
       document.body.appendChild(link);
       link.click();
-
       document.body.removeChild(link);
       window.URL.revokeObjectURL(url);
+      handleDownloadResume();
     } catch (error) {
       console.error("Download failed:", error);
     }

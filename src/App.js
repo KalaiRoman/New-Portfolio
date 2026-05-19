@@ -16,13 +16,14 @@ import WorkingTools from "./component/workingtools/WorkingTools";
 import Contact from "./component/contact/Contact";
 import whatsimage from "./assests/images/whatsapp.png";
 import Chat from "./component/chat/Chat";
-import { getUserData } from "./services/auth_services/auth_services";
+import { getUserData, userVisiter } from "./services/auth_services/auth_services";
 import Experience from "./component/experience/Experience";
 import VSCodePortfolio from "./component/vscode/VSCodePortfolio";
 import GithubPortfolio from "./component/github/GithubPortfolio";
 import PostmanPortfolio from "./component/postman/PostmanPortfolio";
 import Footer from "./component/footer/Footer";
 import Testimonials from "./component/testimonials/Testimonials";
+import Dashboard from "./component/dashboard/Dashboard";
 function App() {
   const [ResponseSection, setResponseSection] = useState("Desktop-section");
   const [settingcolor, setSettingColor] = useState(false);
@@ -109,7 +110,7 @@ function App() {
 
   const [scrollTop, setScrollTop] = useState(0);
 
-  const [mode,setMode]=useState("Single Page");
+  const [mode,setMode]=useState("Multi Page");
   const [activeTab, setActiveTab] = useState("Home");
 
   const iconsData = [
@@ -240,6 +241,32 @@ function App() {
   };
 
 
+  const userVisiteApp = async () => {
+    try {
+
+      const alreadyVisited = localStorage.getItem("portfolio_visited");
+
+      if (alreadyVisited) {
+        return;
+      }
+
+      const response = await userVisiter();
+
+      if (response) {
+
+        localStorage.setItem("portfolio_visited", "true");
+      }
+
+    } catch (err) {
+      console.log(err);
+    }
+  };
+
+  useEffect(() => {
+    userVisiteApp();
+  }, []);
+
+
 
   return (
     <>
@@ -327,6 +354,10 @@ function App() {
                    <Route
                   path="/testimonials"
                   element={<Testimonials colorName={state?.ColorName} mode={mode} />}
+                />
+                  <Route
+                  path="/dashboard/all/kalai"
+                  element={<Dashboard />}
                 />
               </Routes>
             
