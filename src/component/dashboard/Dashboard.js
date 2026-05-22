@@ -1,5 +1,6 @@
 import { useState, useEffect, useRef } from "react";
-import { getuserDowloadResume, getuserVisiterCount } from "../../services/auth_services/auth_services";
+import { getuserDowloadResume, getuserVisiterCount, getuserVisterData } from "../../services/auth_services/auth_services";
+import { useSelector } from "react-redux";
 
 const initialData = {
   resumeClicks: 2847,
@@ -104,7 +105,7 @@ function DonutRing({ pct, color, size = 56 }) {
 }
 
 export default function Dashboard() {
-  const [data] = useState(initialData);
+  const [data,setData] = useState(initialData);
   const [live, setLive] = useState(false);
   const [clicks, setClicks] = useState(0);
   const [visitors, setVisitors] = useState(0);
@@ -113,6 +114,9 @@ export default function Dashboard() {
   const [pulse, setPulse] = useState({ click: false, visit: false });
   const [activeTab, setActiveTab] = useState("overview");
 
+  const [userData,setUserData]=useState([]);
+
+  const state=useSelector((state)=>state?.user)
 
   const getVisitersCount=async()=>{
     try {
@@ -128,21 +132,38 @@ export default function Dashboard() {
   }
 
    const getResumeCount=async()=>{
-    try {
-        const response=await getuserDowloadResume();
-        if(response?.data)
-        {
-        setClicks(response?.data?.count || data.resumeClicks);
 
-        }
-    } catch (error) {
-        console.error("Error fetching visitor count:", error);
-    }
+        setClicks(state?.data?.data?.resumeDownload || 0);
+
+
+    setData({
+      ...data,
+      topSources:[
+    { name: "GitHub", pct: state?.data?.data?.githubProfile ?? 0 },
+    { name: "LinkedIn", pct: state?.data?.data?.linkedinProfile ??0 },
+    { name: "Twitter/X", pct: state?.data?.data?.twitterProfile ?? 0 },
+    { name: "Facebook", pct: state?.data?.data?.facebookProfile ?? 0 },
+  ]
+    })
+  }
+
+
+  const getDataVisterUser=async()=>{
+try {
+  const response=await getuserVisterData();
+  if(response)
+  {
+setUserData(response?.data?.data)
+  }
+} catch (error) {
+  
+}
   }
 
   useEffect(() => {
     getVisitersCount();
     getResumeCount();
+    getDataVisterUser();
     if (!live) return;
     const id = setInterval(() => {
       const newClick = Math.random() < 0.4;
@@ -167,6 +188,12 @@ export default function Dashboard() {
     transition: "box-shadow 0.2s",
   };
 
+
+  useEffect(()=>{
+if(state)
+{
+}
+  },[state])
   return (
     <div style={{ background: "#f7f5f2", minHeight: "100vh", padding: "0" }}>
 
@@ -293,20 +320,20 @@ export default function Dashboard() {
               <div style={{ fontWeight: 700, fontSize: 15, color: "#1a1714" }}>Recent Activity</div>
               <div style={{ fontSize: 12, color: "#9ca3af", marginTop: 2 }}>Live feed of visitors & resume clicks</div>
             </div>
-            {data.recentActivity.map((a, i) => (
+            {userData?.map((a, i) => (
               <div key={a.id} style={{ display: "flex", alignItems: "center", gap: 14, padding: "14px 22px", borderBottom: i < data.recentActivity.length - 1 ? "1px solid #faf9f7" : "none", background: i % 2 === 0 ? "#fff" : "#faf9f7" }}>
                 <div style={{ width: 38, height: 38, borderRadius: 12, background: a.type === "resume" ? "rgba(245,166,35,0.1)" : "rgba(99,102,241,0.1)", display: "flex", alignItems: "center", justifyContent: "center", fontSize: 18, flexShrink: 0 }}>
-                  {a.type === "resume" ? "📄" : "👁️"}
+                  👁️
                 </div>
                 <div style={{ flex: 1, minWidth: 0 }}>
                   <div style={{ fontWeight: 600, fontSize: 14, color: "#1a1714" }}>
-                    {a.type === "resume" ? "Resume downloaded" : "Profile visited"}
+                    {a.userType.at(0).toUpperCase()}{a.userType.slice(1)}
                   </div>
-                  <div style={{ fontSize: 12, color: "#9ca3af", marginTop: 2 }}>📍 {a.location} · {deviceIcon(a.device)} {a.device}</div>
+                  <div style={{ fontSize: 12, color: "#9ca3af", marginTop: 2 }}>📍 Tamil Nadu · {deviceIcon()}{i%2==0?"Desktop":"Mobile"}</div>
                 </div>
-                <div style={{ fontSize: 12, color: "#b0aaa4", textAlign: "right", flexShrink: 0 }}>{a.time}</div>
+                <div style={{ fontSize: 12, color: "#b0aaa4", textAlign: "right", flexShrink: 0 }}>{i%2==0?`${i+1} Min`:`${i+3} Min`}</div>
                 <div style={{ padding: "3px 10px", borderRadius: 20, fontSize: 11, fontWeight: 700, background: a.type === "resume" ? "rgba(245,166,35,0.1)" : "rgba(99,102,241,0.1)", color: a.type === "resume" ? "#b8915a" : "#6366f1", flexShrink: 0 }}>
-                  {a.type === "resume" ? "Click" : "Visit"}
+                  Clicked
                 </div>
               </div>
             ))}
@@ -327,7 +354,7 @@ export default function Dashboard() {
                       <DonutRing pct={s.pct} color={colors[i]} size={48} />
                       <div>
                         <div style={{ fontWeight: 700, fontSize: 15, color: "#1a1714" }}>{s.name}</div>
-                        <div style={{ fontSize: 12, color: "#9ca3af" }}>{Math.round(visitors * s.pct / 100).toLocaleString()} visitors</div>
+                        <div style={{ fontSize: 12, color: "#9ca3af" }}>{s.pct} visitors</div>
                       </div>
                     </div>
                     <div style={{ fontSize: 26, fontWeight: 800, color: colors[i] }}>{s.pct}%</div>

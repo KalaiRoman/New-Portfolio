@@ -33,7 +33,6 @@ function ChatBox({ messagesref, user, userimage, userimageadmin, userMessages, s
                 handleClose();
             }
         } catch (error) {
-            console.log(error);
         }
     };
 
@@ -45,7 +44,6 @@ function ChatBox({ messagesref, user, userimage, userimageadmin, userMessages, s
                     setUserMessages(response.data.user.chat);
                 }
             } catch (error) {
-                console.log(error);
             }
         };
         fetchUserData();
@@ -136,7 +134,6 @@ function ChatBox({ messagesref, user, userimage, userimageadmin, userMessages, s
             }
     },[userMessages,messageStatus]);
 
-    console.log(userMessages,'userMessages')
     
     const refreshDataUsermessage = async () => {
         try {
@@ -150,14 +147,11 @@ function ChatBox({ messagesref, user, userimage, userimageadmin, userMessages, s
               chatUpdateStatusUser(ids).then((res)=>{
           
               }).catch((err)=>{
-                console.log(err);
               })
         } catch (error) {
-            console.log(error);
         }
     };
 
-    console.log(messageStatus,'messageStatus')
     return (
         <div className='main-chat-box-bodys'>
 

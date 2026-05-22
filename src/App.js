@@ -1,6 +1,6 @@
 import { useDispatch, useSelector } from "react-redux";
 import "./App.scss";
-import { useEffect, useState } from "react";
+import { useEffect, useRef, useState } from "react";
 import { ColorChangection } from "./redux/actions/Color_Action";
 import Header from "./component/header/Header";
 import Form from "react-bootstrap/Form";
@@ -24,11 +24,13 @@ import PostmanPortfolio from "./component/postman/PostmanPortfolio";
 import Footer from "./component/footer/Footer";
 import Testimonials from "./component/testimonials/Testimonials";
 import Dashboard from "./component/dashboard/Dashboard";
+import { getUserClickAction } from "./redux/actions/Userclick_Action";
 function App() {
   const [ResponseSection, setResponseSection] = useState("Desktop-section");
   const [settingcolor, setSettingColor] = useState(false);
   const Username = window.location.pathname;
   const [loader, setLoader] = useState(true);
+
 
   const ThemeColor = () => {
     return JSON.parse(localStorage.getItem("theme"));
@@ -48,33 +50,47 @@ function App() {
     localStorage.setItem("theme", theme);
   }, [state, theme, Username]);
 
-  useEffect(() => {
-    setTimeout(() => {
-      setLoader(false);
-    }, 2000);
-  }, [loader, settingcolor]);
+useEffect(() => {
+
+  const timer = setTimeout(() => {
+    setLoader(false);
+  }, 2000);
+
+
+  return () => clearTimeout(timer);
+
+}, []);
+
+
+const hasCalled = useRef(false);
+
+useEffect(() => {
+
+  if (hasCalled.current) return;
+
+  hasCalled.current = true;
+
+  dispatch(getUserClickAction());
+
+}, []);
+
 
   useEffect(() => {
 
-  // Disable Right Click
   const disableRightClick = (e) => {
     e.preventDefault();
   };
 
-  // Disable DevTools Keys
   const disableKeys = (e) => {
 
-    // F12
     if (e.key === "F12") {
       e.preventDefault();
     }
 
-    // Ctrl+Shift+I
     if (e.ctrlKey && e.shiftKey && e.key === "I") {
       e.preventDefault();
     }
 
-    // Ctrl+Shift+J
     if (e.ctrlKey && e.shiftKey && e.key === "J") {
       e.preventDefault();
     }
@@ -110,7 +126,7 @@ function App() {
 
   const [scrollTop, setScrollTop] = useState(0);
 
-  const [mode,setMode]=useState("Multi Page");
+  const [mode,setMode]=useState(window?.location?.pathname=="/dashboard/all/kalai"?"":"Single Page");
   const [activeTab, setActiveTab] = useState("Home");
 
   const iconsData = [
@@ -258,7 +274,6 @@ function App() {
       }
 
     } catch (err) {
-      console.log(err);
     }
   };
 

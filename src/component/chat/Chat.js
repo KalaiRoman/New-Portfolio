@@ -69,7 +69,6 @@ function Chat() {
       chatUpdateStatusUser(ids).then((res)=>{
   
       }).catch((err)=>{
-        console.log(err);
       })
       if (response) {
         
@@ -94,7 +93,6 @@ function Chat() {
       chatUpdateStatusUser(ids).then((res)=>{
       
       }).catch((err)=>{
-        console.log(err);
       })
       await submitCommand();
     }
@@ -211,7 +209,6 @@ if(token)
       {
         chatUpdateStatusUser(chatIdMessage).then((res)=>{
         }).catch((err)=>{
-          console.log(err);
         })
       }
   

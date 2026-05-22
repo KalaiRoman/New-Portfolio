@@ -265,6 +265,28 @@ const projects = [
     img: "https://images.unsplash.com/photo-1506744038136-46273834b3fb?w=600&q=80",
   },
 
+ {
+  id: "13",
+  name: "ThoughtPlay",
+  year: "2021",
+category: "Web Application",
+  desc:
+    "ThoughtPlay is a modern digital platform designed to deliver engaging user experiences through interactive design and seamless performance. Developed responsive UI components, optimized application performance, and integrated scalable frontend architecture for smooth navigation across devices.",
+  
+  techs: [
+    "React.js",
+    "JavaScript",
+    "HTML5",
+    "CSS3",
+    "Bootstrap",
+    "Responsive Design",
+    "REST APIs",
+    "UI/UX Design",
+    "Frontend Development",
+  ],
+
+  img: "https://images.unsplash.com/photo-1498050108023-c5249f4df085?w=1200&q=80",
+}
 
 ];
 

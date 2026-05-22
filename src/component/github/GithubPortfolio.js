@@ -26,7 +26,7 @@ import Experience from "../experience/Experience";
 import Testimonials from "../testimonials/Testimonials";
 
 const FILE_ICONS = {
-  "README.md": <FaMarkdown className="fi-md" />,
+  "Home.js": <FaMarkdown className="fi-md" />,
   "About Us.js": <FaJs className="fi-js" />,
   "Experience.js": <FaJs className="fi-js" />,
   "Skills.js": <FaJs className="fi-js" />,
@@ -36,7 +36,7 @@ const FILE_ICONS = {
 };
 
 const files = [
-  "README.md",
+  "Home.js",
   "About Us.js",
   "Experience.js",
   "Skills.js",
@@ -48,11 +48,11 @@ const files = [
 export default function GithubPortfolio() {
   const [sidebarOpen, setSidebarOpen] = useState(false);
   const [darkMode, setDarkMode] = useState(true);
-  const [activeTab, setActiveTab] = useState("README.md");
+  const [activeTab, setActiveTab] = useState("Home.js");
 
   const renderContent = () => {
     switch (activeTab) {
-      case "README.md":    return <Home />;
+      case "Home.js":    return <Home />;
       case "About Us.js":     return <Aboutus />;
       case "Experience.js":return <Experience />;
       case "Projects.js":  return <Projects />;

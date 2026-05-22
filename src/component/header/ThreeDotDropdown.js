@@ -5,19 +5,22 @@ import {
   FaLayerGroup,
   FaCode,
   FaGithub,
+  FaUserCircle
 } from "react-icons/fa";
 
 import { SiPostman } from "react-icons/si";
 
 import "./styles/Header.css";
+import { useDispatch } from "react-redux";
+import { createUserClickAction } from "../../redux/actions/Userclick_Action";
 
-export default function ThreeDotDropdown({ setMode, mode }) {
-
-  const [selected, setSelected] = useState(mode || "Single Page");
+export default function ThreeDotDropdown({ setMode, mode,selected, setSelected }) {
 
   const [open, setOpen] = useState(false);
 
   const dropdownRef = useRef(null);
+
+  const dispatch=useDispatch();
 
   useEffect(() => {
 
@@ -38,39 +41,56 @@ export default function ThreeDotDropdown({ setMode, mode }) {
       document.removeEventListener("mousedown", handleClickOutside);
     };
 
-  }, []);
+  }, [mode]);
 
   const options = [
-    {
+     {
       name: "Single Page",
+      label:"singlePageView",
       icon: <FaGlobe />,
     },
     {
       name: "Multi Page",
+      label:"multiPageView",
+
       icon: <FaLayerGroup />,
     },
     {
       name: "VsCode",
+      label:"vsCodeView",
+
       icon: <FaCode />,
     },
     {
       name: "Github",
+      label:"githubTabView",
+
       icon: <FaGithub />,
     },
       {
       name: "Postman",
+      label:"postmanTabView",
+
        icon: <SiPostman />,
     },
   ];
 
+
+
+
+  const handleClickDotts=(params)=>{
+    dispatch(createUserClickAction(params));
+  }
   return (
 
     <div className="dropdownContainer" ref={dropdownRef}>
 
+
       {/* BUTTON */}
       <button
         className="dotButton"
-        onClick={() => setOpen(!open)}
+        onClick={() => {setOpen(!open)
+        }}
       >
         ⋮
       </button>
@@ -80,7 +100,8 @@ export default function ThreeDotDropdown({ setMode, mode }) {
 
         <div className="dropdownMenu">
 
-          {options.map((item) => (
+       
+           {options.map((item) => (
 
             <div
               key={item.name}
@@ -91,6 +112,7 @@ export default function ThreeDotDropdown({ setMode, mode }) {
                 setSelected(item.name);
                 setMode(item.name);
                 setOpen(false);
+                handleClickDotts(item?.label);
               }}
             >
 
@@ -105,6 +127,9 @@ export default function ThreeDotDropdown({ setMode, mode }) {
             </div>
 
           ))}
+          
+
+         
 
         </div>
 

@@ -68,9 +68,9 @@ export async function profileUpdated(data) {
     
 }
 
-export async function userDowloadResume(){
+export async function userDowloadResume(data){
     try{
-        const response=await instanceBaseurl.post(`/download/resume`);
+        const response=await instanceBaseurl.post(`/downloads`,data);
         if(response)
             return response;
     }
@@ -81,7 +81,7 @@ export async function userDowloadResume(){
 
 export async function getuserDowloadResume(){
     try{
-        const response=await instanceBaseurl.get(`/download/resume/count`);
+        const response=await instanceBaseurl.get(`/downloads/count`);
         if(response)
             return response;
     }
@@ -106,6 +106,18 @@ export async function userVisiter(){
 export async function getuserVisiterCount(){
     try{
         const response=await instanceBaseurl.get(`/visiter/count`);
+        if(response)
+            return response;
+    }
+    catch(err){
+        return err;
+    }
+}
+
+
+export async function getuserVisterData(){
+    try{
+        const response=await instanceBaseurl.get(`/downloads/get`);
         if(response)
             return response;
     }

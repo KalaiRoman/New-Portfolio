@@ -18,7 +18,7 @@ const navItemsSingle = [
   { label: "Home", icon: "🏠", path: "#home" },
   { label: "About Us", icon: "👤", path: "#aboutus" },
   { label: "Experience", icon: "🎓", path: "#experience" },
-  { label: "Skills", icon: "🔧", path: "#tools" },
+  { label: "Skills", icon: "🔧", path: "#skills" },
   {label: "Testimonials", icon: "💬",path:"#testimonials"},
   { label: "Projects", icon: "📁", path: "#projects" },
   { label: "Contact Us", icon: "📞", path: "#contact" },
@@ -29,6 +29,8 @@ export default function Header({setMode,mode,activeTab,setActiveTab}) {
   const [search, setSearch] = useState("");
   const [menuOpen, setMenuOpen] = useState(false);
   const [searchOpen, setSearchOpen] = useState(false);
+  const [selected, setSelected] = useState(mode);
+
 
   const [show, setShow] = useState(false);
 
@@ -93,6 +95,8 @@ const location = useLocation();
     setActive(label);
     setMenuOpen(false);
     navigate(path);
+    setMode("Single Page")
+    setSelected("Single Page")
   };
 
   const handleNavClickSingle = (label, path) => {
@@ -163,6 +167,7 @@ const location = useLocation();
 <ThreeDotDropdown
 setMode={setMode}
 mode={mode}
+selected={selected} setSelected={setSelected}
 />
 
           </div>

@@ -21,8 +21,18 @@ const techs = [
   { name: "GitHub",     cat: "Tools",     img: "https://cdn.jsdelivr.net/gh/devicons/devicon/icons/github/github-original.svg" },
   { name: "Postman",    cat: "Tools",     img: "https://cdn.jsdelivr.net/gh/devicons/devicon/icons/postman/postman-original.svg" },
   { name: "npm",        cat: "Tools",     img: "https://cdn.jsdelivr.net/gh/devicons/devicon/icons/npm/npm-original-wordmark.svg" },
+{
+  name: "Chrome DevTools",
+  cat: "Tools",
+ img: "https://cdn.jsdelivr.net/gh/devicons/devicon/icons/chrome/chrome-original.svg"
+},
+{
+  name: "Vercel",
+  cat: "Tools",
+  img: "https://assets.vercel.com/image/upload/front/favicon/vercel/180x180.png"
+},
+
   { name: "Jest",       cat: "Testing",   img: "https://cdn.jsdelivr.net/gh/devicons/devicon/icons/jest/jest-plain.svg" },
-  // { name: "Storybook",  cat: "Testing",   img: "https://cdn.jsdelivr.net/gh/devicons/devicon/icons/storybook/storybook-original.svg" },
 
 
 ];

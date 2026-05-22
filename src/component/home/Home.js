@@ -6,6 +6,8 @@ import { useState, useEffect, useRef } from "react";
 import { useNavigate } from "react-router-dom";
 import "./styles/Home.css";
 import { userDowloadResume } from "../../services/auth_services/auth_services";
+import { useDispatch, useSelector } from "react-redux";
+import { createUserClickAction } from "../../redux/actions/Userclick_Action";
 
 const PHOTO_URL = kalaiImage; 
 
@@ -96,10 +98,10 @@ function useTyped(words, typeSpeed = 80, deleteSpeed = 40, pause = 1800) {
   };
 
 const SOCIALS = [
-  { label: "GitHub",   icon:  <i class="fa-brands fa-github logo-icons"></i>,   url: "https://github.com/KalaiRoman?tab=repositories" },
-  { label: "LinkedIn", icon:   <i class="fa-brands fa-linkedin-in logo-icons"></i>, url: "https://www.linkedin.com/in/kalaisurya-g-3253a81b1" },
-  { label: "Twitter",  icon: <TwitterIcon />,  url: "https://twitter.com" },
-  { label: "Dev.to",   icon: <i class="fa-brands fa-facebook logo-icons"></i>,      url: "https://www.facebook.com/" },
+  { label: "GitHub", name:"githubProfile",  icon:  <i class="fa-brands fa-github logo-icons"></i>,   url: "https://github.com/KalaiRoman?tab=repositories" },
+  { label: "LinkedIn", name:"linkedinProfile",icon:   <i class="fa-brands fa-linkedin-in logo-icons"></i>, url: "https://www.linkedin.com/in/kalaisurya-g-3253a81b1" },
+  { label: "Twitter",name:"twitterProfile",  icon: <TwitterIcon />,  url: "https://twitter.com" },
+  { label: "Dev.to", name:"facebookProfile",  icon: <i class="fa-brands fa-facebook logo-icons"></i>,      url: "https://www.facebook.com/" },
 ];
 
 const STATS = [
@@ -114,23 +116,26 @@ export default function Home() {
   const typedRole = useTyped(ROLES);
   const navigate = useNavigate();
 
-  const handleHireMe = () => {
+  const dispatch=useDispatch();
+
+  const state=useSelector((state)=>state?.user?.data);
+
+ useEffect(() => {
+  if (state) {
+  }
+}, [state]);
+
+  const handleHireMe = (params) => {
+    handleDownloadResume(params)
     navigate("/contact");
+
   };
 
-  const handleDownloadResume=async()=>{
-    try {
-      const response=await userDowloadResume();
-      if(response)
-      {
-        return response;
-      }
-    } catch (error) {
-      
-    }
+  const handleDownloadResume=async(params)=>{
+ dispatch(createUserClickAction(params));
   }
 
-  const downloadCV = async () => {
+  const downloadCV = async (params) => {
     try {
       const response = await fetch(pdf);
       const blob = await response.blob();
@@ -142,7 +147,7 @@ export default function Home() {
       link.click();
       document.body.removeChild(link);
       window.URL.revokeObjectURL(url);
-      handleDownloadResume();
+      handleDownloadResume(params);
     } catch (error) {
       console.error("Download failed:", error);
     }
@@ -197,7 +202,10 @@ export default function Home() {
     
               <div
                 className="social-btn"
-                onClick={() => handleUrl(s.url)}
+                onClick={() => {handleUrl(s.url)
+
+                  handleDownloadResume(s.name)
+                }}
               >
              <div className="inside-social-btn">
    {s.icon}
@@ -209,8 +217,8 @@ export default function Home() {
 
           {/* CTAs */}
           <div className="hero-ctas">
-            <button className="btn-primary" onClick={handleHireMe}>Hire Me</button>
-            <button className="btn-outline" onClick={downloadCV}>
+            <button className="btn-primary" onClick={()=>handleHireMe("hireMeClick")}>Hire Me</button>
+            <button className="btn-outline" onClick={()=>downloadCV("resumeDownload")}>
               <DownloadIcon />
               Get CV
             </button>
