@@ -73,12 +73,12 @@
 .form-textarea {
   width: 100%;
   padding: 0.75rem 1rem;
-  border: 1.5px solid #ddd6fe;
+  border: 1.5px solid #ecfdf5;
   border-radius: 10px;
   font-family: 'DM Sans', sans-serif;
   font-size: 14px;
   color: #374151;
-  background: #faf8ff;
+  background: #ecfdf5;
   outline: none;
   transition: border-color 0.2s, box-shadow 0.2s;
   box-sizing: border-box;
@@ -86,7 +86,7 @@
 
 .form-input::placeholder,
 .form-textarea::placeholder {
-  color: #c4b5fd;
+  color: #0cb65e;
 }
 
 .form-input:focus,

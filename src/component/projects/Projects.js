@@ -2,8 +2,31 @@ import { useState } from "react";
 import "./styles/Projects.css";
 
 const projects = [
-  {
+
+    {
     id: "01",
+    name: "Raptor (SCB)",
+    year: "2025",
+    category: "Banking",
+    desc:
+      "Raptor is an enterprise-level banking application developed for secure and seamless financial operations. The platform provides real-time transaction management, account monitoring, personalized financial insights, and enhanced user security features. Worked on scalable frontend architecture, API integration, responsive banking dashboards, and optimized UI performance for smooth customer experiences.",
+    techs: [
+      "React.js",
+      "LIT",
+      "Java",
+      "GraphQL",
+      "Redux",
+      "REST APIs",
+      "JavaScript",
+      "Responsive Design",
+      "Banking Dashboard",
+      "Performance Optimization",
+      "Git",
+    ],
+    img: "https://images.unsplash.com/photo-1556740749-887f6717d7e4?w=600&q=80",
+  },
+  {
+    id: "02",
     name: "Womeyn",
     year: "2021",
     category: "Community Platform",
@@ -26,7 +49,7 @@ const projects = [
   },
 
   {
-    id: "02",
+    id: "03",
     name: "Learning Management System (LMS)",
     year: "2021",
     category: "EdTech",
@@ -49,28 +72,7 @@ const projects = [
     img: "https://images.unsplash.com/photo-1501504905252-473c47e087f8?w=600&q=80",
   },
 
-  {
-    id: "03",
-    name: "Raptor (SCB)",
-    year: "2025",
-    category: "Banking",
-    desc:
-      "Raptor is an enterprise-level banking application developed for secure and seamless financial operations. The platform provides real-time transaction management, account monitoring, personalized financial insights, and enhanced user security features. Worked on scalable frontend architecture, API integration, responsive banking dashboards, and optimized UI performance for smooth customer experiences.",
-    techs: [
-      "React.js",
-      "LIT",
-      "Java",
-      "GraphQL",
-      "Redux",
-      "REST APIs",
-      "JavaScript",
-      "Responsive Design",
-      "Banking Dashboard",
-      "Performance Optimization",
-      "Git",
-    ],
-    img: "https://images.unsplash.com/photo-1556740749-887f6717d7e4?w=600&q=80",
-  },
+
 
   {
     id: "04",
@@ -286,6 +288,30 @@ category: "Web Application",
   ],
 
   img: "https://images.unsplash.com/photo-1498050108023-c5249f4df085?w=1200&q=80",
+},
+
+{
+  id: "14",
+  name: "Blogs",
+  year: "2021",
+  category: "Web Application",
+
+  desc:
+    "Developed a modern blogging platform that enables users to create, publish, and manage articles efficiently. Implemented responsive user interfaces, dynamic content rendering, and category-based filtering to enhance content discovery. Optimized performance and user experience through reusable React components and seamless API integration.",
+
+  techs: [
+    "React.js",
+    "JavaScript",
+    "HTML5",
+    "CSS3",
+    "Bootstrap",
+    "REST APIs",
+    "Responsive Design",
+    "Content Management",
+    "Frontend Development",
+  ],
+
+  img: "https://images.unsplash.com/photo-1486312338219-ce68d2c6f44d?w=1200&q=80",
 }
 
 ];

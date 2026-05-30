@@ -98,7 +98,7 @@ const skillGroups = [
   },
   {
     title: "Tools & DevOps",
-    skills: ["Git & GitHub", "VS Code", "Postman"],
+    skills: ["Git & GitHub", "VS Code", "Postman","AWS","S3","Cloudinary","Netlify","Vercel","EC2"],
   },
 ];
 

@@ -33,6 +33,16 @@ const techs = [
 },
 
   { name: "Jest",       cat: "Testing",   img: "https://cdn.jsdelivr.net/gh/devicons/devicon/icons/jest/jest-plain.svg" },
+  {
+  name: "Netlify",
+  cat: "Tools",
+  img: "https://cdn.simpleicons.org/netlify",
+},
+{
+  name: "Render",
+  cat: "Tools",
+  img: "https://cdn.simpleicons.org/render",
+},
 
 
 ];

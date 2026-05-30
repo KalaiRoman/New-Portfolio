@@ -1,10 +1,10 @@
 import { useState, useEffect, useRef } from "react";
 import { getuserDowloadResume, getuserVisiterCount, getuserVisterData } from "../../services/auth_services/auth_services";
 import { useSelector } from "react-redux";
-
+import moment from 'moment';
 const initialData = {
-  resumeClicks: 2847,
-  visitorCount: 11423,
+  resumeClicks: 0,
+  visitorCount: 0,
   todayClicks: 34,
   todayVisitors: 128,
   weeklyClicks: [120, 185, 210, 175, 240, 198, 265],
@@ -109,8 +109,8 @@ export default function Dashboard() {
   const [live, setLive] = useState(false);
   const [clicks, setClicks] = useState(0);
   const [visitors, setVisitors] = useState(0);
-  const [todayC, setTodayC] = useState(data.todayClicks);
-  const [todayV, setTodayV] = useState(data.todayVisitors);
+  const [todayC, setTodayC] = useState(10);
+  const [todayV, setTodayV] = useState(15);
   const [pulse, setPulse] = useState({ click: false, visit: false });
   const [activeTab, setActiveTab] = useState("overview");
 
@@ -299,7 +299,7 @@ if(state)
                   const ch = (data.weeklyClicks[i] / maxV) * 120;
                   const vh = (data.weeklyVisitors[i] / maxV) * 120;
                   return (
-                    <div key={day} style={{ flex: 1, display: "flex", flexDirection: "column", alignItems: "center", gap: 4 }}>
+                    <div key={i} style={{ flex: 1, display: "flex", flexDirection: "column", alignItems: "center", gap: 4 }}>
                       <div style={{ display: "flex", alignItems: "flex-end", gap: 2, height: 130 }}>
                         <div title={`Clicks: ${data.weeklyClicks[i]}`} style={{ width: 12, height: ch, background: "#f5a623", borderRadius: "4px 4px 0 0", opacity: 0.85, cursor: "pointer", transition: "height 0.7s cubic-bezier(0.34,1.56,0.64,1)" }} />
                         <div title={`Visitors: ${data.weeklyVisitors[i]}`} style={{ width: 12, height: vh, background: "#6366f1", borderRadius: "4px 4px 0 0", opacity: 0.85, cursor: "pointer", transition: "height 0.7s cubic-bezier(0.34,1.56,0.64,1)" }} />
@@ -329,9 +329,9 @@ if(state)
                   <div style={{ fontWeight: 600, fontSize: 14, color: "#1a1714" }}>
                     {a.userType.at(0).toUpperCase()}{a.userType.slice(1)}
                   </div>
-                  <div style={{ fontSize: 12, color: "#9ca3af", marginTop: 2 }}>📍 Tamil Nadu · {deviceIcon()}{i%2==0?"Desktop":"Mobile"}</div>
+                  <div style={{ fontSize: 12, color: "#9ca3af", marginTop: 2 }}>📍 Tamil Nadu · {deviceIcon()}{a?.device}({a?.browser})</div>
                 </div>
-                <div style={{ fontSize: 12, color: "#b0aaa4", textAlign: "right", flexShrink: 0 }}>{i%2==0?`${i+1} Min`:`${i+3} Min`}</div>
+                <div style={{ fontSize: 12, color: "#b0aaa4", textAlign: "right", flexShrink: 0 }}>{moment(a.createdAt).fromNow()}</div>
                 <div style={{ padding: "3px 10px", borderRadius: 20, fontSize: 11, fontWeight: 700, background: a.type === "resume" ? "rgba(245,166,35,0.1)" : "rgba(99,102,241,0.1)", color: a.type === "resume" ? "#b8915a" : "#6366f1", flexShrink: 0 }}>
                   Clicked
                 </div>

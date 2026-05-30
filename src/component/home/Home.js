@@ -1,5 +1,5 @@
 
-import pdf from "../../assests/Kalai- resume.pdf";
+import pdf from "../../assests/Kalai-resume.pdf";
 import kalaiImage from "../../assests/images/kalai_image.jpeg";
 
 import { useState, useEffect, useRef } from "react";
@@ -98,7 +98,7 @@ function useTyped(words, typeSpeed = 80, deleteSpeed = 40, pause = 1800) {
   };
 
 const SOCIALS = [
-  { label: "GitHub", name:"githubProfile",  icon:  <i class="fa-brands fa-github logo-icons"></i>,   url: "https://github.com/KalaiRoman?tab=repositories" },
+  { label: "GitHub", name:"githubProfile",  icon:  <i class="fa-brands fa-github logo-icons"></i>,   url: "https://github.com/KalaiRoman" },
   { label: "LinkedIn", name:"linkedinProfile",icon:   <i class="fa-brands fa-linkedin-in logo-icons"></i>, url: "https://www.linkedin.com/in/kalaisurya-g-3253a81b1" },
   { label: "Twitter",name:"twitterProfile",  icon: <TwitterIcon />,  url: "https://twitter.com" },
   { label: "Dev.to", name:"facebookProfile",  icon: <i class="fa-brands fa-facebook logo-icons"></i>,      url: "https://www.facebook.com/" },
@@ -192,9 +192,9 @@ export default function Home() {
           </div>
 
           {/* Bio */}
-          <p className="hero-bio">
-        I transform ideas into scalable and high-performance web applications using React.js, Next.js, and Node.js. Experienced in building modern, responsive, and user-focused solutions with clean UI/UX, optimized performance, and maintainable code. Successfully delivered 10+ projects across multiple domains with a strong focus on scalability, quality, seamless user experience, and business-driven results.
-          </p>
+          <div className="hero-bio">
+       Experienced Full Stack Developer with 5 years of expertise in React.js, Next.js, JavaScript, and Node.js, building responsive, scalable, and high-performance web applications. Skilled in frontend development, API integration, performance optimization, and delivering user-centric solutions with clean and maintainable code.
+          </div>
 
           {/* Socials */}
           <div className="hero-socials">

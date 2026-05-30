@@ -75,44 +75,44 @@ useEffect(() => {
 }, []);
 
 
-  useEffect(() => {
+//   useEffect(() => {
 
-  const disableRightClick = (e) => {
-    e.preventDefault();
-  };
+//   const disableRightClick = (e) => {
+//     e.preventDefault();
+//   };
 
-  const disableKeys = (e) => {
+//   const disableKeys = (e) => {
 
-    if (e.key === "F12") {
-      e.preventDefault();
-    }
+//     if (e.key === "F12") {
+//       e.preventDefault();
+//     }
 
-    if (e.ctrlKey && e.shiftKey && e.key === "I") {
-      e.preventDefault();
-    }
+//     if (e.ctrlKey && e.shiftKey && e.key === "I") {
+//       e.preventDefault();
+//     }
 
-    if (e.ctrlKey && e.shiftKey && e.key === "J") {
-      e.preventDefault();
-    }
+//     if (e.ctrlKey && e.shiftKey && e.key === "J") {
+//       e.preventDefault();
+//     }
 
-    if (e.ctrlKey && e.key === "u") {
-      e.preventDefault();
-    }
+//     if (e.ctrlKey && e.key === "u") {
+//       e.preventDefault();
+//     }
 
-    if (e.ctrlKey && e.key === "c") {
-      e.preventDefault();
-    }
-  };
+//     if (e.ctrlKey && e.key === "c") {
+//       e.preventDefault();
+//     }
+//   };
 
-  document.addEventListener("contextmenu", disableRightClick);
-  document.addEventListener("keydown", disableKeys);
+//   document.addEventListener("contextmenu", disableRightClick);
+//   document.addEventListener("keydown", disableKeys);
 
-  return () => {
-    document.removeEventListener("contextmenu", disableRightClick);
-    document.removeEventListener("keydown", disableKeys);
-  };
+//   return () => {
+//     document.removeEventListener("contextmenu", disableRightClick);
+//     document.removeEventListener("keydown", disableKeys);
+//   };
 
-}, []);
+// }, []);
   const handleChnageColor = () => {
     setTheme(!theme);
   };
@@ -261,7 +261,6 @@ useEffect(() => {
     try {
 
       const alreadyVisited = localStorage.getItem("portfolio_visited");
-
       if (alreadyVisited) {
         return;
       }
