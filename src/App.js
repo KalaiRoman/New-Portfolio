@@ -24,6 +24,7 @@ import PostmanPortfolio from "./component/postman/PostmanPortfolio";
 import Footer from "./component/footer/Footer";
 import Testimonials from "./component/testimonials/Testimonials";
 import Dashboard from "./component/dashboard/Dashboard";
+import Achievements from './component/achievements/Achievements';
 import { getUserClickAction } from "./redux/actions/Userclick_Action";
 function App() {
   const [ResponseSection, setResponseSection] = useState("Desktop-section");
@@ -311,6 +312,7 @@ useEffect(() => {
 <WorkingTools id="skills" />
 <Testimonials id="testimonials" mode={mode}/>
 <Projects id="projects" />
+<Achievements id="achievements" />
 <Contact id="contact" />
 
               </>:<>
