@@ -16,6 +16,7 @@ import WorkingTools from "../workingtools/WorkingTools";
 import Contact from "../contact/Contact";
 import Experience from "../experience/Experience";
 import Testimonials from "../testimonials/Testimonials";
+import Achievements from "../achievements/Achievements";
 
 const FILE_MAP = {
   "Home.js":       { component: <Home />,         icon: "js" },
@@ -24,6 +25,7 @@ const FILE_MAP = {
   "Skills.js":     { component: <WorkingTools />,  icon: "js" },
   "Testimonials.js": { component: <Testimonials />, icon: "js" },
   "Projects.js":   { component: <Projects />,      icon: "js" },
+  "Achievemnets.js":   { component: <Achievements />,      icon: "js" },
   "Contact.js":    { component: <Contact />,       icon: "js" },
 };
 
@@ -41,6 +43,8 @@ const FOLDER_TREE = [
       { name: "home",      type: "folder", color: "#dcb67a" },
       { name: "aboutus",   type: "folder", color: "#dcb67a" },
       { name: "projects",  type: "folder", color: "#dcb67a" },
+      { name: "achievements",  type: "folder", color: "#dcb67a" },
+
       ...SRC_FILES.map(f => ({ name: f, type: "file", icon: "js" })),
     ],
   },

@@ -25,6 +25,7 @@ import Footer from "./component/footer/Footer";
 import Testimonials from "./component/testimonials/Testimonials";
 import Dashboard from "./component/dashboard/Dashboard";
 import Achievements from './component/achievements/Achievements';
+
 import { getUserClickAction } from "./redux/actions/Userclick_Action";
 function App() {
   const [ResponseSection, setResponseSection] = useState("Desktop-section");
@@ -375,6 +376,11 @@ useEffect(() => {
                   path="/dashboard/all/kalai"
                   element={<Dashboard />}
                 />
+                 <Route
+                  path="/achievements"
+                  element={<Achievements />}
+                />
+                
               </Routes>
             
             </>}

@@ -24,6 +24,7 @@ import WorkingTools from "../workingtools/WorkingTools";
 import Contact from "../contact/Contact";
 import Experience from "../experience/Experience";
 import Testimonials from "../testimonials/Testimonials";
+import Achievements from "../achievements/Achievements";
 
 const FILE_ICONS = {
   "Home.js": <FaMarkdown className="fi-md" />,
@@ -32,6 +33,7 @@ const FILE_ICONS = {
   "Skills.js": <FaJs className="fi-js" />,
   "Projects.js": <FaJs className="fi-js" />,
   "Testimonials.js": <FaJs className="fi-js" />,
+  "Achievements.js": <FaJs className="fi-js" />,
   "Contact.js": <FaJs className="fi-js" />,
 };
 
@@ -42,6 +44,7 @@ const files = [
   "Skills.js",
   "Projects.js",
   "Testimonials.js",
+  "Achievements.js",
   "Contact.js",
 ];
 
@@ -58,6 +61,7 @@ export default function GithubPortfolio() {
       case "Projects.js":  return <Projects />;
       case "Skills.js":    return <WorkingTools />;
       case "Testimonials.js": return <Testimonials />;
+      case "Achievements.js": return <Achievements />;
       case "Contact.js":   return <Contact />;
       default:             return null;
     }

@@ -14,6 +14,7 @@ import WorkingTools from "../workingtools/WorkingTools";
 import Contact from "../contact/Contact";
 import Experience from "../experience/Experience";
 import Testimonials from "../testimonials/Testimonials";
+import Achievements from "../achievements/Achievements";
 
 const REQUESTS = {
   "GET_Home":       { method: "GET",    label: "Home",       component: <Home /> },
@@ -22,13 +23,14 @@ const REQUESTS = {
   "GET_Skills":     { method: "GET",    label: "Skills",     component: <WorkingTools /> },
   "GET_Testimonials": { method: "GET",  label: "Testimonials", component: <Testimonials /> },
   "POST_Projects":  { method: "POST",   label: "Projects",   component: <Projects /> },
+  "PUT_Achievement":  { method: "PUT",   label: "Achievments",   component: <Achievements /> },
   "POST_Contact":   { method: "POST",   label: "Contact",    component: <Contact /> },
 };
 
 const HISTORY = [
   { date: "Today", items: ["GET_Home", "GET_About"] },
-  { date: "Yesterday", items: ["GET_Experience", "POST_Projects"] },
-  { date: "Last Week", items: ["GET_Skills","GET_Testimonials", "POST_Contact"] },
+  { date: "Yesterday", items: ["GET_Experience","GET_Skills","POST_Projects"] },
+  { date: "Last Week", items: ["GET_Testimonials", "PUT_Achievement","POST_Contact"] },
 ];
 
 const METHOD_COLORS = {
