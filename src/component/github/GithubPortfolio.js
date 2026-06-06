@@ -31,8 +31,8 @@ const FILE_ICONS = {
   "About Us.js": <FaJs className="fi-js" />,
   "Experience.js": <FaJs className="fi-js" />,
   "Skills.js": <FaJs className="fi-js" />,
-  "Projects.js": <FaJs className="fi-js" />,
   "Testimonials.js": <FaJs className="fi-js" />,
+  "Projects.js": <FaJs className="fi-js" />,
   "Achievements.js": <FaJs className="fi-js" />,
   "Contact.js": <FaJs className="fi-js" />,
 };
@@ -42,8 +42,8 @@ const files = [
   "About Us.js",
   "Experience.js",
   "Skills.js",
-  "Projects.js",
   "Testimonials.js",
+  "Projects.js",
   "Achievements.js",
   "Contact.js",
 ];

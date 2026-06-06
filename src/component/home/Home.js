@@ -217,7 +217,15 @@ export default function Home() {
 
           {/* CTAs */}
           <div className="hero-ctas">
-            <button className="btn-primary" onClick={()=>handleHireMe("hireMeClick")}>Hire Me</button>
+            <button className="btn-primary" style={{display:"flex",gap:"5px",alignItems:"center"}} 
+             onClick={() =>
+                window.open(
+                  "mailto:kalaimca685@gmail.com?subject=Let's Work Together&body=Hi, I'd love to collaborate with you!"
+                )
+              }
+            >
+              <i className="ti ti-send" style={{ fontSize: "15px", color: "#fff" }} aria-hidden="true" />
+              Hire Me</button>
             <button className="btn-outline" onClick={()=>downloadCV("resumeDownload")}>
               <DownloadIcon />
               Get CV

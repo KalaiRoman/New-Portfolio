@@ -253,6 +253,7 @@ export default function Achievements() {
           padding: "5rem 1.5rem",
           background: "#fff",
         }}
+        id="achievements"
       >
         <div style={{ maxWidth: "1100px", margin: "0 auto" }}>
 

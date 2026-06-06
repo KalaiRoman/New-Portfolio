@@ -142,11 +142,11 @@ useEffect(() => {
     },
     {
       id: 2,
-      name: "About Us",
+      name: "About",
       icon: <i class="fa-solid fa-user"></i>,
       path: "/aboutus",
       heightScroll: 703,
-      ToolName: "About Us",
+      ToolName: "About",
     },
     {
       id: 6,
@@ -199,12 +199,13 @@ useEffect(() => {
 
     const sections = [
       { id: "home", name: "Home" },
-      { id: "aboutus", name: "About Us" },
+      { id: "aboutus", name: "About" },
       { id: "projects", name: "Projects" },
       { id: "experience", name: "Experience" },
       { id: "skills", name: "Skills" },
       { id: "testimonials", name: "Testimonials" },
-      { id: "contact", name: "Contact Us" },
+      { id: "achievements", name: "Achievements" },
+      { id: "contact", name: "Contact" },
     ];
 
     const handleScroll = () => {
@@ -353,7 +354,7 @@ useEffect(() => {
                   element={<Projects colorName={state?.ColorName} />}
                 />
                 <Route
-                  path="/tools"
+                  path="/skills"
                   element={<WorkingTools colorName={state?.ColorName} />}
                 />
                 <Route

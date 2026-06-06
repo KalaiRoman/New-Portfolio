@@ -13,10 +13,13 @@ import { SiPostman } from "react-icons/si";
 import "./styles/Header.css";
 import { useDispatch } from "react-redux";
 import { createUserClickAction } from "../../redux/actions/Userclick_Action";
+import { useNavigate } from "react-router-dom";
 
-export default function ThreeDotDropdown({ setMode, mode,selected, setSelected }) {
+export default function ThreeDotDropdown({ setMode, mode,selected, setSelected,setActiveTab,setMenuOpen }) {
 
   const [open, setOpen] = useState(false);
+
+  const navigate=useNavigate();
 
   const dropdownRef = useRef(null);
 
@@ -113,6 +116,9 @@ export default function ThreeDotDropdown({ setMode, mode,selected, setSelected }
                 setMode(item.name);
                 setOpen(false);
                 handleClickDotts(item?.label);
+                navigate("/")
+                setActiveTab("Home")
+                setMenuOpen(false)
               }}
             >
 
