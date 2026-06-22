@@ -78,16 +78,12 @@ export default function ThreeDotDropdown({ setMode, mode,selected, setSelected,s
     },
   ];
 
-
-
-
   const handleClickDotts=(params)=>{
     dispatch(createUserClickAction(params));
   }
   return (
 
     <div className="dropdownContainer" ref={dropdownRef}>
-
 
       {/* BUTTON */}
       <button
