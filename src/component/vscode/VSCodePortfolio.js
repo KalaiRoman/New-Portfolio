@@ -25,7 +25,7 @@ const FILE_MAP = {
   "Skills.js":     { component: <WorkingTools />,  icon: "js" },
   "Testimonials.js": { component: <Testimonials />, icon: "js" },
   "Projects.js":   { component: <Projects />,      icon: "js" },
-  "Achievemnets.js":   { component: <Achievements />,      icon: "js" },
+  "Achievements.js":   { component: <Achievements />,      icon: "js" },
   "Contact.js":    { component: <Contact />,       icon: "js" },
 };
 
@@ -155,7 +155,7 @@ export default function VSCodePortfolio() {
         </div>
         <div className="vsc-titlebar-center">
           <FaReact style={{ color: "#61dafb", fontSize: 13 }} />
-          <span>New-Portfolio — VSCode</span>
+          <span>Kalai-Portfolio — VSCode</span>
         </div>
         <button
           className="vsc-theme-toggle"

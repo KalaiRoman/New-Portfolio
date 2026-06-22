@@ -248,7 +248,8 @@ button {
 .vsc-tree-name {
   overflow: hidden;
   text-overflow: ellipsis;
-  white-space: nowrap;
+  white-space: nowrap;  
+  color:white !important;
 }
 
 .vsc-dot {
@@ -372,6 +373,7 @@ button {
   overflow: hidden;
   text-overflow: ellipsis;
   white-space: nowrap;
+  color:white !important;
 }
 
 .vsc-tab-close {

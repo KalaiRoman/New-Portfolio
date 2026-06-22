@@ -274,7 +274,9 @@ button { cursor: pointer; font-family: var(--gh-font); }
 .gh-profile-name {
   font-size: 14px;
   font-weight: 600;
-  color: var(--text-primary);
+  /* color: var(--text-primary);
+   */
+   color:white !important;
   white-space: nowrap;
   overflow: hidden;
   text-overflow: ellipsis;
@@ -306,7 +308,9 @@ button { cursor: pointer; font-family: var(--gh-font); }
   gap: 8px;
   font-size: 14px;
   font-weight: 600;
-  color: var(--text-link);
+  /* FIX: use CSS variable instead of hardcoded white */
+  /* color: var(--text-primary); */
+  color:white !important;
 }
 .gh-folder-icon { color: #54aeff; font-size: 16px; }
 
@@ -351,6 +355,7 @@ button { cursor: pointer; font-family: var(--gh-font); }
   background: none;
   border: none;
   border-left: 3px solid transparent;
+  /* FIX: use CSS variable instead of hardcoded white */
   color: var(--text-primary);
   font-size: 13px;
   text-align: left;
@@ -367,7 +372,15 @@ button { cursor: pointer; font-family: var(--gh-font); }
 .gh-file-icon { display: flex; align-items: center; flex-shrink: 0; }
 .fi-js { color: var(--js-color); font-size: 14px; }
 .fi-md { color: var(--md-color); font-size: 14px; }
-.gh-file-name { overflow: hidden; text-overflow: ellipsis; white-space: nowrap; }
+
+/* FIX: use CSS variable instead of hardcoded white */
+.gh-file-name {
+  overflow: hidden;
+  text-overflow: ellipsis;
+  white-space: nowrap;
+  /* color: var(--text-primary); */
+  color:white !important;
+}
 
 /* ── MAIN ── */
 .gh-main {
@@ -416,7 +429,7 @@ button { cursor: pointer; font-family: var(--gh-font); }
   background: var(--bg-canvas);
 }
 .gh-tab-icon { display: flex; align-items: center; }
-.gh-tab-label { }
+.gh-tab-label { color:white !important}
 
 /* ── FILE HEADER ── */
 .gh-file-header {
@@ -500,7 +513,14 @@ button { cursor: pointer; font-family: var(--gh-font); }
     top: 0; left: 0; bottom: 0;
     width: 280px;
     z-index: 60;
+    /* FIX: explicitly re-declare all CSS variables so they resolve inside
+       the fixed sidebar which is outside the normal layout cascade.
+       The sidebar inherits .gh-dark / .gh-light from the root element,
+       but some browsers fail to resolve custom properties through
+       position:fixed stacking contexts — repeating them here guarantees
+       correct colours in both themes. */
     background: var(--bg-subtle);
+    color: var(--text-primary);
     border-right: 1px solid var(--border-default);
     padding: 16px 12px;
     transform: translateX(-100%);

@@ -23,7 +23,7 @@ const REQUESTS = {
   "GET_Skills":     { method: "GET",    label: "Skills",     component: <WorkingTools /> },
   "GET_Testimonials": { method: "GET",  label: "Testimonials", component: <Testimonials /> },
   "POST_Projects":  { method: "POST",   label: "Projects",   component: <Projects /> },
-  "PUT_Achievement":  { method: "PUT",   label: "Achievments",   component: <Achievements /> },
+  "PUT_Achievement":  { method: "PUT",   label: "Achievements",   component: <Achievements /> },
   "POST_Contact":   { method: "POST",   label: "Contact",    component: <Contact /> },
 };
 
