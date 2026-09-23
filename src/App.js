@@ -312,7 +312,7 @@ useEffect(() => {
 <Aboutus id="aboutus" />
 <Experience  id="experience"/>
 <WorkingTools id="skills" />
-<Testimonials id="testimonials" mode={mode}/>
+{/* <Testimonials id="testimonials" mode={mode}/> */}
 <Projects id="projects" />
 <Achievements id="achievements" />
 <Contact id="contact" />
@@ -369,10 +369,10 @@ useEffect(() => {
                   path="/experience"
                   element={<Experience colorName={state?.ColorName} />}
                 />
-                   <Route
+                   {/* <Route
                   path="/testimonials"
                   element={<Testimonials colorName={state?.ColorName} mode={mode} />}
-                />
+                /> */}
                   <Route
                   path="/dashboard/all/kalai"
                   element={<Dashboard />}

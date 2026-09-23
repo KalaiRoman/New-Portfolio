@@ -9,12 +9,12 @@ const navLinks = [
   { label: "About",      short: "About",    icon: "ti-user",        path: "/aboutus" },
   { label: "Experience", short: "Work",     icon: "ti-briefcase",   path: "/experience" },
   { label: "Skills",     short: "Skills",   icon: "ti-code",        path: "/skills" },
-  {
-  label: "Testimonials",
-  short: "Testimonials",
-  icon: "ti-user",
-  path: "/testimonials"
-},
+//   {
+//   label: "Testimonials",
+//   short: "Testimonials",
+//   icon: "ti-user",
+//   path: "/testimonials"
+// },
   { label: "Projects",   short: "Projects", icon: "ti-layout-grid", path: "/projects" },
 { 
   label: "Achievements",
@@ -32,12 +32,12 @@ const navItemsSingle = [
   { label: "About",      short: "About",    icon: "ti-user",        href: "#aboutus" },
   { label: "Experience", short: "Work",     icon: "ti-briefcase",   href: "#experience" },
   { label: "Skills",     short: "Skills",   icon: "ti-code",        href: "#skills" },
-  {
-  label: "Testimonials",
-  short: "Testimonials",
-  icon: "ti-user",
-  href: "#testimonials"
-},
+//   {
+//   label: "Testimonials",
+//   short: "Testimonials",
+//   icon: "ti-user",
+//   href: "#testimonials"
+// },
   { label: "Projects",   short: "Projects", icon: "ti-layout-grid", href: "#projects" },
 { 
   label: "Achievements",
@@ -420,13 +420,13 @@ export default function Header({setMode,mode,activeTab,setActiveTab}) {
           {/* DESKTOP RIGHT */}
           <div className="hdr-right-desktop" style={styles.right}>
             <>
-            <ThreeDotDropdown
+            {/* <ThreeDotDropdown
 setMode={setMode}
 mode={mode}
 selected={selected} setSelected={setSelected}
 setActiveTab={setActiveTab}
 setMenuOpen={setMenuOpen}
-/>
+/> */}
             </>
             <div style={styles.badge}>
               <span className="blink-dot" style={styles.badgeDot} />
@@ -454,13 +454,13 @@ setMenuOpen={setMenuOpen}
 
             <div>
 
-                   <ThreeDotDropdown
+                   {/* <ThreeDotDropdown
 setMode={setMode}
 mode={mode}
 selected={selected} setSelected={setSelected}
 setActiveTab={setActiveTab}
 setMenuOpen={setMenuOpen}
-/>
+/> */}
             </div>
            {(mode=="Single Page" || mode=="Multi Page") && <>
             <button

@@ -1,6 +1,6 @@
 
 import pdf from "../../assests/Kalai-resume.pdf";
-import kalaiImage from "../../assests/images/kalai_image.jpeg";
+import kalaiImage from "../../assests/images/kalai_image_new.jpeg";
 
 import { useState, useEffect, useRef } from "react";
 import { useNavigate } from "react-router-dom";

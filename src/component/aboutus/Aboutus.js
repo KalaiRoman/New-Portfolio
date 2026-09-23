@@ -120,6 +120,7 @@ const skillGroups = [
       "Context Api",
       "Redux",
       "Redux Toolkit",
+      "Zustand",
       "RESTful APIs",
       "TypeScript",
       "Sass",
