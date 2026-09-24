@@ -173,7 +173,8 @@ const skillGroups = [
       "Cloudinary",
       "Netlify",
       "Vercel",
-      "EC2"
+      "EC2",
+      "Render"
     ]
   }
 ];
