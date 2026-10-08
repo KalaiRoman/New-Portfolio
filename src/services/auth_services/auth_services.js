@@ -46,7 +46,7 @@ export function getUserAdminData() {
 
 export function MailRegister(data) {
     return new Promise((resolve, reject) => {
-        instanceBaseurl.post(`/api/contact`, data).then(response => {
+        instanceBaseurl.post(`/contact`, data).then(response => {
             resolve(response)
         }).catch(err => {
             reject(err)

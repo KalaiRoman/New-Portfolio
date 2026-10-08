@@ -140,20 +140,17 @@ setSubmittedError(error?.response?.data?.message || "An error occurred while sen
 
   return (
     <section className="contact-section" id="contact">
-      {/* Page title */}
       <h1 className="contact-page-title">
         <span style={{color:"#0cb65e"}}>Con</span>tact Me 
       </h1>
 
       <div className="contact-wrapper">
-        {/* ── LEFT: Form ── */}
         <div className="contact-form-card">
           <h2 className="form-heading">Drop me a message 👇</h2>
           <p className="form-subheading mt-3">
               Whether you need a new product built from scratch, want to revamp an existing one, or just want to chat about tech — I'm all ears.
           </p>
 
-          {/* Name */}
           <div className="form-group">
             <label className="form-label" htmlFor="name">Name</label>
             <input
@@ -189,7 +186,6 @@ setSubmittedError(error?.response?.data?.message || "An error occurred while sen
             )}
           </div>
 
-          {/* Message */}
           <div className="form-group">
             <label className="form-label" htmlFor="message">Message</label>
             <textarea
@@ -223,14 +219,11 @@ setSubmittedError(error?.response?.data?.message || "An error occurred while sen
           )}
         </div>
 
-        {/* ── RIGHT: Info Panel ── */}
         <div className="contact-info-panel">
-          {/* Illustration */}
           <div className="contact-illustration">
             <ContactIllustration />
           </div>
 
-          {/* Info cards */}
           <div className="info-cards">
             {contactInfo.map((item) => (
               <div key={item.label} className="info-card">
