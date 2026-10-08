@@ -177,7 +177,7 @@ const skillGroups = [
       "Render"
     ]
   }
-];
+];  
 
 const languages = ["English", "Tamil", "Telugu"];
 

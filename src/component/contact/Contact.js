@@ -69,7 +69,7 @@ const ContactIllustration = () => (
 const contactInfo = [
   {
     label: "Location",
-    value: "Chennai, Tamil Nadu, India",
+    value: "Bangalore, Karnataka, India",
     icon: <LocationIcon />,
   },
   {
