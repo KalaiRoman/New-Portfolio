@@ -3,18 +3,12 @@ import "./App.scss";
 import { useEffect, useRef, useState } from "react";
 import { ColorChangection } from "./redux/actions/Color_Action";
 import Header from "./component/header/Header";
-import Form from "react-bootstrap/Form";
-import AnimatedCursor from "react-animated-cursor";
-import cycle from "./assests/images/cycle-img.png";
-import rocket from "./assests/images/rocket-img.png";
 import Home from "./component/home/Home";
-import { Tooltip as ReactTooltip } from "react-tooltip";
 import Aboutus from "./component/aboutus/Aboutus";
 import { Route, Routes, useNavigate } from "react-router-dom";
 import Projects from "./component/projects/Projects";
 import WorkingTools from "./component/workingtools/WorkingTools";
 import Contact from "./component/contact/Contact";
-import whatsimage from "./assests/images/whatsapp.png";
 import Chat from "./component/chat/Chat";
 import { getUserData, userVisiter } from "./services/auth_services/auth_services";
 import Experience from "./component/experience/Experience";
@@ -22,7 +16,6 @@ import VSCodePortfolio from "./component/vscode/VSCodePortfolio";
 import GithubPortfolio from "./component/github/GithubPortfolio";
 import PostmanPortfolio from "./component/postman/PostmanPortfolio";
 import Footer from "./component/footer/Footer";
-import Testimonials from "./component/testimonials/Testimonials";
 import Dashboard from "./component/dashboard/Dashboard";
 import Achievements from './component/achievements/Achievements';
 
@@ -52,69 +45,69 @@ function App() {
     localStorage.setItem("theme", theme);
   }, [state, theme, Username]);
 
-useEffect(() => {
+  useEffect(() => {
 
-  const timer = setTimeout(() => {
-    setLoader(false);
-  }, 2000);
-
-
-  return () => clearTimeout(timer);
-
-}, []);
+    const timer = setTimeout(() => {
+      setLoader(false);
+    }, 2000);
 
 
-const hasCalled = useRef(false);
+    return () => clearTimeout(timer);
 
-useEffect(() => {
+  }, []);
 
-  if (hasCalled.current) return;
 
-  hasCalled.current = true;
+  const hasCalled = useRef(false);
 
-  dispatch(getUserClickAction());
+  useEffect(() => {
 
-}, []);
+    if (hasCalled.current) return;
+
+    hasCalled.current = true;
+
+    dispatch(getUserClickAction());
+
+  }, []);
 
 
   useEffect(() => {
 
-  const disableRightClick = (e) => {
-    e.preventDefault();
-  };
-
-  const disableKeys = (e) => {
-
-    if (e.key === "F12") {
+    const disableRightClick = (e) => {
       e.preventDefault();
-    }
+    };
 
-    if (e.ctrlKey && e.shiftKey && e.key === "I") {
-      e.preventDefault();
-    }
+    const disableKeys = (e) => {
 
-    if (e.ctrlKey && e.shiftKey && e.key === "J") {
-      e.preventDefault();
-    }
+      if (e.key === "F12") {
+        e.preventDefault();
+      }
 
-    if (e.ctrlKey && e.key === "u") {
-      e.preventDefault();
-    }
+      if (e.ctrlKey && e.shiftKey && e.key === "I") {
+        e.preventDefault();
+      }
 
-    if (e.ctrlKey && e.key === "c") {
-      e.preventDefault();
-    }
-  };
+      if (e.ctrlKey && e.shiftKey && e.key === "J") {
+        e.preventDefault();
+      }
 
-  document.addEventListener("contextmenu", disableRightClick);
-  document.addEventListener("keydown", disableKeys);
+      if (e.ctrlKey && e.key === "u") {
+        e.preventDefault();
+      }
 
-  return () => {
-    document.removeEventListener("contextmenu", disableRightClick);
-    document.removeEventListener("keydown", disableKeys);
-  };
+      if (e.ctrlKey && e.key === "c") {
+        e.preventDefault();
+      }
+    };
 
-}, []);
+    document.addEventListener("contextmenu", disableRightClick);
+    document.addEventListener("keydown", disableKeys);
+
+    return () => {
+      document.removeEventListener("contextmenu", disableRightClick);
+      document.removeEventListener("keydown", disableKeys);
+    };
+
+  }, []);
   const handleChnageColor = () => {
     setTheme(!theme);
   };
@@ -128,7 +121,7 @@ useEffect(() => {
 
   const [scrollTop, setScrollTop] = useState(0);
 
-  const [mode,setMode]=useState(window?.location?.pathname=="/dashboard/all/kalai"?"":"Single Page");
+  const [mode, setMode] = useState(window?.location?.pathname == "/dashboard/all/kalai" ? "" : "Single Page");
   const [activeTab, setActiveTab] = useState("Home");
 
   const iconsData = [
@@ -164,7 +157,7 @@ useEffect(() => {
       heightScroll: 0,
       ToolName: "Projects",
     },
-        {
+    {
       id: 5,
       name: "Testimonials",
       icon: <i class="fa-solid fa-user-graduate"></i>,
@@ -195,46 +188,46 @@ useEffect(() => {
   }, [scrollTop, ResponseSection]);
 
   useEffect(() => {
-  if (mode === "Single Page") {
+    if (mode === "Single Page") {
 
-    const sections = [
-      { id: "home", name: "Home" },
-      { id: "aboutus", name: "About" },
-      { id: "projects", name: "Projects" },
-      { id: "experience", name: "Experience" },
-      { id: "skills", name: "Skills" },
-      { id: "testimonials", name: "Testimonials" },
-      { id: "achievements", name: "Achievements" },
-      { id: "contact", name: "Contact" },
-    ];
+      const sections = [
+        { id: "home", name: "Home" },
+        { id: "aboutus", name: "About" },
+        { id: "projects", name: "Projects" },
+        { id: "experience", name: "Experience" },
+        { id: "skills", name: "Skills" },
+        { id: "testimonials", name: "Testimonials" },
+        { id: "achievements", name: "Achievements" },
+        { id: "contact", name: "Contact" },
+      ];
 
-    const handleScroll = () => {
-      const scrollPosition = window.scrollY + 200;
+      const handleScroll = () => {
+        const scrollPosition = window.scrollY + 200;
 
-      sections.forEach((section) => {
-        const element = document.getElementById(section.id);
+        sections.forEach((section) => {
+          const element = document.getElementById(section.id);
 
-        if (element) {
-          const offsetTop = element.offsetTop;
-          const offsetHeight = element.offsetHeight;
+          if (element) {
+            const offsetTop = element.offsetTop;
+            const offsetHeight = element.offsetHeight;
 
-          if (
-            scrollPosition >= offsetTop &&
-            scrollPosition < offsetTop + offsetHeight
-          ) {
-            setActiveTab(section.name);
+            if (
+              scrollPosition >= offsetTop &&
+              scrollPosition < offsetTop + offsetHeight
+            ) {
+              setActiveTab(section.name);
+            }
           }
-        }
-      });
-    };
+        });
+      };
 
-    window.addEventListener("scroll", handleScroll);
+      window.addEventListener("scroll", handleScroll);
 
-    return () => {
-      window.removeEventListener("scroll", handleScroll);
-    };
-  }
-}, [mode]);
+      return () => {
+        window.removeEventListener("scroll", handleScroll);
+      };
+    }
+  }, [mode]);
 
   const navigate = useNavigate();
 
@@ -256,7 +249,7 @@ useEffect(() => {
       }
 
       setUserStatus(count);
-    } catch (error) {}
+    } catch (error) { }
   };
 
 
@@ -299,104 +292,103 @@ useEffect(() => {
       ) : (
         <>
           <div>
-           <Header
-  setMode={setMode}
-  mode={mode}
-  activeTab={activeTab}
-  setActiveTab={setActiveTab}
-/>
+            <Header
+              setMode={setMode}
+              mode={mode}
+              activeTab={activeTab}
+              setActiveTab={setActiveTab}
+            />
             <div className="body-sections">
 
-              {mode=="Single Page" ?<>
-            <Home id="home" />
-<Aboutus id="aboutus" />
-<Experience  id="experience"/>
-<WorkingTools id="skills" />
-{/* <Testimonials id="testimonials" mode={mode}/> */}
-<Projects id="projects" />
-<Achievements id="achievements" />
-<Contact id="contact" />
+              {mode == "Single Page" ? <>
+                <Home id="home" />
+                <Aboutus id="aboutus" />
+                <Experience id="experience" />
+                <WorkingTools id="skills" />
+                {/* <Testimonials id="testimonials" mode={mode}/> */}
+                <Projects id="projects" />
+                <Achievements id="achievements" />
+                <Contact id="contact" />
 
-              </>:<>
+              </> : <>
 
+                {mode == "VsCode" ? <>
+                  <VSCodePortfolio />
 
-              {mode=="VsCode"?<>
-              <VSCodePortfolio/>
-              
-              </>:<>
-              {mode=="Github"?<>
-              <GithubPortfolio/>
-              </>:<>
-              
-            {mode=="Postman"?<>
-            
-            <PostmanPortfolio/>
-            </>:<>
-            
-               <Routes>
-                <Route
-                  exact
-                  path="/"
-                  element={
-                    <Home
-                      colorName={state?.ColorName}
-                      ResponseSection={ResponseSection}
-                      theme={theme}
-                    />
-                  }
-                />
-                <Route
-                  path="/aboutus"
-                  element={<Aboutus colorName={state?.ColorName} />}
-                />
-                <Route
-                  path="/projects"
-                  element={<Projects colorName={state?.ColorName} />}
-                />
-                <Route
-                  path="/skills"
-                  element={<WorkingTools colorName={state?.ColorName} />}
-                />
-                <Route
-                  path="/contact"
-                  element={<Contact colorName={state?.ColorName} />}
-                />
-                <Route
-                  path="/chat"
-                  element={<Chat colorName={state?.ColorName} />}
-                />
-                    <Route
-                  path="/experience"
-                  element={<Experience colorName={state?.ColorName} />}
-                />
-                   {/* <Route
+                </> : <>
+                  {mode == "Github" ? <>
+                    <GithubPortfolio />
+                  </> : <>
+
+                    {mode == "Postman" ? <>
+
+                      <PostmanPortfolio />
+                    </> : <>
+
+                      <Routes>
+                        <Route
+                          exact
+                          path="/"
+                          element={
+                            <Home
+                              colorName={state?.ColorName}
+                              ResponseSection={ResponseSection}
+                              theme={theme}
+                            />
+                          }
+                        />
+                        <Route
+                          path="/aboutus"
+                          element={<Aboutus colorName={state?.ColorName} />}
+                        />
+                        <Route
+                          path="/projects"
+                          element={<Projects colorName={state?.ColorName} />}
+                        />
+                        <Route
+                          path="/skills"
+                          element={<WorkingTools colorName={state?.ColorName} />}
+                        />
+                        <Route
+                          path="/contact"
+                          element={<Contact colorName={state?.ColorName} />}
+                        />
+                        <Route
+                          path="/chat"
+                          element={<Chat colorName={state?.ColorName} />}
+                        />
+                        <Route
+                          path="/experience"
+                          element={<Experience colorName={state?.ColorName} />}
+                        />
+                        {/* <Route
                   path="/testimonials"
                   element={<Testimonials colorName={state?.ColorName} mode={mode} />}
                 /> */}
-                  <Route
-                  path="/dashboard/all/kalai"
-                  element={<Dashboard />}
-                />
-                 <Route
-                  path="/achievements"
-                  element={<Achievements />}
-                />
-                
-              </Routes>
-            
-            </>}
-              
-              
+                        <Route
+                          path="/dashboard/all/kalai"
+                          element={<Dashboard />}
+                        />
+                        <Route
+                          path="/achievements"
+                          element={<Achievements />}
+                        />
+
+                      </Routes>
+
+                    </>}
+
+
+                  </>}
+
+                </>}
+
+
               </>}
-               
-              </>}
-              
-               
-              </>}
-           
+
             </div>
 
-          
+
 
             <div>
               <div>
@@ -411,7 +403,7 @@ useEffect(() => {
             </div>
 
             <div>
-              <Footer/>
+              <Footer />
             </div>
           </div>
         </>
