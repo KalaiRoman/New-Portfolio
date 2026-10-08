@@ -2,20 +2,26 @@ import { useState } from "react";
 import "./styles/Contact.css";
 import { MailRegister } from "../../services/auth_services/auth_services";
 
+import first from '../../assests/images/mail-send-3d.png';
+import second from '../../assests/images/tick-3d.png';
+import third from '../../assests/images/circle-success-3d.png';
+import ContactModal from "./ContactModal";
+
+
 const LocationIcon = () => (
   <svg viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg">
-    <path d="M12 2C8.13 2 5 5.13 5 9c0 5.25 7 13 7 13s7-7.75 7-13c0-3.87-3.13-7-7-7zm0 9.5c-1.38 0-2.5-1.12-2.5-2.5s1.12-2.5 2.5-2.5 2.5 1.12 2.5 2.5-1.12 2.5-2.5 2.5z"/>
+    <path d="M12 2C8.13 2 5 5.13 5 9c0 5.25 7 13 7 13s7-7.75 7-13c0-3.87-3.13-7-7-7zm0 9.5c-1.38 0-2.5-1.12-2.5-2.5s1.12-2.5 2.5-2.5 2.5 1.12 2.5 2.5-1.12 2.5-2.5 2.5z" />
   </svg>
 );
 const PhoneIcon = () => (
   <svg viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg">
-    <path d="M6.62 10.79c1.44 2.83 3.76 5.14 6.59 6.59l2.2-2.2c.27-.27.67-.36 1.02-.24 1.12.37 2.33.57 3.57.57.55 0 1 .45 1 1V20c0 .55-.45 1-1 1-9.39 0-17-7.61-17-17 0-.55.45-1 1-1h3.5c.55 0 1 .45 1 1 0 1.25.2 2.45.57 3.57.11.35.03.74-.25 1.02l-2.2 2.2z"/>
+    <path d="M6.62 10.79c1.44 2.83 3.76 5.14 6.59 6.59l2.2-2.2c.27-.27.67-.36 1.02-.24 1.12.37 2.33.57 3.57.57.55 0 1 .45 1 1V20c0 .55-.45 1-1 1-9.39 0-17-7.61-17-17 0-.55.45-1 1-1h3.5c.55 0 1 .45 1 1 0 1.25.2 2.45.57 3.57.11.35.03.74-.25 1.02l-2.2 2.2z" />
   </svg>
 );
 
 const EmailIcon = () => (
   <svg viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg">
-    <path d="M20 4H4c-1.1 0-2 .9-2 2v12c0 1.1.9 2 2 2h16c1.1 0 2-.9 2-2V6c0-1.1-.9-2-2-2zm0 4l-8 5-8-5V6l8 5 8-5v2z"/>
+    <path d="M20 4H4c-1.1 0-2 .9-2 2v12c0 1.1.9 2 2 2h16c1.1 0 2-.9 2-2V6c0-1.1-.9-2-2-2zm0 4l-8 5-8-5V6l8 5 8-5v2z" />
   </svg>
 );
 
@@ -25,43 +31,43 @@ const WatchTimerIcon = () => (
     xmlns="http://www.w3.org/2000/svg"
     fill="currentColor"
   >
-    <path d="M15.07 1H8.93v2h6.14V1zM11 14h2V8h-2v6zm8.03-7.39l1.42-1.42-1.41-1.41-1.42 1.42A8.962 8.962 0 0 0 12 4a9 9 0 1 0 9 9c0-2.21-.8-4.24-2.12-5.8zM12 20a7 7 0 1 1 0-14 7 7 0 0 1 0 14z"/>
+    <path d="M15.07 1H8.93v2h6.14V1zM11 14h2V8h-2v6zm8.03-7.39l1.42-1.42-1.41-1.41-1.42 1.42A8.962 8.962 0 0 0 12 4a9 9 0 1 0 9 9c0-2.21-.8-4.24-2.12-5.8zM12 20a7 7 0 1 1 0-14 7 7 0 0 1 0 14z" />
   </svg>
 );
 
 const ContactIllustration = () => (
   <svg viewBox="0 0 320 240" xmlns="http://www.w3.org/2000/svg">
-    <ellipse cx="160" cy="210" rx="110" ry="18" fill="#ddd6fe" opacity="0.5"/>
+    <ellipse cx="160" cy="210" rx="110" ry="18" fill="#ddd6fe" opacity="0.5" />
 
-    <rect x="100" y="30" width="120" height="185" rx="18" fill="#1e1b4b"/>
-    <rect x="107" y="44" width="106" height="157" rx="10" fill="#ede9fe"/>
+    <rect x="100" y="30" width="120" height="185" rx="18" fill="#1e1b4b" />
+    <rect x="107" y="44" width="106" height="157" rx="10" fill="#ede9fe" />
 
-    <rect x="114" y="60" width="92" height="100" rx="6" fill="#c4b5fd" opacity="0.4"/>
+    <rect x="114" y="60" width="92" height="100" rx="6" fill="#c4b5fd" opacity="0.4" />
 
-    <circle cx="160" cy="95" r="18" fill="#7c3aed"/>
-    <ellipse cx="160" cy="128" rx="20" ry="14" fill="#7c3aed"/>
+    <circle cx="160" cy="95" r="18" fill="#7c3aed" />
+    <ellipse cx="160" cy="128" rx="20" ry="14" fill="#7c3aed" />
 
-    <path d="M143 90 Q143 72 160 72 Q177 72 177 90" fill="none" stroke="#4c1d95" strokeWidth="3.5" strokeLinecap="round"/>
-    <rect x="140" y="88" width="7" height="10" rx="3" fill="#4c1d95"/>
-    <rect x="173" y="88" width="7" height="10" rx="3" fill="#4c1d95"/>
+    <path d="M143 90 Q143 72 160 72 Q177 72 177 90" fill="none" stroke="#4c1d95" strokeWidth="3.5" strokeLinecap="round" />
+    <rect x="140" y="88" width="7" height="10" rx="3" fill="#4c1d95" />
+    <rect x="173" y="88" width="7" height="10" rx="3" fill="#4c1d95" />
 
-    <rect x="114" y="162" width="92" height="18" rx="4" fill="#7c3aed"/>
-    <rect x="127" y="167" width="66" height="6" rx="3" fill="#fff" opacity="0.8"/>
+    <rect x="114" y="162" width="92" height="18" rx="4" fill="#7c3aed" />
+    <rect x="127" y="167" width="66" height="6" rx="3" fill="#fff" opacity="0.8" />
 
-    <rect x="142" y="38" width="36" height="6" rx="3" fill="#312e81"/>
+    <rect x="142" y="38" width="36" height="6" rx="3" fill="#312e81" />
 
-    <rect x="58" y="55" width="36" height="36" rx="8" fill="#8b5cf6"/>
-    <path d="M68 66 Q76 60 84 66 L84 82 Q76 76 68 82 Z" fill="#fff" opacity="0.85" transform="scale(0.7) translate(38,32)"/>
+    <rect x="58" y="55" width="36" height="36" rx="8" fill="#8b5cf6" />
+    <path d="M68 66 Q76 60 84 66 L84 82 Q76 76 68 82 Z" fill="#fff" opacity="0.85" transform="scale(0.7) translate(38,32)" />
     <text x="76" y="78" textAnchor="middle" fontSize="16" fill="#fff">📞</text>
 
-    <rect x="58" y="103" width="36" height="36" rx="8" fill="#a78bfa"/>
+    <rect x="58" y="103" width="36" height="36" rx="8" fill="#a78bfa" />
     <text x="76" y="126" textAnchor="middle" fontSize="16" fill="#fff">@</text>
 
-    <rect x="58" y="151" width="36" height="36" rx="8" fill="#c4b5fd"/>
+    <rect x="58" y="151" width="36" height="36" rx="8" fill="#c4b5fd" />
     <text x="76" y="174" textAnchor="middle" fontSize="15" fill="#fff">✉</text>
 
-    <ellipse cx="234" cy="190" rx="14" ry="22" fill="#a78bfa" opacity="0.5" transform="rotate(-20 234 190)"/>
-    <ellipse cx="244" cy="185" rx="10" ry="18" fill="#7c3aed" opacity="0.35" transform="rotate(-35 244 185)"/>
+    <ellipse cx="234" cy="190" rx="14" ry="22" fill="#a78bfa" opacity="0.5" transform="rotate(-20 234 190)" />
+    <ellipse cx="244" cy="185" rx="10" ry="18" fill="#7c3aed" opacity="0.35" transform="rotate(-35 244 185)" />
   </svg>
 );
 
@@ -93,7 +99,12 @@ export default function Contact() {
   const [submitted, setSubmitted] = useState(false);
   const [submittederror, setSubmittedError] = useState("");
 
+  const urls = [first, second, third];
   const [errors, setErrors] = useState({});
+
+
+  const handleClose = () => setSubmitted(false);
+  const handleShow = () => setSubmitted(true);
 
   const validate = () => {
     const errs = {};
@@ -110,45 +121,47 @@ export default function Contact() {
     if (errors[name]) setErrors((prev) => ({ ...prev, [name]: "" }));
   };
 
-const handleSubmit = async () => {
-  try {
-    const errs = validate();
-    if (Object.keys(errs).length > 0) {
-      setErrors(errs);
-      return;
-    }
-    const data = {
-      name: form.name,
-      email: form.email,
-      message: form.message,
-    };
-    const response = await MailRegister(data);
-    setSubmitted(true);
-    setSubmittedError("");
-    setErrors({});
-    setForm({
-      name: "",
-      email: "",
-      message: "",
-    });
-  } catch (error) {
-    setSubmitted(false);
 
-setSubmittedError(error?.response?.data?.message || "An error occurred while sending your message. Please try again later.")
-  }
-};
+
+  const handleSubmit = async () => {
+
+    try {
+      const errs = validate();
+      if (Object.keys(errs).length > 0) {
+        setErrors(errs);
+        return;
+      }
+      const data = {
+        name: form.name,
+        email: form.email,
+        message: form.message,
+      };
+      const response = await MailRegister(data);
+      setSubmitted(true);
+      setSubmittedError("");
+      setErrors({});
+      setForm({
+        name: "",
+        email: "",
+        message: "",
+      });
+    } catch (error) {
+      setSubmitted(false);
+      setSubmittedError(error?.response?.data?.message || "An error occurred while sending your message. Please try again later.")
+    }
+  };
 
   return (
     <section className="contact-section" id="contact">
       <h1 className="contact-page-title">
-        <span style={{color:"#0cb65e"}}>Con</span>tact Me 
+        <span style={{ color: "#0cb65e" }}>Con</span>tact Me
       </h1>
 
       <div className="contact-wrapper">
         <div className="contact-form-card">
           <h2 className="form-heading">Drop me a message 👇</h2>
           <p className="form-subheading mt-3">
-              Whether you need a new product built from scratch, want to revamp an existing one, or just want to chat about tech — I'm all ears.
+            Whether you need a new product built from scratch, want to revamp an existing one, or just want to chat about tech — I'm all ears.
           </p>
 
           <div className="form-group">
@@ -207,8 +220,14 @@ setSubmittedError(error?.response?.data?.message || "An error occurred while sen
           </button>
 
           {submitted && (
-            <div className="form-success">
-              Message sent successfully! I'll get back to you soon.
+            <div>
+
+              <ContactModal
+                url={urls}
+                handleClose={handleClose}
+                handleShow={handleShow}
+                show={submitted}
+              />
             </div>
           )}
 
