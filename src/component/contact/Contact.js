@@ -99,11 +99,16 @@ export default function Contact() {
   const [submitted, setSubmitted] = useState(false);
   const [submittederror, setSubmittedError] = useState("");
 
+  const [userName, setUserName] = useState("");
+
   const urls = [first, second, third];
   const [errors, setErrors] = useState({});
 
 
-  const handleClose = () => setSubmitted(false);
+  const handleClose = () => {
+    setSubmitted(false)
+    setUserName("");
+  };
   const handleShow = () => setSubmitted(true);
 
   const validate = () => {
@@ -136,6 +141,7 @@ export default function Contact() {
         email: form.email,
         message: form.message,
       };
+      setUserName(form.name);
       const response = await MailRegister(data);
       setSubmitted(true);
       setSubmittedError("");
@@ -227,6 +233,7 @@ export default function Contact() {
                 handleClose={handleClose}
                 handleShow={handleShow}
                 show={submitted}
+                name={userName}
               />
             </div>
           )}

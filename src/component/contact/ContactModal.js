@@ -2,7 +2,7 @@ import { useEffect, useState } from 'react';
 import Button from 'react-bootstrap/Button';
 import Modal from 'react-bootstrap/Modal';
 
-function ContactModal({ url, handleClose, handleShow, show }) {
+function ContactModal({ url, handleClose, handleShow, show, name }) {
 
     const [shows, setShows] = useState(0);
 
@@ -12,15 +12,13 @@ function ContactModal({ url, handleClose, handleShow, show }) {
         timer = setInterval(() => {
             const randomNo = Math.ceil(Math.random() * 3);
 
-            if(randomNo==1)
-            {
+            if (randomNo == 1) {
                 setShows(0);
             }
-            else if(randomNo==2)
-            {
+            else if (randomNo == 2) {
                 setShows(1);
             }
-            else if(randomNo==3){
+            else if (randomNo == 3) {
                 setShows(2);
             }
         }, 1000);
@@ -32,7 +30,7 @@ function ContactModal({ url, handleClose, handleShow, show }) {
 
     return (
         <>
-           
+
 
             <Modal
                 show={show}
@@ -44,9 +42,9 @@ function ContactModal({ url, handleClose, handleShow, show }) {
 
                 <Modal.Body>
 
-                    
+
                     <div
-                        style={{ display: "flex",flexDirection:"column", gap: "20px", justifyContent: "center",alignItems:"center"}}
+                        style={{ display: "flex", flexDirection: "column", gap: "20px", justifyContent: "center", alignItems: "center" }}
                     >
 
                         <div style={{ width: "100px", height: "100px", display: "flex", gap: "20px" }}>
@@ -55,11 +53,11 @@ function ContactModal({ url, handleClose, handleShow, show }) {
                             />
                         </div>
 
-                         <div className="text-center mt-2 ">
-                        <h3 style={{ color: "black", fontWeight: "bold" }}>Thank You!</h3>
-                    </div>
+                        <div className="text-center mt-2 ">
+                            <h3 style={{ color: "black", fontWeight: "bold" }}>Thank You! </h3> <span style={{ color: "#a584eb" }}>( {name} )</span>
+                        </div>
 
-                        <div style={{color:"#9fa6b3",fontSize:"16px"}}>
+                        <div style={{ color: "#9fa6b3", fontSize: "16px" }}>
                             Your message has been sent successfully.
                         </div>
                         <div>
@@ -67,13 +65,13 @@ function ContactModal({ url, handleClose, handleShow, show }) {
                         </div>
 
                         <div className='mb-4 mt-2'>
-                            <button style={{background:"#20a168",color:"white",borderRadius:"6px",padding:"10px 40px"}}
-                            onClick={handleClose}
+                            <button style={{ background: "#20a168", color: "white", borderRadius: "6px", padding: "10px 40px" }}
+                                onClick={handleClose}
                             >Close</button>
                         </div>
 
                     </div>
-                   
+
                 </Modal.Body>
 
             </Modal>
