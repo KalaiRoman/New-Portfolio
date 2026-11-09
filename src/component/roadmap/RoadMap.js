@@ -1,15 +1,13 @@
 
 import { useEffect, useMemo, useRef, useState } from "react";
-import profile from "../../assests/images/kalai_image_new.jpeg"; // tight face crop, same folder
+import profile from "../../assests/images/kalai_image_new.jpeg"; 
 
-/* ---------- 1. CONTENT: edit text / animals here ---------- */
 const TITLE = "Life of a Front-End Developer";
 const HIGHLIGHT = "Front-End Developer";
 const AUTHOR = "Kalaisurya · Senior UI Engineer";
 const X_START = "Day 1 in the browser";
 const X_END = "The Senior Era";
 
-// bottom -> top
 const PHASE1 = [
   ["🐣", "HTML & Semantics", "Tags, forms, SEO"],
   ["🐢", "CSS & Flexbox", "Box model, Grid"],
@@ -38,9 +36,8 @@ const PHASE2 = [
   ["🦚", "Design Systems", "Storybook, tokens"],
   ["🦁", "Senior Frontend Engineer", "Architecture & mentoring"],
 ];
-const HERO = "🦊"; // the climber
+const HERO = "🦊";
 
-/* ---------- 2. GEOMETRY (viewBox 1000 x 1000) ---------- */
 const mk = (list, n, x0, y0, x1, y1, side) =>
   list.map(([icon, title, sub], i) => ({
     icon, title, sub, side,
@@ -64,18 +61,17 @@ function buildKeyframes() {
   add(START, 0);
   N1.forEach((n) => add(n, 0.5, { node: n }));
   add(PEAK, 0.5, { peak: true });
-  add(PEAK, 1.0, { hold: true });          // pause + 😅
-  add(VALLEY, 1.0, { valley: true });      // the drop
+  add(PEAK, 1.0, { hold: true });         
+  add(VALLEY, 1.0, { valley: true });      
   N2.forEach((n) => add(n, 0.55, { node: n }));
   add(END, 0.5, { end: true });
   return out;
 }
 const ease = (k) => (k < 0.5 ? 2 * k * k : 1 - Math.pow(-2 * k + 2, 2) / 2);
 
-/* ---------- WALKER: your photo as head + hands + legs ---------- */
 function Walker({ x, y, t, moving, ring }) {
-  const swing = moving ? Math.sin(t * 12) * 35 : 0;       // limb angle
-  const lift = moving ? Math.abs(Math.sin(t * 12)) * 5 : 0; // step bounce
+  const swing = moving ? Math.sin(t * 12) * 35 : 0;      
+  const lift = moving ? Math.abs(Math.sin(t * 12)) * 5 : 0; 
   const SHIRT = "#4f46e5", PANTS = "#1d1b16", SKIN = "#e0ac82", SHOE = "#f5b301";
 
   const Leg = ({ a, back }) => (
@@ -109,7 +105,6 @@ function Walker({ x, y, t, moving, ring }) {
       <Leg a={swing} />
       <Arm a={-swing} />
 
-      {/* head = profile photo */}
 
 
 
@@ -125,7 +120,6 @@ function Walker({ x, y, t, moving, ring }) {
   );
 }
 
-/* ---------- 3. COMPONENT ---------- */
 export default function FrontendRoadmap() {
   const kf = useMemo(buildKeyframes, []);
   const total = kf[kf.length - 1].t;
@@ -147,7 +141,6 @@ export default function FrontendRoadmap() {
     return () => cancelAnimationFrame(raf.current);
   }, [run, total, reduce]);
 
-  // current position
   const e = Math.min(elapsed, total);
   let i = kf.findIndex((k, idx) => idx < kf.length - 1 && e >= k.t && e < kf[idx + 1].t);
   if (i < 0) i = kf.length - 2;
@@ -156,7 +149,6 @@ export default function FrontendRoadmap() {
   const pos = { x: a.x + (b.x - a.x) * k, y: a.y + (b.y - a.y) * k };
   const moving = elapsed < total && !b.hold;
 
-  // progress lines (amber for phase 1, teal for phase 2)
   const done = kf.slice(0, i + 1).concat({ ...pos });
   const vIdx = done.findIndex((p, idx) => kf[idx]?.valley);
   const pts = (arr) => arr.map((p) => `${p.x},${p.y}`).join(" ");

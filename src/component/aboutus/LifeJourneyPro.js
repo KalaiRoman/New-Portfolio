@@ -6,17 +6,13 @@ import {
   HeartHandshake, Trophy, Flag, ChevronLeft, ChevronRight, RotateCcw,
 } from "lucide-react";
 
-/* Install once:  npm install lucide-react */
 
-/* ---------- 1. CONTENT: edit your stages here ---------- */
 const TITLE = "My Journey: From School to Career";
-const SUBTITLE_END = "steps from my first day of school to my dream job"; // shown after the step count
+const SUBTITLE_END = "steps from my first day of school to my dream job";
 const AUTHOR = "By Kalaisurya";
 const HINT = "Tap Next to follow along, or tap any tile to jump ahead.";
 const COLS = 4;
-const SCHOOL_COUNT = 12; // first 12 stages are school and college
-
-// { icon, title, sub }
+const SCHOOL_COUNT = 12;
 const STAGES = [
   { icon: Baby, title: "Nursery & ABCs", sub: "First day, first friends" },
   { icon: Pencil, title: "Primary School", sub: "Tables, drawing, games" },
@@ -43,13 +39,11 @@ const STAGES = [
 ];
 const N = STAGES.length;
 
-/* ---------- 2. COMPONENT ---------- */
 export default function LifeJourneyPro() {
   const [cur, setCur] = useState(0);
   const [pin, setPin] = useState({ x: 0, y: 0 });
   const tileRefs = useRef([]);
 
-  // Move the marker onto the current tile (also on resize)
   useLayoutEffect(() => {
     const place = () => {
       const t = tileRefs.current[cur];
@@ -90,7 +84,7 @@ export default function LifeJourneyPro() {
             const TileIcon = s.icon;
             const row = Math.floor(i / COLS);
             const col = i % COLS;
-            const gridColumn = row % 2 ? COLS - col : col + 1; // zigzag path
+            const gridColumn = row % 2 ? COLS - col : col + 1;
             const cls = [
               "tile",
               i < SCHOOL_COUNT ? "school" : "career",
@@ -161,7 +155,6 @@ export default function LifeJourneyPro() {
   );
 }
 
-/* ---------- 3. STYLES ---------- */
 const css = `
 @import url('https://fonts.googleapis.com/css2?family=Plus+Jakarta+Sans:wght@400;500;600;700;800&display=swap');
 .lj{--brand:#1fa84f;--bg:#f5f7fb;--panel:#fff;--ink:#0f172a;--mute:#5b6679;--line:#dde3ee;--tile:#fff;
