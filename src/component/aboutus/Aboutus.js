@@ -1,3 +1,5 @@
+import LifeJourneyPro from "./LifeJourneyPro";
+
 const personalInfo = [
   {
     icon: (
@@ -78,7 +80,7 @@ const qualifications = [
   },
   {
     degree: "Bachelor of Computer Application (BCA)",
-    school: "Sri Vidya Mandir Arts and Science College",
+    school: "Sri Vidya Mandir Arts and Science College, Krishnagiri",
     year: "2015 – 2018"
   },
   {
@@ -177,7 +179,7 @@ const skillGroups = [
       "Render"
     ]
   }
-];  
+];
 
 const languages = ["English", "Tamil", "Telugu"];
 
@@ -229,6 +231,7 @@ export default function Aboutus() {
                   </div>
                 </div>
               )}
+
             </div>
 
             <div style={styles.divider} />
@@ -241,6 +244,7 @@ export default function Aboutus() {
                 </span>
               )}
             </div>
+
           </aside>
 
           {/* Main content */}
@@ -327,6 +331,9 @@ export default function Aboutus() {
                   </div>
                 )}
               </div>
+            </section>
+            <section style={styles.section}>
+              <LifeJourneyPro />
             </section>
           </div>
         </div>

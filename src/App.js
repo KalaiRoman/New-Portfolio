@@ -20,6 +20,7 @@ import Dashboard from "./component/dashboard/Dashboard";
 import Achievements from './component/achievements/Achievements';
 
 import { getUserClickAction } from "./redux/actions/Userclick_Action";
+import FrontEndRoadMapPopup from "./component/roadmap/FrontEndRoadMapPopup";
 function App() {
   const [ResponseSection, setResponseSection] = useState("Desktop-section");
   const [settingcolor, setSettingColor] = useState(false);
@@ -391,14 +392,24 @@ function App() {
 
 
             <div>
+              <div >
+               <FrontEndRoadMapPopup/>
+              </div>
               <div>
-                <a
+                {/* <a
                   class="btn-whats pulse"
                   href="https://api.whatsapp.com/send?phone=8778377119&text="
                   target="_blank"
                 >
                   <i class="fa-brands fa-whatsapp"></i>
-                </a>
+                </a> */}
+
+                <div 
+                  class="btn-whats pulse"
+                
+                >
+               <FrontEndRoadMapPopup/>
+              </div>
               </div>
             </div>
 

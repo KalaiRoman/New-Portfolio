@@ -448,11 +448,9 @@
   background-color: #0cb15c !important;
 }
 
-.mouse-section {
-}
+.mouse-section {}
 
-.whatsapp-box {
-}
+.whatsapp-box {}
 
 .whatsapp-message-status {
   position: absolute;
@@ -484,6 +482,9 @@
   font-size: 30px;
 }
 
+
+
+
 .pulse {
   position: fixed;
   cursor: pointer;
@@ -492,7 +493,7 @@
   height: 60px;
   bottom: 40px;
   right: 40px;
-  background-color: rgba(0, 200, 0, 1);
+  // background-color: rgba(0, 200, 0, 1);
   color: white;
   border-radius: 50px;
   text-align: center;
@@ -502,7 +503,7 @@
 }
 
 .pulse:hover {
-  background-color: rgba(0, 150, 0, 1);
+  // background-color: rgba(0, 150, 0, 1);
   color: white;
 }
 
