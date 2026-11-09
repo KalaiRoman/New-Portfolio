@@ -10,7 +10,7 @@ import {
 const TITLE = "My Journey: From School to Career";
 const SUBTITLE_END = "steps from my first day of school to my dream job";
 const AUTHOR = "By Kalaisurya";
-const HINT = "Tap Next to follow along, or tap any tile to jump ahead.";
+const HINT = "";
 const COLS = 4;
 const SCHOOL_COUNT = 12;
 const STAGES = [
@@ -71,7 +71,7 @@ export default function LifeJourneyPro() {
           <h1>{TITLE}</h1>
           <p className="lj-sub">{N} {SUBTITLE_END}</p>
           <p className="lj-by">{AUTHOR}</p>
-          <p className="lj-hint">{HINT}</p>
+          {/* <p className="lj-hint">{HINT}</p> */}
         </header>
 
         <div className="lj-legend">
