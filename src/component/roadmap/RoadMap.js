@@ -227,7 +227,7 @@ export default function FrontendRoadmap() {
       </h1>
       <div className="pill">{AUTHOR}</div>
 
-      <div ref={stageRef} className={"stage" + (L.portrait ? " p" : "")}>
+      <div ref={stageRef} className={"stage" + (L.portrait ? " p" : "")} >
         <svg
           viewBox={`0 0 ${L.W} ${L.H}`}
           preserveAspectRatio="xMidYMid meet"
