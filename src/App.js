@@ -71,44 +71,44 @@ function App() {
   }, []);
 
 
-  // useEffect(() => {
+  useEffect(() => {
 
-  //   const disableRightClick = (e) => {
-  //     e.preventDefault();
-  //   };
+    const disableRightClick = (e) => {
+      e.preventDefault();
+    };
 
-  //   const disableKeys = (e) => {
+    const disableKeys = (e) => {
 
-  //     if (e.key === "F12") {
-  //       e.preventDefault();
-  //     }
+      if (e.key === "F12") {
+        e.preventDefault();
+      }
 
-  //     if (e.ctrlKey && e.shiftKey && e.key === "I") {
-  //       e.preventDefault();
-  //     }
+      if (e.ctrlKey && e.shiftKey && e.key === "I") {
+        e.preventDefault();
+      }
 
-  //     if (e.ctrlKey && e.shiftKey && e.key === "J") {
-  //       e.preventDefault();
-  //     }
+      if (e.ctrlKey && e.shiftKey && e.key === "J") {
+        e.preventDefault();
+      }
 
-  //     if (e.ctrlKey && e.key === "u") {
-  //       e.preventDefault();
-  //     }
+      if (e.ctrlKey && e.key === "u") {
+        e.preventDefault();
+      }
 
-  //     if (e.ctrlKey && e.key === "c") {
-  //       e.preventDefault();
-  //     }
-  //   };
+      if (e.ctrlKey && e.key === "c") {
+        e.preventDefault();
+      }
+    };
 
-  //   document.addEventListener("contextmenu", disableRightClick);
-  //   document.addEventListener("keydown", disableKeys);
+    document.addEventListener("contextmenu", disableRightClick);
+    document.addEventListener("keydown", disableKeys);
 
-  //   return () => {
-  //     document.removeEventListener("contextmenu", disableRightClick);
-  //     document.removeEventListener("keydown", disableKeys);
-  //   };
+    return () => {
+      document.removeEventListener("contextmenu", disableRightClick);
+      document.removeEventListener("keydown", disableKeys);
+    };
 
-  // }, []);
+  }, []);
   const handleChnageColor = () => {
     setTheme(!theme);
   };
@@ -396,14 +396,7 @@ function App() {
                <FrontEndRoadMapPopup/>
               </div>
               <div>
-                {/* <a
-                  class="btn-whats pulse"
-                  href="https://api.whatsapp.com/send?phone=8778377119&text="
-                  target="_blank"
-                >
-                  <i class="fa-brands fa-whatsapp"></i>
-                </a> */}
-
+           
                 <div 
                   class="btn-whats pulse"
                 
