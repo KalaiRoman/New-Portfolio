@@ -1,4 +1,4 @@
-import { useLayoutEffect, useRef, useState } from "react";
+import { useEffect, useLayoutEffect, useRef, useState } from "react";
 import {
   Baby, Pencil, FlaskConical, BookOpen, Compass, ClipboardList, Building2,
   Users, PartyPopper, Briefcase, FileText, GraduationCap, MessageSquare,
@@ -6,12 +6,11 @@ import {
   HeartHandshake, Trophy, Flag, ChevronLeft, ChevronRight, RotateCcw,
 } from "lucide-react";
 
-
+import images from '../../assests/images/kalai_image_new.jpeg'
+/* ---------------- CONTENT ---------------- */
 const TITLE = "My Journey: From School to Career";
 const SUBTITLE_END = "steps from my first day of school to my dream job";
 const AUTHOR = "By Kalaisurya";
-const HINT = "";
-const COLS = 4;
 const SCHOOL_COUNT = 12;
 const STAGES = [
   { icon: Baby, title: "Nursery & ABCs", sub: "First day, first friends" },
@@ -39,185 +38,311 @@ const STAGES = [
 ];
 const N = STAGES.length;
 
+/* ---------------- COLUMNS FROM REAL BOARD WIDTH ----------------
+   Tiles never get tiny: the number of columns is calculated from the
+   width of the board itself (not the screen), so every size works:
+   phone ~4 cols, tablet ~6-7, desktop ~5-8. */
+function useCols(ref) {
+  const [cols, setCols] = useState(4);
+  useLayoutEffect(() => {
+    const el = ref.current;
+    if (!el) return;
+    const calc = () => {
+      const w = el.clientWidth;
+      const gap = w < 600 ? 8 : 12;
+      const minTile = w < 420 ? 76 : 96;
+      setCols(Math.max(3, Math.min(8, Math.floor((w + gap) / (minTile + gap)))));
+    };
+    calc();
+    let ro;
+    if (typeof ResizeObserver !== "undefined") {
+      ro = new ResizeObserver(calc);
+      ro.observe(el);
+    }
+    window.addEventListener("resize", calc);
+    return () => {
+      ro?.disconnect();
+      window.removeEventListener("resize", calc);
+    };
+  }, [ref]);
+  return cols;
+}
+
+/* ---------------- COMPONENT ---------------- */
 export default function LifeJourneyPro() {
   const [cur, setCur] = useState(0);
-  const [pin, setPin] = useState({ x: 0, y: 0 });
+  const [pts, setPts] = useState([]);          // tile centres for the path line
+  const colRef = useRef(null);
+  const boardRef = useRef(null);
   const tileRefs = useRef([]);
+  const cols = useCols(colRef);
 
+  // measure tile centres (path line + flag)
   useLayoutEffect(() => {
-    const place = () => {
-      const t = tileRefs.current[cur];
-      if (t) setPin({ x: t.offsetLeft + t.offsetWidth - 22, y: t.offsetTop - 12 });
+    const measure = () => {
+      setPts(
+        STAGES.map((_, i) => {
+          const t = tileRefs.current[i];
+          return t
+            ? { x: t.offsetLeft + t.offsetWidth / 2, y: t.offsetTop + t.offsetHeight / 2, w: t.offsetWidth, top: t.offsetTop, left: t.offsetLeft }
+            : { x: 0, y: 0, w: 0, top: 0, left: 0 };
+        })
+      );
     };
-    place();
-    window.addEventListener("resize", place);
-    return () => window.removeEventListener("resize", place);
-  }, [cur]);
+    measure();
+    let ro;
+    if (typeof ResizeObserver !== "undefined" && boardRef.current) {
+      ro = new ResizeObserver(measure);
+      ro.observe(boardRef.current);
+    }
+    return () => ro?.disconnect();
+  }, [cols]);
 
   const go = (i) => setCur(Math.max(0, Math.min(N - 1, i)));
+
+  // arrow keys
+  useEffect(() => {
+    const onKey = (e) => {
+      if (e.key === "ArrowRight") setCur((c) => Math.min(N - 1, c + 1));
+      if (e.key === "ArrowLeft") setCur((c) => Math.max(0, c - 1));
+    };
+    window.addEventListener("keydown", onKey);
+    return () => window.removeEventListener("keydown", onKey);
+  }, []);
+
   const { icon: Icon, title, sub } = STAGES[cur];
   const inSchool = cur < SCHOOL_COUNT;
   const pct = Math.round(((cur + 1) / N) * 100);
-
   let note = "";
   if (cur === SCHOOL_COUNT - 1) note = "Graduation marks the end of school and college. Your career starts next.";
   if (cur === N - 1) note = "Journey complete. You have reached your dream career.";
+
+  const line = (a, b) => pts.slice(a, b + 1).map((p) => `${p.x},${p.y}`).join(" ");
+  const pin = pts[cur];
 
   return (
     <div className="lj">
       <style>{css}</style>
       <div className="lj-wrap">
-        <header>
+        <header className="lj-head">
           <h1>{TITLE}</h1>
           <p className="lj-sub">{N} {SUBTITLE_END}</p>
           <p className="lj-by">{AUTHOR}</p>
-          {/* <p className="lj-hint">{HINT}</p> */}
         </header>
 
-        <div className="lj-legend">
-          <span><i className="dot school" /> School and college</span>
-          <span><i className="dot career" /> Career</span>
-        </div>
+        <div className="lj-main">
+          <div className="lj-boardcol" ref={colRef}>
+            <div className="lj-legend">
+              <span><i className="dot school" /> School and college</span>
+              <span><i className="dot career" /> Career</span>
+              <span className="lj-tap">Tap a step to see details</span>
+            </div>
 
-        <div className="lj-board">
-          {STAGES.map((s, i) => {
-            const TileIcon = s.icon;
-            const row = Math.floor(i / COLS);
-            const col = i % COLS;
-            const gridColumn = row % 2 ? COLS - col : col + 1;
-            const cls = [
-              "tile",
-              i < SCHOOL_COUNT ? "school" : "career",
-              i <= cur ? "seen" : "",
-              i === cur ? "cur" : "",
-              gridColumn === 1 ? "edge-l" : gridColumn === COLS ? "edge-r" : "",
-            ].join(" ");
-            return (
-              <button
-                key={s.title}
-                ref={(el) => (tileRefs.current[i] = el)}
-                className={cls}
-                style={{ gridRow: row + 1, gridColumn }}
-                onClick={() => go(i)}
-                aria-label={`Stage ${i + 1}: ${s.title}`}
-                aria-current={i === cur ? "step" : undefined}
-              >
-                <span className="num">{i + 1}</span>
-                <TileIcon size={30} strokeWidth={1.75} />
-                <span className="tip" role="tooltip">
-                  <span className="tip-ic"><TileIcon size={18} strokeWidth={2} /></span>
-                  <span className="tip-tx">
-                    <b>{s.title}</b>
-                    <em>{s.sub}</em>
-                  </span>
-                </span>
-              </button>
-            );
-          })}
-          <div className={"pin " + (inSchool ? "school" : "career")} style={{ transform: `translate(${pin.x}px, ${pin.y}px)` }} aria-hidden="true">
-            <Flag size={15} strokeWidth={2.25} />
-          </div>
-        </div>
+            <div
+              ref={boardRef}
+              className="lj-board"
+              style={{ gridTemplateColumns: `repeat(${cols}, minmax(0, 1fr))` }}
+            >
+              {pts.length === N && (
+                <svg className="lj-path" aria-hidden="true">
+                  <polyline points={line(0, N - 1)} className="trk" />
+                  <polyline points={line(0, Math.min(cur, SCHOOL_COUNT - 1))} className="p1" />
+                  {cur >= SCHOOL_COUNT && <polyline points={line(SCHOOL_COUNT - 1, cur)} className="p2" />}
+                </svg>
+              )}
 
-        <section className="lj-panel" aria-live="polite">
-          <div className="lj-meta">
-            <span>Stage {cur + 1} of {N}</span>
-            <span className={"chip " + (inSchool ? "school" : "career")}>
-              {inSchool ? "School and college" : "Career"}
-            </span>
-          </div>
-          <div className="lj-bar"><div className={inSchool ? "school" : "career"} style={{ width: pct + "%" }} /></div>
+              {STAGES.map((s, i) => {
+                const TileIcon = s.icon;
+                const row = Math.floor(i / cols);
+                const col = i % cols;
+                const gridColumn = row % 2 ? cols - col : col + 1; 
+                const cls = [
+                  "tile",
+                  i < SCHOOL_COUNT ? "school" : "career",
+                  i <= cur ? "seen" : "",
+                  i === cur ? "cur" : "",
+                ].join(" ");
+                return (
+                  <button
+                    key={s.title}
+                    ref={(el) => (tileRefs.current[i] = el)}
+                    className={cls}
+                    style={{ gridRow: row + 1, gridColumn }}
+                    onClick={() => go(i)}
+                    aria-label={`Stage ${i + 1}: ${s.title}`}
+                    aria-current={i === cur ? "step" : undefined}
+                  >
+                    <span className="num">{i + 1}</span>
+                    <TileIcon className="ti" strokeWidth={1.75} />
+                    {/* <span className="lab">{s.title}</span> */}
+                  </button>
+                );
+              })}
 
-          <div className="lj-big">
-            <span className={"badge " + (inSchool ? "school" : "career")}>
-              <Icon size={34} strokeWidth={1.75} />
-            </span>
-            <div>
-              <h2>{title}</h2>
-              <p>{sub}</p>
+              {pin && pin.w > 0 && (
+                <div
+                  className={"pin " + (inSchool ? "school" : "career")}
+                  style={{ transform: `translate(${pin.left + pin.w - 16}px, ${pin.top - 10}px)` }}
+                  aria-hidden="true"
+                >
+                  {/* <Flag size={14} strokeWidth={2.25} /> */}
+                  <img src={images} alt="no image"
+                  style={{width:"25px",height:"25px",objectFit:"cover",borderRadius:"50%"}}
+                  
+                  />
+                </div>
+              )}
             </div>
           </div>
-          {note && <p className="lj-note">{note}</p>}
 
-          <div className="lj-ctl">
-            <button className="ghost" onClick={() => go(cur - 1)} disabled={cur === 0}>
-              <ChevronLeft size={18} /> Back
-            </button>
-            {cur === N - 1 ? (
-              <button onClick={() => go(0)}><RotateCcw size={18} /> Start again</button>
-            ) : (
-              <button onClick={() => go(cur + 1)}>Next stage <ChevronRight size={18} /></button>
-            )}
-          </div>
-        </section>
+          {/* ---------- DETAILS PANEL ---------- */}
+          <section className="lj-panel" aria-live="polite">
+            <div className="lj-meta">
+              <span>Stage {cur + 1} of {N}</span>
+              <span className={"chip " + (inSchool ? "school" : "career")}>
+                {inSchool ? "School and college" : "Career"}
+              </span>
+            </div>
+            <div className="lj-bar"><div className={inSchool ? "school" : "career"} style={{ width: pct + "%" }} /></div>
+
+            <div className="lj-big">
+              <span className={"badge " + (inSchool ? "school" : "career")}>
+                <Icon size={32} strokeWidth={1.75} />
+              </span>
+              <div className="lj-bigtx">
+                <h2>{title}</h2>
+                <p>{sub}</p>
+              </div>
+            </div>
+            {note && <p className="lj-note">{note}</p>}
+
+            <div className="lj-ctl">
+              <button className="ghost" onClick={() => go(cur - 1)} disabled={cur === 0}>
+                <ChevronLeft size={18} /> Back
+              </button>
+              {cur === N - 1 ? (
+                <button onClick={() => go(0)}><RotateCcw size={18} /> Start again</button>
+              ) : (
+                <button onClick={() => go(cur + 1)}>Next stage <ChevronRight size={18} /></button>
+              )}
+            </div>
+          </section>
+        </div>
       </div>
     </div>
   );
 }
 
+/* ---------------- STYLES ---------------- */
 const css = `
 @import url('https://fonts.googleapis.com/css2?family=Plus+Jakarta+Sans:wght@400;500;600;700;800&display=swap');
-.lj{--brand:#1fa84f;--bg:#f5f7fb;--panel:#fff;--ink:#0f172a;--mute:#5b6679;--line:#dde3ee;--tile:#fff;
+
+.lj{--bg:#f5f7fb;--panel:#fff;--ink:#0f172a;--mute:#5b6679;--line:#dde3ee;--tile:#fff;
   --school:#3157d5;--school-bg:#e8edfd;--career:#0b8f6a;--career-bg:#dcf5ec;--btn:#0f172a;--btnt:#fff;
-  min-height:100vh;background:var(--bg);color:var(--ink);font-family:'Plus Jakarta Sans',system-ui,sans-serif}
+  min-height:100vh;min-height:100dvh;background:var(--bg);color:var(--ink);
+  font-family:'Plus Jakarta Sans',system-ui,sans-serif;-webkit-text-size-adjust:100%}
 @media (prefers-color-scheme:dark){
   .lj{--bg:#0b1220;--panel:#121a2c;--ink:#eef2fa;--mute:#9aa6bd;--line:#26314a;--tile:#121a2c;
     --school:#7b9bff;--school-bg:#1b2750;--career:#3ddba7;--career-bg:#0f3a2f;--btn:#eef2fa;--btnt:#0b1220}
 }
 .lj *{box-sizing:border-box}
-.lj-wrap{max-width:560px;margin:0 auto;padding:28px 16px 64px}
-.lj h1{font-size:clamp(26px,6vw,34px);font-weight:800;margin:0;letter-spacing:-.02em}
-.lj-sub{margin:4px 0 0;color:var(--mute);font-size:16px}
-.lj-by{margin:2px 0 0;color:var(--mute);font-size:14px;font-weight:600}
-.lj-hint{margin:14px 0 0;padding:10px 12px;border-radius:12px;background:var(--panel);border:1.5px solid var(--line);color:var(--ink);font-size:14px;font-weight:500}
-.lj-legend{display:flex;gap:16px;margin:18px 0 12px;font-size:14px;color:var(--mute);font-weight:500}
+
+/* ===== mobile first ===== */
+.lj-wrap{width:100%;max-width:600px;margin:0 auto;
+  padding:20px max(14px,env(safe-area-inset-right)) max(40px,env(safe-area-inset-bottom)) max(14px,env(safe-area-inset-left))}
+.lj-main{display:flex;flex-direction:column;gap:16px}
+.lj-panel{order:-1}                 /* phones/tablets: details above the board */
+.lj-boardcol{min-width:0}
+
+.lj h1{font-size:clamp(22px,6vw,36px);font-weight:800;margin:0;letter-spacing:-.02em;line-height:1.15}
+.lj-sub{margin:4px 0 0;color:var(--mute);font-size:clamp(14px,3.6vw,17px)}
+.lj-by{margin:2px 0 0;color:var(--mute);font-size:13px;font-weight:600}
+.lj-head{margin-bottom:14px}
+
+.lj-legend{display:flex;flex-wrap:wrap;align-items:center;gap:6px 16px;margin:0 0 12px;font-size:13px;color:var(--mute);font-weight:500}
 .lj-legend span{display:flex;align-items:center;gap:6px}
+.lj-tap{margin-left:auto;font-size:12px;opacity:.85}
 .dot{width:10px;height:10px;border-radius:50%;display:inline-block}
 .dot.school{background:var(--school)}.dot.career{background:var(--career)}
-.lj-board{position:relative;display:grid;grid-template-columns:repeat(4,1fr);gap:10px}
-.tile{aspect-ratio:1;border:1.5px solid var(--line);border-radius:16px;background:var(--tile);color:var(--mute);cursor:pointer;display:flex;align-items:center;justify-content:center;position:relative;padding:0;transition:background .2s,color .2s,border-color .2s,box-shadow .2s;font-family:inherit}
-.tile .num{position:absolute;top:7px;left:10px;font-size:11px;font-weight:700;opacity:.8}
+
+/* ===== board ===== */
+.lj-board{position:relative;display:grid;gap:8px}
+.lj-path{position:absolute;inset:0;width:100%;height:100%;pointer-events:none;z-index:0;overflow:visible}
+.lj-path polyline{fill:none;stroke-linecap:round;stroke-linejoin:round}
+.lj-path .trk{stroke:var(--line);stroke-width:3;stroke-dasharray:2 7}
+.lj-path .p1{stroke:var(--school);stroke-width:4}
+.lj-path .p2{stroke:var(--career);stroke-width:4}
+
+.tile{position:relative;z-index:1;aspect-ratio:1/1;min-width:0;border:1.5px solid var(--line);border-radius:14px;background:var(--tile);color:var(--mute);
+  cursor:pointer;display:flex;flex-direction:column;align-items:center;justify-content:center;gap:5px;padding:14px 4px 6px;
+  font-family:inherit;transition:background .2s,color .2s,border-color .2s,box-shadow .2s,transform .2s;-webkit-tap-highlight-color:transparent}
+.tile .ti{width:24px;height:24px;flex:none}
+.tile .lab{font-size:10.5px;font-weight:600;line-height:1.15;text-align:center;max-width:100%;
+  display:-webkit-box;-webkit-line-clamp:2;-webkit-box-orient:vertical;overflow:hidden;overflow-wrap:anywhere}
+.tile .num{position:absolute;top:5px;left:7px;font-size:10px;font-weight:700;opacity:.75;line-height:1}
 .tile.school.seen{background:var(--school-bg);border-color:var(--school);color:var(--school)}
 .tile.career.seen{background:var(--career-bg);border-color:var(--career);color:var(--career)}
-.tile.cur{box-shadow:0 0 0 3px var(--bg),0 0 0 5px currentColor}
+.tile.cur{box-shadow:0 0 0 3px var(--bg),0 0 0 5px currentColor;transform:translateY(-2px)}
 .tile:focus-visible{outline:3px solid var(--ink);outline-offset:3px}
-.tip{position:absolute;bottom:calc(100% + 10px);left:50%;transform:translate(-50%,4px);width:max-content;max-width:190px;display:flex;align-items:center;gap:9px;padding:9px 12px;border-radius:10px;background:var(--brand);color:#fff;text-align:left;font-size:13px;line-height:1.3;pointer-events:none;opacity:0;visibility:hidden;transition:opacity .15s,transform .15s;z-index:10;box-shadow:0 6px 18px rgba(15,23,42,.25)}
-.tip b{display:block;font-weight:700}
-.tip em{display:block;font-style:normal;font-weight:500;opacity:.8;margin-top:1px}
-.tip::after{content:"";position:absolute;top:100%;left:50%;margin-left:-6px;border:6px solid transparent;border-top-color:var(--brand)}
-.tip-ic{width:32px;height:32px;border-radius:9px;background:rgba(255,255,255,.22);display:grid;place-items:center;flex:none;color:#fff}
-.tip-tx{display:block}
-.lj .lj-board .tile:hover,.lj .lj-board .tile:focus-visible{background:var(--brand);border-color:var(--brand);color:#fff}
-.lj .lj-board .tile:hover .num,.lj .lj-board .tile:focus-visible .num{color:#fff}
-.tile.edge-l .tip{left:0;transform:translate(0,4px)}
-.tile.edge-l .tip::after{left:22px;margin-left:0}
-.tile.edge-r .tip{left:auto;right:0;transform:translate(0,4px)}
-.tile.edge-r .tip::after{left:auto;right:22px;margin-left:0}
-.tile:hover,.tile:focus-visible{z-index:6}
-.tile:hover .tip,.tile:focus-visible .tip{opacity:1;visibility:visible}
-.tile:not(.edge-l):not(.edge-r):hover .tip,.tile:not(.edge-l):not(.edge-r):focus-visible .tip{transform:translate(-50%,0)}
-.tile.edge-l:hover .tip,.tile.edge-l:focus-visible .tip,.tile.edge-r:hover .tip,.tile.edge-r:focus-visible .tip{transform:translate(0,0)}
-.pin{position:absolute;left:0;top:0;width:26px;height:26px;border-radius:50%;display:grid;place-items:center;color:#fff;pointer-events:none;z-index:3;transition:transform .4s cubic-bezier(.3,1.3,.5,1),background .3s;box-shadow:0 2px 6px rgba(15,23,42,.3)}
+@media (hover:hover){ .tile:hover{border-color:currentColor;transform:translateY(-2px)} }
+
+.pin{position:absolute;left:0;top:0;width:26px;height:26px;border-radius:50%;display:grid;place-items:center;color:#fff;
+  pointer-events:none;z-index:3;transition:transform .4s cubic-bezier(.3,1.3,.5,1),background .3s;box-shadow:0 2px 6px rgba(15,23,42,.3)}
 .pin.school{background:var(--school)}.pin.career{background:var(--career)}
-.lj-panel{margin-top:20px;background:var(--panel);border:1.5px solid var(--line);border-radius:20px;padding:20px;box-shadow:0 8px 24px rgba(15,23,42,.06)}
-.lj-meta{display:flex;justify-content:space-between;align-items:center;font-size:14px;font-weight:600;color:var(--mute)}
-.chip{padding:4px 10px;border-radius:999px;font-size:12px;font-weight:700}
+
+/* ===== details panel ===== */
+.lj-panel{background:var(--panel);border:1.5px solid var(--line);border-radius:18px;padding:16px;box-shadow:0 8px 24px rgba(15,23,42,.06)}
+.lj-meta{display:flex;justify-content:space-between;align-items:center;gap:8px;font-size:13px;font-weight:600;color:var(--mute)}
+.chip{padding:4px 10px;border-radius:999px;font-size:12px;font-weight:700;white-space:nowrap}
 .chip.school{background:var(--school-bg);color:var(--school)}
 .chip.career{background:var(--career-bg);color:var(--career)}
-.lj-bar{height:6px;border-radius:99px;background:var(--line);margin:10px 0 18px;overflow:hidden}
+.lj-bar{height:6px;border-radius:99px;background:var(--line);margin:10px 0 14px;overflow:hidden}
 .lj-bar div{height:100%;border-radius:99px;transition:width .4s}
 .lj-bar .school{background:var(--school)}.lj-bar .career{background:var(--career)}
-.lj-big{display:flex;gap:16px;align-items:center}
-.badge{width:64px;height:64px;border-radius:18px;display:grid;place-items:center;flex:none}
+.lj-big{display:flex;gap:14px;align-items:center}
+.lj-bigtx{min-width:0}
+.badge{width:56px;height:56px;border-radius:16px;display:grid;place-items:center;flex:none}
 .badge.school{background:var(--school-bg);color:var(--school)}
 .badge.career{background:var(--career-bg);color:var(--career)}
-.lj-big h2{margin:0;font-size:22px;font-weight:800;letter-spacing:-.01em;line-height:1.15}
-.lj-big p{margin:3px 0 0;color:var(--mute);font-size:16px}
-.lj-note{margin:14px 0 0;padding:10px 12px;border-radius:12px;background:var(--bg);color:var(--ink);font-size:14px;font-weight:500}
-.lj-ctl{display:flex;gap:10px;margin-top:18px}
-.lj-ctl button{flex:1;display:flex;align-items:center;justify-content:center;gap:6px;font:700 15px 'Plus Jakarta Sans',system-ui,sans-serif;padding:13px;border:0;border-radius:12px;background:var(--btn);color:var(--btnt);cursor:pointer}
+.lj-big h2{margin:0;font-size:clamp(18px,4.6vw,22px);font-weight:800;letter-spacing:-.01em;line-height:1.15;overflow-wrap:anywhere}
+.lj-big p{margin:3px 0 0;color:var(--mute);font-size:clamp(14px,3.6vw,16px)}
+.lj-note{margin:12px 0 0;padding:10px 12px;border-radius:12px;background:var(--bg);color:var(--ink);font-size:13.5px;font-weight:500}
+.lj-ctl{display:flex;gap:10px;margin-top:16px}
+.lj-ctl button{flex:1;min-height:46px;display:flex;align-items:center;justify-content:center;gap:6px;
+  font:700 15px 'Plus Jakarta Sans',system-ui,sans-serif;padding:10px;border:0;border-radius:12px;background:var(--btn);color:var(--btnt);cursor:pointer}
 .lj-ctl button.ghost{background:transparent;color:var(--ink);border:1.5px solid var(--line);flex:.55}
 .lj-ctl button:disabled{opacity:.4;cursor:default}
 .lj-ctl button:focus-visible{outline:3px solid var(--school);outline-offset:2px}
+
+/* ===== small phones ===== */
+@media (max-width:360px){
+  .lj-wrap{padding-left:10px;padding-right:10px}
+  .tile .lab{font-size:9.5px}
+  .badge{width:48px;height:48px}
+  .lj-tap{display:none}
+}
+
+/* ===== tablet 600px+ ===== */
+@media (min-width:600px){
+  .lj-wrap{max-width:860px;padding-top:32px}
+  .lj-board{gap:12px}
+  .tile{border-radius:16px;gap:6px;padding:18px 6px 8px}
+  .tile .ti{width:28px;height:28px}
+  .tile .lab{font-size:12px}
+  .tile .num{top:7px;left:10px;font-size:11px}
+  .lj-panel{padding:20px}
+  .badge{width:64px;height:64px}
+}
+
+/* ===== desktop 1000px+ : board left, details right ===== */
+@media (min-width:1000px){
+  .lj-wrap{max-width:1280px;padding:40px 32px 64px}
+  .lj-head{margin-bottom:24px}
+  .lj-main{display:grid;grid-template-columns:minmax(0,1fr) 360px;gap:32px;align-items:start}
+  .lj-panel{order:0;position:sticky;top:24px}
+  .tile .ti{width:30px;height:30px}
+  .tile .lab{font-size:12.5px}
+}
+
 @media (prefers-reduced-motion:reduce){.pin,.tile,.lj-bar div{transition:none}}
 `;
