@@ -399,7 +399,6 @@ function App() {
            
                 <div 
                   class="btn-whats pulse"
-                
                 >
                <FrontEndRoadMapPopup/>
               </div>

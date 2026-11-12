@@ -3,10 +3,11 @@ import {
   Baby, Pencil, FlaskConical, BookOpen, Compass, ClipboardList, Building2,
   Users, PartyPopper, Briefcase, FileText, GraduationCap, MessageSquare,
   BadgeCheck, Lightbulb, MapPin, Scale, TrendingUp, PiggyBank, Home,
-  HeartHandshake, Trophy, Flag, ChevronLeft, ChevronRight, RotateCcw,
+  HeartHandshake, Trophy, ChevronLeft, ChevronRight, RotateCcw,
 } from "lucide-react";
 
-import images from '../../assests/images/kalai_image_new.jpeg'
+import images from "../../assests/images/kalai_image_new.jpeg";
+
 /* ---------------- CONTENT ---------------- */
 const TITLE = "My Journey: From School to Career";
 const SUBTITLE_END = "steps from my first day of school to my dream job";
@@ -38,10 +39,7 @@ const STAGES = [
 ];
 const N = STAGES.length;
 
-/* ---------------- COLUMNS FROM REAL BOARD WIDTH ----------------
-   Tiles never get tiny: the number of columns is calculated from the
-   width of the board itself (not the screen), so every size works:
-   phone ~4 cols, tablet ~6-7, desktop ~5-8. */
+/* ---------------- COLUMNS FROM REAL BOARD WIDTH ---------------- */
 function useCols(ref) {
   const [cols, setCols] = useState(4);
   useLayoutEffect(() => {
@@ -71,13 +69,13 @@ function useCols(ref) {
 /* ---------------- COMPONENT ---------------- */
 export default function LifeJourneyPro() {
   const [cur, setCur] = useState(0);
-  const [pts, setPts] = useState([]);          // tile centres for the path line
+  const [pts, setPts] = useState([]);
   const colRef = useRef(null);
   const boardRef = useRef(null);
   const tileRefs = useRef([]);
   const cols = useCols(colRef);
 
-  // measure tile centres (path line + flag)
+  // measure tile centres (path line + pin)
   useLayoutEffect(() => {
     const measure = () => {
       setPts(
@@ -155,7 +153,7 @@ export default function LifeJourneyPro() {
                 const TileIcon = s.icon;
                 const row = Math.floor(i / cols);
                 const col = i % cols;
-                const gridColumn = row % 2 ? cols - col : col + 1; 
+                const gridColumn = row % 2 ? cols - col : col + 1;
                 const cls = [
                   "tile",
                   i < SCHOOL_COUNT ? "school" : "career",
@@ -174,7 +172,6 @@ export default function LifeJourneyPro() {
                   >
                     <span className="num">{i + 1}</span>
                     <TileIcon className="ti" strokeWidth={1.75} />
-                    {/* <span className="lab">{s.title}</span> */}
                   </button>
                 );
               })}
@@ -185,10 +182,10 @@ export default function LifeJourneyPro() {
                   style={{ transform: `translate(${pin.left + pin.w - 16}px, ${pin.top - 10}px)` }}
                   aria-hidden="true"
                 >
-                  {/* <Flag size={14} strokeWidth={2.25} /> */}
-                  <img src={images} alt="no image"
-                  style={{width:"25px",height:"25px",objectFit:"cover",borderRadius:"50%"}}
-                  
+                  <img
+                    src={images}
+                    alt=""
+                    style={{ width: "25px", height: "25px", objectFit: "cover", borderRadius: "50%" }}
                   />
                 </div>
               )}
@@ -233,28 +230,30 @@ export default function LifeJourneyPro() {
   );
 }
 
-/* ---------------- STYLES ---------------- */
+/* ---------------- STYLES ----------------
+   FIX: the dark-mode @media (prefers-color-scheme:dark) block is removed,
+   and color-scheme is forced to light. Desktop and mobile now always use
+   the same colors: white background, black text. */
 const css = `
 @import url('https://fonts.googleapis.com/css2?family=Plus+Jakarta+Sans:wght@400;500;600;700;800&display=swap');
 
-.lj{--bg:#f5f7fb;--panel:#fff;--ink:#0f172a;--mute:#5b6679;--line:#dde3ee;--tile:#fff;
-  --school:#3157d5;--school-bg:#e8edfd;--career:#0b8f6a;--career-bg:#dcf5ec;--btn:#0f172a;--btnt:#fff;
+html,body{background:#ffffff;color:#000000;color-scheme:light}
+
+.lj{--bg:#ffffff;--panel:#ffffff;--ink:#000000;--mute:#5b6679;--line:#dde3ee;--tile:#ffffff;
+  --school:#3157d5;--school-bg:#e8edfd;--career:#0b8f6a;--career-bg:#dcf5ec;--btn:#0f172a;--btnt:#ffffff;
+  color-scheme:light;
   min-height:100vh;min-height:100dvh;background:var(--bg);color:var(--ink);
   font-family:'Plus Jakarta Sans',system-ui,sans-serif;-webkit-text-size-adjust:100%}
-@media (prefers-color-scheme:dark){
-  .lj{--bg:#0b1220;--panel:#121a2c;--ink:#eef2fa;--mute:#9aa6bd;--line:#26314a;--tile:#121a2c;
-    --school:#7b9bff;--school-bg:#1b2750;--career:#3ddba7;--career-bg:#0f3a2f;--btn:#eef2fa;--btnt:#0b1220}
-}
 .lj *{box-sizing:border-box}
 
 /* ===== mobile first ===== */
 .lj-wrap{width:100%;max-width:600px;margin:0 auto;
   padding:20px max(14px,env(safe-area-inset-right)) max(40px,env(safe-area-inset-bottom)) max(14px,env(safe-area-inset-left))}
 .lj-main{display:flex;flex-direction:column;gap:16px}
-.lj-panel{order:-1}                 /* phones/tablets: details above the board */
+.lj-panel{order:-1}
 .lj-boardcol{min-width:0}
 
-.lj h1{font-size:clamp(22px,6vw,36px);font-weight:800;margin:0;letter-spacing:-.02em;line-height:1.15}
+.lj h1{font-size:clamp(22px,6vw,36px);font-weight:800;margin:0;letter-spacing:-.02em;line-height:1.15;color:var(--ink)}
 .lj-sub{margin:4px 0 0;color:var(--mute);font-size:clamp(14px,3.6vw,17px)}
 .lj-by{margin:2px 0 0;color:var(--mute);font-size:13px;font-weight:600}
 .lj-head{margin-bottom:14px}
@@ -291,7 +290,7 @@ const css = `
 .pin.school{background:var(--school)}.pin.career{background:var(--career)}
 
 /* ===== details panel ===== */
-.lj-panel{background:var(--panel);border:1.5px solid var(--line);border-radius:18px;padding:16px;box-shadow:0 8px 24px rgba(15,23,42,.06)}
+.lj-panel{background:var(--panel);color:var(--ink);border:1.5px solid var(--line);border-radius:18px;padding:16px;box-shadow:0 8px 24px rgba(15,23,42,.06)}
 .lj-meta{display:flex;justify-content:space-between;align-items:center;gap:8px;font-size:13px;font-weight:600;color:var(--mute)}
 .chip{padding:4px 10px;border-radius:999px;font-size:12px;font-weight:700;white-space:nowrap}
 .chip.school{background:var(--school-bg);color:var(--school)}
@@ -304,9 +303,9 @@ const css = `
 .badge{width:56px;height:56px;border-radius:16px;display:grid;place-items:center;flex:none}
 .badge.school{background:var(--school-bg);color:var(--school)}
 .badge.career{background:var(--career-bg);color:var(--career)}
-.lj-big h2{margin:0;font-size:clamp(18px,4.6vw,22px);font-weight:800;letter-spacing:-.01em;line-height:1.15;overflow-wrap:anywhere}
+.lj-big h2{margin:0;font-size:clamp(18px,4.6vw,22px);font-weight:800;letter-spacing:-.01em;line-height:1.15;overflow-wrap:anywhere;color:var(--ink)}
 .lj-big p{margin:3px 0 0;color:var(--mute);font-size:clamp(14px,3.6vw,16px)}
-.lj-note{margin:12px 0 0;padding:10px 12px;border-radius:12px;background:var(--bg);color:var(--ink);font-size:13.5px;font-weight:500}
+.lj-note{margin:12px 0 0;padding:10px 12px;border-radius:12px;background:#f5f7fb;color:var(--ink);font-size:13.5px;font-weight:500}
 .lj-ctl{display:flex;gap:10px;margin-top:16px}
 .lj-ctl button{flex:1;min-height:46px;display:flex;align-items:center;justify-content:center;gap:6px;
   font:700 15px 'Plus Jakarta Sans',system-ui,sans-serif;padding:10px;border:0;border-radius:12px;background:var(--btn);color:var(--btnt);cursor:pointer}
